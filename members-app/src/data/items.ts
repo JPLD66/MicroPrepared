@@ -1,0 +1,73 @@
+import type { Item } from './types';
+
+// Complete item sequence — base quantities are for Couple plan (multiplier 1.0)
+// Items are in exact purchase order, grouped by milestone
+export const BASE_ITEMS: Item[] = [
+  // ── MILESTONE 1: 14-DAY SUPPLY (items 0–11) ──
+  { index: 0,  name: 'White rice (long grain)',       baseQty: 20,  unit: 'lbs',  baseCost: 9.50,  baseKcal: 33000, shelfLife: '30 years',    category: 'Rice',           milestone: 1 },
+  { index: 1,  name: 'Dried pinto beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 1 },
+  { index: 2,  name: 'Salt (iodized)',                baseQty: 26,  unit: 'oz',   baseCost: 1.00,  baseKcal: 0,     shelfLife: 'Indefinite',  category: 'Essentials',     milestone: 1 },
+  { index: 3,  name: 'Virgin coconut oil',            baseQty: 29,  unit: 'oz',   baseCost: 8.50,  baseKcal: 7300,  shelfLife: '3-5 years',   category: 'Coconut Oil',    milestone: 1 },
+  { index: 4,  name: 'Powdered milk',                 baseQty: 64,  unit: 'oz',   baseCost: 10.00, baseKcal: 6500,  shelfLife: '20 years',    category: 'Powdered Milk',  milestone: 1 },
+  { index: 5,  name: 'Rolled oats',                   baseQty: 42,  unit: 'oz',   baseCost: 3.75,  baseKcal: 4500,  shelfLife: '20-30 years', category: 'Oats',           milestone: 1 },
+  { index: 6,  name: 'Pasta (spaghetti)',             baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6720,  shelfLife: '30 years',    category: 'Pasta',          milestone: 1 },
+  { index: 7,  name: 'Canned tuna',                   baseQty: 4,   unit: 'cans', baseCost: 4.00,  baseKcal: 800,   shelfLife: '4-5 years',   category: 'Canned Fish',    milestone: 1 },
+  { index: 8,  name: 'Canned vegetables (mixed)',     baseQty: 6,   unit: 'cans', baseCost: 5.50,  baseKcal: 1200,  shelfLife: '2-5 years',   category: 'Canned Produce', milestone: 1 },
+  { index: 9,  name: 'Sugar (granulated)',             baseQty: 4,   unit: 'lbs',  baseCost: 3.00,  baseKcal: 7000,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 1 },
+  { index: 10, name: 'Peanut butter',                 baseQty: 40,  unit: 'oz',   baseCost: 4.00,  baseKcal: 7250,  shelfLife: '2-5 years',   category: 'Peanut Butter',  milestone: 1 },
+  { index: 11, name: 'Canned chicken',                baseQty: 2,   unit: 'cans', baseCost: 6.00,  baseKcal: 1100,  shelfLife: '4-5 years',   category: 'Canned Meat',    milestone: 1 },
+
+  // ── MILESTONE 2: 30-DAY SUPPLY (items 12–20) ──
+  { index: 12, name: 'Dried black beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 2 },
+  { index: 13, name: 'Honey',                         baseQty: 16,  unit: 'oz',   baseCost: 4.50,  baseKcal: 1380,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 2 },
+  { index: 14, name: 'White rice',                     baseQty: 10,  unit: 'lbs',  baseCost: 5.00,  baseKcal: 16500, shelfLife: '30 years',    category: 'Rice',           milestone: 2 },
+  { index: 15, name: 'Rolled oats',                   baseQty: 42,  unit: 'oz',   baseCost: 3.75,  baseKcal: 4500,  shelfLife: '20-30 years', category: 'Oats',           milestone: 2 },
+  { index: 16, name: 'Dried lentils',                 baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6400,  shelfLife: '30+ years',   category: 'Beans',          milestone: 2 },
+  { index: 17, name: 'Peanut butter',                 baseQty: 40,  unit: 'oz',   baseCost: 4.00,  baseKcal: 7250,  shelfLife: '2-5 years',   category: 'Peanut Butter',  milestone: 2 },
+  { index: 18, name: 'Pasta (various shapes)',         baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6720,  shelfLife: '30 years',    category: 'Pasta',          milestone: 2 },
+  { index: 19, name: 'Canned tuna or mackerel',       baseQty: 4,   unit: 'cans', baseCost: 4.50,  baseKcal: 900,   shelfLife: '4-5 years',   category: 'Canned Fish',    milestone: 2 },
+  { index: 20, name: 'Multivitamin (200 ct)',          baseQty: 1,   unit: 'btl',  baseCost: 5.00,  baseKcal: 0,     shelfLife: '2-3 years',   category: 'Essentials',     milestone: 2 },
+
+  // ── MILESTONE 3: 60-DAY SUPPLY (items 21–33) ──
+  { index: 21, name: 'White rice',                     baseQty: 20,  unit: 'lbs',  baseCost: 9.50,  baseKcal: 33000, shelfLife: '30 years',    category: 'Rice',           milestone: 3 },
+  { index: 22, name: 'Dried pinto beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 3 },
+  { index: 23, name: 'Canned fruit (peaches/pears)',  baseQty: 4,   unit: 'cans', baseCost: 5.50,  baseKcal: 1000,  shelfLife: '2-5 years',   category: 'Canned Produce', milestone: 3 },
+  { index: 24, name: 'Powdered milk',                 baseQty: 64,  unit: 'oz',   baseCost: 10.00, baseKcal: 6500,  shelfLife: '20 years',    category: 'Powdered Milk',  milestone: 3 },
+  { index: 25, name: 'White rice',                     baseQty: 10,  unit: 'lbs',  baseCost: 5.00,  baseKcal: 16500, shelfLife: '30 years',    category: 'Rice',           milestone: 3 },
+  { index: 26, name: 'Pasta',                          baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6720,  shelfLife: '30 years',    category: 'Pasta',          milestone: 3 },
+  { index: 27, name: 'Canned chicken',                baseQty: 2,   unit: 'cans', baseCost: 6.00,  baseKcal: 1100,  shelfLife: '4-5 years',   category: 'Canned Meat',    milestone: 3 },
+  { index: 28, name: 'Bouillon cubes',                baseQty: 1,   unit: 'jar',  baseCost: 2.00,  baseKcal: 0,     shelfLife: '2 years',     category: 'Essentials',     milestone: 3 },
+  { index: 29, name: 'Peanut butter',                 baseQty: 40,  unit: 'oz',   baseCost: 4.00,  baseKcal: 7250,  shelfLife: '2-5 years',   category: 'Peanut Butter',  milestone: 3 },
+  { index: 30, name: 'Rolled oats',                   baseQty: 42,  unit: 'oz',   baseCost: 3.75,  baseKcal: 4500,  shelfLife: '20-30 years', category: 'Oats',           milestone: 3 },
+  { index: 31, name: 'Canned sardines/mackerel',      baseQty: 4,   unit: 'cans', baseCost: 4.50,  baseKcal: 1000,  shelfLife: '4-5 years',   category: 'Canned Fish',    milestone: 3 },
+  { index: 32, name: 'Sugar',                          baseQty: 4,   unit: 'lbs',  baseCost: 3.00,  baseKcal: 7000,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 3 },
+  { index: 33, name: 'Canned vegetables',             baseQty: 4,   unit: 'cans', baseCost: 3.75,  baseKcal: 800,   shelfLife: '2-5 years',   category: 'Canned Produce', milestone: 3 },
+
+  // ── MILESTONE 4: 90-DAY SUPPLY — COMPLETE (items 34–59) ──
+  { index: 34, name: 'White rice',                     baseQty: 20,  unit: 'lbs',  baseCost: 9.50,  baseKcal: 33000, shelfLife: '30 years',    category: 'Rice',           milestone: 4 },
+  { index: 35, name: 'Dried black beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 36, name: 'Canned tuna',                   baseQty: 3,   unit: 'cans', baseCost: 3.50,  baseKcal: 600,   shelfLife: '4-5 years',   category: 'Canned Fish',    milestone: 4 },
+  { index: 37, name: 'Honey',                         baseQty: 16,  unit: 'oz',   baseCost: 4.50,  baseKcal: 1380,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 4 },
+  { index: 38, name: 'Canned vegetables',             baseQty: 3,   unit: 'cans', baseCost: 2.75,  baseKcal: 600,   shelfLife: '2-5 years',   category: 'Canned Produce', milestone: 4 },
+  { index: 39, name: 'Dried lentils',                 baseQty: 2,   unit: 'lbs',  baseCost: 2.00,  baseKcal: 3200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 40, name: 'Pasta',                          baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6720,  shelfLife: '30 years',    category: 'Pasta',          milestone: 4 },
+  { index: 41, name: 'Canned meat (chicken/Spam)',    baseQty: 2,   unit: 'cans', baseCost: 6.00,  baseKcal: 1400,  shelfLife: '4-5 years',   category: 'Canned Meat',    milestone: 4 },
+  { index: 42, name: 'White rice',                     baseQty: 10,  unit: 'lbs',  baseCost: 5.00,  baseKcal: 16500, shelfLife: '30 years',    category: 'Rice',           milestone: 4 },
+  { index: 43, name: 'Dried beans (great northern)',  baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 44, name: 'Salt',                           baseQty: 26,  unit: 'oz',   baseCost: 1.00,  baseKcal: 0,     shelfLife: 'Indefinite',  category: 'Essentials',     milestone: 4 },
+  { index: 45, name: 'Rolled oats',                   baseQty: 42,  unit: 'oz',   baseCost: 3.75,  baseKcal: 4500,  shelfLife: '20-30 years', category: 'Oats',           milestone: 4 },
+  { index: 46, name: 'Sugar',                          baseQty: 4,   unit: 'lbs',  baseCost: 3.00,  baseKcal: 7000,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 4 },
+  { index: 47, name: 'Canned fruit',                  baseQty: 4,   unit: 'cans', baseCost: 5.50,  baseKcal: 1000,  shelfLife: '2-5 years',   category: 'Canned Produce', milestone: 4 },
+  { index: 48, name: 'Powdered milk',                 baseQty: 64,  unit: 'oz',   baseCost: 10.00, baseKcal: 6500,  shelfLife: '20 years',    category: 'Powdered Milk',  milestone: 4 },
+  { index: 49, name: 'Dried pinto beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 50, name: 'Peanut butter',                 baseQty: 40,  unit: 'oz',   baseCost: 4.00,  baseKcal: 7250,  shelfLife: '2-5 years',   category: 'Peanut Butter',  milestone: 4 },
+  { index: 51, name: 'Canned tuna',                   baseQty: 4,   unit: 'cans', baseCost: 4.00,  baseKcal: 800,   shelfLife: '4-5 years',   category: 'Canned Fish',    milestone: 4 },
+  { index: 52, name: 'Canned chicken',                baseQty: 2,   unit: 'cans', baseCost: 4.50,  baseKcal: 1100,  shelfLife: '4-5 years',   category: 'Canned Meat',    milestone: 4 },
+  { index: 53, name: 'Pasta',                          baseQty: 3,   unit: 'lbs',  baseCost: 3.00,  baseKcal: 5040,  shelfLife: '30 years',    category: 'Pasta',          milestone: 4 },
+  { index: 54, name: 'Honey',                         baseQty: 24,  unit: 'oz',   baseCost: 6.00,  baseKcal: 2760,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 4 },
+  { index: 55, name: 'White rice',                     baseQty: 20,  unit: 'lbs',  baseCost: 9.50,  baseKcal: 33000, shelfLife: '30 years',    category: 'Rice',           milestone: 4 },
+  { index: 56, name: 'Dried pinto beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 57, name: 'Sugar',                          baseQty: 4,   unit: 'lbs',  baseCost: 3.00,  baseKcal: 7000,  shelfLife: 'Indefinite',  category: 'Sweeteners',     milestone: 4 },
+  { index: 58, name: 'Dried black beans',             baseQty: 4,   unit: 'lbs',  baseCost: 3.50,  baseKcal: 6200,  shelfLife: '30+ years',   category: 'Beans',          milestone: 4 },
+  { index: 59, name: 'Pasta',                          baseQty: 4,   unit: 'lbs',  baseCost: 4.00,  baseKcal: 6720,  shelfLife: '30 years',    category: 'Pasta',          milestone: 4 },
+];
