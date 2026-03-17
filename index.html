@@ -22,7 +22,7 @@
   <header class="header">
     <nav class="nav container">
       <a href="/" class="logo">
-        <img src="logo.png" alt="MicroPrepared.com" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <img src="Micropreparedlogo.svg" alt="MicroPrepared.com" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
         <span class="logo-text" style="display:none"><span class="logo-micro">MICRO</span><span class="logo-prepared">PREPARED</span></span>
       </a>
       <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
@@ -36,10 +36,10 @@
         <li><a href="#bestsellers" class="nav-link">Best Sellers</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="/members/" class="nav-link">SurvivalDashboardUS</a></li>
+        <li><a href="/dashboard/" class="nav-link" target="_blank" rel="noopener">Your Dashboard</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="/members/" class="btn btn-sm">SurvivalDashboardUS</a>
+        <a href="/dashboard/" class="btn btn-sm" target="_blank" rel="noopener">Your Dashboard</a>
       </div>
     </nav>
   </header>
@@ -562,7 +562,7 @@
         </details>
         <details class="faq-item">
           <summary>Do you offer refunds?</summary>
-          <p>Yes. If you're not satisfied with any guide, contact us within 30 days for a full refund. No questions asked.</p>
+          <p>All sales of digital products are final. Due to the instant-delivery nature of our downloadable guides, we are unable to offer refunds once a purchase has been completed. Please review product descriptions carefully before buying. If you experience a technical issue accessing your guides, contact us at help@microprepared.com and we'll make it right.</p>
         </details>
         <details class="faq-item">
           <summary>Will you be adding more guides?</summary>
@@ -588,7 +588,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="logo.png" alt="MicroPrepared.com" class="footer-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <img src="Micropreparedlogo.svg" alt="MicroPrepared.com" class="footer-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
           <span class="logo-text footer-logo-text" style="display:none"><span class="logo-micro">MICRO</span><span class="logo-prepared">PREPARED</span></span>
           <p>Micro guides for macro preparedness. Based on 270+ expert sources.</p>
         </div>
@@ -615,15 +615,58 @@
           <ul>
             <li><a href="#">help@microprepared.com</a></li>
             <li><a href="#">Refund Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#" onclick="document.getElementById('tc-modal').style.display='flex';return false;">Terms &amp; Conditions</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2026 MicroPrepared.com &mdash; All rights reserved.</p>
+        <p style="max-width:800px;margin:12px auto 0;font-size:0.68rem;color:#9CA3AF;line-height:1.6;">Disclaimer: The information provided on this site is for general informational and educational purposes only and does not constitute medical, nutritional, dietary, or professional advice of any kind. This site is not a substitute for professional guidance from a qualified healthcare provider, nutritionist, or emergency preparedness expert. The authors and operators of MicroPrepared.com make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, or suitability of the information provided. In no event shall the authors or operators be liable for any loss, damage, or injury arising from the use of this information. All sales of digital products are final. Use at your own risk.</p>
       </div>
     </div>
   </footer>
+
+  <!-- Terms & Conditions Modal -->
+  <div id="tc-modal" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);padding:24px;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:#fff;border-radius:12px;max-width:720px;width:100%;max-height:80vh;overflow-y:auto;padding:36px 32px;position:relative;box-shadow:0 20px 60px rgba(0,0,0,0.2);">
+      <button onclick="document.getElementById('tc-modal').style.display='none'" style="position:absolute;top:16px;right:16px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#6B6B6B;line-height:1;">&times;</button>
+      <h2 style="color:#1B3A5C;font-size:1.4rem;margin-bottom:20px;">Terms &amp; Conditions</h2>
+      <div style="font-size:0.88rem;color:#4A4A4A;line-height:1.8;">
+        <p style="margin-bottom:14px;"><strong>Last updated:</strong> March 2026</p>
+        <p style="margin-bottom:14px;">By accessing and using MicroPrepared.com ("the Site"), you accept and agree to be bound by the terms and conditions outlined below. If you do not agree to these terms, please do not use the Site.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">1. Products &amp; Digital Delivery</h3>
+        <p style="margin-bottom:14px;">All products sold on the Site are digital downloadable guides delivered electronically. Upon successful payment, you will receive immediate access to your purchased content. Products are licensed for personal, non-commercial use only.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">2. No Refunds Policy</h3>
+        <p style="margin-bottom:14px;">Due to the instant-delivery digital nature of our products, <strong>all sales are final and no refunds will be issued</strong>. By completing a purchase, you acknowledge that you are buying a digital product that is delivered immediately and that you waive any right to a refund. If you experience a technical issue preventing you from accessing your purchase, please contact help@microprepared.com for assistance.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">3. Disclaimer of Warranties</h3>
+        <p style="margin-bottom:14px;">All content is provided "as is" and "as available" without warranties of any kind, either express or implied. MicroPrepared.com makes no warranties or representations about the accuracy, completeness, or reliability of any content on the Site or in its products.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">4. No Medical or Professional Advice</h3>
+        <p style="margin-bottom:14px;">The information provided in our guides and on the Site is for general informational and educational purposes only. It does not constitute medical, nutritional, dietary, health, legal, financial, or other professional advice. Always consult a qualified professional before making decisions that may affect your health or safety. Never disregard professional advice or delay seeking it because of something you have read on this Site.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">5. Limitation of Liability</h3>
+        <p style="margin-bottom:14px;">To the fullest extent permitted by applicable law, MicroPrepared.com, its owners, authors, operators, affiliates, and contributors shall not be held liable for any direct, indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of, or inability to use, the Site or any products purchased from it. This includes, without limitation, damages for personal injury, property damage, loss of data, loss of income, or any other losses.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">6. Assumption of Risk</h3>
+        <p style="margin-bottom:14px;">Emergency preparedness activities inherently involve risk. By using our guides, you acknowledge and accept that you assume all risks associated with implementing any information, techniques, or recommendations contained in our products. You are solely responsible for your own actions and safety.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">7. Intellectual Property</h3>
+        <p style="margin-bottom:14px;">All content on the Site and in our products, including text, graphics, logos, and designs, is the property of MicroPrepared.com and is protected by copyright and intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without prior written consent.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">8. Indemnification</h3>
+        <p style="margin-bottom:14px;">You agree to indemnify, defend, and hold harmless MicroPrepared.com, its owners, authors, and affiliates from and against any claims, liabilities, damages, losses, and expenses arising from your use of the Site or any breach of these terms.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">9. Changes to Terms</h3>
+        <p style="margin-bottom:14px;">We reserve the right to update or modify these terms at any time without prior notice. Continued use of the Site after any changes constitutes acceptance of the revised terms.</p>
+
+        <h3 style="color:#1B3A5C;font-size:1rem;margin:20px 0 8px;">10. Contact</h3>
+        <p style="margin-bottom:14px;">For questions about these terms, please contact us at help@microprepared.com.</p>
+      </div>
+    </div>
+  </div>
 
   <script>
     // Mobile menu toggle

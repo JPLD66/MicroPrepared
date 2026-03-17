@@ -118,12 +118,17 @@ export default function Dashboard({ preset, items, trips, purchased, onBack }: P
       {/* Header */}
       <header className="bg-white border-b border-gray-200 no-print">
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
-          <button
-            onClick={onBack}
-            className="text-sm text-gray-500 hover:text-navy transition-colors font-medium"
-          >
-            &larr; Back to Plan
-          </button>
+          <div className="flex items-center gap-3">
+            <a href="/">
+              <img src="/dashboard/Micropreparedlogo.svg" alt="MicroPrepared.com" className="h-6" />
+            </a>
+            <button
+              onClick={onBack}
+              className="text-sm text-gray-500 hover:text-navy transition-colors font-medium"
+            >
+              &larr; Back to Plan
+            </button>
+          </div>
           <h1 className="text-lg font-semibold text-navy">Dashboard</h1>
           <span className="text-sm text-gray-400">{preset.label}</span>
         </div>

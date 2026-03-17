@@ -3,9 +3,9 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/members/',
+  base: '/dashboard/',
   build: {
-    outDir: '../members',
+    outDir: '../dashboard',
     emptyOutDir: true,
   },
 });

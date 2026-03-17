@@ -47,13 +47,18 @@ export default function Plan({
       {/* Sticky Header */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-200 no-print">
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-          <div className="min-w-0">
+          <div className="flex items-center gap-3 min-w-0">
+            <a href="/">
+              <img src="/dashboard/Micropreparedlogo.svg" alt="MicroPrepared.com" className="h-6 flex-shrink-0" />
+            </a>
+            <div className="min-w-0">
             <h1 className="text-lg font-semibold text-navy truncate">
               {preset.label} Plan
             </h1>
             <p className="text-xs text-gray-400 truncate">
               {trips.length} trips · ~$15/week · ~{preset.days} days · ~${preset.totalCost} total
             </p>
+            </div>
           </div>
           <div className="flex gap-2 flex-shrink-0">
             <button
