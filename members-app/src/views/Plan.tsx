@@ -1,6 +1,7 @@
 import type { Preset, ScaledItem, TripGroup, MilestoneGroup } from '../data/types';
 import { MILESTONE_UNLOCK_LABELS, MILESTONE_COLORS } from '../data/types';
 import { calcProgress } from '../utils/progress';
+import Footer from '../components/Footer';
 
 interface Props {
   preset: Preset;
@@ -206,10 +207,7 @@ export default function Plan({
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-center py-6 text-xs text-gray-300 no-print">
-        <a href="/" className="hover:text-navy transition-colors">MicroPrepared.com</a>
-      </footer>
+      <Footer />
     </div>
   );
 }

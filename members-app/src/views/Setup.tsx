@@ -1,5 +1,6 @@
 import { PRESETS } from '../data/presets';
 import type { PresetKey } from '../data/types';
+import Footer from '../components/Footer';
 
 interface Props {
   onSelect: (key: PresetKey) => void;
@@ -67,10 +68,7 @@ export default function Setup({ onSelect }: Props) {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-center py-6 text-xs text-gray-300 no-print">
-        MicroPrepared.com — Based on 270+ expert sources
-      </footer>
+      <Footer />
     </div>
   );
 }

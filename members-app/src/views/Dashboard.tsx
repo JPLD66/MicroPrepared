@@ -1,6 +1,7 @@
 import type { Preset, ScaledItem, TripGroup } from '../data/types';
 import { MILESTONE_LABELS, CATEGORY_COLORS } from '../data/types';
 import { calcProgress } from '../utils/progress';
+import Footer from '../components/Footer';
 
 interface Props {
   preset: Preset;
@@ -202,9 +203,7 @@ export default function Dashboard({ preset, items, trips, purchased, onBack }: P
         )}
       </main>
 
-      <footer className="text-center py-6 text-xs text-gray-300 no-print">
-        <a href="/" className="hover:text-navy transition-colors">MicroPrepared.com</a>
-      </footer>
+      <Footer />
     </div>
   );
 }
