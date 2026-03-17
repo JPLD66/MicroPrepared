@@ -1,5 +1,6 @@
 import { PRESETS } from '../data/presets';
 import type { PresetKey } from '../data/types';
+import Footer from '../components/Footer';
 
 interface Props {
   onSelect: (key: PresetKey) => void;
@@ -17,8 +18,8 @@ export default function Setup({ onSelect }: Props) {
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white flex flex-col">
       {/* Header */}
       <header className="text-center pt-12 pb-4 px-6 no-print">
-        <a href="/" className="inline-block mb-6 text-sm text-gray-400 hover:text-navy transition-colors">
-          &larr; Back to MicroPrepared.com
+        <a href="/" className="inline-block mb-6">
+          <img src="/dashboard/Micropreparedlogo.svg" alt="MicroPrepared.com" className="h-8 mx-auto" />
         </a>
         <div className="inline-block bg-green-50 text-green-700 text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
           Micro Survival Sheets
@@ -67,10 +68,7 @@ export default function Setup({ onSelect }: Props) {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="text-center py-6 text-xs text-gray-300 no-print">
-        MicroPrepared.com — Based on 270+ expert sources
-      </footer>
+      <Footer />
     </div>
   );
 }
