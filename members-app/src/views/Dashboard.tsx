@@ -120,7 +120,7 @@ export default function Dashboard({ preset, items, trips, purchased, onBack }: P
         <div className="max-w-3xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <a href="/">
-              <img src="/dashboard/Micropreparedlogo.svg" alt="MicroPrepared.com" className="h-6" />
+              <img src="/dashboard/MicroPreparedLogo.svg" alt="MicroPrepared.com" className="h-6" />
             </a>
             <button
               onClick={onBack}
