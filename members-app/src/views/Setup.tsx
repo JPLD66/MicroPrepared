@@ -19,7 +19,7 @@ export default function Setup({ onSelect }: Props) {
       {/* Header */}
       <header className="text-center pt-12 pb-4 px-6 no-print">
         <a href="/" className="inline-block mb-6">
-          <img src="/dashboard/MicroPreparedLogo.svg" alt="MicroPrepared.com" className="h-8 mx-auto" />
+          <img src="/dashboard/MicroPreparedLogo.svg" alt="MicroPrepared.com" className="h-12 mx-auto" />
         </a>
         <div className="inline-block bg-green-50 text-green-700 text-xs font-semibold uppercase tracking-wider px-4 py-1.5 rounded-full mb-4">
           Micro Survival Sheets
