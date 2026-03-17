@@ -1,5 +1,5 @@
 import type { Preset, ScaledItem, TripGroup, MilestoneGroup } from '../data/types';
-import { MILESTONE_UNLOCK_LABELS } from '../data/types';
+import { MILESTONE_UNLOCK_LABELS, MILESTONE_COLORS } from '../data/types';
 import { calcProgress } from '../utils/progress';
 
 interface Props {
@@ -51,7 +51,7 @@ export default function Plan({
               {preset.label} Plan
             </h1>
             <p className="text-xs text-gray-400 truncate">
-              {trips.length} trips · ~$15/week · ~{preset.days} days · ${preset.totalCost} total
+              {trips.length} trips · ~$15/week · ~{preset.days} days · ~${preset.totalCost} total
             </p>
           </div>
           <div className="flex gap-2 flex-shrink-0">
@@ -94,10 +94,6 @@ export default function Plan({
               style={{ width: `${Math.min(100, (progress.purchasedKcal / progress.totalKcal) * 100)}%` }}
             />
           </div>
-          <div className="flex justify-between mt-1.5">
-            <span className="text-xs text-gray-400">${progress.spentCost.toFixed(2)} spent</span>
-            <span className="text-xs text-gray-400">${progress.totalCost.toFixed(2)} total</span>
-          </div>
         </div>
       </div>
 
@@ -122,7 +118,7 @@ export default function Plan({
                   key={trip.tripNumber}
                   className={`mb-3 rounded-lg border ${
                     allChecked ? 'border-green-200 bg-green-50/50' : 'border-gray-200'
-                  } ${tripIdx % 2 === 1 ? 'bg-gray-50/50' : ''}`}
+                  } ${!allChecked && tripIdx % 2 === 1 ? 'bg-gray-50/50' : ''}`}
                 >
                   {/* Trip Header */}
                   <div className="flex items-center justify-between px-4 py-2 border-b border-gray-100">
@@ -130,7 +126,7 @@ export default function Plan({
                       Trip {trip.tripNumber}
                     </span>
                     <span className="text-xs text-gray-400">
-                      ${trip.totalCost.toFixed(2)}
+                      ~${trip.totalCost.toFixed(0)} est.
                     </span>
                   </div>
 
@@ -163,12 +159,14 @@ export default function Plan({
                           </span>
                         </div>
                         <div className="text-right flex-shrink-0">
-                          <span className="text-sm font-medium text-gray-600">
-                            ${item.cost.toFixed(2)}
-                          </span>
-                          <span className="block text-[10px] text-gray-300">
+                          <span className="text-xs text-gray-400">
                             {item.shelfLife}
                           </span>
+                          {item.notes && (
+                            <span className="block text-[10px] text-gray-300">
+                              {item.notes}
+                            </span>
+                          )}
                         </div>
                       </label>
                     );
@@ -179,7 +177,10 @@ export default function Plan({
 
             {/* Milestone Unlocked Banner */}
             {isMilestoneComplete(ms) && (
-              <div className="text-center py-3 px-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg font-semibold text-sm tracking-wide mb-2">
+              <div
+                className="text-center py-3 px-4 text-white rounded-lg font-semibold text-sm tracking-wide mb-2"
+                style={{ backgroundColor: MILESTONE_COLORS[ms.milestone] }}
+              >
                 {MILESTONE_UNLOCK_LABELS[ms.milestone]}
               </div>
             )}
@@ -188,13 +189,7 @@ export default function Plan({
 
         {/* Bottom Stats */}
         <div className="mt-8 mb-12 bg-gray-50 rounded-xl border border-gray-200 p-6 text-center">
-          <div className="grid grid-cols-3 gap-4">
-            <div>
-              <div className="text-2xl font-bold text-navy">
-                ${progress.spentCost.toFixed(2)}
-              </div>
-              <div className="text-xs text-gray-400 mt-1">Total Spent</div>
-            </div>
+          <div className="grid grid-cols-2 gap-4">
             <div>
               <div className="text-2xl font-bold text-navy">
                 {completedTrips} / {trips.length}
@@ -211,7 +206,7 @@ export default function Plan({
         </div>
       </main>
 
-      {/* Back to top */}
+      {/* Footer */}
       <footer className="text-center py-6 text-xs text-gray-300 no-print">
         <a href="/" className="hover:text-navy transition-colors">MicroPrepared.com</a>
       </footer>

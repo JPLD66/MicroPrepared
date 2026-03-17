@@ -23,7 +23,7 @@ export type FoodCategory =
   | 'Canned Fish'
   | 'Canned Meat'
   | 'Canned Produce'
-  | 'Essentials';
+  | 'Other';
 
 export interface Item {
   index: number;
@@ -33,6 +33,7 @@ export interface Item {
   baseCost: number;
   baseKcal: number;
   shelfLife: string;
+  notes: string;
   category: FoodCategory;
   milestone: 1 | 2 | 3 | 4;
 }
@@ -68,7 +69,7 @@ export const CATEGORY_COLORS: Record<FoodCategory, string> = {
   'Canned Fish': '#FF6384',
   'Canned Meat': '#36A2EB',
   'Canned Produce': '#FFCE56',
-  Essentials: '#8B8B8B',
+  Other: '#C0504D',
 };
 
 export const MILESTONE_LABELS: Record<1 | 2 | 3 | 4, { label: string; days: string }> = {
@@ -82,5 +83,12 @@ export const MILESTONE_UNLOCK_LABELS: Record<1 | 2 | 3 | 4, string> = {
   1: '✦ MILESTONE UNLOCKED — 14-DAY SUPPLY ✦',
   2: '✦ MILESTONE UNLOCKED — 30-DAY SUPPLY ✦',
   3: '✦ MILESTONE UNLOCKED — 60-DAY SUPPLY ✦',
-  4: '✦ MILESTONE UNLOCKED — 90-DAY SUPPLY — COMPLETE ✦',
+  4: '✦ MILESTONE UNLOCKED — 90-DAY SUPPLY ✦',
+};
+
+export const MILESTONE_COLORS: Record<1 | 2 | 3 | 4, string> = {
+  1: '#5B7F3B',
+  2: '#C8913B',
+  3: '#3B6B7F',
+  4: '#8B4513',
 };

@@ -130,7 +130,7 @@ export default function Dashboard({ preset, items, trips, purchased, onBack }: P
 
       <main className="max-w-3xl mx-auto px-4 py-8">
         {/* Headline Numbers */}
-        <div className="grid grid-cols-3 gap-4 mb-10">
+        <div className="grid grid-cols-2 gap-4 mb-10">
           <div className="bg-white border border-gray-200 rounded-xl p-5 text-center">
             <div className="text-4xl font-bold text-green-600">{progress.daysOfFood}</div>
             <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">
@@ -143,12 +143,6 @@ export default function Dashboard({ preset, items, trips, purchased, onBack }: P
             </div>
             <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">
               Weeks Done
-            </div>
-          </div>
-          <div className="bg-white border border-gray-200 rounded-xl p-5 text-center">
-            <div className="text-3xl font-bold text-navy">${progress.spentCost.toFixed(0)}</div>
-            <div className="text-xs text-gray-400 mt-1 uppercase tracking-wider font-medium">
-              Total Spent
             </div>
           </div>
         </div>
