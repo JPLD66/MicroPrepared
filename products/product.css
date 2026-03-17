@@ -1,0 +1,95 @@
+/* Product page styles — shared across all product pages */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy: #1B3A5C; --navy-dark: #122840; --gray-dark: #4A4A4A; --gray-medium: #6B6B6B;
+  --gray-light: #9CA3AF; --gray-100: #F7F8FA; --gray-200: #EBEDF0; --gray-300: #D1D5DB;
+  --sage: #7A8B6F; --sage-bg: #F0F3EC; --white: #FFFFFF;
+  --font: 'Lexend Deca', sans-serif; --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 10px; --radius-sm: 6px; --transition: 0.2s ease;
+}
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); color: var(--gray-dark); background: var(--white); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+h1, h2, h3, h4 { color: var(--navy); line-height: 1.2; font-weight: 600; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.product-header { border-bottom: 1px solid var(--gray-200); padding: 16px 0; }
+.product-header .container { display: flex; align-items: center; justify-content: space-between; }
+.product-header .logo-img { height: 52px; width: auto; }
+.product-header .back-link { font-size: 0.9rem; color: var(--gray-medium); transition: color var(--transition); }
+.product-header .back-link:hover { color: var(--navy); }
+
+/* Hero / Main product */
+.product-hero { padding: 48px 0 40px; }
+.product-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.product-image { aspect-ratio: 1; background: var(--gray-100); border: 2px dashed var(--gray-300); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.product-image .thumb-number { font-size: 4rem; font-weight: 700; color: var(--gray-300); }
+.product-image img { width: 100%; height: 100%; object-fit: cover; }
+.product-tag { display: inline-block; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--sage); background: var(--sage-bg); padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+.product-title { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 16px; }
+.product-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+.product-rating .stars { color: #F59E0B; font-size: 1.1rem; letter-spacing: 2px; }
+.product-rating span { font-size: 0.88rem; color: var(--gray-medium); }
+.product-desc { font-size: 1rem; color: var(--gray-medium); line-height: 1.7; margin-bottom: 24px; }
+.product-benefits { margin-bottom: 28px; }
+.product-benefits li { font-size: 0.95rem; color: var(--gray-dark); padding: 8px 0 8px 28px; position: relative; border-bottom: 1px solid var(--gray-200); }
+.product-benefits li:last-child { border-bottom: none; }
+.product-benefits li::before { content: '✓'; position: absolute; left: 0; color: var(--sage); font-weight: 700; }
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--font); font-weight: 500; font-size: 0.95rem; padding: 14px 32px; border-radius: var(--radius-sm); border: none; cursor: pointer; transition: all var(--transition); }
+.btn-primary { background: var(--navy); color: var(--white); }
+.btn-primary:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.btn-lg { width: 100%; font-size: 1.05rem; padding: 16px 32px; }
+.product-guarantee { display: flex; align-items: center; gap: 8px; margin-top: 16px; font-size: 0.82rem; color: var(--gray-medium); }
+
+/* Sections */
+.section { padding: 56px 0; }
+.section-alt { background: var(--gray-100); }
+.section-header { text-align: center; max-width: 640px; margin: 0 auto 36px; }
+.section-header h2 { font-size: clamp(1.4rem, 3vw, 1.8rem); margin-bottom: 8px; }
+.section-header p { color: var(--gray-medium); font-size: 0.95rem; }
+
+/* What's Inside */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.feature-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 28px 24px; text-align: center; }
+.feature-card h3 { font-size: 1rem; margin: 12px 0 8px; }
+.feature-card p { font-size: 0.88rem; color: var(--gray-medium); }
+.feature-icon { font-size: 2rem; }
+
+/* Testimonials */
+.testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.testimonial-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius); padding: 28px; }
+.testimonial-card .stars { color: #F59E0B; font-size: 1.1rem; margin-bottom: 12px; letter-spacing: 2px; }
+.testimonial-card p { font-size: 0.93rem; color: var(--gray-dark); line-height: 1.7; margin-bottom: 16px; font-style: italic; }
+.testimonial-author { font-size: 0.85rem; font-weight: 600; color: var(--navy); }
+
+/* FAQ */
+.faq-list { max-width: 680px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--gray-200); }
+.faq-item summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 18px 0; font-weight: 500; font-size: 0.95rem; color: var(--navy); list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; font-size: 1.3rem; font-weight: 300; color: var(--gray-light); flex-shrink: 0; margin-left: 16px; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { padding: 0 0 18px; color: var(--gray-medium); font-size: 0.9rem; line-height: 1.7; }
+
+/* CTA Banner */
+.cta-banner { background: var(--navy); padding: 48px 0; text-align: center; }
+.cta-banner h2 { color: var(--white); margin-bottom: 12px; }
+.cta-banner p { color: rgba(255,255,255,0.7); margin-bottom: 24px; font-size: 0.95rem; }
+.cta-banner .btn-primary { background: var(--white); color: var(--navy); }
+.cta-banner .btn-primary:hover { background: var(--gray-100); }
+
+/* Footer */
+.product-footer-section { border-top: 1px solid var(--gray-200); padding: 32px 0; text-align: center; }
+.product-footer-section .logo-img { height: 48px; margin: 0 auto 12px; }
+.product-footer-section p { font-size: 0.78rem; color: var(--gray-light); max-width: 600px; margin: 8px auto 0; line-height: 1.6; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-layout { grid-template-columns: 1fr; gap: 32px; }
+  .features-grid { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; }
+}
