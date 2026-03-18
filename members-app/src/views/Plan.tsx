@@ -49,7 +49,7 @@ export default function Plan({
         <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3 min-w-0">
             <a href="/">
-              <img src="/dashboard/MicroPreparedLogo.svg" alt="MicroPrepared.com" className="h-12 flex-shrink-0" />
+              <img src="/dashboard/MPLogoTransp.png" alt="MicroPrepared.com" className="h-12 flex-shrink-0" />
             </a>
             <div className="min-w-0">
             <h1 className="text-lg font-semibold text-navy truncate">
