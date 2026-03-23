@@ -1,0 +1,14 @@
+{
+  "name": "FIFO Food Tracker",
+  "short_name": "FIFO",
+  "description": "Track your food storage. Eat what expires first.",
+  "start_url": "/fifo/",
+  "scope": "/fifo/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2C3E50",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
