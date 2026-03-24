@@ -27,6 +27,21 @@
   const $ = (sel) => document.querySelector(sel);
   const $$ = (sel) => document.querySelectorAll(sel);
 
+  // Food-to-category mapping for auto-suggest
+  const FOOD_CATEGORIES = {
+    'Canned Goods': ['tuna','salmon','sardines','beans','soup','corn','peas','tomato','tomatoes','chili','spam','chicken breast','ravioli','vienna sausage','green beans','chickpeas','lentils','coconut milk','fruit cocktail','peaches','pears','pineapple','mandarin','olives','artichoke','beets','hominy','evaporated milk','condensed milk'],
+    'Dry Goods': ['rice','flour','sugar','salt','baking soda','baking powder','yeast','powdered milk','cornstarch','oats','oatmeal','quinoa','lentils','split peas','cornmeal','breadcrumbs','cocoa','tea','coffee','instant coffee'],
+    'Grains & Pasta': ['pasta','spaghetti','penne','macaroni','noodles','ramen','couscous','crackers','bread','tortillas','cereal','granola','rice noodles','egg noodles','lasagna','fettuccine','angel hair','orzo'],
+    'Freeze-Dried': ['freeze-dried','mountain house','backpacker','emergency food','mre','survival food','astronaut','dehydrated'],
+    'Water': ['water','sparkling water','spring water','purified water','water jug','water bottle'],
+    'Medical': ['bandage','aspirin','ibuprofen','tylenol','first aid','antiseptic','gauze','medical','medicine','vitamin','vitamins','supplement','electrolyte','pedialyte'],
+    'Snacks & Bars': ['granola bar','protein bar','jerky','beef jerky','trail mix','nuts','almonds','peanuts','cashews','chips','pretzels','popcorn','dried fruit','raisins','candy','chocolate','energy bar','fruit snacks','cookies'],
+    'Condiments': ['ketchup','mustard','mayo','mayonnaise','soy sauce','hot sauce','vinegar','olive oil','vegetable oil','honey','maple syrup','jam','jelly','peanut butter','salsa','bbq sauce','sriracha','relish','worcestershire','tabasco','ranch','dressing'],
+    'Dairy': ['cheese','butter','milk','yogurt','cream cheese','sour cream','whipped cream','eggs','ghee','parmesan','mozzarella','cheddar'],
+    'Frozen': ['frozen vegetables','frozen fruit','frozen pizza','frozen dinner','ice cream','frozen chicken','frozen fish','frozen burrito','frozen fries','frozen berries','frozen corn','frozen peas','frozen spinach'],
+    'Beverages': ['juice','soda','pop','gatorade','sports drink','energy drink','beer','wine','lemonade','iced tea','cider','kombucha','milk','almond milk','oat milk']
+  };
+
   const els = {
     app: $('#app'),
     summary: $('#summary'),
@@ -56,6 +71,9 @@
     importInput: $('#import-input'),
     clearBtn: $('#clear-btn'),
     settingsBtn: $('#settings-btn'),
+    settingsDrawer: $('#settings-drawer'),
+    settingsOverlay: $('#settings-overlay'),
+    drawerClose: $('#drawer-close'),
     toast: $('#toast')
   };
 
@@ -182,9 +200,43 @@
       p.classList.toggle('active', isActive);
       p.hidden = !isActive;
     });
-    // Show/hide FAB (hide on settings)
-    els.fab.style.display = tabName === 'settings' ? 'none' : '';
     renderAll();
+  }
+
+  // ========================================
+  // Settings Drawer
+  // ========================================
+
+  function openDrawer() {
+    els.settingsOverlay.hidden = false;
+    requestAnimationFrame(() => {
+      els.settingsOverlay.classList.add('visible');
+      els.settingsDrawer.classList.add('open');
+    });
+  }
+
+  function closeDrawer() {
+    els.settingsOverlay.classList.remove('visible');
+    els.settingsDrawer.classList.remove('open');
+    setTimeout(() => { els.settingsOverlay.hidden = true; }, 300);
+  }
+
+  // ========================================
+  // Category Auto-Suggest
+  // ========================================
+
+  function suggestCategory(name) {
+    const lower = name.toLowerCase().trim();
+    if (!lower) return null;
+
+    for (const [category, keywords] of Object.entries(FOOD_CATEGORIES)) {
+      for (const kw of keywords) {
+        if (lower.includes(kw) || kw.includes(lower)) {
+          return category;
+        }
+      }
+    }
+    return null;
   }
 
   // ========================================
@@ -581,8 +633,10 @@
       });
     });
 
-    // Settings button in header
-    els.settingsBtn.addEventListener('click', () => switchTab('settings'));
+    // Settings drawer
+    els.settingsBtn.addEventListener('click', openDrawer);
+    els.drawerClose.addEventListener('click', closeDrawer);
+    els.settingsOverlay.addEventListener('click', closeDrawer);
 
     // FAB
     els.fab.addEventListener('click', openAddDialog);
@@ -617,6 +671,19 @@
     els.toggleEaten.addEventListener('click', () => {
       showEaten = !showEaten;
       renderAll();
+    });
+
+    // Auto-suggest category as user types item name
+    let suggestTimeout = null;
+    els.itemName.addEventListener('input', () => {
+      clearTimeout(suggestTimeout);
+      suggestTimeout = setTimeout(() => {
+        if (editingId) return; // don't override when editing
+        const suggestion = suggestCategory(els.itemName.value);
+        if (suggestion) {
+          els.itemCategory.value = suggestion;
+        }
+      }, 300);
     });
 
     // Export
