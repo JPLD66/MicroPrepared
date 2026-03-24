@@ -29,23 +29,25 @@
   const $$ = (sel) => document.querySelectorAll(sel);
 
   // Food-to-category mapping for auto-suggest
-  const FOOD_CATEGORIES = {
-    'Canned Fish': ['tuna','salmon','sardines','anchovies','mackerel','crab','clams','oysters','shrimp','herring','kippered','fish'],
-    'Canned Meat': ['spam','corned beef','chicken breast','vienna sausage','chili','ravioli','beef stew','ham','turkey','canned meat','potted meat'],
-    'Canned Fruit & Veg': ['corn','peas','tomato','tomatoes','green beans','beans','soup','chickpeas','coconut milk','fruit cocktail','peaches','pears','pineapple','mandarin','olives','artichoke','beets','hominy','evaporated milk','condensed milk','carrots','mushrooms','spinach','asparagus','applesauce','cranberry'],
-    'Dry Goods': ['flour','sugar','salt','baking soda','baking powder','yeast','powdered milk','cornstarch','oats','oatmeal','cornmeal','breadcrumbs','cocoa','tea','coffee','instant coffee'],
-    'Grains & Pasta': ['pasta','spaghetti','penne','macaroni','noodles','ramen','couscous','crackers','bread','tortillas','cereal','granola','rice noodles','egg noodles','lasagna','fettuccine','angel hair','orzo','quinoa'],
-    'Rice': ['rice','basmati','jasmine','brown rice','white rice','wild rice','arborio','sushi rice','sticky rice','rice pilaf'],
-    'Legumes': ['lentils','split peas','black beans','kidney beans','pinto beans','navy beans','lima beans','garbanzo','chickpeas','mung beans','adzuki','edamame','dried beans','bean soup mix'],
-    'Freeze-Dried': ['freeze-dried','mountain house','backpacker','emergency food','mre','survival food','astronaut','dehydrated'],
-    'Water': ['water','sparkling water','spring water','purified water','water jug','water bottle'],
-    'Medical': ['bandage','aspirin','ibuprofen','tylenol','first aid','antiseptic','gauze','medical','medicine','vitamin','vitamins','supplement','electrolyte','pedialyte'],
-    'Snacks & Bars': ['granola bar','protein bar','jerky','beef jerky','trail mix','nuts','almonds','peanuts','cashews','chips','pretzels','popcorn','dried fruit','raisins','candy','chocolate','energy bar','fruit snacks','cookies'],
-    'Condiments': ['ketchup','mustard','mayo','mayonnaise','soy sauce','hot sauce','vinegar','olive oil','vegetable oil','honey','maple syrup','jam','jelly','peanut butter','salsa','bbq sauce','sriracha','relish','worcestershire','tabasco','ranch','dressing'],
-    'Dairy': ['cheese','butter','milk','yogurt','cream cheese','sour cream','whipped cream','eggs','ghee','parmesan','mozzarella','cheddar'],
-    'Frozen': ['frozen vegetables','frozen fruit','frozen pizza','frozen dinner','ice cream','frozen chicken','frozen fish','frozen burrito','frozen fries','frozen berries','frozen corn','frozen peas','frozen spinach'],
-    'Beverages': ['juice','soda','pop','gatorade','sports drink','energy drink','beer','wine','lemonade','iced tea','cider','kombucha','milk','almond milk','oat milk']
-  };
+  // Food-to-category mapping: ordered so specific categories are checked first.
+  // Rice/Legumes before Grains & Pasta, Canned sub-types before general, etc.
+  const FOOD_CATEGORIES = [
+    ['Rice', ['rice','basmati','jasmine','brown rice','white rice','wild rice','arborio','sushi rice','sticky rice','rice pilaf','long grain','short grain','uncle bens']],
+    ['Legumes', ['lentils','split peas','black beans','kidney beans','pinto beans','navy beans','lima beans','garbanzo','chickpeas','mung beans','adzuki','edamame','dried beans','bean soup mix','cannellini','fava','dal','dhal']],
+    ['Canned Fish', ['tuna','salmon','sardines','anchovies','mackerel','crab','clams','oysters','shrimp','herring','kippered','canned fish','smoked oysters']],
+    ['Canned Meat', ['spam','corned beef','chicken breast','vienna sausage','chili','ravioli','beef stew','ham','turkey','canned meat','potted meat','canned chicken','canned beef']],
+    ['Canned Fruit & Veg', ['canned corn','canned peas','canned tomato','canned beans','tomato sauce','tomato paste','diced tomatoes','crushed tomatoes','soup','coconut milk','fruit cocktail','canned peaches','canned pears','pineapple chunks','mandarin oranges','olives','artichoke hearts','canned beets','hominy','evaporated milk','condensed milk','canned carrots','canned mushrooms','canned spinach','applesauce','cranberry sauce','canned fruit','canned vegetables','green beans']],
+    ['Grains & Pasta', ['pasta','spaghetti','penne','macaroni','noodles','ramen','couscous','crackers','bread','tortillas','cereal','granola','rice noodles','egg noodles','lasagna','fettuccine','angel hair','orzo','quinoa','bulgur','barley','farro']],
+    ['Dry Goods', ['flour','sugar','salt','baking soda','baking powder','yeast','powdered milk','cornstarch','oats','oatmeal','cornmeal','breadcrumbs','cocoa','tea','coffee','instant coffee','biscuit mix','pancake mix']],
+    ['Freeze-Dried', ['freeze-dried','mountain house','backpacker','emergency food','mre','survival food','astronaut','dehydrated']],
+    ['Water', ['water','sparkling water','spring water','purified water','water jug','water bottle']],
+    ['Medical', ['bandage','aspirin','ibuprofen','tylenol','first aid','antiseptic','gauze','medical','medicine','vitamin','vitamins','supplement','electrolyte','pedialyte']],
+    ['Snacks & Bars', ['granola bar','protein bar','jerky','beef jerky','trail mix','nuts','almonds','peanuts','cashews','chips','pretzels','popcorn','dried fruit','raisins','candy','chocolate','energy bar','fruit snacks','cookies','crackers']],
+    ['Condiments', ['ketchup','mustard','mayo','mayonnaise','soy sauce','hot sauce','vinegar','olive oil','vegetable oil','honey','maple syrup','jam','jelly','peanut butter','salsa','bbq sauce','sriracha','relish','worcestershire','tabasco','ranch','dressing']],
+    ['Dairy', ['cheese','butter','yogurt','cream cheese','sour cream','whipped cream','eggs','ghee','parmesan','mozzarella','cheddar','cottage cheese','ricotta']],
+    ['Frozen', ['frozen vegetables','frozen fruit','frozen pizza','frozen dinner','ice cream','frozen chicken','frozen fish','frozen burrito','frozen fries','frozen berries','frozen corn','frozen peas','frozen spinach','frozen meals']],
+    ['Beverages', ['juice','soda','pop','gatorade','sports drink','energy drink','beer','wine','lemonade','iced tea','cider','kombucha','milk','almond milk','oat milk','coconut water']]
+  ];
 
   const els = {
     app: $('#app'),
@@ -278,13 +280,36 @@
     const lower = name.toLowerCase().trim();
     if (!lower) return null;
 
-    for (const [category, keywords] of Object.entries(FOOD_CATEGORIES)) {
+    // Pass 1: exact match (input equals a keyword)
+    for (const [category, keywords] of FOOD_CATEGORIES) {
       for (const kw of keywords) {
-        if (lower.includes(kw) || kw.includes(lower)) {
+        if (lower === kw) return category;
+      }
+    }
+
+    // Pass 2: input contains a keyword (e.g. "canned tuna" matches "tuna")
+    // Prefer longer keyword matches first
+    let bestMatch = null;
+    let bestLen = 0;
+    for (const [category, keywords] of FOOD_CATEGORIES) {
+      for (const kw of keywords) {
+        if (lower.includes(kw) && kw.length > bestLen) {
+          bestMatch = category;
+          bestLen = kw.length;
+        }
+      }
+    }
+    if (bestMatch) return bestMatch;
+
+    // Pass 3: keyword contains input (e.g. "tun" partial-matches "tuna")
+    for (const [category, keywords] of FOOD_CATEGORIES) {
+      for (const kw of keywords) {
+        if (kw.includes(lower) && lower.length >= 3) {
           return category;
         }
       }
     }
+
     return null;
   }
 
