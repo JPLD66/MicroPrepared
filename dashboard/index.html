@@ -11,5 +11,11 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Auth guard -->
+    <script>
+      if (localStorage.getItem('mp_auth') !== 'granted') {
+        location.replace('/pass/?redirect=' + encodeURIComponent(location.pathname));
+      }
+    </script>
   </body>
 </html>
