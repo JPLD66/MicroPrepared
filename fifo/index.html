@@ -40,7 +40,10 @@
     <main class="tab-content">
       <section id="panel-inventory" class="tab-panel active" role="tabpanel" aria-labelledby="tab-inventory">
         <div id="inventory-list" class="item-list"></div>
-        <button id="toggle-eaten" class="btn btn-ghost toggle-eaten" hidden>Show eaten items</button>
+        <div class="eaten-controls">
+          <button id="toggle-eaten" class="btn btn-ghost toggle-eaten" hidden>Show eaten items</button>
+          <button id="clear-eaten-btn" class="btn btn-ghost toggle-eaten clear-eaten-btn" hidden>Clear all eaten</button>
+        </div>
       </section>
 
       <section id="panel-week" class="tab-panel" role="tabpanel" aria-labelledby="tab-week" hidden>
@@ -181,6 +184,18 @@
           <button type="submit" id="clear-submit" class="btn btn-danger">Delete Everything</button>
         </div>
       </form>
+    </div>
+  </dialog>
+
+  <!-- Clear Eaten Confirmation Dialog -->
+  <dialog id="clear-eaten-dialog" class="modal">
+    <div class="modal-content modal-content-sm">
+      <h2 class="modal-title">Clear Eaten Items</h2>
+      <p class="modal-text">This will permanently remove all items marked as eaten. Are you sure?</p>
+      <div class="form-actions">
+        <button type="button" id="clear-eaten-cancel" class="btn btn-ghost">Cancel</button>
+        <button type="button" id="clear-eaten-confirm" class="btn btn-danger">Clear Eaten</button>
+      </div>
     </div>
   </dialog>
 

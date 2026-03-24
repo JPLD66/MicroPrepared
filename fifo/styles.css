@@ -526,11 +526,26 @@ body {
 }
 
 /* Toggle eaten */
-.toggle-eaten {
+.eaten-controls {
+  display: flex;
+  gap: var(--space-2);
   margin-top: var(--space-4);
-  width: 100%;
+}
+
+.toggle-eaten {
+  flex: 1;
   font-size: 12px;
   min-height: 36px;
+}
+
+.clear-eaten-btn {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+  flex: 0 0 auto;
+}
+
+.clear-eaten-btn:hover {
+  background: #fdecea;
 }
 
 /* ========================================
