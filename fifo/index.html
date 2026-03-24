@@ -16,22 +16,8 @@
 </head>
 <body>
 
-  <!-- Access Gate -->
-  <div id="gate" class="gate" role="main">
-    <div class="gate-inner">
-      <h1 class="gate-title">FIFO Food Tracker</h1>
-      <p class="gate-subtitle">Enter your access code to get started.</p>
-      <form id="gate-form" class="gate-form">
-        <label for="gate-code" class="sr-only">Access Code</label>
-        <input type="text" id="gate-code" class="gate-input" placeholder="Access code" autocomplete="off" autocapitalize="characters" required>
-        <button type="submit" class="btn btn-primary gate-btn">Enter</button>
-      </form>
-      <p id="gate-error" class="gate-error" hidden>Invalid access code. Please try again.</p>
-    </div>
-  </div>
-
-  <!-- App (hidden until access granted) -->
-  <div id="app" class="app" hidden>
+  <!-- App -->
+  <div id="app" class="app">
 
     <!-- Header -->
     <header class="app-header">

@@ -6,15 +6,9 @@
   'use strict';
 
   // ---- Constants ----
-  const VALID_HASHES = [
-    '29fb83722243dc10847be45ce4b3427a6d2836d8ffd46c79b53fc8fb99ac3ee1', // FIFO2026
-    'e6d5caec0eb11034bd1932129cedb0a51133b3ea478110d76578c33cd52246b5', // PREPREADY
-    '80ad3145c06badd8cbe5b176e1e33b4d37af34456deb1db3dc4fe25dead50f42'  // FIRSTINFIRSTOUT
-  ];
   const DB_NAME = 'fifo-tracker';
   const DB_VERSION = 1;
   const STORE_NAME = 'items';
-  const ACCESS_KEY = 'fifo_access_granted';
 
   const CATEGORIES = [
     'Canned Goods', 'Dry Goods', 'Grains & Pasta', 'Freeze-Dried',
@@ -34,10 +28,6 @@
   const $$ = (sel) => document.querySelectorAll(sel);
 
   const els = {
-    gate: $('#gate'),
-    gateForm: $('#gate-form'),
-    gateCode: $('#gate-code'),
-    gateError: $('#gate-error'),
     app: $('#app'),
     summary: $('#summary'),
     inventoryList: $('#inventory-list'),
@@ -88,10 +78,10 @@
   function formatDateYYMMDD(isoStr) {
     if (!isoStr) return '';
     const d = new Date(isoStr + 'T00:00:00');
-    const yy = String(d.getFullYear()).slice(-2);
+    const yyyy = String(d.getFullYear());
     const mm = String(d.getMonth() + 1).padStart(2, '0');
     const dd = String(d.getDate()).padStart(2, '0');
-    return yy + '/' + mm + '/' + dd;
+    return yyyy + '/' + mm + '/' + dd;
   }
 
   function daysUntil(isoStr) {
@@ -100,12 +90,6 @@
     const exp = new Date(isoStr + 'T00:00:00');
     exp.setHours(0, 0, 0, 0);
     return Math.ceil((exp - now) / (1000 * 60 * 60 * 24));
-  }
-
-  async function sha256(text) {
-    const encoded = new TextEncoder().encode(text);
-    const buffer = await crypto.subtle.digest('SHA-256', encoded);
-    return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
   }
 
   // ========================================
@@ -161,26 +145,7 @@
     });
   }
 
-  // ========================================
-  // Access Gate
-  // ========================================
-
-  function isAccessGranted() {
-    return localStorage.getItem(ACCESS_KEY) === 'true';
-  }
-
-  function grantAccess() {
-    localStorage.setItem(ACCESS_KEY, 'true');
-  }
-
-  async function checkAccessCode(code) {
-    const hash = await sha256(code.trim().toUpperCase());
-    return VALID_HASHES.includes(hash);
-  }
-
   function showApp() {
-    els.gate.hidden = true;
-    els.app.hidden = false;
     renderAll();
   }
 
@@ -286,6 +251,7 @@
         '</div>' +
       '</div>' +
       '<label class="item-check" onclick="event.stopPropagation()">' +
+        '<span class="item-check-label">Eaten</span>' +
         '<input type="checkbox" ' + (item.eaten ? 'checked' : '') + ' data-id="' + item.id + '" aria-label="Mark ' + escapeHTML(item.name) + ' as eaten">' +
       '</label>';
 
@@ -607,20 +573,6 @@
   // ========================================
 
   function bindEvents() {
-    // Access gate
-    els.gateForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const code = els.gateCode.value;
-      if (await checkAccessCode(code)) {
-        grantAccess();
-        showApp();
-      } else {
-        els.gateError.hidden = false;
-        els.gateCode.value = '';
-        els.gateCode.focus();
-      }
-    });
-
     // Tabs
     $$('.nav-tab').forEach(tab => {
       tab.addEventListener('click', () => {
@@ -710,12 +662,7 @@
     bindEvents();
     registerSW();
 
-    if (isAccessGranted()) {
-      showApp();
-    } else {
-      els.gate.hidden = false;
-      els.gateCode.focus();
-    }
+    showApp();
   }
 
   // Start

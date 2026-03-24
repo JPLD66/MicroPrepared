@@ -86,74 +86,8 @@ body {
 }
 
 /* ========================================
-   ACCESS GATE
+   ACCESS GATE (removed)
    ======================================== */
-.gate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  min-height: 100dvh;
-  padding: var(--space-6);
-  background: var(--color-bg);
-}
-
-.gate-inner {
-  width: 100%;
-  max-width: 360px;
-  text-align: center;
-}
-
-.gate-title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
-  color: var(--color-primary);
-  margin-bottom: var(--space-2);
-}
-
-.gate-subtitle {
-  font-size: 14px;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
-}
-
-.gate-form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.gate-input {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  font-size: 16px;
-  font-family: var(--font-primary);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
-  color: var(--color-text);
-  text-align: center;
-  letter-spacing: 0.05em;
-  transition: border-color 150ms var(--ease-out);
-}
-
-.gate-input:focus {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-color: var(--color-primary);
-}
-
-.gate-btn {
-  width: 100%;
-}
-
-.gate-error {
-  margin-top: var(--space-3);
-  font-size: 14px;
-  color: var(--color-danger);
-}
 
 /* ========================================
    APP SHELL
@@ -271,6 +205,24 @@ body {
 
 .nav-tab.active {
   color: var(--color-primary);
+  border-top: 3px solid currentColor;
+  padding-top: calc(var(--space-2) - 3px);
+}
+
+#tab-inventory.active {
+  color: #2C3E50;
+}
+
+#tab-week.active {
+  color: #C0392B;
+}
+
+#tab-month.active {
+  color: #D4850F;
+}
+
+#tab-settings.active {
+  color: #6C757D;
 }
 
 .nav-tab svg {
@@ -514,13 +466,22 @@ body {
 /* Checkbox */
 .item-check {
   flex-shrink: 0;
-  width: 24px;
-  height: 24px;
   min-width: 44px;
   min-height: 44px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 2px;
+}
+
+.item-check-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-secondary);
+  line-height: 1;
 }
 
 .item-check input[type="checkbox"] {
