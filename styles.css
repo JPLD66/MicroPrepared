@@ -193,6 +193,10 @@ h3 { font-size: 1.15rem; }
   gap: 32px;
 }
 
+.mobile-only {
+  display: none;
+}
+
 .logo-img {
   height: 72px;
   width: auto;
@@ -915,6 +919,10 @@ h3 { font-size: 1.15rem; }
 
   .nav-actions {
     display: none;
+  }
+
+  .mobile-only {
+    display: list-item;
   }
 
   .hero {
