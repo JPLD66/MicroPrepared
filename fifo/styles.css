@@ -163,6 +163,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
+  padding-top: 48px;  /* space for fixed header */
   padding-bottom: 64px; /* space for bottom nav */
 }
 
@@ -173,8 +174,10 @@ body {
   padding: var(--space-3) var(--space-4);
   background: var(--color-primary);
   color: var(--color-surface);
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 10;
 }
 
@@ -556,17 +559,22 @@ dialog {
   max-height: 100%;
 }
 
+dialog:not([open]) {
+  display: none;
+}
+
 dialog::backdrop {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.modal {
+dialog[open].modal {
   width: 100%;
   margin: 0;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  top: auto;
 }
 
 .modal-content {
@@ -733,8 +741,7 @@ dialog::backdrop {
     padding: var(--space-6);
   }
 
-  .modal {
-    position: fixed;
+  dialog[open].modal {
     top: 0;
     bottom: 0;
     display: flex;
