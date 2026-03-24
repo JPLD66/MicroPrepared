@@ -65,6 +65,7 @@
     itemName: $('#item-name'),
     itemCategory: $('#item-category'),
     itemQty: $('#item-qty'),
+    itemWeight: $('#item-weight'),
     itemStored: $('#item-stored'),
     itemExpires: $('#item-expires'),
     btnAdd: $('#btn-add'),
@@ -368,6 +369,7 @@
     }
 
     const daysText = item.eaten ? 'Eaten' : (days < 0 ? Math.abs(days) + 'd overdue' : days + 'd left');
+    const weightHTML = item.weight ? '<span>' + escapeHTML(item.weight) + '</span>' : '';
 
     row.innerHTML =
       '<div class="item-info">' +
@@ -375,6 +377,7 @@
         '<div class="item-meta">' +
           '<span>' + escapeHTML(item.category) + '</span>' +
           '<span class="item-qty">Qty: ' + item.quantity + '</span>' +
+          weightHTML +
           '<span>Exp: ' + formatDateYYMMDD(item.expirationDate) + '</span>' +
           '<span class="item-days">' + daysText + '</span>' +
           badgeHTML +
@@ -427,6 +430,7 @@
         eaten.forEach(item => els.inventoryList.appendChild(createRow(item)));
       }
     } else {
+      showEaten = false;
       els.toggleEaten.hidden = true;
       els.clearEatenBtn.hidden = true;
     }
@@ -467,6 +471,7 @@
     els.itemName.value = '';
     els.itemCategory.value = CATEGORIES[0];
     els.itemQty.value = '1';
+    els.itemWeight.value = '';
     els.itemStored.value = todayISO();
     els.itemExpires.value = '';
     editingId = null;
@@ -490,6 +495,7 @@
     els.itemName.value = item.name;
     els.itemCategory.value = item.category;
     els.itemQty.value = item.quantity;
+    els.itemWeight.value = item.weight || '';
     els.itemStored.value = item.dateStored;
     els.itemExpires.value = item.expirationDate;
     els.dialogTitle.textContent = 'Edit Item';
@@ -511,6 +517,7 @@
       name: els.itemName.value.trim(),
       category: els.itemCategory.value,
       quantity: Math.max(1, parseInt(els.itemQty.value) || 1),
+      weight: els.itemWeight.value.trim(),
       dateStored: els.itemStored.value || todayISO(),
       expirationDate: els.itemExpires.value
     };
@@ -552,6 +559,7 @@
         els.itemName.value = '';
         els.itemExpires.value = '';
         els.itemQty.value = '1';
+        els.itemWeight.value = '';
         els.itemName.focus();
       }
     }
@@ -601,11 +609,12 @@
       return;
     }
 
-    const headers = ['Name', 'Category', 'Quantity', 'Date Stored', 'Expiration Date', 'Eaten', 'Eaten Date'];
+    const headers = ['Name', 'Category', 'Quantity', 'Weight', 'Date Stored', 'Expiration Date', 'Eaten', 'Eaten Date'];
     const rows = items.map(i => [
       '"' + (i.name || '').replace(/"/g, '""') + '"',
       '"' + (i.category || '').replace(/"/g, '""') + '"',
       i.quantity,
+      '"' + (i.weight || '').replace(/"/g, '""') + '"',
       i.dateStored,
       i.expirationDate,
       i.eaten ? 'Yes' : 'No',
@@ -644,10 +653,11 @@
         name: cols[0] || 'Unknown',
         category: CATEGORIES.includes(cols[1]) ? cols[1] : 'Other',
         quantity: Math.max(1, parseInt(cols[2]) || 1),
-        dateStored: cols[3] || todayISO(),
-        expirationDate: cols[4] || todayISO(),
-        eaten: (cols[5] || '').toLowerCase() === 'yes',
-        eatenDate: cols[6] || null,
+        weight: cols[3] || '',
+        dateStored: cols[4] || todayISO(),
+        expirationDate: cols[5] || todayISO(),
+        eaten: (cols[6] || '').toLowerCase() === 'yes',
+        eatenDate: cols[7] || null,
         createdAt: now,
         updatedAt: now
       };
