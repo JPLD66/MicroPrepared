@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroPrepared — Access Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1B3A5C;
+      --navy-dark: #122840;
+      --gray-dark: #4A4A4A;
+      --gray-medium: #6B6B6B;
+      --gray-100: #F7F8FA;
+      --gray-200: #EBEDF0;
+      --gray-300: #D1D5DB;
+      --sage: #7A8B6F;
+      --sage-light: #8FA07E;
+      --sage-bg: #F0F3EC;
+      --white: #FFFFFF;
+      --danger: #C53030;
+      --font: 'Lexend Deca', sans-serif;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    body {
+      font-family: var(--font);
+      background: var(--gray-100);
+      color: var(--gray-dark);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .gate {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+    }
+    .gate-logo {
+      height: 48px;
+      margin: 0 auto 28px;
+    }
+    .gate h1 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .gate p {
+      font-size: 0.92rem;
+      color: var(--gray-medium);
+      margin-bottom: 28px;
+      line-height: 1.5;
+    }
+    .gate-field {
+      position: relative;
+      margin-bottom: 20px;
+    }
+    .gate-field input {
+      width: 100%;
+      padding: 14px 48px 14px 16px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 1rem;
+      color: var(--gray-dark);
+      outline: none;
+      transition: border-color 0.2s;
+      letter-spacing: 0.15em;
+    }
+    .gate-field input:focus {
+      border-color: var(--navy);
+    }
+    .gate-field input::placeholder {
+      letter-spacing: 0;
+      color: var(--gray-300);
+    }
+    .gate-toggle {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-medium);
+      padding: 4px;
+      display: flex;
+      align-items: center;
+    }
+    .gate-toggle:hover { color: var(--navy); }
+    .gate-btn {
+      width: 100%;
+      padding: 14px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .gate-btn:hover { background: var(--navy-dark); }
+    .gate-error {
+      color: var(--danger);
+      font-size: 0.85rem;
+      margin-top: 14px;
+      display: none;
+    }
+    .gate-error.visible { display: block; }
+    .gate-back {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+      text-decoration: none;
+    }
+    .gate-back:hover { color: var(--navy); }
+
+    .gate-field .shake {
+      animation: shake 0.4s ease;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      40% { transform: translateX(6px); }
+      60% { transform: translateX(-4px); }
+      80% { transform: translateX(4px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="gate">
+    <img src="/MPLogoTransp.png" alt="MicroPrepared" class="gate-logo">
+    <h1>Member Access</h1>
+    <p>Enter your password to access MicroPrepared apps.</p>
+    <form id="gate-form" autocomplete="off">
+      <div class="gate-field">
+        <input type="password" id="gate-pw" placeholder="Password" autocomplete="off" autofocus>
+        <button type="button" class="gate-toggle" aria-label="Show password" id="toggle-pw">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button type="submit" class="gate-btn">Enter</button>
+      <p class="gate-error" id="gate-error">Incorrect password. Please try again.</p>
+    </form>
+    <a href="/" class="gate-back">&larr; Back to MicroPrepared.com</a>
+  </div>
+
+  <script>
+    const form = document.getElementById('gate-form');
+    const pw = document.getElementById('gate-pw');
+    const err = document.getElementById('gate-error');
+    const toggle = document.getElementById('toggle-pw');
+
+    toggle.addEventListener('click', () => {
+      const isPassword = pw.type === 'password';
+      pw.type = isPassword ? 'text' : 'password';
+      toggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (pw.value === 'MicroPrepNow') {
+        sessionStorage.setItem('mp_auth', '1');
+        window.location.href = '/apps/';
+      } else {
+        err.classList.add('visible');
+        pw.classList.add('shake');
+        setTimeout(() => pw.classList.remove('shake'), 400);
+        pw.select();
+      }
+    });
+
+    pw.addEventListener('input', () => {
+      err.classList.remove('visible');
+    });
+  </script>
+</body>
+</html>

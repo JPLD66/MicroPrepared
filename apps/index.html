@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroPrepared — Apps</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1B3A5C;
+      --navy-dark: #122840;
+      --navy-light: #2A5580;
+      --gray-dark: #4A4A4A;
+      --gray-medium: #6B6B6B;
+      --gray-light: #9CA3AF;
+      --gray-100: #F7F8FA;
+      --gray-200: #EBEDF0;
+      --gray-300: #D1D5DB;
+      --sage: #7A8B6F;
+      --sage-light: #8FA07E;
+      --sage-bg: #F0F3EC;
+      --white: #FFFFFF;
+      --font: 'Lexend Deca', sans-serif;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 30px rgba(0,0,0,0.1);
+    }
+    body {
+      font-family: var(--font);
+      background: var(--gray-100);
+      color: var(--gray-dark);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    .apps-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .apps-header a { text-decoration: none; color: inherit; }
+    .apps-header-logo {
+      height: 36px;
+    }
+    .apps-header-back {
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+    }
+    .apps-header-back:hover { color: var(--navy); }
+
+    /* Main */
+    .apps-main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+    .apps-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .apps-subtitle {
+      font-size: 0.95rem;
+      color: var(--gray-medium);
+      margin-bottom: 36px;
+    }
+
+    /* Card grid */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .app-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .app-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+    }
+    .app-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .app-icon svg {
+      width: 32px;
+      height: 32px;
+    }
+    .app-icon--food {
+      background: linear-gradient(135deg, #E8F0E4 0%, #D4E4CD 100%);
+      color: var(--sage);
+    }
+    .app-icon--fifo {
+      background: linear-gradient(135deg, #E0EAF4 0%, #C8D9EC 100%);
+      color: var(--navy-light);
+    }
+    .app-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .app-desc {
+      font-size: 0.85rem;
+      color: var(--gray-medium);
+      line-height: 1.5;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    .app-visit {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 28px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .app-visit:hover { background: var(--navy-dark); }
+    .app-visit svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .apps-grid { grid-template-columns: 1fr; }
+      .apps-main { padding: 32px 16px 60px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="apps-header">
+    <a href="/"><img src="/MPLogoTransp.png" alt="MicroPrepared" class="apps-header-logo"></a>
+    <a href="/" class="apps-header-back">&larr; Back to site</a>
+  </header>
+
+  <main class="apps-main">
+    <h1 class="apps-title">Your Apps</h1>
+    <p class="apps-subtitle">Access your MicroPrepared tools below.</p>
+
+    <div class="apps-grid">
+      <!-- 90 Day Food Builder -->
+      <div class="app-card">
+        <div class="app-icon app-icon--food">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+            <line x1="6" y1="1" x2="6" y2="4"/>
+            <line x1="10" y1="1" x2="10" y2="4"/>
+            <line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </div>
+        <div class="app-name">90 Day Food Builder</div>
+        <div class="app-desc">Plan and track your 90-day emergency food supply with step-by-step guidance.</div>
+        <a href="/dashboard/" class="app-visit">
+          Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Supply Tracker FIFO -->
+      <div class="app-card">
+        <div class="app-icon app-icon--fifo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <div class="app-name">Supply Tracker FIFO</div>
+        <div class="app-desc">Manage your supply inventory with first-in, first-out rotation tracking.</div>
+        <a href="/fifo/" class="app-visit">
+          Visit
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Redirect to /pass/ if not authenticated
+    if (sessionStorage.getItem('mp_auth') !== '1') {
+      window.location.href = '/pass/';
+    }
+  </script>
+</body>
+</html>
