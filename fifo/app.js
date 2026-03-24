@@ -82,6 +82,10 @@
     settingsOverlay: $('#settings-overlay'),
     drawerClose: $('#drawer-close'),
     toast: $('#toast'),
+    clearEatenBtn: $('#clear-eaten-btn'),
+    clearEatenDialog: $('#clear-eaten-dialog'),
+    clearEatenCancel: $('#clear-eaten-cancel'),
+    clearEatenConfirm: $('#clear-eaten-confirm'),
     expiryReminder: $('#expiry-reminder'),
     expiryReminderClose: $('#expiry-reminder-close'),
     expiryReminderContent: $('#expiry-reminder-content')
@@ -409,6 +413,7 @@
     if (active.length === 0 && eaten.length === 0) {
       els.inventoryList.innerHTML = '<div class="empty-state">No items yet. Tap the + button to add your first item.</div>';
       els.toggleEaten.hidden = true;
+      els.clearEatenBtn.hidden = true;
       return;
     }
 
@@ -417,11 +422,13 @@
     if (eaten.length > 0) {
       els.toggleEaten.hidden = false;
       els.toggleEaten.textContent = showEaten ? 'Hide eaten items (' + eaten.length + ')' : 'Show eaten items (' + eaten.length + ')';
+      els.clearEatenBtn.hidden = !showEaten;
       if (showEaten) {
         eaten.forEach(item => els.inventoryList.appendChild(createRow(item)));
       }
     } else {
       els.toggleEaten.hidden = true;
+      els.clearEatenBtn.hidden = true;
     }
   }
 
@@ -568,6 +575,18 @@
     item.eatenDate = eaten ? new Date().toISOString().split('T')[0] : null;
     item.updatedAt = new Date().toISOString();
     await dbPut(item);
+    renderAll();
+  }
+
+  async function clearAllEaten() {
+    const items = await dbGetAll();
+    const eaten = items.filter(i => i.eaten);
+    for (const item of eaten) {
+      await dbDelete(item.id);
+    }
+    els.clearEatenDialog.close();
+    showEaten = false;
+    showToast(eaten.length + ' eaten item' + (eaten.length !== 1 ? 's' : '') + ' cleared');
     renderAll();
   }
 
@@ -748,6 +767,16 @@
     els.toggleEaten.addEventListener('click', () => {
       showEaten = !showEaten;
       renderAll();
+    });
+
+    // Clear all eaten
+    els.clearEatenBtn.addEventListener('click', () => {
+      els.clearEatenDialog.showModal();
+    });
+    els.clearEatenConfirm.addEventListener('click', clearAllEaten);
+    els.clearEatenCancel.addEventListener('click', () => els.clearEatenDialog.close());
+    els.clearEatenDialog.addEventListener('click', (e) => {
+      if (e.target === els.clearEatenDialog) els.clearEatenDialog.close();
     });
 
     // Auto-suggest category as user types item name
