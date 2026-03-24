@@ -97,15 +97,14 @@ body {
   flex-direction: column;
   min-height: 100vh;
   min-height: 100dvh;
-  padding-top: 52px;  /* space for fixed header */
+  padding-top: 68px;  /* space for fixed header */
   padding-bottom: 64px; /* space for bottom nav */
 }
 
 .app-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: var(--space-2) var(--space-4);
+  padding: var(--space-3) var(--space-5);
   background: var(--color-primary);
   color: var(--color-surface);
   position: fixed;
@@ -113,14 +112,7 @@ body {
   left: 0;
   right: 0;
   z-index: 10;
-  min-height: 52px;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  min-width: 0;
+  min-height: 68px;
 }
 
 .header-logo-link {
@@ -130,19 +122,18 @@ body {
 }
 
 .header-logo {
-  height: 36px;
+  height: 48px;
   width: auto;
 }
 
 .app-title {
-  font-size: 14px;
+  flex: 1;
+  font-size: 20px;
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.01em;
   color: var(--color-surface);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .app-header .btn-ghost {
@@ -156,17 +147,15 @@ body {
 
 /* ---- Summary ---- */
 .summary {
-  padding: var(--space-3) var(--space-4);
-  font-size: 12px;
+  padding: var(--space-4) var(--space-4);
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 0.05em;
   color: var(--color-text-secondary);
   text-transform: uppercase;
+  text-align: center;
   background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
-  max-width: 640px;
-  width: 100%;
-  margin: 0 auto;
 }
 
 /* ---- Tab Content ---- */
@@ -175,7 +164,10 @@ body {
   max-width: 640px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-4);
+  padding: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .tab-panel {
@@ -525,9 +517,9 @@ body {
 /* Empty state */
 .empty-state {
   text-align: center;
-  padding: var(--space-10) var(--space-4);
+  padding: var(--space-12) var(--space-4);
   color: var(--color-text-secondary);
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.6;
 }
 
@@ -751,6 +743,91 @@ dialog[open].modal {
 }
 
 /* ========================================
+   EXPIRY REMINDER POPUP
+   ======================================== */
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(100%); opacity: 0; }
+}
+
+.expiry-reminder {
+  position: fixed;
+  bottom: 76px;
+  right: var(--space-4);
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-danger);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-4);
+  z-index: 18;
+  animation: slideUp 350ms var(--ease-spring) forwards;
+}
+
+.expiry-reminder.closing {
+  animation: slideDown 300ms var(--ease-out) forwards;
+}
+
+.expiry-reminder-close {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  background: none;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--space-1);
+  line-height: 1;
+  border-radius: var(--radius-sm);
+}
+
+.expiry-reminder-close:hover {
+  color: var(--color-text);
+  background: var(--color-stripe);
+}
+
+.expiry-reminder-content {
+  padding: var(--space-4) var(--space-5) var(--space-4) var(--space-4);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.expiry-reminder-title {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: var(--space-2);
+  color: var(--color-danger);
+}
+
+.expiry-reminder-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 2px 0;
+}
+
+.expiry-reminder-item-name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-right: var(--space-2);
+}
+
+.expiry-reminder-item-days {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--color-danger);
+}
+
+/* ========================================
    TOAST
    ======================================== */
 .toast {
@@ -782,6 +859,12 @@ dialog[open].modal {
 @media (min-width: 640px) {
   .tab-content {
     padding: var(--space-6);
+    padding-top: var(--space-6);
+  }
+
+  .expiry-reminder {
+    right: var(--space-6);
+    bottom: 76px;
   }
 
   dialog[open].modal {

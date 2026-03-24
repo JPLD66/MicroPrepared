@@ -11,9 +11,10 @@
   const STORE_NAME = 'items';
 
   const CATEGORIES = [
-    'Canned Goods', 'Dry Goods', 'Grains & Pasta', 'Freeze-Dried',
-    'Water', 'Medical', 'Snacks & Bars', 'Condiments',
-    'Dairy', 'Frozen', 'Beverages', 'Other'
+    'Canned Fish', 'Canned Meat', 'Canned Fruit & Veg',
+    'Dry Goods', 'Grains & Pasta', 'Rice', 'Legumes',
+    'Freeze-Dried', 'Water', 'Medical', 'Snacks & Bars',
+    'Condiments', 'Dairy', 'Frozen', 'Beverages', 'Other'
   ];
 
   // ---- State ----
@@ -29,9 +30,13 @@
 
   // Food-to-category mapping for auto-suggest
   const FOOD_CATEGORIES = {
-    'Canned Goods': ['tuna','salmon','sardines','beans','soup','corn','peas','tomato','tomatoes','chili','spam','chicken breast','ravioli','vienna sausage','green beans','chickpeas','lentils','coconut milk','fruit cocktail','peaches','pears','pineapple','mandarin','olives','artichoke','beets','hominy','evaporated milk','condensed milk'],
-    'Dry Goods': ['rice','flour','sugar','salt','baking soda','baking powder','yeast','powdered milk','cornstarch','oats','oatmeal','quinoa','lentils','split peas','cornmeal','breadcrumbs','cocoa','tea','coffee','instant coffee'],
-    'Grains & Pasta': ['pasta','spaghetti','penne','macaroni','noodles','ramen','couscous','crackers','bread','tortillas','cereal','granola','rice noodles','egg noodles','lasagna','fettuccine','angel hair','orzo'],
+    'Canned Fish': ['tuna','salmon','sardines','anchovies','mackerel','crab','clams','oysters','shrimp','herring','kippered','fish'],
+    'Canned Meat': ['spam','corned beef','chicken breast','vienna sausage','chili','ravioli','beef stew','ham','turkey','canned meat','potted meat'],
+    'Canned Fruit & Veg': ['corn','peas','tomato','tomatoes','green beans','beans','soup','chickpeas','coconut milk','fruit cocktail','peaches','pears','pineapple','mandarin','olives','artichoke','beets','hominy','evaporated milk','condensed milk','carrots','mushrooms','spinach','asparagus','applesauce','cranberry'],
+    'Dry Goods': ['flour','sugar','salt','baking soda','baking powder','yeast','powdered milk','cornstarch','oats','oatmeal','cornmeal','breadcrumbs','cocoa','tea','coffee','instant coffee'],
+    'Grains & Pasta': ['pasta','spaghetti','penne','macaroni','noodles','ramen','couscous','crackers','bread','tortillas','cereal','granola','rice noodles','egg noodles','lasagna','fettuccine','angel hair','orzo','quinoa'],
+    'Rice': ['rice','basmati','jasmine','brown rice','white rice','wild rice','arborio','sushi rice','sticky rice','rice pilaf'],
+    'Legumes': ['lentils','split peas','black beans','kidney beans','pinto beans','navy beans','lima beans','garbanzo','chickpeas','mung beans','adzuki','edamame','dried beans','bean soup mix'],
     'Freeze-Dried': ['freeze-dried','mountain house','backpacker','emergency food','mre','survival food','astronaut','dehydrated'],
     'Water': ['water','sparkling water','spring water','purified water','water jug','water bottle'],
     'Medical': ['bandage','aspirin','ibuprofen','tylenol','first aid','antiseptic','gauze','medical','medicine','vitamin','vitamins','supplement','electrolyte','pedialyte'],
@@ -74,7 +79,10 @@
     settingsDrawer: $('#settings-drawer'),
     settingsOverlay: $('#settings-overlay'),
     drawerClose: $('#drawer-close'),
-    toast: $('#toast')
+    toast: $('#toast'),
+    expiryReminder: $('#expiry-reminder'),
+    expiryReminderClose: $('#expiry-reminder-close'),
+    expiryReminderContent: $('#expiry-reminder-content')
   };
 
   // ========================================
@@ -165,6 +173,47 @@
 
   function showApp() {
     renderAll();
+    showExpiryReminder();
+  }
+
+  // ========================================
+  // Expiry Reminder Popup
+  // ========================================
+
+  async function showExpiryReminder() {
+    const items = await dbGetAll();
+    const urgent = items
+      .filter(i => !i.eaten && daysUntil(i.expirationDate) <= 3)
+      .sort((a, b) => a.expirationDate.localeCompare(b.expirationDate))
+      .slice(0, 5);
+
+    if (urgent.length === 0) return;
+
+    let html = '<div class="expiry-reminder-title">Items expiring soon</div>';
+    urgent.forEach(item => {
+      const days = daysUntil(item.expirationDate);
+      let label;
+      if (days <= 0) label = 'OVERDUE';
+      else if (days === 1) label = 'TODAY';
+      else label = days + 'd left';
+      html += '<div class="expiry-reminder-item">' +
+        '<span class="expiry-reminder-item-name">' + escapeHTML(item.name) + '</span>' +
+        '<span class="expiry-reminder-item-days">' + label + '</span>' +
+      '</div>';
+    });
+
+    els.expiryReminderContent.innerHTML = html;
+    els.expiryReminder.hidden = false;
+    els.expiryReminder.classList.remove('closing');
+  }
+
+  function closeExpiryReminder() {
+    els.expiryReminder.classList.add('closing');
+    els.expiryReminder.addEventListener('animationend', function handler() {
+      els.expiryReminder.hidden = true;
+      els.expiryReminder.classList.remove('closing');
+      els.expiryReminder.removeEventListener('animationend', handler);
+    });
   }
 
   // ========================================
@@ -632,6 +681,9 @@
         switchTab(name);
       });
     });
+
+    // Expiry reminder close
+    els.expiryReminderClose.addEventListener('click', closeExpiryReminder);
 
     // Settings drawer
     els.settingsBtn.addEventListener('click', openDrawer);
