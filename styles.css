@@ -20,6 +20,11 @@
   --sage-bg: #F0F3EC;
   --white: #FFFFFF;
   --danger: #C53030;
+  --color-cta: #C0392B;
+  --color-cta-hover: #A93226;
+  --color-accent: #7A9E7E;
+  --color-accent-light: #E8F0E9;
+  --color-accent-dark: #5E8262;
   --font: 'Lexend Deca', sans-serif;
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
@@ -97,8 +102,8 @@ h3 { font-size: 1.15rem; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--sage);
-  background: var(--sage-bg);
+  color: var(--color-accent-dark);
+  background: var(--color-accent-light);
   padding: 4px 14px;
   border-radius: 20px;
   margin-bottom: 12px;
@@ -126,26 +131,26 @@ h3 { font-size: 1.15rem; }
 }
 
 .btn-primary {
-  background: var(--navy);
+  background: var(--color-cta);
   color: var(--white);
-  border-color: var(--navy);
+  border-color: var(--color-cta);
 }
 
 .btn-primary:hover {
-  background: var(--navy-dark);
-  border-color: var(--navy-dark);
+  background: var(--color-cta-hover);
+  border-color: var(--color-cta-hover);
   transform: translateY(-1px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--navy);
-  border-color: var(--navy);
+  color: var(--color-cta);
+  border-color: var(--color-cta);
 }
 
 .btn-outline:hover {
-  background: var(--navy);
+  background: var(--color-cta);
   color: var(--white);
 }
 
@@ -296,8 +301,8 @@ h3 { font-size: 1.15rem; }
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--sage);
-  background: var(--sage-bg);
+  color: var(--color-accent-dark);
+  background: var(--color-accent-light);
   padding: 5px 16px;
   border-radius: 20px;
   margin-bottom: 20px;
@@ -339,13 +344,13 @@ h3 { font-size: 1.15rem; }
 }
 
 .trust-item svg {
-  color: var(--sage);
+  color: var(--color-accent);
 }
 
 /* ===== Value Props Bar ===== */
 .value-bar {
   padding: 32px 0;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--color-accent);
 }
 
 .value-grid {
@@ -362,7 +367,7 @@ h3 { font-size: 1.15rem; }
 
 .value-item svg {
   flex-shrink: 0;
-  color: var(--sage);
+  color: var(--color-accent);
 }
 
 .value-item strong {
@@ -424,8 +429,8 @@ h3 { font-size: 1.15rem; }
   letter-spacing: 0.04em;
   padding: 3px 10px;
   border-radius: 20px;
-  background: var(--sage-bg);
-  color: var(--sage);
+  background: var(--color-accent-light);
+  color: var(--color-accent-dark);
 }
 
 .product-badge.sale {
@@ -498,8 +503,8 @@ h3 { font-size: 1.15rem; }
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--sage-bg);
-  border: 2px solid var(--sage);
+  background: var(--color-accent-light);
+  border: 2px solid var(--color-accent);
 }
 
 .product-footer {
@@ -595,13 +600,13 @@ h3 { font-size: 1.15rem; }
 }
 
 .filter-btn:hover {
-  border-color: var(--navy);
-  color: var(--navy);
+  border-color: var(--color-accent);
+  color: var(--color-accent-dark);
 }
 
 .filter-btn.active {
-  background: var(--navy);
-  border-color: var(--navy);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
   color: var(--white);
 }
 
@@ -667,7 +672,7 @@ h3 { font-size: 1.15rem; }
   gap: 32px;
   margin-top: 32px;
   padding-top: 24px;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--color-accent);
 }
 
 .stat {
@@ -678,7 +683,7 @@ h3 { font-size: 1.15rem; }
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--color-accent-dark);
   line-height: 1;
 }
 
@@ -713,7 +718,7 @@ h3 { font-size: 1.15rem; }
 .source-list li:last-child {
   border-bottom: none;
   font-weight: 500;
-  color: var(--sage);
+  color: var(--color-accent-dark);
 }
 
 .source-list li::before {
@@ -723,7 +728,7 @@ h3 { font-size: 1.15rem; }
   top: 13px;
   width: 6px;
   height: 6px;
-  background: var(--sage);
+  background: var(--color-accent);
   border-radius: 50%;
 }
 
@@ -811,7 +816,7 @@ h3 { font-size: 1.15rem; }
 /* ===== Footer ===== */
 .footer {
   padding: 60px 0 0;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--color-accent);
 }
 
 .footer-grid {
