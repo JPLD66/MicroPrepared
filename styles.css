@@ -813,6 +813,49 @@ h3 { font-size: 1.15rem; }
   line-height: 1.7;
 }
 
+/* ===== Coming In 2026 ===== */
+.coming-section {
+  background: var(--gray-100);
+}
+
+.coming-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.coming-row {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.coming-row:last-child {
+  border-bottom: none;
+}
+
+.coming-row h3 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.coming-row p {
+  font-size: 0.88rem;
+  color: var(--gray-medium);
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .coming-row {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+
 /* ===== CTA Section ===== */
 
 .btn-coming-soon {
