@@ -785,6 +785,15 @@ h3 { font-size: 1.15rem; }
 }
 
 /* ===== CTA Section ===== */
+
+.btn-coming-soon {
+  background: #9CA3AF;
+  color: #ffffff;
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
 .cta-section {
   background: var(--navy);
   text-align: center;
