@@ -298,21 +298,106 @@
             margin-bottom: 2rem;
         }
 
-        /* Scenarios (vignettes) */
-        .scenarios {
+        /* Scenarios (alternating, mobile accordion) */
+        .scenarios { max-width: 1050px; margin: 0 auto; }
+        .scenario-item {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-            max-width: 950px;
-            margin: 0 auto;
+            grid-template-columns: 1fr 1fr;
+            gap: 3.5rem;
+            align-items: center;
+            margin-bottom: 4rem;
         }
-        @media (max-width: 700px) { .scenarios { grid-template-columns: 1fr; } }
-        .scenario {
-            background: #fff;
-            border-left: 4px solid #c0392b;
-            padding: 1.25rem 1.5rem;
-            border-radius: 0 8px 8px 0;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        .scenario-item:last-child { margin-bottom: 0; }
+        .scenario-item.flip .scenario-image { order: 2; }
+        .scenario-image .img-placeholder {
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+        }
+        .scenario-summary {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+            font-family: inherit;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: default;
+        }
+        .scenario-num {
+            position: relative;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: #c0392b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        .scenario-num::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: #c0392b;
+            animation: pulseRing 2.2s ease-out infinite;
+            z-index: -1;
+        }
+        @keyframes pulseRing {
+            0%   { transform: scale(1);   opacity: 0.55; }
+            80%  { transform: scale(1.7); opacity: 0; }
+            100% { transform: scale(1.7); opacity: 0; }
+        }
+        .scenario-title {
+            font-size: 1.5rem;
+            color: #0d2b1a;
+            line-height: 1.25;
+            margin: 0;
+        }
+        .scenario-chevron { display: none; }
+        .scenario-text {
+            color: #333;
+            font-size: 1.05rem;
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 800px) {
+            .scenario-item {
+                display: block;
+                margin-bottom: 0;
+                border-bottom: 1px solid #e5e5e5;
+                padding: 1rem 0;
+            }
+            .scenario-item.flip .scenario-image { order: 0; }
+            .scenario-summary {
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                cursor: pointer;
+                padding: 0.5rem 0;
+            }
+            .scenario-num { width: 44px; height: 44px; font-size: 1.1rem; }
+            .scenario-title { font-size: 1.1rem; flex: 1; }
+            .scenario-chevron {
+                display: inline-block;
+                font-size: 1rem;
+                color: #888;
+                transition: transform 0.25s ease;
+            }
+            .scenario-image,
+            .scenario-text {
+                display: none;
+                margin-top: 1rem;
+            }
+            .scenario-item.expanded .scenario-image,
+            .scenario-item.expanded .scenario-text { display: block; }
+            .scenario-item.expanded .scenario-chevron { transform: rotate(180deg); }
         }
 
         /* Comparisons (vs blocks) */
@@ -762,12 +847,79 @@
         <p class="subhead">Built for the moments you can't Google your way out of.</p>
 
         <div class="scenarios">
-            <div class="scenario">Someone in your group has been hurt and you need to look up the symptoms, find the right treatment, and stay calm while the situation unfolds around you.</div>
-            <div class="scenario">A disaster has forced you to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
-            <div class="scenario">The truck won't start, so you search the exact make and model and follow the repair walkthrough step by step until you've got it running again.</div>
-            <div class="scenario">The kids still need to keep learning even in the middle of a long emergency, and you've already got Khan Academy courses, TED talks, and 60,000 books loaded on the Disk and waiting for them.</div>
-            <div class="scenario">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and what's just around the next block.</div>
-            <div class="scenario">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
+
+            <div class="scenario-item">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: someone using the Disk to look up first aid info]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">1</div>
+                        <h3 class="scenario-title">Medical Emergencies</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">Someone in your group has been hurt and you need to look up the symptoms, find the right treatment, and stay calm while the situation unfolds around you.</div>
+                </div>
+            </div>
+
+            <div class="scenario-item flip">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: setting up a shelter or fire in the wild]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">2</div>
+                        <h3 class="scenario-title">Survival Techniques</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">A disaster has forced you to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
+                </div>
+            </div>
+
+            <div class="scenario-item">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: working on a vehicle with the Disk open on a phone]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">3</div>
+                        <h3 class="scenario-title">Mechanical Repairs</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">The truck won't start, so you search the exact make and model and follow the repair walkthrough step by step until you've got it running again.</div>
+                </div>
+            </div>
+
+            <div class="scenario-item flip">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: kids learning on a tablet connected to the Disk]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">4</div>
+                        <h3 class="scenario-title">Education for the Kids</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">The kids still need to keep learning even in the middle of a long emergency, and you've already got Khan Academy courses, TED talks, and 60,000 books loaded on the Disk and waiting for them.</div>
+                </div>
+            </div>
+
+            <div class="scenario-item">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: phone showing offline map of a city]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">5</div>
+                        <h3 class="scenario-title">Finding Your Way</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and what's just around the next block.</div>
+                </div>
+            </div>
+
+            <div class="scenario-item flip">
+                <div class="scenario-image"><div class="img-placeholder">[IMAGE: relaxing off-grid, reading or watching content from the Disk]</div></div>
+                <div class="scenario-content">
+                    <button class="scenario-summary" type="button">
+                        <div class="scenario-num">6</div>
+                        <h3 class="scenario-title">Off-Grid Downtime</h3>
+                        <span class="scenario-chevron">▼</span>
+                    </button>
+                    <div class="scenario-text">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -998,6 +1150,16 @@
         </div>
     </div>
 </footer>
+
+<script>
+    document.querySelectorAll('.scenario-summary').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 800px)').matches) {
+                btn.closest('.scenario-item').classList.toggle('expanded');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>
