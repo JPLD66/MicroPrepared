@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Product Name] — PrepperDisk</title>
+    <title>Prepper Disk Premium — Your Off-Grid Survival Hotspot</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #222; line-height: 1.5; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+            background: #fff;
+        }
         img, .img-placeholder { max-width: 100%; display: block; }
         .img-placeholder {
             background: #f0f0f0;
@@ -21,18 +27,20 @@
             padding: 1rem;
             min-height: 200px;
         }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
         a { color: inherit; text-decoration: none; }
         button { cursor: pointer; font-family: inherit; }
+        p { margin-bottom: 1rem; }
 
         /* Announcement bar */
         .announcement {
-            background: #111;
+            background: #0d2b1a;
             color: #fff;
             text-align: center;
             font-size: 0.85rem;
-            padding: 0.5rem 1rem;
+            padding: 0.6rem 1rem;
             letter-spacing: 0.05em;
+            font-weight: 600;
         }
 
         /* Header */
@@ -50,255 +58,307 @@
             justify-content: space-between;
             gap: 2rem;
         }
-        header.site .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 0.05em; }
+        header.site .logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.05em; color: #0d2b1a; }
         header.site nav ul {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.75rem;
             list-style: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
-        header.site .icons { display: flex; gap: 1rem; font-size: 1.1rem; }
+        @media (max-width: 700px) { header.site nav { display: none; } }
 
-        /* Product hero */
-        .product-hero {
-            display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 3rem;
-            padding: 2rem 0 4rem;
+        /* Hero (sales-page style) */
+        .hero {
+            padding: 3rem 0 4rem;
+            text-align: center;
+            background: linear-gradient(180deg, #fafafa 0%, #fff 100%);
         }
-        @media (max-width: 800px) { .product-hero { grid-template-columns: 1fr; gap: 1.5rem; } }
-        .gallery .main-image { aspect-ratio: 1 / 1; margin-bottom: 0.75rem; }
-        .gallery .thumbs {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 0.5rem;
-        }
-        .gallery .thumbs .img-placeholder { aspect-ratio: 1/1; min-height: 0; font-size: 0.7rem; }
-
-        .product-info h1 { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.2; }
-        .stars-row {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            color: #f5a623;
-            font-size: 0.95rem;
-        }
-        .stars-row .count { color: #555; }
-        .price-row {
-            display: flex;
-            align-items: baseline;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-        .price-sale { font-size: 1.6rem; font-weight: 700; color: #c0392b; }
-        .price-compare { text-decoration: line-through; color: #888; }
-        .price-badge {
-            background: #ffe9e6;
-            color: #c0392b;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
+        .hero .eyebrow {
+            display: inline-block;
+            background: #fff3cd;
+            color: #7a5a00;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
             font-size: 0.8rem;
             font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
         }
-        .product-bullets { margin: 1rem 0; padding-left: 1.25rem; }
-        .product-bullets li { margin-bottom: 0.4rem; }
+        .hero h1 {
+            font-size: 2.6rem;
+            line-height: 1.15;
+            max-width: 850px;
+            margin: 0 auto 1rem;
+            color: #0d2b1a;
+        }
+        @media (max-width: 700px) { .hero h1 { font-size: 1.9rem; } }
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #444;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .hero .product-shot {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            aspect-ratio: 16/9;
+        }
+        .hero .desc {
+            max-width: 750px;
+            margin: 0 auto 2rem;
+            color: #333;
+            font-size: 1.05rem;
+        }
+        .hero-bullets {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            list-style: none;
+        }
+        .hero-bullets li {
+            font-weight: 600;
+            font-size: 1rem;
+            color: #0d2b1a;
+        }
 
-        .bundle-options {
-            display: grid;
-            gap: 0.75rem;
-            margin: 1.5rem 0;
-        }
-        .bundle-option {
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            padding: 1rem;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 1rem;
-            align-items: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .bundle-option.selected { border-color: #c0392b; background: #fff7f6; }
-        .bundle-option .badge-top {
-            position: absolute;
-            top: -10px;
-            left: 1rem;
+        .btn-primary {
+            display: inline-block;
             background: #c0392b;
             color: #fff;
-            font-size: 0.7rem;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-        .bundle-option .qty { font-weight: 700; font-size: 1.05rem; }
-        .bundle-option .desc { font-size: 0.85rem; color: #555; }
-        .bundle-option .price { text-align: right; }
-        .bundle-option .price .each { font-size: 0.8rem; color: #888; }
-
-        .qty-row { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
-        .qty-stepper {
-            display: inline-flex;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-        .qty-stepper button { background: #f7f7f7; border: 0; padding: 0.5rem 0.9rem; font-size: 1rem; }
-        .qty-stepper input { border: 0; width: 3rem; text-align: center; font-size: 1rem; }
-
-        .btn-cart, .btn-buy {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1.05rem;
+            padding: 1.1rem 2.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
             border: 0;
             border-radius: 8px;
-            margin-bottom: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.05em;
+            box-shadow: 0 4px 14px rgba(192,57,43,0.3);
+            transition: transform 0.15s;
         }
-        .btn-cart { background: #111; color: #fff; }
-        .btn-buy { background: #5a31f4; color: #fff; }
+        .btn-primary:hover { transform: translateY(-2px); }
 
-        .trust-row {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 0.5rem;
-            margin-top: 1rem;
-            padding-top: 1rem;
+        .trust-line {
+            margin-top: 1.25rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+
+        /* Credibility strip */
+        .credibility {
+            background: #f7f5f0;
+            padding: 2.5rem 0;
             border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
-        .trust-row .item { text-align: center; font-size: 0.75rem; color: #555; }
-        .trust-row .item .icon {
-            display: block;
-            font-size: 1.5rem;
-            margin-bottom: 0.25rem;
-        }
-
-        /* Press / as featured in */
-        .press-bar {
-            background: #f7f7f7;
-            padding: 2rem 0;
-        }
-        .press-bar .label {
+        .credibility .label {
             text-align: center;
             font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #888;
-            margin-bottom: 1rem;
+            letter-spacing: 0.15em;
+            color: #777;
+            margin-bottom: 1.25rem;
         }
-        .press-bar .logos {
+        .credibility .logos {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 1rem;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem;
             align-items: center;
+            margin-bottom: 1.5rem;
         }
-        @media (max-width: 700px) { .press-bar .logos { grid-template-columns: repeat(3, 1fr); } }
-        .press-bar .img-placeholder { min-height: 50px; background: transparent; border-color: #ccc; }
+        @media (max-width: 700px) { .credibility .logos { grid-template-columns: repeat(2, 1fr); } }
+        .credibility .img-placeholder {
+            min-height: 50px;
+            background: transparent;
+            border-color: #ccc;
+        }
+        .credibility .access-line {
+            text-align: center;
+            font-size: 1.05rem;
+            color: #333;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .credibility .access-line strong { color: #0d2b1a; }
 
         /* Section blocks */
-        section.block { padding: 4rem 0; }
+        section.block { padding: 4.5rem 0; }
         section.block.alt { background: #faf7f2; }
         section.block h2 {
-            font-size: 2rem;
+            font-size: 2.1rem;
             text-align: center;
             margin-bottom: 0.75rem;
             line-height: 1.2;
+            color: #0d2b1a;
         }
+        @media (max-width: 700px) { section.block h2 { font-size: 1.6rem; } }
         section.block .subhead {
             text-align: center;
             color: #555;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto 2.5rem;
+            font-size: 1.05rem;
         }
 
-        .split {
+        /* Problem grid (2x2) */
+        .problem-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        .split.reverse > .img-placeholder { order: 2; }
-        @media (max-width: 800px) {
-            .split { grid-template-columns: 1fr; gap: 1.5rem; }
-            .split.reverse > .img-placeholder { order: 0; }
-        }
-        .split .img-placeholder { aspect-ratio: 4/3; }
-        .split h3 { font-size: 1.5rem; margin-bottom: 1rem; }
-        .split p { margin-bottom: 1rem; color: #444; }
-
-        /* Feature grid */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-        }
-        @media (max-width: 800px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
-        .feature-grid .card { text-align: center; }
-        .feature-grid .icon-ph {
-            width: 64px;
-            height: 64px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            border: 1px dashed #bbb;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.7rem;
-            color: #888;
-        }
-        .feature-grid h4 { margin-bottom: 0.5rem; font-size: 1.05rem; }
-        .feature-grid p { font-size: 0.9rem; color: #555; }
-
-        /* Comparison table */
-        .compare-table {
-            width: 100%;
-            border-collapse: collapse;
-            max-width: 800px;
+            max-width: 950px;
             margin: 0 auto;
+        }
+        @media (max-width: 700px) { .problem-grid { grid-template-columns: 1fr; } }
+        .problem-card {
             background: #fff;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            border-radius: 8px;
-            overflow: hidden;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1.75rem;
         }
-        .compare-table th, .compare-table td {
-            padding: 1rem;
-            text-align: center;
-            border-bottom: 1px solid #eee;
+        .problem-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .problem-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: #0d2b1a;
         }
-        .compare-table th { background: #111; color: #fff; font-weight: 600; }
-        .compare-table th.us { background: #c0392b; }
-        .compare-table td:first-child { text-align: left; font-weight: 500; }
-        .compare-table .check { color: #27ae60; font-weight: 700; }
-        .compare-table .x { color: #c0392b; font-weight: 700; }
+        .problem-card .example {
+            background: #f7f5f0;
+            border-left: 3px solid #c0392b;
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #444;
+        }
+        .problem-card .example strong { color: #0d2b1a; }
 
-        /* How it works */
-        .steps {
+        /* Solution */
+        .solution-image {
+            aspect-ratio: 16/9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        .solution-text {
+            max-width: 750px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+            color: #333;
+        }
+        .solution-text p { margin-bottom: 1.25rem; }
+
+        /* What's on it (6-tile grid) */
+        .tile-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
         }
-        @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
-        .step .num {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #c0392b;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        @media (max-width: 800px) { .tile-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .tile-grid { grid-template-columns: 1fr; } }
+        .tile {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
         }
-        .step .img-placeholder { aspect-ratio: 4/3; margin-bottom: 1rem; }
-        .step h4 { margin-bottom: 0.5rem; }
-        .step p { color: #555; font-size: 0.95rem; }
+        .tile .icon { font-size: 2.4rem; margin-bottom: 0.5rem; display: block; }
+        .tile h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #0d2b1a; }
+        .tile p { font-size: 0.9rem; color: #555; margin: 0; }
 
-        /* Testimonials */
+        details.full-list {
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+        }
+        details.full-list summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #c0392b;
+            list-style: none;
+        }
+        details.full-list summary::after { content: "  ▼"; font-size: 0.8rem; }
+        details.full-list[open] summary::after { content: "  ▲"; }
+        details.full-list .content {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        details.full-list .content ul { padding-left: 1.25rem; }
+
+        .updates-note {
+            text-align: center;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        /* Scenarios (vignettes) */
+        .scenarios {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        @media (max-width: 700px) { .scenarios { grid-template-columns: 1fr; } }
+        .scenario {
+            background: #fff;
+            border-left: 4px solid #c0392b;
+            padding: 1.25rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+
+        /* Comparisons (vs blocks) */
+        .vs-blocks {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .vs-block {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 1.75rem;
+        }
+        .vs-block h3 {
+            color: #c0392b;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+        .vs-block p { color: #333; margin: 0; }
+
+        /* Social proof */
+        .social-proof-top {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 2.5rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        @media (max-width: 800px) { .social-proof-top { grid-template-columns: 1fr; } }
+        .video-review {
+            aspect-ratio: 16/9;
+        }
+        .rating-summary {
+            text-align: center;
+        }
+        .rating-summary .big-num {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #0d2b1a;
+            line-height: 1;
+        }
+        .rating-summary .stars { color: #f5a623; font-size: 1.5rem; margin: 0.25rem 0; }
+        .rating-summary .count { color: #555; font-size: 0.95rem; }
+
         .testimonials {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -308,109 +368,195 @@
         .testimonial {
             background: #fff;
             border: 1px solid #eee;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 1.5rem;
         }
         .testimonial .stars { color: #f5a623; margin-bottom: 0.5rem; }
-        .testimonial .quote { margin-bottom: 1rem; color: #333; }
-        .testimonial .author { display: flex; align-items: center; gap: 0.75rem; }
-        .testimonial .avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #f0f0f0;
-            border: 1px dashed #bbb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-            color: #888;
-        }
-        .testimonial .name { font-weight: 600; font-size: 0.9rem; }
-        .testimonial .verified { font-size: 0.75rem; color: #27ae60; }
+        .testimonial .quote { color: #333; font-size: 0.95rem; margin-bottom: 1rem; }
+        .testimonial .quote b { color: #0d2b1a; }
+        .testimonial .author { font-weight: 600; font-size: 0.9rem; color: #555; }
 
-        /* FAQ accordion */
-        .faq { max-width: 800px; margin: 0 auto; }
-        .faq details {
-            border-bottom: 1px solid #ddd;
-            padding: 1rem 0;
+        /* Offer / Pricing */
+        #offer {
+            background: linear-gradient(180deg, #0d2b1a 0%, #1a3d2a 100%);
+            color: #fff;
+            padding: 5rem 0;
         }
-        .faq summary {
-            font-weight: 600;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .faq summary::after { content: "+"; font-size: 1.4rem; }
-        .faq details[open] summary::after { content: "−"; }
-        .faq details p { margin-top: 0.75rem; color: #555; }
-
-        /* Reviews summary */
-        .reviews-summary {
+        #offer h2 { color: #fff; }
+        #offer .subhead { color: #d4d4d4; }
+        .pricing-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             max-width: 1000px;
             margin: 0 auto 2rem;
-            align-items: center;
         }
-        @media (max-width: 800px) { .reviews-summary { grid-template-columns: 1fr; } }
-        .reviews-summary .big-score { text-align: center; }
-        .reviews-summary .big-score .num { font-size: 3rem; font-weight: 800; }
-        .reviews-summary .big-score .stars { color: #f5a623; font-size: 1.3rem; }
-        .reviews-summary .bars .bar-row {
-            display: grid;
-            grid-template-columns: 60px 1fr 40px;
-            gap: 0.75rem;
-            align-items: center;
-            margin-bottom: 0.4rem;
-            font-size: 0.85rem;
-        }
-        .reviews-summary .bar { background: #eee; height: 8px; border-radius: 4px; overflow: hidden; }
-        .reviews-summary .bar > div { background: #f5a623; height: 100%; }
-
-        /* Guarantee banner */
-        .guarantee {
-            background: #111;
-            color: #fff;
-            padding: 3rem 0;
+        @media (max-width: 800px) { .pricing-grid { grid-template-columns: 1fr; } }
+        .pricing-card {
+            background: #fff;
+            color: #1a1a1a;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
             text-align: center;
+            position: relative;
+            border: 3px solid transparent;
         }
-        .guarantee h2 { color: #fff; margin-bottom: 1rem; }
-        .guarantee .badges {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
+        .pricing-card.featured {
+            border-color: #f5a623;
+            transform: scale(1.03);
         }
-        .guarantee .badge-item .img-placeholder {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #222;
-            border-color: #444;
-            color: #888;
-            min-height: 0;
-            margin: 0 auto 0.5rem;
+        @media (max-width: 800px) { .pricing-card.featured { transform: none; } }
+        .pricing-card .top-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f5a623;
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 999px;
+            letter-spacing: 0.05em;
         }
-
-        /* CTA repeat block */
-        .cta-banner {
+        .pricing-card .qty-label {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0d2b1a;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .pricing-card .qty-sub { font-size: 0.9rem; color: #666; margin-bottom: 1.25rem; min-height: 2.5rem; }
+        .pricing-card .unit-price { font-size: 1rem; color: #555; margin-bottom: 0.25rem; }
+        .pricing-card .total-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0d2b1a;
+            line-height: 1;
+            margin-bottom: 0.25rem;
+        }
+        .pricing-card .save {
+            color: #c0392b;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        .pricing-card .order-btn {
+            display: block;
+            width: 100%;
             background: #c0392b;
             color: #fff;
-            padding: 3rem 1rem;
+            padding: 0.9rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border: 0;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .offer-trust {
+            text-align: center;
+            color: #d4d4d4;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+        }
+        .offer-trust .pay-icons { margin-top: 0.75rem; }
+
+        /* What's inside */
+        .inside-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (max-width: 800px) { .inside-row { grid-template-columns: 1fr; } }
+        .inside-row .img-placeholder { aspect-ratio: 4/3; }
+        .inside-row ul { list-style: none; }
+        .inside-row li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 0.75rem;
+        }
+        .inside-row li::before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: 700;
+        }
+        .inside-row li.optional::before { content: "+"; color: #888; }
+
+        /* Guarantee */
+        .guarantee {
+            background: #0d2b1a;
+            color: #fff;
+            padding: 4rem 0;
             text-align: center;
         }
-        .cta-banner h2 { color: #fff; }
-        .cta-banner .btn-cart { display: inline-block; width: auto; margin-top: 1rem; padding: 1rem 2rem; background: #fff; color: #c0392b; }
+        .guarantee h2 { color: #fff; }
+        .guarantee .subhead { color: #d4d4d4; max-width: 700px; margin: 0 auto 2rem; }
+        .guarantee .seal {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 3px dashed #f5a623;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5a623;
+            font-weight: 700;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+        .guarantee p { max-width: 700px; margin: 0 auto 1rem; }
+
+        /* About */
+        .about-row {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: start;
+            max-width: 1000px;
+            margin: 0 auto 2.5rem;
+        }
+        @media (max-width: 800px) { .about-row { grid-template-columns: 1fr; } }
+        .about-row .img-placeholder { aspect-ratio: 3/4; }
+        .about-row p { color: #333; }
+
+        /* Crossroads */
+        .crossroads { background: #1a1a1a; color: #fff; padding: 5rem 0; }
+        .crossroads h2 { color: #fff; text-align: center; margin-bottom: 2.5rem; }
+        .options { max-width: 800px; margin: 0 auto 2.5rem; }
+        .option {
+            background: #2a2a2a;
+            border-left: 4px solid #555;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+        .option.best { border-left-color: #f5a623; background: #2a2516; }
+        .option .label {
+            font-weight: 700;
+            color: #f5a623;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .option p { margin: 0; color: #ddd; }
+        .crossroads .cta-wrap { text-align: center; }
+
+        /* CTA section divider */
+        .cta-divider { text-align: center; padding: 2rem 0; }
 
         /* Footer */
         footer.site {
-            background: #1a1a1a;
-            color: #ccc;
+            background: #0a0a0a;
+            color: #aaa;
             padding: 3rem 0 1.5rem;
         }
         footer.site .cols {
@@ -424,414 +570,388 @@
         footer.site ul { list-style: none; }
         footer.site li { margin-bottom: 0.4rem; font-size: 0.85rem; }
         footer.site .legal {
-            border-top: 1px solid #333;
+            border-top: 1px solid #222;
             padding-top: 1rem;
             text-align: center;
             font-size: 0.8rem;
-            color: #888;
+            color: #777;
         }
     </style>
 </head>
 <body>
 
-<!-- Announcement bar -->
-<div class="announcement">[Announcement bar — rotating message, e.g. shipping / promo / urgency]</div>
+<!-- Announcement -->
+<div class="announcement">⚡ FOR PREPARED FAMILIES, SCHOOLS, AND OFF-GRID ADVENTURERS</div>
 
 <!-- Header -->
 <header class="site">
     <div class="container row">
-        <div class="logo">[LOGO: PrepperDisk]</div>
+        <div class="logo">[LOGO: PREPPER DISK]</div>
         <nav>
             <ul>
-                <li><a href="#">[Nav 1]</a></li>
-                <li><a href="#">[Nav 2]</a></li>
-                <li><a href="#">[Nav 3]</a></li>
-                <li><a href="#">[Nav 4]</a></li>
-                <li><a href="#">[Nav 5]</a></li>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#whats-on-it">What's On It</a></li>
+                <li><a href="#offer">Pricing</a></li>
+                <li><a href="#about">About</a></li>
             </ul>
         </nav>
-        <div class="icons">
-            <span>[search]</span>
-            <span>[account]</span>
-            <span>[cart 0]</span>
-        </div>
+        <div><a href="#offer" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">Order Now</a></div>
     </div>
 </header>
 
-<!-- Product hero -->
-<section class="container product-hero">
-    <div class="gallery">
-        <div class="img-placeholder main-image">[IMAGE: main product hero shot]</div>
-        <div class="thumbs">
-            <div class="img-placeholder">[thumb 1]</div>
-            <div class="img-placeholder">[thumb 2]</div>
-            <div class="img-placeholder">[thumb 3]</div>
-            <div class="img-placeholder">[thumb 4]</div>
-            <div class="img-placeholder">[thumb 5]</div>
-        </div>
-    </div>
-    <div class="product-info">
-        <h1>[Product title]</h1>
-        <div class="stars-row">
-            <span>★★★★★</span>
-            <span class="count">[X,XXX reviews]</span>
-        </div>
-        <div class="price-row">
-            <span class="price-sale">[$XX.XX]</span>
-            <span class="price-compare">[$XX.XX]</span>
-            <span class="price-badge">[SAVE XX%]</span>
-        </div>
-        <ul class="product-bullets">
-            <li>[Benefit bullet 1]</li>
-            <li>[Benefit bullet 2]</li>
-            <li>[Benefit bullet 3]</li>
-            <li>[Benefit bullet 4]</li>
+<!-- Hero (sales-page style, no cart) -->
+<section class="hero">
+    <div class="container">
+        <div class="eyebrow">What if the internet doesn't come back online?</div>
+        <h1>This Tiny Survival Hotspot Gives You Five Libraries' Worth of Critical Information to Survive Outdoors, Find Your Way Back Home, or Treat Wounds in Seconds</h1>
+        <p class="subhead">All without lugging around thousands of books, maps, and survival guides.</p>
+
+        <div class="img-placeholder product-shot">[IMAGE: Prepper Disk on a desk with phone connected and Wikipedia loading on the screen]</div>
+
+        <p class="desc">The Prepper Disk holds 512GB of survival, medical, and rebuilding knowledge, including the full English Wikipedia, FEMA disaster manuals, more than 60,000 books, offline maps, and over 90,000 how-to guides, all of it easy to browse and search without ever needing an internet connection.</p>
+
+        <ul class="hero-bullets">
+            <li>📡 Powers on and off-grid</li>
+            <li>📱 Easy enough for non-tech users</li>
+            <li>🛡️ No subscriptions, yours forever</li>
         </ul>
 
-        <div class="bundle-options">
-            <label class="bundle-option">
-                <input type="radio" name="bundle">
-                <div>
-                    <div class="qty">[1x — Single]</div>
-                    <div class="desc">[Description / who it's for]</div>
-                </div>
-                <div class="price">
-                    <div>[$XX.XX]</div>
-                    <div class="each">[$XX.XX each]</div>
-                </div>
-            </label>
-            <label class="bundle-option selected">
-                <span class="badge-top">[MOST POPULAR]</span>
-                <input type="radio" name="bundle" checked>
-                <div>
-                    <div class="qty">[2x — Family]</div>
-                    <div class="desc">[Description / who it's for]</div>
-                </div>
-                <div class="price">
-                    <div>[$XX.XX]</div>
-                    <div class="each">[$XX.XX each]</div>
-                </div>
-            </label>
-            <label class="bundle-option">
-                <span class="badge-top">[BEST VALUE]</span>
-                <input type="radio" name="bundle">
-                <div>
-                    <div class="qty">[4x — Whole Home]</div>
-                    <div class="desc">[Description / who it's for]</div>
-                </div>
-                <div class="price">
-                    <div>[$XX.XX]</div>
-                    <div class="each">[$XX.XX each]</div>
-                </div>
-            </label>
-        </div>
-
-        <div class="qty-row">
-            <span>Qty</span>
-            <div class="qty-stepper">
-                <button type="button">−</button>
-                <input type="text" value="1">
-                <button type="button">+</button>
-            </div>
-        </div>
-
-        <button class="btn-cart">[Add to cart — $XX.XX]</button>
-        <button class="btn-buy">[Buy it now]</button>
-
-        <div class="trust-row">
-            <div class="item"><span class="icon">[ic]</span>[Free shipping]</div>
-            <div class="item"><span class="icon">[ic]</span>[XX-day guarantee]</div>
-            <div class="item"><span class="icon">[ic]</span>[Secure checkout]</div>
-            <div class="item"><span class="icon">[ic]</span>[X-year warranty]</div>
-        </div>
+        <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
+        <div class="trust-line">🔒 Secure checkout   •   🚚 Ships from USA   •   ✅ 60-day returns   •   🛡️ 1-year warranty</div>
     </div>
 </section>
 
-<!-- Press / as featured in -->
-<section class="press-bar">
+<!-- Credibility strip -->
+<section class="credibility">
     <div class="container">
-        <div class="label">[As featured in]</div>
+        <div class="label">Trusted by</div>
         <div class="logos">
-            <div class="img-placeholder">[Press logo 1]</div>
-            <div class="img-placeholder">[Press logo 2]</div>
-            <div class="img-placeholder">[Press logo 3]</div>
-            <div class="img-placeholder">[Press logo 4]</div>
-            <div class="img-placeholder">[Press logo 5]</div>
-            <div class="img-placeholder">[Press logo 6]</div>
+            <div class="img-placeholder">[Casual Prepper Podcast]</div>
+            <div class="img-placeholder">[Urban Prepper]</div>
+            <div class="img-placeholder">[Alaska Prepper]</div>
+            <div class="img-placeholder">[City Prepper]</div>
+            <div class="img-placeholder">[News logo]</div>
         </div>
+        <p class="access-line">For the people who want to keep accessing <strong>Wikipedia, WikiHow, iFixit</strong>, and so much more, completely offline.</p>
     </div>
 </section>
 
-<!-- Problem / pain section -->
-<section class="block">
-    <div class="container split">
-        <div class="img-placeholder">[IMAGE: problem / pain visual]</div>
-        <div>
-            <h3>[Problem-statement headline]</h3>
-            <p>[Problem paragraph 1]</p>
-            <p>[Problem paragraph 2]</p>
-        </div>
-    </div>
-</section>
-
-<!-- Solution intro -->
-<section class="block alt">
-    <div class="container split reverse">
-        <div class="img-placeholder">[IMAGE: solution / product introduction]</div>
-        <div>
-            <h3>[Solution headline]</h3>
-            <p>[Solution paragraph 1]</p>
-            <p>[Solution paragraph 2]</p>
-        </div>
-    </div>
-</section>
-
-<!-- Feature icon grid -->
-<section class="block">
+<!-- Problem -->
+<section class="block" id="problem">
     <div class="container">
-        <h2>[Why-choose-us headline]</h2>
-        <p class="subhead">[Supporting subhead]</p>
-        <div class="feature-grid">
-            <div class="card">
-                <div class="icon-ph">[icon]</div>
-                <h4>[Feature 1]</h4>
-                <p>[Feature 1 description]</p>
+        <h2>The End of the Internet As You Know It</h2>
+        <p class="subhead">There are more ways for the web to go dark than most people realize, and once it does, the systems your family depends on every day start unraveling fast.</p>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="icon">🌪️</div>
+                <h3>Disaster strikes</h3>
+                <p>Storms, floods, fires, and manmade attacks all have the ability to sever the internet for days, weeks, or even longer, leaving you cut off from the information your household runs on.</p>
+                <div class="example"><strong>Example:</strong> During the 2025 Pacific Winter Storm, tens of thousands of people across the United States lost internet access for more than five straight days.</div>
             </div>
-            <div class="card">
-                <div class="icon-ph">[icon]</div>
-                <h4>[Feature 2]</h4>
-                <p>[Feature 2 description]</p>
+
+            <div class="problem-card">
+                <div class="icon">🚫</div>
+                <h3>Government censorship</h3>
+                <p>Governments hold the power to throttle or completely cut off internet access in their own countries, and they can do it without giving anyone a moment's notice.</p>
+                <div class="example"><strong>Example:</strong> In 2017, the Turkish government fully blocked access to Wikipedia for three years, leaving millions of people without one of the most useful reference sites in the world.</div>
             </div>
-            <div class="card">
-                <div class="icon-ph">[icon]</div>
-                <h4>[Feature 3]</h4>
-                <p>[Feature 3 description]</p>
+
+            <div class="problem-card">
+                <div class="icon">🤖</div>
+                <h3>AI takeover</h3>
+                <p>AI is reshaping the internet quickly, from making information unreliable to potentially shutting down large parts of it as a kind of digital doomsday device, which is why owning a snapshot of the web from when it was still mostly human-made could prove genuinely valuable.</p>
+                <div class="example"><strong>Example:</strong> In April 2026, Claude Mythos was reportedly leaked to unknown parties, and experts are concerned that bad actors could use this digital doomsday device to collapse the open web.</div>
             </div>
-            <div class="card">
-                <div class="icon-ph">[icon]</div>
-                <h4>[Feature 4]</h4>
-                <p>[Feature 4 description]</p>
+
+            <div class="problem-card">
+                <div class="icon">🌲</div>
+                <h3>Going off-grid</h3>
+                <p>Whether you are forced into the wilderness by circumstances or you choose to live off-grid on a homestead, on a sailboat, or while traveling through remote regions, reliable connectivity is almost always the very first thing to disappear.</p>
+                <div class="example"><strong>Example:</strong> [Off-grid example story]</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Alternating feature blocks -->
-<section class="block alt">
-    <div class="container split">
-        <div class="img-placeholder">[IMAGE: feature 1 in use]</div>
-        <div>
-            <h3>[Feature block 1 headline]</h3>
-            <p>[Feature block 1 paragraph]</p>
-            <ul class="product-bullets">
-                <li>[Sub-point 1]</li>
-                <li>[Sub-point 2]</li>
-                <li>[Sub-point 3]</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="block">
-    <div class="container split reverse">
-        <div class="img-placeholder">[IMAGE: feature 2 in use]</div>
-        <div>
-            <h3>[Feature block 2 headline]</h3>
-            <p>[Feature block 2 paragraph]</p>
-            <ul class="product-bullets">
-                <li>[Sub-point 1]</li>
-                <li>[Sub-point 2]</li>
-                <li>[Sub-point 3]</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="block alt">
-    <div class="container split">
-        <div class="img-placeholder">[IMAGE: feature 3 in use]</div>
-        <div>
-            <h3>[Feature block 3 headline]</h3>
-            <p>[Feature block 3 paragraph]</p>
-            <ul class="product-bullets">
-                <li>[Sub-point 1]</li>
-                <li>[Sub-point 2]</li>
-                <li>[Sub-point 3]</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Comparison table -->
-<section class="block">
-    <div class="container">
-        <h2>[Us vs. them headline]</h2>
-        <p class="subhead">[Comparison subhead]</p>
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th class="us">[OUR PRODUCT]</th>
-                    <th>[Competitor A]</th>
-                    <th>[Competitor B]</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>[Comparison row 1]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
-                <tr><td>[Comparison row 2]</td><td class="check">✓</td><td class="check">✓</td><td class="x">✗</td></tr>
-                <tr><td>[Comparison row 3]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
-                <tr><td>[Comparison row 4]</td><td class="check">✓</td><td class="x">✗</td><td class="check">✓</td></tr>
-                <tr><td>[Comparison row 5]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<!-- How it works -->
+<!-- Solution -->
 <section class="block alt">
     <div class="container">
-        <h2>[How it works headline]</h2>
-        <p class="subhead">[How it works subhead]</p>
-        <div class="steps">
-            <div class="step">
-                <div class="num">1</div>
-                <div class="img-placeholder">[IMAGE: step 1]</div>
-                <h4>[Step 1 title]</h4>
-                <p>[Step 1 description]</p>
-            </div>
-            <div class="step">
-                <div class="num">2</div>
-                <div class="img-placeholder">[IMAGE: step 2]</div>
-                <h4>[Step 2 title]</h4>
-                <p>[Step 2 description]</p>
-            </div>
-            <div class="step">
-                <div class="num">3</div>
-                <div class="img-placeholder">[IMAGE: step 3]</div>
-                <h4>[Step 3 title]</h4>
-                <p>[Step 3 description]</p>
-            </div>
+        <h2>Here's How It Works in Any Situation</h2>
+        <p class="subhead">A pocket-sized device, your existing phone or laptop, and a few seconds of setup are all it takes.</p>
+
+        <div class="img-placeholder solution-image">[IMAGE: laptop and phone showing the UI, with the Prepper Disk in the outdoors, from the home page]</div>
+
+        <div class="solution-text">
+            <p>When the internet goes down, you simply switch the WiFi on your phone, laptop, or tablet over to the Prepper Disk's network. Power the unit on by plugging it into a wall outlet, a car charger, a portable power bank, or even a generator, and within seconds it creates its own private WiFi network that up to twenty people can connect to at the same time.</p>
+
+            <p>From there you browse all of the included material as if you were online, except nothing actually is online, since every article, map, video, and book lives directly on the Disk. When you don't need it, you can stash it in a drawer, drop it into a waterproof container, or pack it away securely in your bug-out bag for next time.</p>
+        </div>
+
+        <div class="cta-divider">
+            <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
         </div>
     </div>
 </section>
 
-<!-- Testimonials -->
+<!-- What's on it -->
+<section class="block" id="whats-on-it">
+    <div class="container">
+        <h2>What's On It</h2>
+        <p class="subhead">Your private version of the internet's most useful knowledge, ready to browse the moment you connect.</p>
+
+        <div class="tile-grid">
+            <div class="tile">
+                <span class="icon">📖</span>
+                <h4>100% of Wikipedia</h4>
+                <p>Over 7 million English articles, fully searchable, with images included.</p>
+            </div>
+            <div class="tile">
+                <span class="icon">🏥</span>
+                <h4>Medical Manuals</h4>
+                <p>Diagnose, treat, and stabilize, plus the complete library of FEMA disaster guides.</p>
+            </div>
+            <div class="tile">
+                <span class="icon">🛠️</span>
+                <h4>iFixit + 90,000 Tutorials</h4>
+                <p>Repair the generator, fix the well pump, get the truck running again.</p>
+            </div>
+            <div class="tile">
+                <span class="icon">🗺️</span>
+                <h4>Offline Maps</h4>
+                <p>Streets, satellite imagery, and the full US National Park trail system.</p>
+            </div>
+            <div class="tile">
+                <span class="icon">📚</span>
+                <h4>60,000+ Books</h4>
+                <p>Classics, survival manuals, and US Military field guides ready to read.</p>
+            </div>
+            <div class="tile">
+                <span class="icon">📻</span>
+                <h4>Ham Radio Database</h4>
+                <p>Frequencies, callsigns, and emergency channels at your fingertips.</p>
+            </div>
+        </div>
+
+        <details class="full-list">
+            <summary>View the full content list</summary>
+            <div class="content">
+                <ul>
+                    <li>[Full content item 1]</li>
+                    <li>[Full content item 2]</li>
+                    <li>[Full content item 3]</li>
+                    <li>[Full content item 4]</li>
+                    <li>[Full content item 5]</li>
+                    <li>[…full inventory placeholder]</li>
+                </ul>
+            </div>
+        </details>
+
+        <p class="updates-note">Plus, we release new content updates regularly so your library keeps growing over time.</p>
+
+        <div class="cta-divider">
+            <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
+        </div>
+    </div>
+</section>
+
+<!-- When you'd actually use it -->
+<section class="block alt">
+    <div class="container">
+        <h2>When You'd Actually Use It</h2>
+        <p class="subhead">Built for the moments you can't Google your way out of.</p>
+
+        <div class="scenarios">
+            <div class="scenario">Someone in your group has been hurt and you need to look up the symptoms, find the right treatment, and stay calm while the situation unfolds around you.</div>
+            <div class="scenario">A disaster has forced you to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
+            <div class="scenario">The truck won't start, so you search the exact make and model and follow the repair walkthrough step by step until you've got it running again.</div>
+            <div class="scenario">The kids still need to keep learning even in the middle of a long emergency, and you've already got Khan Academy courses, TED talks, and 60,000 books loaded on the Disk and waiting for them.</div>
+            <div class="scenario">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and what's just around the next block.</div>
+            <div class="scenario">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
+        </div>
+    </div>
+</section>
+
+<!-- Why not just... -->
 <section class="block">
     <div class="container">
-        <h2>[Customer love headline]</h2>
-        <p class="subhead">[Testimonials subhead]</p>
+        <h2>Why a Prepper Disk Beats Every Alternative</h2>
+        <p class="subhead">A quick look at why the obvious substitutes fall short the moment you actually need them.</p>
+
+        <div class="vs-blocks">
+            <div class="vs-block">
+                <h3>vs. Your phone</h3>
+                <p>Your phone is only as useful as the internet it's connected to, and the moment that connection drops, almost everything that makes the device valuable drops with it. The Prepper Disk gives your phone its own private emergency internet, restoring the apps, articles, and answers you depend on even when every cell tower around you is dead.</p>
+            </div>
+            <div class="vs-block">
+                <h3>vs. Printed books</h3>
+                <p>You would need a forty-foot shipping container just to store a small fraction of what fits on the Prepper Disk in printed form, and even then you would be flipping through pages by hand instead of searching a library by keyword in seconds.</p>
+            </div>
+            <div class="vs-block">
+                <h3>vs. A USB drive</h3>
+                <p>A regular USB drive could technically hold the same files, but you would struggle to navigate any of it without a proper interface, and you would have to physically hand it around every time someone else needed access. The Prepper Disk wirelessly shares its full library with up to twenty devices at once, and the built-in interface lets you find critical information in moments, like how to apply a tourniquet after a car crash.</p>
+            </div>
+        </div>
+
+        <div class="cta-divider">
+            <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Social proof -->
+<section class="block alt">
+    <div class="container">
+        <h2>Fortifying Over 7,000 Households</h2>
+        <p class="subhead">From homesteaders to off-grid families to entire small communities, here's what people are saying.</p>
+
+        <div class="social-proof-top">
+            <div class="img-placeholder video-review">[VIDEO: YouTube review embed placeholder]</div>
+            <div class="rating-summary">
+                <div class="big-num">4.8</div>
+                <div class="stars">★★★★★</div>
+                <div class="count">Based on 114+ verified reviews</div>
+            </div>
+        </div>
+
         <div class="testimonials">
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p class="quote">[Testimonial quote 1]</p>
-                <div class="author">
-                    <div class="avatar">[av]</div>
-                    <div>
-                        <div class="name">[Customer 1 name]</div>
-                        <div class="verified">[Verified buyer]</div>
-                    </div>
-                </div>
+                <p class="quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
+                <div class="author">— Douglas G., verified buyer</div>
             </div>
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p class="quote">[Testimonial quote 2]</p>
-                <div class="author">
-                    <div class="avatar">[av]</div>
-                    <div>
-                        <div class="name">[Customer 2 name]</div>
-                        <div class="verified">[Verified buyer]</div>
-                    </div>
-                </div>
+                <p class="quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
+                <div class="author">— Micaela B., verified buyer</div>
             </div>
             <div class="testimonial">
                 <div class="stars">★★★★★</div>
-                <p class="quote">[Testimonial quote 3]</p>
-                <div class="author">
-                    <div class="avatar">[av]</div>
-                    <div>
-                        <div class="name">[Customer 3 name]</div>
-                        <div class="verified">[Verified buyer]</div>
-                    </div>
-                </div>
+                <p class="quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
+                <div class="author">— Garrett D., verified buyer</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Guarantee / risk reversal -->
+<!-- Offer / Buy box -->
+<section id="offer">
+    <div class="container">
+        <h2>Get the Prepper Disk Premium 512GB</h2>
+        <p class="subhead">Pick the package that fits your household, your group, or your organization. Every option ships out of the USA within 24 hours.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="qty-label">1 Disk</div>
+                <div class="qty-sub">For one person or a single household.</div>
+                <div class="unit-price">$279 / unit</div>
+                <div class="total-price">$279</div>
+                <div class="save">&nbsp;</div>
+                <a href="[checkout-link-1x]" class="order-btn">✅ Order Now</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <div class="top-badge">Most Popular</div>
+                <div class="qty-label">2 Disks</div>
+                <div class="qty-sub">A backup for yourself, or one to gift to family.</div>
+                <div class="unit-price">$250 / unit (save $XX)</div>
+                <div class="total-price">$500</div>
+                <div class="save">You save $58 total</div>
+                <a href="[checkout-link-2x]" class="order-btn">✅ Order Now</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="qty-label">3 Disks</div>
+                <div class="qty-sub">Best for organizations, groups, or community preparedness.</div>
+                <div class="unit-price">$230 / unit (save $XX + free shipping)</div>
+                <div class="total-price">$690</div>
+                <div class="save">You save $147 + free shipping</div>
+                <a href="[checkout-link-3x]" class="order-btn">✅ Order Now</a>
+            </div>
+        </div>
+
+        <div class="offer-trust">
+            🔒 Secure checkout   •   🚚 Ships in 24 hours from USA   •   💳 Visa, Mastercard, Amex, PayPal, Apple Pay, Shop Pay
+            <div class="pay-icons">[payment icons placeholder]</div>
+        </div>
+    </div>
+</section>
+
+<!-- What's inside -->
+<section class="block">
+    <div class="container">
+        <h2>What Gets Delivered to Your Front Door</h2>
+        <p class="subhead">Everything you need to be up and running in under five minutes.</p>
+
+        <div class="inside-row">
+            <div class="img-placeholder">[IMAGE: unboxing shot of all components laid out]</div>
+            <ul>
+                <li>Raspberry Pi 4B with 2GB RAM and 512GB premium SD card pre-loaded with the full library.</li>
+                <li>Rugged aluminum case with passive cooling, since there is no fan to fail in the field.</li>
+                <li>Compact 3.5″ × 2.75″ × 1″ form factor that fits comfortably in a jacket pocket or glove box.</li>
+                <li>USB-C charger and cable included so you can power up out of the box.</li>
+                <li class="optional">Optional Faraday Bag to protect the unit from EMP and electromagnetic interference.</li>
+                <li class="optional">Optional Power Bank Battery for long off-grid sessions away from a wall outlet.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Guarantee -->
 <section class="guarantee">
     <div class="container">
-        <h2>[Guarantee headline]</h2>
-        <p>[Guarantee paragraph]</p>
-        <div class="badges">
-            <div class="badge-item"><div class="img-placeholder">[badge 1]</div>[XX-day money back]</div>
-            <div class="badge-item"><div class="img-placeholder">[badge 2]</div>[Free shipping]</div>
-            <div class="badge-item"><div class="img-placeholder">[badge 3]</div>[Lifetime warranty]</div>
-            <div class="badge-item"><div class="img-placeholder">[badge 4]</div>[Secure checkout]</div>
+        <h2>Our Ironclad 60-Day Guarantee</h2>
+        <p class="subhead">Because the only way you should ever feel about your Prepper Disk is genuinely safer, more capable, and more prepared than you were the day before it arrived.</p>
+        <div class="seal">[60-DAY GUARANTEE SEAL]</div>
+        <p>If your Prepper Disk doesn't make you feel safer, more capable, and more prepared, just email our team at <strong>support@prepperdisk.com</strong> within sixty days and we'll send you instructions for getting it back to us, with a full refund processed the moment it arrives.</p>
+        <p>On top of that, every single unit we ship comes with a full one-year hardware warranty, so you're covered in every direction from the moment your order is placed.</p>
+    </div>
+</section>
+
+<!-- About -->
+<section class="block alt" id="about">
+    <div class="container">
+        <h2>Why We Built This</h2>
+        <p class="subhead">A small family business, building the device we wanted for our own home.</p>
+
+        <div class="about-row">
+            <div class="img-placeholder">[IMAGE: Adam in the workshop, with family]</div>
+            <div>
+                <p>This whole project started in a basement workshop in Massachusetts, with a stack of Raspberry Pi boards, a few hard drives full of survival PDFs, and a question that kept circling back to me at odd hours of the night, which was simply what my family would actually do if the internet went out for good.</p>
+                <p>My name is Adam, and before any of this I spent more than a decade working in software, building tools that made information easier to find for the people who needed it most. Somewhere along the way it occurred to me that the same skills could solve a much more personal problem in a way that nothing on the market really did.</p>
+                <p>I learned about prepping from my father, who taught me from a young age that the best time to prepare for an emergency is the day before you actually need to. That lesson stuck with me, and as I started a family of my own, I knew I wanted my kids to grow up with the same quiet sense of confidence that he had given me.</p>
+                <p>What began as a one-off device for our own household quickly turned into something more, and we now run Prepper Disk together as a small family business out of Massachusetts, alongside my wife and our young daughter, packing and shipping every unit out of our local workshop to households and communities all across the country.</p>
+                <p>Our promise is honestly pretty simple, which is that we build the kind of device we would want for our own home, and we stand behind every single disk that leaves our hands.</p>
+            </div>
+        </div>
+
+        <div class="cta-divider">
+            <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
         </div>
     </div>
 </section>
 
-<!-- FAQ -->
-<section class="block">
+<!-- Crossroads -->
+<section class="crossroads">
     <div class="container">
-        <h2>[FAQ headline]</h2>
-        <p class="subhead">[FAQ subhead]</p>
-        <div class="faq">
-            <details><summary>[FAQ Q1]</summary><p>[FAQ A1]</p></details>
-            <details><summary>[FAQ Q2]</summary><p>[FAQ A2]</p></details>
-            <details><summary>[FAQ Q3]</summary><p>[FAQ A3]</p></details>
-            <details><summary>[FAQ Q4]</summary><p>[FAQ A4]</p></details>
-            <details><summary>[FAQ Q5]</summary><p>[FAQ A5]</p></details>
-            <details><summary>[FAQ Q6]</summary><p>[FAQ A6]</p></details>
-        </div>
-    </div>
-</section>
-
-<!-- Reviews summary + cards -->
-<section class="block alt">
-    <div class="container">
-        <h2>[Reviews headline]</h2>
-        <div class="reviews-summary">
-            <div class="big-score">
-                <div class="num">[4.8]</div>
-                <div class="stars">★★★★★</div>
-                <div>[Based on X,XXX reviews]</div>
+        <h2>You've Got Three Choices From Here</h2>
+        <div class="options">
+            <div class="option">
+                <div class="label">Option 1</div>
+                <p>Close this tab and go on with your day, hoping that the internet, and all of the systems your family quietly depends on it for, keeps working forever in exactly the way it does today.</p>
             </div>
-            <div class="bars">
-                <div class="bar-row"><span>5 stars</span><div class="bar"><div style="width: 85%"></div></div><span>[85%]</span></div>
-                <div class="bar-row"><span>4 stars</span><div class="bar"><div style="width: 10%"></div></div><span>[10%]</span></div>
-                <div class="bar-row"><span>3 stars</span><div class="bar"><div style="width: 3%"></div></div><span>[3%]</span></div>
-                <div class="bar-row"><span>2 stars</span><div class="bar"><div style="width: 1%"></div></div><span>[1%]</span></div>
-                <div class="bar-row"><span>1 star</span><div class="bar"><div style="width: 1%"></div></div><span>[1%]</span></div>
+            <div class="option">
+                <div class="label">Option 2</div>
+                <p>Build something like this on your own, which is genuinely doable since all of the information is technically out there if you go looking for it. To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
+            </div>
+            <div class="option best">
+                <div class="label">Option 3 — The best pick</div>
+                <p>Spend $279 today to save yourself the time and the headaches, and have all of those answers waiting in your pocket for the rest of your life. This is the route most of our customers end up taking, and the one we'd quietly recommend to a friend.</p>
             </div>
         </div>
-        <div class="testimonials">
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote">[Review 1]</p>
-                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 1]</div><div class="verified">[Verified]</div></div></div>
-            </div>
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote">[Review 2]</p>
-                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 2]</div><div class="verified">[Verified]</div></div></div>
-            </div>
-            <div class="testimonial">
-                <div class="stars">★★★★★</div>
-                <p class="quote">[Review 3]</p>
-                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 3]</div><div class="verified">[Verified]</div></div></div>
-            </div>
+        <div class="cta-wrap">
+            <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
         </div>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section class="cta-banner">
-    <div class="container">
-        <h2>[Final CTA headline]</h2>
-        <p>[Final CTA subhead]</p>
-        <button class="btn-cart">[Get yours now — $XX.XX]</button>
     </div>
 </section>
 
@@ -840,32 +960,40 @@
     <div class="container">
         <div class="cols">
             <div>
-                <h5>[Shop]</h5>
+                <h5>Shop</h5>
                 <ul>
-                    <li>[Link]</li><li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                    <li><a href="#offer">Prepper Disk Premium</a></li>
+                    <li>[Accessories]</li>
+                    <li>[Bundles]</li>
+                    <li>[Gift Cards]</li>
                 </ul>
             </div>
             <div>
-                <h5>[Support]</h5>
+                <h5>Support</h5>
                 <ul>
-                    <li>[Link]</li><li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                    <li>[Contact us]</li>
+                    <li>[Setup guides]</li>
+                    <li>[FAQ]</li>
+                    <li>[Warranty]</li>
                 </ul>
             </div>
             <div>
-                <h5>[Company]</h5>
+                <h5>Company</h5>
                 <ul>
-                    <li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                    <li><a href="#about">Our story</a></li>
+                    <li>[Affiliates]</li>
+                    <li>[Press]</li>
                 </ul>
             </div>
             <div>
-                <h5>[Newsletter]</h5>
-                <p style="font-size: 0.85rem; margin-bottom: 0.75rem;">[Newsletter pitch]</p>
-                <input type="email" placeholder="[email]" style="width: 100%; padding: 0.5rem; border: 0; border-radius: 4px; margin-bottom: 0.5rem;">
-                <button style="width: 100%; padding: 0.5rem; background: #c0392b; color: #fff; border: 0; border-radius: 4px;">[Subscribe]</button>
+                <h5>Stay Ready</h5>
+                <p style="font-size: 0.85rem; margin-bottom: 0.75rem;">Tips, updates, and new content drops, sent occasionally.</p>
+                <input type="email" placeholder="your@email.com" style="width: 100%; padding: 0.5rem; border: 0; border-radius: 4px; margin-bottom: 0.5rem;">
+                <button style="width: 100%; padding: 0.5rem; background: #c0392b; color: #fff; border: 0; border-radius: 4px; font-weight: 600;">Subscribe</button>
             </div>
         </div>
         <div class="legal">
-            <p>[© Year — Brand]   ·   [Privacy]   ·   [Terms]   ·   [Refund policy]</p>
+            <p>© 2026 Prepper Disk   ·   [Privacy]   ·   [Terms]   ·   [Refund policy]</p>
             <div style="margin-top: 0.5rem;">[payment icons placeholder]</div>
         </div>
     </div>
