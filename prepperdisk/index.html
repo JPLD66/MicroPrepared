@@ -632,8 +632,8 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
         .option.best {
-            border-left-color: #c0392b;
-            background: #fff8f6;
+            border-left-color: #27ae60;
+            background: #f3faf5;
         }
         .option .label {
             font-weight: 700;
@@ -642,8 +642,21 @@
             font-size: 0.85rem;
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
         }
-        .option.best .label { color: #c0392b; }
+        .option.best .label { color: #1e8449; }
+        .best-tag {
+            background: #27ae60;
+            color: #fff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
         .option p { margin: 0; color: #333; }
         .crossroads .cta-wrap { text-align: center; }
 
@@ -1117,14 +1130,10 @@
         <div class="about-row">
             <div class="img-placeholder">[IMAGE: Adam in the workshop, with family]</div>
             <div>
-                <p>Hi, I'm Adam, and the story of how Prepper Disk actually came to exist is honestly one of my favorite things to talk about, so let me give you the real version of it. I grew up in a household with the somewhat unlikely combination of a dad who was an Eagle Scout and a die-hard outdoorsman, and at the same time a relentless gadget guy who bought a Commodore 64 just so he could code his own spreadsheets and was running around with one of the very first pagers and text-messaging phones long before most of us knew what those even were.</p>
-                <p>That mix shaped me from a young age. I got my first computer when I was nine, fell in love with programming pretty much that same week, and it set me up for a long career as a software engineer and eventually a technology executive, mostly building tools that helped people find the information they really needed.</p>
-                <p>Right before Prepper Disk, I was leading an educational software company focused on K-8 students, and that role opened my eyes in a way I genuinely didn't see coming. I started learning about the very real barriers kids in the developing world were running into, especially the heartbreaking fact that so many young children were spending entire days fetching clean water for their families instead of being able to attend school at all.</p>
-                <p>I wanted to do something useful, so I joined the board of directors at The Water Project and started traveling out to communities in Kenya to help build wells, sand dams, and protected natural springs. While I was over there I noticed something else that stuck with me, which was that schools were trying to teach computer science on traditional chalkboards because they had no reliable electricity or internet to actually work with.</p>
-                <p>That's when I came across the early software being built to capture pieces of the internet and store it on small offline devices, so kids could keep learning even without a connection. The idea hit me hard, and I brought it back home and started kicking it around with my oldest son, who happens to be an avid outdoorsman and a casual prepper himself, the kind of guy who is always quietly upgrading his go-bag in the corner of the room.</p>
-                <p>Together we asked ourselves the question that eventually became Prepper Disk, which was simply, what does the digital version of a prep actually look like? Whether it's offline maps for a weekend hike or making sure your kids can keep learning during a long grid-down event, we wanted to figure out how a regular family could permanently take control of their own knowledge.</p>
-                <p>From there we started building, and we made a real point of bringing in survival experts and seasoned preppers along the way, because we wanted what ended up on the disk to be genuinely useful in the field and not just impressive on paper. The response since launch has honestly blown us away, and seeing major prepper channels and respected experts test what we built and share it with their own communities has been one of the most rewarding parts of this whole journey.</p>
-                <p>Today we run Prepper Disk as a small family team out of Massachusetts, and our promise is the same as it was on day one, which is that digital information turns out to be incredibly fragile, and we built this so that you and your family never have to feel at the mercy of that fragility again.</p>
+                <p>Hi, I'm Adam, and the short version of how Prepper Disk came to exist starts with a long career in software. I spent years as an engineer and then as a technology executive, and right before launching Prepper Disk I was leading an educational software company focused on K-8 students.</p>
+                <p>That work eventually pulled me into board service with The Water Project, and I started traveling to communities in Kenya to help build wells, sand dams, and protected springs. While I was over there I noticed schools trying to teach computer science on traditional chalkboards because they had no reliable electricity or internet at all, which is when I first came across the early software being used to store pieces of the internet on small offline devices so kids could keep learning regardless of their connection.</p>
+                <p>I brought the idea home and started kicking it around with my oldest son, who happens to be an avid outdoorsman and a casual prepper himself, and together we asked the question that eventually became Prepper Disk, which was simply, what does the digital version of a prep actually look like? From there we worked closely with survival experts and seasoned preppers to make sure what ended up on the disk was genuinely useful out in the field, and not just impressive on paper.</p>
+                <p>The response since launch has honestly blown us away, and seeing major prepper channels and respected experts test our work and share it with their own communities has been one of the most rewarding parts of this whole journey. Today we run Prepper Disk as a small family team out of Massachusetts, building the kind of device we always wanted for our own home.</p>
             </div>
         </div>
 
@@ -1148,7 +1157,7 @@
                 <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly. Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it. To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
             </div>
             <div class="option best">
-                <div class="label">#3 You pick convenience, speed, and peace of mind that your off-grid internet works out of the box/div>
+                <div class="label">#3 You pick convenience, speed, and peace of mind that your off-grid internet works out of the box <span class="best-tag">Best Pick</span></div>
                 <p>Spend $279 today to save yourself the time and the headaches, and have all of those answers waiting in your pocket for the rest of your life. This is the route most of our customers end up taking, and the one we'd quietly recommend to a friend.</p>
             </div>
         </div>
