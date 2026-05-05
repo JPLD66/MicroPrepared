@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Product Name] — PrepperDisk</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #222; line-height: 1.5; }
+        img, .img-placeholder { max-width: 100%; display: block; }
+        .img-placeholder {
+            background: #f0f0f0;
+            border: 1px dashed #bbb;
+            color: #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 1rem;
+            min-height: 200px;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        a { color: inherit; text-decoration: none; }
+        button { cursor: pointer; font-family: inherit; }
+
+        /* Announcement bar */
+        .announcement {
+            background: #111;
+            color: #fff;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Header */
+        header.site {
+            border-bottom: 1px solid #eee;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 50;
+        }
+        header.site .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        header.site .logo { font-weight: 800; font-size: 1.4rem; letter-spacing: 0.05em; }
+        header.site nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            font-size: 0.95rem;
+        }
+        header.site .icons { display: flex; gap: 1rem; font-size: 1.1rem; }
+
+        /* Product hero */
+        .product-hero {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 3rem;
+            padding: 2rem 0 4rem;
+        }
+        @media (max-width: 800px) { .product-hero { grid-template-columns: 1fr; gap: 1.5rem; } }
+        .gallery .main-image { aspect-ratio: 1 / 1; margin-bottom: 0.75rem; }
+        .gallery .thumbs {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0.5rem;
+        }
+        .gallery .thumbs .img-placeholder { aspect-ratio: 1/1; min-height: 0; font-size: 0.7rem; }
+
+        .product-info h1 { font-size: 2rem; margin-bottom: 0.5rem; line-height: 1.2; }
+        .stars-row {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: #f5a623;
+            font-size: 0.95rem;
+        }
+        .stars-row .count { color: #555; }
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .price-sale { font-size: 1.6rem; font-weight: 700; color: #c0392b; }
+        .price-compare { text-decoration: line-through; color: #888; }
+        .price-badge {
+            background: #ffe9e6;
+            color: #c0392b;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        .product-bullets { margin: 1rem 0; padding-left: 1.25rem; }
+        .product-bullets li { margin-bottom: 0.4rem; }
+
+        .bundle-options {
+            display: grid;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+        }
+        .bundle-option {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .bundle-option.selected { border-color: #c0392b; background: #fff7f6; }
+        .bundle-option .badge-top {
+            position: absolute;
+            top: -10px;
+            left: 1rem;
+            background: #c0392b;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        .bundle-option .qty { font-weight: 700; font-size: 1.05rem; }
+        .bundle-option .desc { font-size: 0.85rem; color: #555; }
+        .bundle-option .price { text-align: right; }
+        .bundle-option .price .each { font-size: 0.8rem; color: #888; }
+
+        .qty-row { display: flex; gap: 0.75rem; align-items: center; margin-bottom: 1rem; }
+        .qty-stepper {
+            display: inline-flex;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .qty-stepper button { background: #f7f7f7; border: 0; padding: 0.5rem 0.9rem; font-size: 1rem; }
+        .qty-stepper input { border: 0; width: 3rem; text-align: center; font-size: 1rem; }
+
+        .btn-cart, .btn-buy {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            border: 0;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .btn-cart { background: #111; color: #fff; }
+        .btn-buy { background: #5a31f4; color: #fff; }
+
+        .trust-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .trust-row .item { text-align: center; font-size: 0.75rem; color: #555; }
+        .trust-row .item .icon {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Press / as featured in */
+        .press-bar {
+            background: #f7f7f7;
+            padding: 2rem 0;
+        }
+        .press-bar .label {
+            text-align: center;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        .press-bar .logos {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 1rem;
+            align-items: center;
+        }
+        @media (max-width: 700px) { .press-bar .logos { grid-template-columns: repeat(3, 1fr); } }
+        .press-bar .img-placeholder { min-height: 50px; background: transparent; border-color: #ccc; }
+
+        /* Section blocks */
+        section.block { padding: 4rem 0; }
+        section.block.alt { background: #faf7f2; }
+        section.block h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        section.block .subhead {
+            text-align: center;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        .split.reverse > .img-placeholder { order: 2; }
+        @media (max-width: 800px) {
+            .split { grid-template-columns: 1fr; gap: 1.5rem; }
+            .split.reverse > .img-placeholder { order: 0; }
+        }
+        .split .img-placeholder { aspect-ratio: 4/3; }
+        .split h3 { font-size: 1.5rem; margin-bottom: 1rem; }
+        .split p { margin-bottom: 1rem; color: #444; }
+
+        /* Feature grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 800px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+        .feature-grid .card { text-align: center; }
+        .feature-grid .icon-ph {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: 1px dashed #bbb;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: #888;
+        }
+        .feature-grid h4 { margin-bottom: 0.5rem; font-size: 1.05rem; }
+        .feature-grid p { font-size: 0.9rem; color: #555; }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: collapse;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .compare-table th, .compare-table td {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+        .compare-table th { background: #111; color: #fff; font-weight: 600; }
+        .compare-table th.us { background: #c0392b; }
+        .compare-table td:first-child { text-align: left; font-weight: 500; }
+        .compare-table .check { color: #27ae60; font-weight: 700; }
+        .compare-table .x { color: #c0392b; font-weight: 700; }
+
+        /* How it works */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+        @media (max-width: 800px) { .steps { grid-template-columns: 1fr; } }
+        .step .num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #c0392b;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .step .img-placeholder { aspect-ratio: 4/3; margin-bottom: 1rem; }
+        .step h4 { margin-bottom: 0.5rem; }
+        .step p { color: #555; font-size: 0.95rem; }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        @media (max-width: 800px) { .testimonials { grid-template-columns: 1fr; } }
+        .testimonial {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        .testimonial .stars { color: #f5a623; margin-bottom: 0.5rem; }
+        .testimonial .quote { margin-bottom: 1rem; color: #333; }
+        .testimonial .author { display: flex; align-items: center; gap: 0.75rem; }
+        .testimonial .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            border: 1px dashed #bbb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.6rem;
+            color: #888;
+        }
+        .testimonial .name { font-weight: 600; font-size: 0.9rem; }
+        .testimonial .verified { font-size: 0.75rem; color: #27ae60; }
+
+        /* FAQ accordion */
+        .faq { max-width: 800px; margin: 0 auto; }
+        .faq details {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .faq summary {
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq summary::after { content: "+"; font-size: 1.4rem; }
+        .faq details[open] summary::after { content: "−"; }
+        .faq details p { margin-top: 0.75rem; color: #555; }
+
+        /* Reviews summary */
+        .reviews-summary {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+            align-items: center;
+        }
+        @media (max-width: 800px) { .reviews-summary { grid-template-columns: 1fr; } }
+        .reviews-summary .big-score { text-align: center; }
+        .reviews-summary .big-score .num { font-size: 3rem; font-weight: 800; }
+        .reviews-summary .big-score .stars { color: #f5a623; font-size: 1.3rem; }
+        .reviews-summary .bars .bar-row {
+            display: grid;
+            grid-template-columns: 60px 1fr 40px;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 0.4rem;
+            font-size: 0.85rem;
+        }
+        .reviews-summary .bar { background: #eee; height: 8px; border-radius: 4px; overflow: hidden; }
+        .reviews-summary .bar > div { background: #f5a623; height: 100%; }
+
+        /* Guarantee banner */
+        .guarantee {
+            background: #111;
+            color: #fff;
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .guarantee h2 { color: #fff; margin-bottom: 1rem; }
+        .guarantee .badges {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .guarantee .badge-item .img-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #222;
+            border-color: #444;
+            color: #888;
+            min-height: 0;
+            margin: 0 auto 0.5rem;
+        }
+
+        /* CTA repeat block */
+        .cta-banner {
+            background: #c0392b;
+            color: #fff;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .cta-banner h2 { color: #fff; }
+        .cta-banner .btn-cart { display: inline-block; width: auto; margin-top: 1rem; padding: 1rem 2rem; background: #fff; color: #c0392b; }
+
+        /* Footer */
+        footer.site {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 3rem 0 1.5rem;
+        }
+        footer.site .cols {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 800px) { footer.site .cols { grid-template-columns: repeat(2, 1fr); } }
+        footer.site h5 { color: #fff; margin-bottom: 0.75rem; font-size: 0.95rem; }
+        footer.site ul { list-style: none; }
+        footer.site li { margin-bottom: 0.4rem; font-size: 0.85rem; }
+        footer.site .legal {
+            border-top: 1px solid #333;
+            padding-top: 1rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Announcement bar -->
+<div class="announcement">[Announcement bar — rotating message, e.g. shipping / promo / urgency]</div>
+
+<!-- Header -->
+<header class="site">
+    <div class="container row">
+        <div class="logo">[LOGO: PrepperDisk]</div>
+        <nav>
+            <ul>
+                <li><a href="#">[Nav 1]</a></li>
+                <li><a href="#">[Nav 2]</a></li>
+                <li><a href="#">[Nav 3]</a></li>
+                <li><a href="#">[Nav 4]</a></li>
+                <li><a href="#">[Nav 5]</a></li>
+            </ul>
+        </nav>
+        <div class="icons">
+            <span>[search]</span>
+            <span>[account]</span>
+            <span>[cart 0]</span>
+        </div>
+    </div>
+</header>
+
+<!-- Product hero -->
+<section class="container product-hero">
+    <div class="gallery">
+        <div class="img-placeholder main-image">[IMAGE: main product hero shot]</div>
+        <div class="thumbs">
+            <div class="img-placeholder">[thumb 1]</div>
+            <div class="img-placeholder">[thumb 2]</div>
+            <div class="img-placeholder">[thumb 3]</div>
+            <div class="img-placeholder">[thumb 4]</div>
+            <div class="img-placeholder">[thumb 5]</div>
+        </div>
+    </div>
+    <div class="product-info">
+        <h1>[Product title]</h1>
+        <div class="stars-row">
+            <span>★★★★★</span>
+            <span class="count">[X,XXX reviews]</span>
+        </div>
+        <div class="price-row">
+            <span class="price-sale">[$XX.XX]</span>
+            <span class="price-compare">[$XX.XX]</span>
+            <span class="price-badge">[SAVE XX%]</span>
+        </div>
+        <ul class="product-bullets">
+            <li>[Benefit bullet 1]</li>
+            <li>[Benefit bullet 2]</li>
+            <li>[Benefit bullet 3]</li>
+            <li>[Benefit bullet 4]</li>
+        </ul>
+
+        <div class="bundle-options">
+            <label class="bundle-option">
+                <input type="radio" name="bundle">
+                <div>
+                    <div class="qty">[1x — Single]</div>
+                    <div class="desc">[Description / who it's for]</div>
+                </div>
+                <div class="price">
+                    <div>[$XX.XX]</div>
+                    <div class="each">[$XX.XX each]</div>
+                </div>
+            </label>
+            <label class="bundle-option selected">
+                <span class="badge-top">[MOST POPULAR]</span>
+                <input type="radio" name="bundle" checked>
+                <div>
+                    <div class="qty">[2x — Family]</div>
+                    <div class="desc">[Description / who it's for]</div>
+                </div>
+                <div class="price">
+                    <div>[$XX.XX]</div>
+                    <div class="each">[$XX.XX each]</div>
+                </div>
+            </label>
+            <label class="bundle-option">
+                <span class="badge-top">[BEST VALUE]</span>
+                <input type="radio" name="bundle">
+                <div>
+                    <div class="qty">[4x — Whole Home]</div>
+                    <div class="desc">[Description / who it's for]</div>
+                </div>
+                <div class="price">
+                    <div>[$XX.XX]</div>
+                    <div class="each">[$XX.XX each]</div>
+                </div>
+            </label>
+        </div>
+
+        <div class="qty-row">
+            <span>Qty</span>
+            <div class="qty-stepper">
+                <button type="button">−</button>
+                <input type="text" value="1">
+                <button type="button">+</button>
+            </div>
+        </div>
+
+        <button class="btn-cart">[Add to cart — $XX.XX]</button>
+        <button class="btn-buy">[Buy it now]</button>
+
+        <div class="trust-row">
+            <div class="item"><span class="icon">[ic]</span>[Free shipping]</div>
+            <div class="item"><span class="icon">[ic]</span>[XX-day guarantee]</div>
+            <div class="item"><span class="icon">[ic]</span>[Secure checkout]</div>
+            <div class="item"><span class="icon">[ic]</span>[X-year warranty]</div>
+        </div>
+    </div>
+</section>
+
+<!-- Press / as featured in -->
+<section class="press-bar">
+    <div class="container">
+        <div class="label">[As featured in]</div>
+        <div class="logos">
+            <div class="img-placeholder">[Press logo 1]</div>
+            <div class="img-placeholder">[Press logo 2]</div>
+            <div class="img-placeholder">[Press logo 3]</div>
+            <div class="img-placeholder">[Press logo 4]</div>
+            <div class="img-placeholder">[Press logo 5]</div>
+            <div class="img-placeholder">[Press logo 6]</div>
+        </div>
+    </div>
+</section>
+
+<!-- Problem / pain section -->
+<section class="block">
+    <div class="container split">
+        <div class="img-placeholder">[IMAGE: problem / pain visual]</div>
+        <div>
+            <h3>[Problem-statement headline]</h3>
+            <p>[Problem paragraph 1]</p>
+            <p>[Problem paragraph 2]</p>
+        </div>
+    </div>
+</section>
+
+<!-- Solution intro -->
+<section class="block alt">
+    <div class="container split reverse">
+        <div class="img-placeholder">[IMAGE: solution / product introduction]</div>
+        <div>
+            <h3>[Solution headline]</h3>
+            <p>[Solution paragraph 1]</p>
+            <p>[Solution paragraph 2]</p>
+        </div>
+    </div>
+</section>
+
+<!-- Feature icon grid -->
+<section class="block">
+    <div class="container">
+        <h2>[Why-choose-us headline]</h2>
+        <p class="subhead">[Supporting subhead]</p>
+        <div class="feature-grid">
+            <div class="card">
+                <div class="icon-ph">[icon]</div>
+                <h4>[Feature 1]</h4>
+                <p>[Feature 1 description]</p>
+            </div>
+            <div class="card">
+                <div class="icon-ph">[icon]</div>
+                <h4>[Feature 2]</h4>
+                <p>[Feature 2 description]</p>
+            </div>
+            <div class="card">
+                <div class="icon-ph">[icon]</div>
+                <h4>[Feature 3]</h4>
+                <p>[Feature 3 description]</p>
+            </div>
+            <div class="card">
+                <div class="icon-ph">[icon]</div>
+                <h4>[Feature 4]</h4>
+                <p>[Feature 4 description]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Alternating feature blocks -->
+<section class="block alt">
+    <div class="container split">
+        <div class="img-placeholder">[IMAGE: feature 1 in use]</div>
+        <div>
+            <h3>[Feature block 1 headline]</h3>
+            <p>[Feature block 1 paragraph]</p>
+            <ul class="product-bullets">
+                <li>[Sub-point 1]</li>
+                <li>[Sub-point 2]</li>
+                <li>[Sub-point 3]</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="block">
+    <div class="container split reverse">
+        <div class="img-placeholder">[IMAGE: feature 2 in use]</div>
+        <div>
+            <h3>[Feature block 2 headline]</h3>
+            <p>[Feature block 2 paragraph]</p>
+            <ul class="product-bullets">
+                <li>[Sub-point 1]</li>
+                <li>[Sub-point 2]</li>
+                <li>[Sub-point 3]</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="block alt">
+    <div class="container split">
+        <div class="img-placeholder">[IMAGE: feature 3 in use]</div>
+        <div>
+            <h3>[Feature block 3 headline]</h3>
+            <p>[Feature block 3 paragraph]</p>
+            <ul class="product-bullets">
+                <li>[Sub-point 1]</li>
+                <li>[Sub-point 2]</li>
+                <li>[Sub-point 3]</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison table -->
+<section class="block">
+    <div class="container">
+        <h2>[Us vs. them headline]</h2>
+        <p class="subhead">[Comparison subhead]</p>
+        <table class="compare-table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th class="us">[OUR PRODUCT]</th>
+                    <th>[Competitor A]</th>
+                    <th>[Competitor B]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>[Comparison row 1]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
+                <tr><td>[Comparison row 2]</td><td class="check">✓</td><td class="check">✓</td><td class="x">✗</td></tr>
+                <tr><td>[Comparison row 3]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
+                <tr><td>[Comparison row 4]</td><td class="check">✓</td><td class="x">✗</td><td class="check">✓</td></tr>
+                <tr><td>[Comparison row 5]</td><td class="check">✓</td><td class="x">✗</td><td class="x">✗</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- How it works -->
+<section class="block alt">
+    <div class="container">
+        <h2>[How it works headline]</h2>
+        <p class="subhead">[How it works subhead]</p>
+        <div class="steps">
+            <div class="step">
+                <div class="num">1</div>
+                <div class="img-placeholder">[IMAGE: step 1]</div>
+                <h4>[Step 1 title]</h4>
+                <p>[Step 1 description]</p>
+            </div>
+            <div class="step">
+                <div class="num">2</div>
+                <div class="img-placeholder">[IMAGE: step 2]</div>
+                <h4>[Step 2 title]</h4>
+                <p>[Step 2 description]</p>
+            </div>
+            <div class="step">
+                <div class="num">3</div>
+                <div class="img-placeholder">[IMAGE: step 3]</div>
+                <h4>[Step 3 title]</h4>
+                <p>[Step 3 description]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="block">
+    <div class="container">
+        <h2>[Customer love headline]</h2>
+        <p class="subhead">[Testimonials subhead]</p>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Testimonial quote 1]</p>
+                <div class="author">
+                    <div class="avatar">[av]</div>
+                    <div>
+                        <div class="name">[Customer 1 name]</div>
+                        <div class="verified">[Verified buyer]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Testimonial quote 2]</p>
+                <div class="author">
+                    <div class="avatar">[av]</div>
+                    <div>
+                        <div class="name">[Customer 2 name]</div>
+                        <div class="verified">[Verified buyer]</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Testimonial quote 3]</p>
+                <div class="author">
+                    <div class="avatar">[av]</div>
+                    <div>
+                        <div class="name">[Customer 3 name]</div>
+                        <div class="verified">[Verified buyer]</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Guarantee / risk reversal -->
+<section class="guarantee">
+    <div class="container">
+        <h2>[Guarantee headline]</h2>
+        <p>[Guarantee paragraph]</p>
+        <div class="badges">
+            <div class="badge-item"><div class="img-placeholder">[badge 1]</div>[XX-day money back]</div>
+            <div class="badge-item"><div class="img-placeholder">[badge 2]</div>[Free shipping]</div>
+            <div class="badge-item"><div class="img-placeholder">[badge 3]</div>[Lifetime warranty]</div>
+            <div class="badge-item"><div class="img-placeholder">[badge 4]</div>[Secure checkout]</div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="block">
+    <div class="container">
+        <h2>[FAQ headline]</h2>
+        <p class="subhead">[FAQ subhead]</p>
+        <div class="faq">
+            <details><summary>[FAQ Q1]</summary><p>[FAQ A1]</p></details>
+            <details><summary>[FAQ Q2]</summary><p>[FAQ A2]</p></details>
+            <details><summary>[FAQ Q3]</summary><p>[FAQ A3]</p></details>
+            <details><summary>[FAQ Q4]</summary><p>[FAQ A4]</p></details>
+            <details><summary>[FAQ Q5]</summary><p>[FAQ A5]</p></details>
+            <details><summary>[FAQ Q6]</summary><p>[FAQ A6]</p></details>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews summary + cards -->
+<section class="block alt">
+    <div class="container">
+        <h2>[Reviews headline]</h2>
+        <div class="reviews-summary">
+            <div class="big-score">
+                <div class="num">[4.8]</div>
+                <div class="stars">★★★★★</div>
+                <div>[Based on X,XXX reviews]</div>
+            </div>
+            <div class="bars">
+                <div class="bar-row"><span>5 stars</span><div class="bar"><div style="width: 85%"></div></div><span>[85%]</span></div>
+                <div class="bar-row"><span>4 stars</span><div class="bar"><div style="width: 10%"></div></div><span>[10%]</span></div>
+                <div class="bar-row"><span>3 stars</span><div class="bar"><div style="width: 3%"></div></div><span>[3%]</span></div>
+                <div class="bar-row"><span>2 stars</span><div class="bar"><div style="width: 1%"></div></div><span>[1%]</span></div>
+                <div class="bar-row"><span>1 star</span><div class="bar"><div style="width: 1%"></div></div><span>[1%]</span></div>
+            </div>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Review 1]</p>
+                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 1]</div><div class="verified">[Verified]</div></div></div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Review 2]</p>
+                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 2]</div><div class="verified">[Verified]</div></div></div>
+            </div>
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <p class="quote">[Review 3]</p>
+                <div class="author"><div class="avatar">[av]</div><div><div class="name">[Reviewer 3]</div><div class="verified">[Verified]</div></div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-banner">
+    <div class="container">
+        <h2>[Final CTA headline]</h2>
+        <p>[Final CTA subhead]</p>
+        <button class="btn-cart">[Get yours now — $XX.XX]</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="site">
+    <div class="container">
+        <div class="cols">
+            <div>
+                <h5>[Shop]</h5>
+                <ul>
+                    <li>[Link]</li><li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                </ul>
+            </div>
+            <div>
+                <h5>[Support]</h5>
+                <ul>
+                    <li>[Link]</li><li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                </ul>
+            </div>
+            <div>
+                <h5>[Company]</h5>
+                <ul>
+                    <li>[Link]</li><li>[Link]</li><li>[Link]</li>
+                </ul>
+            </div>
+            <div>
+                <h5>[Newsletter]</h5>
+                <p style="font-size: 0.85rem; margin-bottom: 0.75rem;">[Newsletter pitch]</p>
+                <input type="email" placeholder="[email]" style="width: 100%; padding: 0.5rem; border: 0; border-radius: 4px; margin-bottom: 0.5rem;">
+                <button style="width: 100%; padding: 0.5rem; background: #c0392b; color: #fff; border: 0; border-radius: 4px;">[Subscribe]</button>
+            </div>
+        </div>
+        <div class="legal">
+            <p>[© Year — Brand]   ·   [Privacy]   ·   [Terms]   ·   [Refund policy]</p>
+            <div style="margin-top: 0.5rem;">[payment icons placeholder]</div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
