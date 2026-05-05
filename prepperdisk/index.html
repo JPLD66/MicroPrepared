@@ -613,27 +613,75 @@
         .about-row p { color: #333; }
 
         /* Crossroads */
-        .crossroads { background: #1a1a1a; color: #fff; padding: 5rem 0; }
-        .crossroads h2 { color: #fff; text-align: center; margin-bottom: 2.5rem; }
+        .crossroads { padding: 5rem 0; background: #fff; }
+        .crossroads h2 { text-align: center; margin-bottom: 0.75rem; color: #0d2b1a; font-size: 2.1rem; }
+        .crossroads .subhead {
+            text-align: center;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
         .options { max-width: 800px; margin: 0 auto 2.5rem; }
         .option {
-            background: #2a2a2a;
-            border-left: 4px solid #555;
-            padding: 1.5rem;
+            background: #fff;
+            border: 1px solid #eee;
+            border-left: 4px solid #cfcfcf;
+            padding: 1.5rem 1.75rem;
             margin-bottom: 1rem;
             border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .option.best { border-left-color: #f5a623; background: #2a2516; }
+        .option.best {
+            border-left-color: #c0392b;
+            background: #fff8f6;
+        }
         .option .label {
             font-weight: 700;
-            color: #f5a623;
+            color: #777;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.05em;
             margin-bottom: 0.5rem;
         }
-        .option p { margin: 0; color: #ddd; }
+        .option.best .label { color: #c0392b; }
+        .option p { margin: 0; color: #333; }
         .crossroads .cta-wrap { text-align: center; }
+
+        /* FAQ */
+        .faq { max-width: 800px; margin: 0 auto; }
+        .faq details {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+        }
+        .faq summary {
+            padding: 1.1rem 1.25rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            color: #0d2b1a;
+            font-size: 1.02rem;
+        }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #c0392b;
+            font-weight: 400;
+            line-height: 1;
+        }
+        .faq details[open] summary::after { content: "−"; }
+        .faq details > p {
+            padding: 0 1.25rem 1.25rem;
+            color: #444;
+            margin: 0;
+        }
 
         /* CTA section divider */
         .cta-divider { text-align: center; padding: 2rem 0; }
@@ -678,6 +726,7 @@
                 <li><a href="#whats-on-it">What's On It</a></li>
                 <li><a href="#offer">Pricing</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
         </nav>
         <div><a href="#offer" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.85rem;">Order Now</a></div>
@@ -1069,11 +1118,14 @@
         <div class="about-row">
             <div class="img-placeholder">[IMAGE: Adam in the workshop, with family]</div>
             <div>
-                <p>This whole project started in a basement workshop in Massachusetts, with a stack of Raspberry Pi boards, a few hard drives full of survival PDFs, and a question that kept circling back to me at odd hours of the night, which was simply what my family would actually do if the internet went out for good.</p>
-                <p>My name is Adam, and before any of this I spent more than a decade working in software, building tools that made information easier to find for the people who needed it most. Somewhere along the way it occurred to me that the same skills could solve a much more personal problem in a way that nothing on the market really did.</p>
-                <p>I learned about prepping from my father, who taught me from a young age that the best time to prepare for an emergency is the day before you actually need to. That lesson stuck with me, and as I started a family of my own, I knew I wanted my kids to grow up with the same quiet sense of confidence that he had given me.</p>
-                <p>What began as a one-off device for our own household quickly turned into something more, and we now run Prepper Disk together as a small family business out of Massachusetts, alongside my wife and our young daughter, packing and shipping every unit out of our local workshop to households and communities all across the country.</p>
-                <p>Our promise is honestly pretty simple, which is that we build the kind of device we would want for our own home, and we stand behind every single disk that leaves our hands.</p>
+                <p>Hi, I'm Adam, and the story of how Prepper Disk actually came to exist is honestly one of my favorite things to talk about, so let me give you the real version of it. I grew up in a household with the somewhat unlikely combination of a dad who was an Eagle Scout and a die-hard outdoorsman, and at the same time a relentless gadget guy who bought a Commodore 64 just so he could code his own spreadsheets and was running around with one of the very first pagers and text-messaging phones long before most of us knew what those even were.</p>
+                <p>That mix shaped me from a young age. I got my first computer when I was nine, fell in love with programming pretty much that same week, and it set me up for a long career as a software engineer and eventually a technology executive, mostly building tools that helped people find the information they really needed.</p>
+                <p>Right before Prepper Disk, I was leading an educational software company focused on K-8 students, and that role opened my eyes in a way I genuinely didn't see coming. I started learning about the very real barriers kids in the developing world were running into, especially the heartbreaking fact that so many young children were spending entire days fetching clean water for their families instead of being able to attend school at all.</p>
+                <p>I wanted to do something useful, so I joined the board of directors at The Water Project and started traveling out to communities in Kenya to help build wells, sand dams, and protected natural springs. While I was over there I noticed something else that stuck with me, which was that schools were trying to teach computer science on traditional chalkboards because they had no reliable electricity or internet to actually work with.</p>
+                <p>That's when I came across the early software being built to capture pieces of the internet and store it on small offline devices, so kids could keep learning even without a connection. The idea hit me hard, and I brought it back home and started kicking it around with my oldest son, who happens to be an avid outdoorsman and a casual prepper himself, the kind of guy who is always quietly upgrading his go-bag in the corner of the room.</p>
+                <p>Together we asked ourselves the question that eventually became Prepper Disk, which was simply, what does the digital version of a prep actually look like? Whether it's offline maps for a weekend hike or making sure your kids can keep learning during a long grid-down event, we wanted to figure out how a regular family could permanently take control of their own knowledge.</p>
+                <p>From there we started building, and we made a real point of bringing in survival experts and seasoned preppers along the way, because we wanted what ended up on the disk to be genuinely useful in the field and not just impressive on paper. The response since launch has honestly blown us away, and seeing major prepper channels and respected experts test what we built and share it with their own communities has been one of the most rewarding parts of this whole journey.</p>
+                <p>Today we run Prepper Disk as a small family team out of Massachusetts, and our promise is the same as it was on day one, which is that digital information turns out to be incredibly fragile, and we built this so that you and your family never have to feel at the mercy of that fragility again.</p>
             </div>
         </div>
 
@@ -1103,6 +1155,51 @@
         </div>
         <div class="cta-wrap">
             <a href="#offer" class="btn-primary">Get My Prepper Disk →</a>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="block alt" id="faq">
+    <div class="container">
+        <h2>Frequently Asked Questions</h2>
+        <p class="subhead">Quick answers to the questions we hear most often. If yours isn't here, just shoot us a note at support@prepperdisk.com and we'll get right back to you.</p>
+
+        <div class="faq">
+            <details>
+                <summary>Is there a subscription, or any kind of ongoing fee?</summary>
+                <p>There are no subscriptions, no monthly fees, and no usage limits whatsoever. Once your Prepper Disk arrives, every single piece of content on it is yours to keep forever, and any future content updates we release are included at absolutely no extra cost.</p>
+            </details>
+
+            <details>
+                <summary>Do I really need to be tech-savvy to set this up?</summary>
+                <p>Not even a little bit. The Prepper Disk arrives fully loaded and ready to go, so all you need to do is plug it in, switch your phone or laptop's WiFi over to its private network, and start browsing like you would on any normal website. Most of our customers are completely up and running within five minutes of opening the box.</p>
+            </details>
+
+            <details>
+                <summary>How do I power it on, and what happens when there is no electricity?</summary>
+                <p>The Prepper Disk runs on a standard USB-C power source, which means a regular wall outlet, a car charger, a portable power bank, or even a generator will all do the job perfectly. The moment it has power, it creates its own private WiFi network and is ready to use within a few seconds.</p>
+            </details>
+
+            <details>
+                <summary>How many devices can connect to a single Disk at the same time?</summary>
+                <p>Up to twenty devices can be connected to a single Prepper Disk at once, which is more than enough capacity for a typical household, a small classroom, a community group, or even a fully off-grid homestead with extended family staying through an emergency.</p>
+            </details>
+
+            <details>
+                <summary>How big is it, and is it durable enough to take outdoors?</summary>
+                <p>The Disk measures 3.5 by 2.75 by 1 inches and slips comfortably into a jacket pocket, glove box, or bug-out bag. It lives inside a rugged aluminum case with passive cooling, which means there is no internal fan that could fail on you in dusty, sandy, or wet field conditions.</p>
+            </details>
+
+            <details>
+                <summary>What about EMP events or electromagnetic interference?</summary>
+                <p>We offer an optional Faraday Bag that protects the unit from EMP events and general electromagnetic interference, and it's something we'd genuinely recommend for anyone who wants to keep the Disk fully shielded and stored safely between uses.</p>
+            </details>
+
+            <details>
+                <summary>What happens if it doesn't work out for me?</summary>
+                <p>Every Prepper Disk comes with a 60-day return window, so if it doesn't end up making you feel safer, more capable, and more prepared, just email our team at support@prepperdisk.com and we'll send you the instructions to ship it back for a full refund. On top of that, every unit is covered by a one-year hardware warranty just in case anything ever does go sideways.</p>
+            </details>
         </div>
     </div>
 </section>
