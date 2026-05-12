@@ -216,7 +216,18 @@
             border-radius: 10px;
             padding: 1.75rem;
         }
-        .problem-card .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .problem-card .icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: #fff3f1;
+            color: #c0392b;
+            margin-bottom: 0.75rem;
+        }
+        .problem-card .icon svg { width: 32px; height: 32px; display: block; }
         .problem-card h3 {
             font-size: 1.25rem;
             margin-bottom: 0.75rem;
@@ -231,6 +242,54 @@
             color: #444;
         }
         .problem-card .example strong { color: #0d2b1a; }
+
+        /* Generic chevron */
+        .chevron {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+            color: #888;
+        }
+
+        /* Problem card mobile collapsible */
+        .problem-summary {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+            color: inherit;
+            font-family: inherit;
+            display: contents;
+            cursor: default;
+        }
+        .problem-chevron { display: none; }
+        @media (max-width: 700px) {
+            .problem-card { padding: 1.25rem; }
+            .problem-summary {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                cursor: pointer;
+                padding: 0;
+            }
+            .problem-summary .icon {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 0;
+            }
+            .problem-summary .icon svg { width: 24px; height: 24px; }
+            .problem-summary h3 {
+                margin: 0;
+                font-size: 1.05rem;
+                flex: 1;
+            }
+            .problem-chevron { display: inline-block; }
+            .problem-body { display: none; margin-top: 1rem; }
+            .problem-card.expanded .problem-body { display: block; }
+            .problem-card.expanded .problem-chevron { transform: rotate(180deg); }
+        }
 
         /* Solution */
         .solution-image {
@@ -385,11 +444,12 @@
             .scenario-num { width: 44px; height: 44px; font-size: 1.1rem; }
             .scenario-title { font-size: 1.1rem; flex: 1; }
             .scenario-chevron {
-                display: inline-block;
-                font-size: 1rem;
+                display: inline-flex;
+                align-items: center;
                 color: #888;
                 transition: transform 0.25s ease;
             }
+            .scenario-chevron svg { width: 18px; height: 18px; }
             .scenario-image,
             .scenario-text {
                 display: none;
@@ -418,7 +478,33 @@
             margin-bottom: 0.75rem;
             font-size: 1.2rem;
         }
-        .vs-block p { color: #333; margin: 0; }
+        .vs-block p { color: #333; margin: 0 0 0.85rem; }
+        .vs-block p:last-child { margin-bottom: 0; }
+        .vs-summary {
+            background: transparent;
+            border: 0;
+            padding: 0;
+            text-align: left;
+            width: 100%;
+            color: inherit;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            cursor: default;
+        }
+        .vs-summary h3 { margin: 0; }
+        .vs-chevron { display: none; }
+        @media (max-width: 800px) {
+            .vs-block { padding: 1.25rem 1.5rem; }
+            .vs-summary { cursor: pointer; }
+            .vs-summary h3 { font-size: 1.05rem; }
+            .vs-chevron { display: inline-block; }
+            .vs-body { display: none; margin-top: 0.85rem; }
+            .vs-block.expanded .vs-body { display: block; }
+            .vs-block.expanded .vs-chevron { transform: rotate(180deg); }
+        }
 
         /* Social proof */
         .social-proof-top {
@@ -608,9 +694,31 @@
             max-width: 1000px;
             margin: 0 auto 2.5rem;
         }
-        @media (max-width: 800px) { .about-row { grid-template-columns: 1fr; } }
+        @media (max-width: 800px) { .about-row { grid-template-columns: 1fr; gap: 1.5rem; } }
         .about-row .img-placeholder { aspect-ratio: 3/4; }
         .about-row p { color: #333; }
+        .about-expand-btn {
+            display: none;
+            background: transparent;
+            border: 1px solid #c0392b;
+            color: #c0392b;
+            padding: 0.55rem 1.1rem 0.55rem 1.25rem;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: inherit;
+            cursor: pointer;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .about-expand-btn .chevron { width: 14px; height: 14px; color: #c0392b; }
+        @media (max-width: 800px) {
+            .about-body .about-more { display: none; }
+            .about-body.expanded .about-more { display: block; }
+            .about-body.expanded .about-expand-btn .chevron { transform: rotate(180deg); }
+            .about-expand-btn { display: inline-flex; }
+        }
 
         /* Crossroads */
         .crossroads { padding: 5rem 0; background: #fff; }
@@ -657,7 +765,8 @@
             font-weight: 700;
             text-transform: uppercase;
         }
-        .option p { margin: 0; color: #333; }
+        .option p { margin: 0 0 0.75rem; color: #333; }
+        .option p:last-child { margin-bottom: 0; }
         .crossroads .cta-wrap { text-align: center; }
 
         /* FAQ */
@@ -758,7 +867,7 @@
         <p class="desc">100% OF WIKIPEDIA | 90,000 How-To DIY Instructions | Entire USA, Europe, & OCEANIA Mapped | Plus lots more stored OFF-LINE</p>
 
         <ul class="hero-bullets">
-            <li>📡 Runs on grid, car, or battery power/li>
+            <li>📡 Runs on grid, car, or battery power</li>
             <li>📱 Easier to use than most smartphones </li>
             <li>🛡️ Free of AI </li>
         </ul>
@@ -790,31 +899,78 @@
 
         <div class="problem-grid">
             <div class="problem-card">
-                <div class="icon">🌪️</div>
-                <h3>Disaster strikes</h3>
-                <p>Storms, floods, fires, and manmade attacks all have the ability to sever the internet for days, weeks, or even longer, leaving you cut off from the information your household runs on.</p>
-                <div class="example"><strong>Example:</strong> During the 2025 Pacific Winter Storm, tens of thousands of people across the United States lost internet access for more than five straight days.</div>
+                <button class="problem-summary" type="button">
+                    <div class="icon">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M8 18 Q4 18 4 13 Q4 8 10 8 Q11 3 17 3 Q23 3 24 8 Q30 8 30 13 Q30 18 26 18"/>
+                            <polyline points="15,18 11,25 17,25 13,30"/>
+                        </svg>
+                    </div>
+                    <h3>Disaster strikes</h3>
+                    <svg class="chevron problem-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="problem-body">
+                    <p>Storms, floods, fires, and manmade attacks all have the ability to sever the internet for days, weeks, or even longer, leaving you cut off from the information your household runs on.</p>
+                    <div class="example"><strong>Example:</strong> During the 2025 Pacific Winter Storm, tens of thousands of people across the United States lost internet access for more than five straight days.</div>
+                </div>
             </div>
 
             <div class="problem-card">
-                <div class="icon">🚫</div>
-                <h3>Government censorship</h3>
-                <p>Governments hold the power to throttle or completely cut off internet access in their own countries, and they can do it without giving anyone a moment's notice.</p>
-                <div class="example"><strong>Example:</strong> In 2017, the Turkish government fully blocked access to Wikipedia for three years, leaving millions of people without one of the most useful reference sites in the world.</div>
+                <button class="problem-summary" type="button">
+                    <div class="icon">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="16" cy="16" r="12"/>
+                            <line x1="7.5" y1="24.5" x2="24.5" y2="7.5"/>
+                        </svg>
+                    </div>
+                    <h3>Government censorship</h3>
+                    <svg class="chevron problem-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="problem-body">
+                    <p>Governments hold the power to throttle or completely cut off internet access in their own countries, and they can do it without giving anyone a moment's notice.</p>
+                    <div class="example"><strong>Example:</strong> In 2017, the Turkish government fully blocked access to Wikipedia for three years, leaving millions of people without one of the most useful reference sites in the world.</div>
+                </div>
             </div>
 
             <div class="problem-card">
-                <div class="icon">🤖</div>
-                <h3>AI takeover</h3>
-                <p>AI is reshaping the internet quickly, from making information unreliable to potentially shutting down large parts of it as a kind of digital doomsday device, which is why owning a snapshot of the web from when it was still mostly human-made could prove genuinely valuable.</p>
-                <div class="example"><strong>Example:</strong> In April 2026, Claude Mythos was reportedly leaked to unknown parties, and experts are concerned that bad actors could use this digital doomsday device to collapse the open web.</div>
+                <button class="problem-summary" type="button">
+                    <div class="icon">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <rect x="7" y="10" width="18" height="15" rx="2"/>
+                            <line x1="16" y1="10" x2="16" y2="6"/>
+                            <circle cx="16" cy="5" r="1.5"/>
+                            <circle cx="12" cy="17" r="1.5"/>
+                            <circle cx="20" cy="17" r="1.5"/>
+                            <line x1="12" y1="21" x2="20" y2="21"/>
+                            <line x1="5" y1="16" x2="3" y2="16"/>
+                            <line x1="27" y1="16" x2="29" y2="16"/>
+                        </svg>
+                    </div>
+                    <h3>AI takeover</h3>
+                    <svg class="chevron problem-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="problem-body">
+                    <p>AI is reshaping the internet quickly, from making information unreliable to potentially shutting down large parts of it as a kind of digital doomsday device, which is why owning a snapshot of the web from when it was still mostly human-made could prove genuinely valuable.</p>
+                    <div class="example"><strong>Example:</strong> In April 2026, Claude Mythos was reportedly leaked to unknown parties, and experts are concerned that bad actors could use this digital doomsday device to collapse the open web.</div>
+                </div>
             </div>
 
             <div class="problem-card">
-                <div class="icon">🌲</div>
-                <h3>Going off-grid</h3>
-                <p>Whether you are forced into the wilderness by circumstances or you choose to live off-grid on a homestead, on a sailboat, or while traveling through remote regions, reliable connectivity is almost always the very first thing to disappear.</p>
-                <div class="example"><strong>Example:</strong> [Off-grid example story]</div>
+                <button class="problem-summary" type="button">
+                    <div class="icon">
+                        <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="16,4 22,14 19,14 25,22 7,22 13,14 10,14"/>
+                            <line x1="16" y1="22" x2="16" y2="28"/>
+                            <line x1="11" y1="28" x2="21" y2="28"/>
+                        </svg>
+                    </div>
+                    <h3>Going off-grid</h3>
+                    <svg class="chevron problem-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="problem-body">
+                    <p>Whether you are forced into the wilderness by circumstances or you choose to live off-grid on a homestead, on a sailboat, or while traveling through remote regions, reliable connectivity is almost always the very first thing to disappear.</p>
+                    <div class="example"><strong>Example:</strong> [Off-grid example story]</div>
+                </div>
             </div>
         </div>
     </div>
@@ -831,7 +987,9 @@
         <div class="solution-text">
             <p>When the internet goes down, you simply switch the WiFi on your phone, laptop, or tablet over to the Prepper Disk's network. Power the unit on by plugging it into a wall outlet, a car charger, a portable power bank, or even a generator, and within seconds it creates its own private WiFi network that up to twenty people can connect to at the same time.</p>
 
-            <p>From there you browse all of the included material as if you were online, except nothing actually is online, since every article, map, video, and book lives directly on the Disk. When you don't need it, you can stash it in a drawer, drop it into a waterproof container, or pack it away securely in your bug-out bag for next time.</p>
+            <p>From there you browse all of the included material as if you were online, except nothing actually is online, since every article, map, video, and book lives directly on the Disk.</p>
+
+            <p>When you don't need it, you can stash it in a drawer, drop it into a waterproof container, or pack it away securely in your bug-out bag for next time.</p>
         </div>
 
         <div class="cta-divider">
@@ -915,7 +1073,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">1</div>
                         <h3 class="scenario-title">Medical Emergencies</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">Someone in your group has been hurt and you need to look up the symptoms, find the right treatment, and stay calm while the situation unfolds around you.</div>
                 </div>
@@ -927,7 +1085,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">2</div>
                         <h3 class="scenario-title">Survival Techniques</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">A disaster has forced you to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
                 </div>
@@ -939,7 +1097,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">3</div>
                         <h3 class="scenario-title">Mechanical Repairs</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">The truck won't start, so you search the exact make and model and follow the repair walkthrough step by step until you've got it running again.</div>
                 </div>
@@ -951,7 +1109,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">4</div>
                         <h3 class="scenario-title">Education for the Kids</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">The kids still need to keep learning even in the middle of a long emergency, and you've already got Khan Academy courses, TED talks, and 60,000 books loaded on the Disk and waiting for them.</div>
                 </div>
@@ -963,7 +1121,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">5</div>
                         <h3 class="scenario-title">Finding Your Way</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and what's just around the next block.</div>
                 </div>
@@ -975,7 +1133,7 @@
                     <button class="scenario-summary" type="button">
                         <div class="scenario-num">6</div>
                         <h3 class="scenario-title">Off-Grid Downtime</h3>
-                        <span class="scenario-chevron">▼</span>
+                        <span class="scenario-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
                     </button>
                     <div class="scenario-text">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
                 </div>
@@ -993,16 +1151,33 @@
 
         <div class="vs-blocks">
             <div class="vs-block">
-                <h3>vs. Your phone</h3>
-                <p>Your phone is only as useful as the internet it's connected to, and the moment that connection drops, almost everything that makes the device valuable drops with it. The Prepper Disk gives your phone its own private emergency internet, restoring the apps, articles, and answers you depend on even when every cell tower around you is dead.</p>
+                <button class="vs-summary" type="button">
+                    <h3>vs. Your phone</h3>
+                    <svg class="chevron vs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="vs-body">
+                    <p>Your phone is only as useful as the internet it's connected to, and the moment that connection drops, almost everything that makes the device valuable drops with it.</p>
+                    <p>The Prepper Disk gives your phone its own private emergency internet, restoring the apps, articles, and answers you depend on even when every cell tower around you is dead.</p>
+                </div>
             </div>
             <div class="vs-block">
-                <h3>vs. Printed books</h3>
-                <p>You would need a forty-foot shipping container just to store a small fraction of what fits on the Prepper Disk in printed form, and even then you would be flipping through pages by hand instead of searching a library by keyword in seconds.</p>
+                <button class="vs-summary" type="button">
+                    <h3>vs. Printed books</h3>
+                    <svg class="chevron vs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="vs-body">
+                    <p>You would need a forty-foot shipping container just to store a small fraction of what fits on the Prepper Disk in printed form, and even then you would be flipping through pages by hand instead of searching a library by keyword in seconds.</p>
+                </div>
             </div>
             <div class="vs-block">
-                <h3>vs. A USB drive</h3>
-                <p>A regular USB drive could technically hold the same files, but you would struggle to navigate any of it without a proper interface, and you would have to physically hand it around every time someone else needed access. The Prepper Disk wirelessly shares its full library with up to twenty devices at once, and the built-in interface lets you find critical information in moments, like how to apply a tourniquet after a car crash.</p>
+                <button class="vs-summary" type="button">
+                    <h3>vs. A USB drive</h3>
+                    <svg class="chevron vs-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="vs-body">
+                    <p>A regular USB drive could technically hold the same files, but you would struggle to navigate any of it without a proper interface, and you would have to physically hand it around every time someone else needed access.</p>
+                    <p>The Prepper Disk wirelessly shares its full library with up to twenty devices at once, and the built-in interface lets you find critical information in moments, like how to apply a tourniquet after a car crash.</p>
+                </div>
             </div>
         </div>
 
@@ -1129,11 +1304,20 @@
 
         <div class="about-row">
             <div class="img-placeholder">[IMAGE: Adam in the workshop, with family]</div>
-            <div>
+            <div class="about-body">
                 <p>Hi, I'm Adam, and the short version of how Prepper Disk came to exist starts with a long career in software. I spent years as an engineer and then as a technology executive, and right before launching Prepper Disk I was leading an educational software company focused on K-8 students.</p>
-                <p>That work eventually pulled me into board service with The Water Project, and I started traveling to communities in Kenya to help build wells, sand dams, and protected springs. While I was over there I noticed schools trying to teach computer science on traditional chalkboards because they had no reliable electricity or internet at all, which is when I first came across the early software being used to store pieces of the internet on small offline devices so kids could keep learning regardless of their connection.</p>
-                <p>I brought the idea home and started kicking it around with my oldest son, who happens to be an avid outdoorsman and a casual prepper himself, and together we asked the question that eventually became Prepper Disk, which was simply, what does the digital version of a prep actually look like? From there we worked closely with survival experts and seasoned preppers to make sure what ended up on the disk was genuinely useful out in the field, and not just impressive on paper.</p>
-                <p>The response since launch has honestly blown us away, and seeing major prepper channels and respected experts test our work and share it with their own communities has been one of the most rewarding parts of this whole journey. Today we run Prepper Disk as a small family team out of Massachusetts, building the kind of device we always wanted for our own home.</p>
+                <div class="about-more">
+                    <p>That work eventually pulled me into board service with The Water Project, and I started traveling to communities in Kenya to help build wells, sand dams, and protected springs.</p>
+                    <p>While I was over there I noticed schools trying to teach computer science on traditional chalkboards because they had no reliable electricity or internet at all, which is when I first came across the early software being used to store pieces of the internet on small offline devices so kids could keep learning regardless of their connection.</p>
+                    <p>I brought the idea home and started kicking it around with my oldest son, who happens to be an avid outdoorsman and a casual prepper himself, and together we asked the question that eventually became Prepper Disk, which was simply, what does the digital version of a prep actually look like?</p>
+                    <p>From there we worked closely with survival experts and seasoned preppers to make sure what ended up on the disk was genuinely useful out in the field, and not just impressive on paper.</p>
+                    <p>The response since launch has honestly blown us away, and seeing major prepper channels and respected experts test our work and share it with their own communities has been one of the most rewarding parts of this whole journey.</p>
+                    <p>Today we run Prepper Disk as a small family team out of Massachusetts, building the kind of device we always wanted for our own home.</p>
+                </div>
+                <button class="about-expand-btn" type="button">
+                    <span class="expand-label">Read more</span>
+                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
             </div>
         </div>
 
@@ -1154,7 +1338,9 @@
             </div>
             <div class="option">
                 <div class="label">#2 You try to build it yourself</div>
-                <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly. Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it. To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
+                <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly.</p>
+                <p>Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it.</p>
+                <p>To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
             </div>
             <div class="option best">
                 <div class="label">#3 You pick convenience, speed, and peace of mind that your off-grid internet works out of the box <span class="best-tag">Best Pick</span></div>
@@ -1262,6 +1448,31 @@
             if (window.matchMedia('(max-width: 800px)').matches) {
                 btn.closest('.scenario-item').classList.toggle('expanded');
             }
+        });
+    });
+
+    document.querySelectorAll('.problem-summary').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 700px)').matches) {
+                btn.closest('.problem-card').classList.toggle('expanded');
+            }
+        });
+    });
+
+    document.querySelectorAll('.vs-summary').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 800px)').matches) {
+                btn.closest('.vs-block').classList.toggle('expanded');
+            }
+        });
+    });
+
+    document.querySelectorAll('.about-expand-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            var body = btn.closest('.about-body');
+            var expanded = body.classList.toggle('expanded');
+            var label = btn.querySelector('.expand-label');
+            if (label) label.textContent = expanded ? 'Show less' : 'Read more';
         });
     });
 </script>
