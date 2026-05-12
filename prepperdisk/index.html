@@ -52,7 +52,13 @@
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
 .pd .pd-eyebrow { display: inline-block; background: #fff3cd; color: #7a5a00; padding: 0.3rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.05em; }
 .pd .pd-hero h1 { font-size: 2.6rem; line-height: 1.15; max-width: 850px; margin: 0 auto 1rem; color: #0d2b1a; }
-@media (max-width: 700px) { .pd .pd-hero h1 { font-size: 1.9rem; } }
+@media (max-width: 700px) {
+  .pd .pd-hero { padding: 2rem 0 2.5rem; }
+  .pd .pd-hero h1 { font-size: 1.5rem !important; line-height: 1.2; }
+  .pd .pd-hero .pd-sub { font-size: 1rem !important; }
+  .pd .pd-hero .pd-desc { font-size: 0.95rem !important; }
+  .pd h1 { font-size: 1.5rem !important; }
+}
 .pd .pd-hero .pd-sub { font-size: 1.15rem; color: #444; max-width: 800px; margin: 0 auto 2rem; }
 .pd .pd-shot { max-width: 700px; margin: 0 auto 2rem; aspect-ratio: 16/9; }
 .pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05rem; }
@@ -74,7 +80,14 @@
 .pd .pd-block { padding: 4.5rem 0; }
 .pd .pd-block.pd-alt { background: #faf7f2; }
 .pd .pd-block h2 { font-size: 2.1rem; text-align: center; margin-bottom: 0.75rem; line-height: 1.2; color: #0d2b1a; }
-@media (max-width: 700px) { .pd .pd-block h2 { font-size: 1.6rem; } }
+@media (max-width: 700px) {
+  .pd .pd-block { padding: 2.5rem 0; }
+  .pd .pd-block h2 { font-size: 1.35rem !important; }
+  .pd h2 { font-size: 1.35rem !important; }
+  .pd h3 { font-size: 1.1rem !important; }
+  .pd .pd-block .pd-sub { font-size: 0.95rem !important; margin-bottom: 1.5rem; }
+  .pd .pd-sub { font-size: 0.95rem !important; }
+}
 .pd .pd-block .pd-sub { text-align: center; color: #555; max-width: 750px; margin: 0 auto 2.5rem; font-size: 1.05rem; }
 
 .pd .pd-pgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 950px; margin: 0 auto; }
@@ -102,8 +115,15 @@
 }
 
 .pd .pd-sol-img { aspect-ratio: 16/9; max-width: 800px; margin: 0 auto 2rem; }
-.pd .pd-sol-text { max-width: 750px; margin: 0 auto; font-size: 1.05rem; color: #333; }
+.pd .pd-sol-text { max-width: 850px; margin: 0 auto; font-size: 1.05rem; color: #333; text-align: center; }
 .pd .pd-sol-text p { margin-bottom: 1.25rem; }
+.pd .pd-sol-lead { font-weight: 700; color: #0d2b1a; font-size: 1.15rem !important; }
+.pd .pd-sol-outro { font-style: italic; color: #555; margin-top: 0.5rem; }
+.pd .pd-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 900px; margin: 1.5rem auto 2rem; }
+@media (max-width: 700px) { .pd .pd-steps { grid-template-columns: 1fr; gap: 1rem; } }
+.pd .pd-step { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 1.5rem 1.25rem; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+.pd .pd-step-num { display: inline-block; background: #c0392b; color: #fff; font-weight: 800; padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.85rem; }
+.pd .pd-step-text { color: #1a1a1a; font-size: 1rem !important; line-height: 1.5; font-weight: 600; }
 
 .pd .pd-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
 @media (max-width: 800px) { .pd .pd-tiles { grid-template-columns: repeat(2, 1fr); } }
@@ -135,8 +155,10 @@
 .pd .pd-scene-text { color: #333; font-size: 1.05rem; margin-top: 0.25rem; }
 
 @media (max-width: 800px) {
-  .pd .pd-scene { display: block; margin-bottom: 0; border-bottom: 1px solid #e5e5e5; padding: 1rem 0; }
-  .pd .pd-scene.pd-flip .pd-scene-img { order: 0; }
+  .pd .pd-scene { display: flex; flex-direction: column; margin-bottom: 0; border-bottom: 1px solid #e5e5e5; padding: 1rem 0; gap: 0; }
+  .pd .pd-scene-content { order: 1; }
+  .pd .pd-scene-img { order: 2; }
+  .pd .pd-scene.pd-flip .pd-scene-img { order: 2; }
   .pd .pd-scene-sum { flex-direction: row; align-items: center; gap: 1rem; cursor: pointer; padding: 0.5rem 0; }
   .pd .pd-scene-num { width: 44px; height: 44px; font-size: 1.1rem; }
   .pd .pd-scene-title { font-size: 1.1rem; flex: 1; }
@@ -184,6 +206,26 @@
 .pd .pd-offer { background: linear-gradient(180deg, #0d2b1a 0%, #1a3d2a 100%); color: #fff; padding: 5rem 0; }
 .pd .pd-offer h2 { color: #fff; }
 .pd .pd-offer .pd-sub { color: #d4d4d4; }
+.pd .pd-mono { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; background: #fff; color: #1a1a1a; border-radius: 16px; padding: 2.5rem; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.25); }
+@media (max-width: 800px) { .pd .pd-mono { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; } }
+.pd .pd-mono-img .pd-ph { aspect-ratio: 1/1; border-radius: 12px; min-height: 280px; }
+.pd .pd-mono-info h3 { color: #0d2b1a; font-size: 1.5rem !important; margin-bottom: 0.5rem; }
+.pd .pd-mono-rating { display: flex; align-items: center; gap: 0.5rem; color: #f5a623; margin-bottom: 1rem; font-size: 0.95rem; flex-wrap: wrap; }
+.pd .pd-mono-rating .pd-rtxt { color: #555; }
+.pd .pd-mono-price { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.pd .pd-mono-price-now { font-size: 2.25rem; font-weight: 800; color: #0d2b1a; line-height: 1; }
+.pd .pd-mono-price-was { text-decoration: line-through; color: #888; font-size: 1.1rem; }
+.pd .pd-mono-savings { background: #fff3f1; color: #c0392b; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.8rem !important; font-weight: 700; letter-spacing: 0.05em; }
+.pd .pd-mono-includes { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
+.pd .pd-mono-includes li { padding: 0.45rem 0; display: flex; gap: 0.6rem; font-size: 0.98rem !important; color: #333; border-bottom: 1px solid #f0f0f0; }
+.pd .pd-mono-includes li:last-child { border-bottom: 0; }
+.pd .pd-mono-includes li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
+.pd .pd-mono-cta { display: block; width: 100%; background: #c0392b; color: #fff; padding: 1.1rem; font-size: 1.1rem !important; font-weight: 800; border: 0; border-radius: 8px; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
+.pd .pd-mono-cta:hover { transform: translateY(-2px); }
+.pd .pd-mono-trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; margin-top: 1rem; font-size: 0.8rem !important; color: #555; }
+.pd .pd-mono-trust .pd-titem { display: flex; align-items: center; gap: 0.4rem; }
+.pd .pd-mono-pay { display: flex; gap: 0.45rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
+.pd .pd-mono-pay .pd-payph { background: #f7f7f7; border: 1px solid #ddd; border-radius: 4px; padding: 0.3rem 0.55rem; font-size: 0.7rem !important; color: #555; font-weight: 700; letter-spacing: 0.05em; }
 .pd .pd-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 2rem; }
 @media (max-width: 800px) { .pd .pd-prices { grid-template-columns: 1fr; } }
 .pd .pd-price { background: #fff; color: #1a1a1a; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; position: relative; border: 3px solid transparent; }
@@ -211,6 +253,8 @@
 .pd .pd-guar h2 { color: #fff; }
 .pd .pd-guar .pd-sub { color: #d4d4d4; max-width: 700px; margin: 0 auto 2rem; }
 .pd .pd-seal { width: 160px; height: 160px; border-radius: 50%; border: 3px dashed #f5a623; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: #f5a623; font-weight: 700; text-align: center; padding: 1rem; font-size: 0.9rem; }
+.pd .pd-seal-wrap { display: flex; justify-content: center; margin: 0 auto 1.5rem; }
+.pd .pd-seal-svg { width: 170px; height: 170px; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
 .pd .pd-guar p { max-width: 700px; margin: 0 auto 1rem; }
 
 .pd .pd-about { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; max-width: 1000px; margin: 0 auto 2.5rem; }
@@ -235,7 +279,9 @@
 .pd .pd-opt .pd-olabel { font-weight: 700; color: #777; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.6rem; }
 .pd .pd-opt.pd-best .pd-olabel { color: #1e8449; }
 .pd .pd-btag { background: #27ae60; color: #fff; padding: 0.2rem 0.6rem; border-radius: 999px; font-size: 0.7rem; letter-spacing: 0.05em; font-weight: 700; text-transform: uppercase; }
-.pd .pd-opt p { margin: 0; color: #333; }
+.pd .pd-opt p { margin: 0 0 0.85rem; color: #333; }
+.pd .pd-opt p:last-child { margin-bottom: 0; }
+.pd .pd-opt .pd-ph { margin-top: 1.25rem; aspect-ratio: 16/9; border-radius: 8px; }
 .pd .pd-cwrap { text-align: center; }
 
 .pd .pd-faq { max-width: 800px; margin: 0 auto; }
@@ -383,14 +429,27 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <section class="pd-block pd-alt">
   <div class="pd-container">
     <h2>When the Internet Goes Down -> Grab Your Prepper Disk</h2>
-    <p class="pd-sub">As it's no larger than a deck of cards, you simply take it out of your pocket, bug-out-bag, or desk drawer
+    <p class="pd-sub">As it's no larger than a deck of cards, you simply take it out of your pocket, bug-out-bag, or desk drawer</p>
     <div class="pd-ph pd-sol-img">[IMAGE: laptop and phone showing the UI, with the Prepper Disk in the outdoors, from the home page]</div>
     <div class="pd-sol-text">
-      <p>Then you simply:</p>
-      <p>#1 Plug it into a wall outlet, battery or your car</p>
-	<p>#2 Connect your phone/laptop to its WIFI channel “PrepperDisk”</p>
-	<p>#3Type in 10.10.10.10 and browse!</p>
-      <p>It takes just 60 seconds to get your off-line library up and running</p>
+      <p class="pd-sol-lead">Then you simply:</p>
+    </div>
+    <div class="pd-steps">
+      <div class="pd-step">
+        <div class="pd-step-num">Step 1</div>
+        <div class="pd-step-text">Plug it into a wall outlet, battery or your car</div>
+      </div>
+      <div class="pd-step">
+        <div class="pd-step-num">Step 2</div>
+        <div class="pd-step-text">Connect your phone/laptop to its WIFI channel “PrepperDisk”</div>
+      </div>
+      <div class="pd-step">
+        <div class="pd-step-num">Step 3</div>
+        <div class="pd-step-text">Type in 10.10.10.10 and browse!</div>
+      </div>
+    </div>
+    <div class="pd-sol-text">
+      <p class="pd-sol-outro">It takes just 60 seconds to get your off-line library up and running</p>
     </div>
     <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
   </div>
@@ -575,37 +634,42 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
 <section class="pd-offer" id="pd-offer">
   <div class="pd-container">
     <h2>Get the Prepper Disk Premium 512GB</h2>
-    <p class="pd-sub">DELETE THIS SECTION - CHANGE TO MONO UNIT
-    <div class="pd-prices">
-      <div class="pd-price">
-        <div class="pd-qty">1 Disk</div>
-        <div class="pd-qsub">For one person or a single household.</div>
-        <div class="pd-unit">$279 / unit</div>
-        <div class="pd-total">$279</div>
-        <div class="pd-save">&nbsp;</div>
-        <a href="[checkout-link-1x]" class="pd-order">✅ Order Now</a>
+    <p class="pd-sub">Yours to keep for life. No subscriptions, no monthly fees, ever.</p>
+    <div class="pd-mono">
+      <div class="pd-mono-img">
+        <div class="pd-ph">[IMAGE: Prepper Disk Premium hero shot]</div>
       </div>
-      <div class="pd-price pd-feat">
-        <div class="pd-badge">Most Popular</div>
-        <div class="pd-qty">2 Disks</div>
-        <div class="pd-qsub">A backup for yourself, or one to gift to family.</div>
-        <div class="pd-unit">$250 / unit (save $XX)</div>
-        <div class="pd-total">$500</div>
-        <div class="pd-save">You save $58 total</div>
-        <a href="[checkout-link-2x]" class="pd-order">✅ Order Now</a>
+      <div class="pd-mono-info">
+        <h3>Prepper Disk Premium · 512GB</h3>
+        <div class="pd-mono-rating">★★★★★ <span class="pd-rtxt">4.8 / 5 from 114+ verified reviews</span></div>
+        <div class="pd-mono-price">
+          <span class="pd-mono-price-now">$279</span>
+          <span class="pd-mono-price-was">$329</span>
+          <span class="pd-mono-savings">SAVE $50</span>
+        </div>
+        <ul class="pd-mono-includes">
+          <li>Raspberry Pi 4B with 2GB RAM and 512GB pre-loaded SD card</li>
+          <li>Rugged aluminum case with passive cooling, no fan to fail</li>
+          <li>Connects up to 20 devices to its own private WiFi</li>
+          <li>USB-C charger and cable included, ready in 60 seconds</li>
+          <li>Free lifetime content updates, no subscriptions</li>
+        </ul>
+        <a href="[checkout-link]" class="pd-mono-cta">Order Now — $279</a>
+        <div class="pd-mono-trust">
+          <div class="pd-titem">🔒 Secure checkout</div>
+          <div class="pd-titem">🚚 Ships in 24 hours from USA</div>
+          <div class="pd-titem">✅ 60-day money back</div>
+          <div class="pd-titem">🛡️ 1-year hardware warranty</div>
+        </div>
+        <div class="pd-mono-pay">
+          <span class="pd-payph">VISA</span>
+          <span class="pd-payph">MASTERCARD</span>
+          <span class="pd-payph">AMEX</span>
+          <span class="pd-payph">PAYPAL</span>
+          <span class="pd-payph">APPLE PAY</span>
+          <span class="pd-payph">SHOP PAY</span>
+        </div>
       </div>
-      <div class="pd-price">
-        <div class="pd-qty">3 Disks</div>
-        <div class="pd-qsub">Best for organizations, groups, or community preparedness.</div>
-        <div class="pd-unit">$230 / unit (save $XX + free shipping)</div>
-        <div class="pd-total">$690</div>
-        <div class="pd-save">You save $147 + free shipping</div>
-        <a href="[checkout-link-3x]" class="pd-order">✅ Order Now</a>
-      </div>
-    </div>
-    <div class="pd-otrust">
-      🔒 Secure checkout   •   🚚 Ships in 24 hours from USA   •   💳 Visa, Mastercard, Amex, PayPal, Apple Pay, Shop Pay
-      <div class="pd-pay">[payment icons placeholder]</div>
     </div>
   </div>
 </section>
@@ -632,7 +696,27 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
   <div class="pd-container">
     <h2>Our 60-Day 'Peace of Mind' Guarantee</h2>
     <p class="pd-sub">Because the only way you should ever feel about your Prepper Disk is genuinely safer, more capable, and more prepared than you were the day before it arrived</p>
-    <div class="pd-seal">[60-DAY GUARANTEE SEAL]</div>
+    <div class="pd-seal-wrap">
+      <svg class="pd-seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="60 Day Money Back Guarantee Seal">
+        <defs>
+          <path id="pd-seal-arc-top" d="M 28 100 A 72 72 0 0 1 172 100" fill="none"/>
+          <path id="pd-seal-arc-bot" d="M 28 100 A 72 72 0 0 0 172 100" fill="none"/>
+        </defs>
+        <g fill="none" stroke="#f5a623">
+          <circle cx="100" cy="100" r="92" stroke-width="3" stroke-dasharray="3 5"/>
+          <circle cx="100" cy="100" r="80" stroke-width="2"/>
+          <circle cx="100" cy="100" r="62" stroke-width="2"/>
+        </g>
+        <text fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="2.5">
+          <textPath href="#pd-seal-arc-top" startOffset="50%" text-anchor="middle">MONEY BACK GUARANTEE</textPath>
+        </text>
+        <text fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" letter-spacing="2">
+          <textPath href="#pd-seal-arc-bot" startOffset="50%" text-anchor="middle">★   PREPPER DISK   ★</textPath>
+        </text>
+        <text x="100" y="95" text-anchor="middle" fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" letter-spacing="-1">60</text>
+        <text x="100" y="120" text-anchor="middle" fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="3">DAY</text>
+      </svg>
+    </div>
     <p>So if somehow your Prepper Disk doesn't meet your expectations, just email our team at <strong>support@prepperdisk.com</strong> within sixty days and we'll send you instructions for getting it back to us, with a full refund processed the moment it arrives.</p>
     <p>On top of that, every single unit we ship comes with a full one-year hardware warranty, so you're covered in every direction from the moment your order is placed.</p>
   </div>
@@ -675,42 +759,28 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
     <div class="pd-opts">
       <div class="pd-opt">
         <div class="pd-olabel">#1 You leave this page</div>
-        <p>This is not for you, so you decide not to get a Prepper Disk. Maybe you don’t believe information is vital. Or you do and you have volumes of books, guides, and maps already. But you don't need a digital backup in case of fire, or “pocket library” for when you need to abandon your house within 5 minutes because it’s about to be flooded.
-
-	<p>Or maybe it’s too expensive? Then send us an email here and we’ll see what we can do.</p>
+        <p>This is not for you, so you decide not to get a Prepper Disk. Maybe you don’t believe information is vital. Or you do and you have volumes of books, guides, and maps already. But you don't need a digital backup in case of fire, or “pocket library” for when you need to abandon your house within 5 minutes because it’s about to be flooded.</p>
+        <p>Or maybe it’s too expensive? Then send us an email here and we’ll see what we can do.</p>
       </div>
       <div class="pd-opt">
         <div class="pd-olabel">#2 You'll DIY your own Prepper Disk</div>
-        <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly. Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it. To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
+        <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly.</p>
+        <p>Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it.</p>
+        <p>To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
       </div>
       <div class="pd-opt pd-best">
         <div class="pd-olabel">#3 You go for convenience, speed, and peace of mind <span class="pd-btag">Best Pick</span></div>
-        <p>SThis is the choice over 7,000 people ended up picking.
-
-	<p>They spent $279 to save themselves the time, the headaches, and have all of those answers waiting in their pocket for the rest of their lives. </p>
-
-	<p>If you also pick this option, here’s what'll happen.</p>
-
-	<p>You hit our secure checkout, which notifies us.</p>
-
-	<p>We then go to work. A family member or I will prepare your package in person.</p>
-
-<p>Next, we either ship it tomorrow or Monday so you don’t have to wait long.</p>
-
-<p>As soon as it arrives, it’s simple.</p>
-
-<p>Unpack.
-Plug it into the wall or a battery.
-Take your phone/laptop and connect to “PrepperDisk” WIFI.
-Type 10.10.10.10 in the search bar.
-And start exploring the content!</p>
- 
-<p>Yours to keep forever, without subscriptions.</p>
-
-[photo of PD]
-
-CTA
-</p>
+        <p>SThis is the choice over 7,000 people ended up picking.</p>
+        <p>They spent $279 to save themselves the time, the headaches, and have all of those answers waiting in their pocket for the rest of their lives.</p>
+        <p>If you also pick this option, here’s what'll happen.</p>
+        <p>You hit our secure checkout, which notifies us.</p>
+        <p>We then go to work. A family member or I will prepare your package in person.</p>
+        <p>Next, we either ship it tomorrow or Monday so you don’t have to wait long.</p>
+        <p>As soon as it arrives, it’s simple.</p>
+        <p>Unpack.<br>Plug it into the wall or a battery.<br>Take your phone/laptop and connect to “PrepperDisk” WIFI.<br>Type 10.10.10.10 in the search bar.<br>And start exploring the content!</p>
+        <p>Yours to keep forever, without subscriptions.</p>
+        <div class="pd-ph">[IMAGE: Prepper Disk product shot]</div>
+        <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
       </div>
     </div>
     <div class="pd-cwrap"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
