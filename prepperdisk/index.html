@@ -127,13 +127,42 @@
 .pd .pd-step-icon { width: 44px; height: 44px; display: block; margin: 0 auto 0.85rem; color: #1e8449; }
 .pd .pd-step-text { color: #0d2b1a; font-size: 1.05rem !important; line-height: 1.5; font-weight: 700; }
 
-.pd .pd-tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
-@media (max-width: 800px) { .pd .pd-tiles { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 500px) { .pd .pd-tiles { grid-template-columns: 1fr; } }
-.pd .pd-tile { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 1.5rem; text-align: center; }
-.pd .pd-tile .pd-icon { font-size: 2.4rem; margin-bottom: 0.5rem; display: block; }
-.pd .pd-tile h4 { font-size: 1.1rem; margin-bottom: 0.5rem; color: #0d2b1a; }
-.pd .pd-tile p { font-size: 0.9rem; color: #555; margin: 0; }
+.pd .pd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 0; }
+.pd .pd-card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.5rem 1.5rem 1.25rem; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.pd .pd-card h3 { font-size: 1.3rem !important; color: #0d2b1a; margin-bottom: 0.6rem; text-align: center; }
+.pd .pd-card-divider { border: 0; border-top: 1px solid #e8e8e8; margin: 0 0 0.5rem; }
+.pd .pd-card-list { list-style: none; padding: 0; margin: 0; }
+.pd .pd-card-list li { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.7rem 0; border-bottom: 1px solid #f3f3f3; }
+.pd .pd-card-list li:last-child { border-bottom: 0; }
+.pd .pd-item-icon { flex-shrink: 0; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding-top: 0.15rem; }
+.pd .pd-item-icon img { max-width: 36px; max-height: 36px; display: block; }
+.pd .pd-item-icon svg { width: 34px; height: 34px; display: block; }
+.pd .pd-item-body { flex: 1; min-width: 0; }
+.pd .pd-item-name { display: inline-block; font-weight: 800; color: #0d2b1a; font-size: 1rem !important; line-height: 1.3; }
+.pd .pd-item-desc { color: #555; font-size: 0.88rem !important; line-height: 1.45; margin-top: 0.2rem; font-weight: 400; }
+.pd .pd-badge-new { display: inline-block; background: #1e8449; color: #fff; font-size: 0.62rem !important; padding: 0.12rem 0.45rem; border-radius: 3px; margin-left: 0.45rem; vertical-align: middle; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+
+@media (max-width: 800px) {
+  .pd .pd-cards-scroll { position: relative; margin: 0 -1.25rem; }
+  .pd .pd-cards { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0.85rem; padding: 0.5rem 2rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .pd .pd-cards::-webkit-scrollbar { display: none; }
+  .pd .pd-card { flex: 0 0 82%; scroll-snap-align: center; }
+}
+
+.pd .pd-cards-hint { display: none; }
+@media (max-width: 800px) {
+  .pd .pd-cards-hint { display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin: 1rem auto 0; color: #1e8449; font-weight: 700; font-size: 0.9rem !important; min-height: 1.5rem; }
+  .pd .pd-cards-hint .pd-hint-arrow { display: inline-block; animation: pdHintBounce 1.4s ease-in-out infinite; font-weight: 900; }
+  @keyframes pdHintBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+  .pd .pd-cards-hint.pd-hint-prev .pd-hint-arrow { animation: pdHintBouncePrev 1.4s ease-in-out infinite; }
+  @keyframes pdHintBouncePrev { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
+}
+.pd .pd-cards-dots { display: none; }
+@media (max-width: 800px) {
+  .pd .pd-cards-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 0.75rem; }
+  .pd .pd-cards-dots .pd-dot { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; transition: all 0.25s ease; }
+  .pd .pd-cards-dots .pd-dot.pd-on { background: #1e8449; width: 24px; border-radius: 4px; }
+}
 
 .pd .pd-full { max-width: 800px; margin: 0 auto 1.5rem; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 1rem 1.25rem; }
 .pd .pd-full summary { cursor: pointer; font-weight: 600; color: #1e8449; list-style: none; }
@@ -202,10 +231,9 @@
 .pd .pd-tests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 @media (max-width: 800px) { .pd .pd-tests { grid-template-columns: 1fr; } }
 .pd .pd-test { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
-.pd .pd-test-img { position: relative; }
 .pd .pd-test-img .pd-ph { aspect-ratio: 16/10; min-height: 0 !important; border: 0; border-radius: 0; background: #e8e8e8; color: #777; }
-.pd .pd-test-stars { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #f5a623; font-size: 1.9rem; letter-spacing: 0.15em; text-shadow: 0 2px 8px rgba(0,0,0,0.55); pointer-events: none; }
-.pd .pd-test-body { padding: 1.25rem 1.5rem 1.5rem; }
+.pd .pd-test-stars { color: #f5a623; font-size: 1.5rem; letter-spacing: 0.15em; text-align: center; padding: 1rem 1.5rem 0; }
+.pd .pd-test-body { padding: 0.75rem 1.5rem 1.5rem; }
 .pd .pd-quote { color: #333; font-size: 0.95rem; margin-bottom: 1rem; }
 .pd .pd-quote b { color: #0d2b1a; }
 .pd .pd-author { font-weight: 600; font-size: 0.9rem; color: #555; }
@@ -224,7 +252,7 @@
 .pd .pd-mono-price-was { text-decoration: line-through; color: #888; font-size: 1.1rem; }
 .pd .pd-mono-savings { background: #eaf6ee; color: #1e8449; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.8rem !important; font-weight: 700; letter-spacing: 0.05em; }
 .pd .pd-mono-includes { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
-.pd .pd-mono-includes li { padding: 0.45rem 0; display: flex; gap: 0.6rem; font-size: 0.98rem !important; color: #333; border-bottom: 1px solid #f0f0f0; }
+.pd .pd-mono-includes li { padding: 0.5rem 0; display: flex; gap: 0.6rem; font-size: 1rem !important; color: #0d2b1a; font-weight: 700; border-bottom: 1px solid #f0f0f0; }
 .pd .pd-mono-includes li:last-child { border-bottom: 0; }
 .pd .pd-mono-includes li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
 .pd .pd-mono-cta { display: block; width: 100%; background: #c0392b; color: #fff; padding: 1.1rem; font-size: 1.1rem !important; font-weight: 800; border: 0; border-radius: 8px; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
@@ -489,14 +517,160 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <section class="pd-block" id="pd-whats">
   <div class="pd-container">
     <h2>What's Stored on a Prepper Disk</h2>
-    <div class="pd-tiles">
-      <div class="pd-tile"><span class="pd-icon">📖</span><h4>100% of Wikipedia</h4><p>Over 7 million English articles, fully searchable, with images included.</p></div>
-      <div class="pd-tile"><span class="pd-icon">🏥</span><h4>Medical Manuals</h4><p>Diagnose, treat, and stabilize, plus the complete library of FEMA disaster guides.</p></div>
-      <div class="pd-tile"><span class="pd-icon">🛠️</span><h4>iFixit + 117,000 Tutorials</h4><p>Repair the generator, fix the well pump, get the truck running again.</p></div>
-      <div class="pd-tile"><span class="pd-icon">🗺️</span><h4>Offline Maps</h4><p>US, European, and Oceanian Streets, satellite imagery, and the full US National Park trail system.</p></div>
-      <div class="pd-tile"><span class="pd-icon">📚</span><h4>60,000+ Books</h4><p>Classics, survival manuals, and US Military field guides ready to read.</p></div>
-      <div class="pd-tile"><span class="pd-icon">📻</span><h4>Ham Radio Database</h4><p>Frequencies, callsigns, and emergency channels at your fingertips.</p></div>
+    <div class="pd-cards-scroll">
+      <div class="pd-cards">
+
+        <div class="pd-card" data-card-title="Reference">
+          <h3>Reference</h3>
+          <hr class="pd-card-divider">
+          <ul class="pd-card-list">
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Wikipedia (English)</span>
+                <div class="pd-item-desc">Over 6 million articles and images. Searchable and browsable just like the real site.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PostPI_d78430d5-10d4-485e-9e99-96d6c7dca2ff.png?v=1744858848" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Project Gutenberg</span>
+                <div class="pd-item-desc">60,000 eBooks across 300+ categories — classics, non-fiction, children's books, and more.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/TedPI.png?v=1744843445" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">TED Talks</span>
+                <div class="pd-item-desc">Curated videos on farming and extreme weather.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/HowPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">WikiHow</span>
+                <div class="pd-item-desc">90,000+ how-to guides, from finding shelter to wiring a house.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/QAPI.png?v=1744843514" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Stack Exchange Q&amp;A</span>
+                <div class="pd-item-desc">Thousands of searchable questions on sustainable living and the outdoors.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/FixItPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">iFixit Repair Guides</span>
+                <div class="pd-item-desc">Professional-grade repair instructions for autos, electronics, and home appliances.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#1e8449"/>
+                  <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#1e8449" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="27" y1="12" x2="27" y2="20" stroke="#1e8449" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="27" cy="22.5" r="1.4" fill="#1e8449"/>
+                </svg>
+              </span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Khan Academy</span>
+                <div class="pd-item-desc">[Khan Academy short description — please paste exact copy]</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pd-card" data-card-title="Crisis Response">
+          <h3>Crisis Response</h3>
+          <hr class="pd-card-divider">
+          <ul class="pd-card-list">
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/ReadyPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Ready.gov / FEMA</span>
+                <div class="pd-item-desc">Disaster planning for biohazards, weather events, mass attacks, home fires, and more.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Medical Wikis &amp; Guides</span>
+                <div class="pd-item-desc">50,000+ articles from the National Library of Medicine, MedlinePlus, and surgical/first-aid guides.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GutenPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Survival Bookshelf</span>
+                <div class="pd-item-desc">Military survival manuals, hunting and trapping, foraging, post-disaster cooking.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/KyPI.png?v=1744845278" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Ky Furneaux Field Guides</span>
+                <div class="pd-item-desc">Fortifying your home, finding water, signaling, rescue — from the survival expert (Discovery, MTV).</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PDPI.png?v=1744841833" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Prepper Disk Exclusives</span>
+                <div class="pd-item-desc">Original eBooks: livestock for survival, woodland survival, emergency communication.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pd-card" data-card-title="Comms and Navigation">
+          <h3>Comms and Navigation</h3>
+          <hr class="pd-card-divider">
+          <ul class="pd-card-list">
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">World Street Maps</span>
+                <div class="pd-item-desc">North America, Europe, and Oceania street maps with satellite imagery.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/natparks.png?v=1757477301" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">National Park Maps<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">Official trail maps for all 63 US National Parks.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Ham_icon_ff9e6fd3-4128-4595-b909-13be40e9574f.png?v=1752638752" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">RepeaterBook (HAM)</span>
+                <div class="pd-item-desc">Searchable amateur radio repeater data for the US and Canada.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/morse___icon_0a40a4c5-cfbe-4dad-9b4f-1bb6ff7bb1ba.png?v=1757462925" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Morse Code Decoder<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">Decodes and translates Morse with audio and visual signal output.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/translate.png?v=1757476987" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Emergency Phrase Translator<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">200+ emergency phrases across English, Spanish, French, Italian, German, Russian.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
     </div>
+    <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
+    <div class="pd-cards-dots" id="pdCardsDots"></div>
     <details class="pd-full">
       <summary>View the full content list</summary>
       <div class="pd-fcontent">
@@ -644,30 +818,24 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
     </div>
     <div class="pd-tests">
       <div class="pd-test">
-        <div class="pd-test-img">
-          <div class="pd-ph">[Douglas Testimonial Image]</div>
-          <div class="pd-test-stars">★★★★★</div>
-        </div>
+        <div class="pd-test-img"><div class="pd-ph">[Douglas Testimonial Image]</div></div>
+        <div class="pd-test-stars">★★★★★</div>
         <div class="pd-test-body">
           <p class="pd-quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
           <div class="pd-author">— Douglas G., verified buyer</div>
         </div>
       </div>
       <div class="pd-test">
-        <div class="pd-test-img">
-          <div class="pd-ph">[Micaela Testimonial Image]</div>
-          <div class="pd-test-stars">★★★★★</div>
-        </div>
+        <div class="pd-test-img"><div class="pd-ph">[Micaela Testimonial Image]</div></div>
+        <div class="pd-test-stars">★★★★★</div>
         <div class="pd-test-body">
           <p class="pd-quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
           <div class="pd-author">— Micaela B., verified buyer</div>
         </div>
       </div>
       <div class="pd-test">
-        <div class="pd-test-img">
-          <div class="pd-ph">[Garrett Testimonial Image]</div>
-          <div class="pd-test-stars">★★★★★</div>
-        </div>
+        <div class="pd-test-img"><div class="pd-ph">[Garrett Testimonial Image]</div></div>
+        <div class="pd-test-stars">★★★★★</div>
         <div class="pd-test-body">
           <p class="pd-quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
           <div class="pd-author">— Garrett D., verified buyer</div>
@@ -690,8 +858,6 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
         <div class="pd-mono-rating">★★★★★ <span class="pd-rtxt">4.8 / 5 from 114+ verified reviews</span></div>
         <div class="pd-mono-price">
           <span class="pd-mono-price-now">$279</span>
-          <span class="pd-mono-price-was">$329</span>
-          <span class="pd-mono-savings">SAVE $50</span>
         </div>
         <ul class="pd-mono-includes">
           <li>Raspberry Pi 4B with 2GB RAM and 512GB pre-loaded SD card</li>
@@ -700,7 +866,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
           <li>USB-C charger and cable included, ready in 60 seconds</li>
           <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
         </ul>
-        <a href="[checkout-link]" class="pd-mono-cta">Order Now — $279</a>
+        <a href="[checkout-link]" class="pd-mono-cta">Order Now</a>
         <div class="pd-mono-trust">
           <div class="pd-titem">🔒 Secure checkout</div>
           <div class="pd-titem">🚚 Ships in 24 hours from USA</div>
@@ -935,6 +1101,66 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
       if (label) label.textContent = expanded ? 'Show less' : 'Read more';
     });
   });
+
+  (function initCardsCarousel(){
+    var scroller = document.querySelector('.pd .pd-cards-scroll .pd-cards');
+    var hint = document.getElementById('pdCardsHint');
+    var dotsWrap = document.getElementById('pdCardsDots');
+    if (!scroller || !hint || !dotsWrap) return;
+    var cards = scroller.querySelectorAll('.pd-card');
+    if (!cards.length) return;
+
+    cards.forEach(function(_, i){
+      var dot = document.createElement('span');
+      dot.className = 'pd-dot';
+      if (i === 0) dot.classList.add('pd-on');
+      dotsWrap.appendChild(dot);
+    });
+    var dots = dotsWrap.querySelectorAll('.pd-dot');
+
+    function currentIndex(){
+      var center = scroller.scrollLeft + scroller.clientWidth / 2;
+      var best = 0;
+      var bestDist = Infinity;
+      cards.forEach(function(card, i){
+        var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+        var d = Math.abs(center - cardCenter);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      return best;
+    }
+
+    function update(){
+      var idx = currentIndex();
+      dots.forEach(function(d, i){ d.classList.toggle('pd-on', i === idx); });
+      var arrow = hint.querySelector('.pd-hint-arrow');
+      var label = hint.querySelector('.pd-hint-label');
+      var next = cards[idx + 1];
+      var prev = cards[idx - 1];
+      if (next) {
+        hint.classList.remove('pd-hint-prev');
+        if (arrow) arrow.textContent = '→';
+        if (label) label.textContent = next.getAttribute('data-card-title') || '';
+        hint.style.visibility = 'visible';
+      } else if (prev) {
+        hint.classList.add('pd-hint-prev');
+        if (arrow) arrow.textContent = '←';
+        if (label) label.textContent = prev.getAttribute('data-card-title') || '';
+        hint.style.visibility = 'visible';
+      } else {
+        hint.style.visibility = 'hidden';
+      }
+    }
+
+    var ticking = false;
+    scroller.addEventListener('scroll', function(){
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function(){ update(); ticking = false; });
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
 })();
 </script>
 
