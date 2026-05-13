@@ -127,14 +127,20 @@
 .pd .pd-step-icon { width: 44px; height: 44px; display: block; margin: 0 auto 0.85rem; color: #1e8449; }
 .pd .pd-step-text { color: #0d2b1a; font-size: 1.05rem !important; line-height: 1.5; font-weight: 700; }
 
-.pd .pd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
-.pd .pd-card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.75rem 1.5rem; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-.pd .pd-card-icon { width: 64px; height: 64px; border-radius: 16px; background: #eaf6ee; color: #1e8449; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem; }
-.pd .pd-card h3 { font-size: 1.25rem !important; color: #0d2b1a; margin-bottom: 1rem; text-align: center; }
+.pd .pd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 0; }
+.pd .pd-card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.5rem 1.5rem 1.25rem; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+.pd .pd-card h3 { font-size: 1.3rem !important; color: #0d2b1a; margin-bottom: 0.6rem; text-align: center; }
+.pd .pd-card-divider { border: 0; border-top: 1px solid #e8e8e8; margin: 0 0 0.5rem; }
 .pd .pd-card-list { list-style: none; padding: 0; margin: 0; }
-.pd .pd-card-list li { display: flex; align-items: flex-start; gap: 0.7rem; padding: 0.55rem 0; border-bottom: 1px solid #f3f3f3; color: #333; font-size: 0.97rem !important; line-height: 1.45; }
+.pd .pd-card-list li { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.7rem 0; border-bottom: 1px solid #f3f3f3; }
 .pd .pd-card-list li:last-child { border-bottom: 0; }
-.pd .pd-card-list .pd-item-icon { flex-shrink: 0; font-size: 1.1rem; line-height: 1.4; width: 1.5rem; text-align: center; }
+.pd .pd-item-icon { flex-shrink: 0; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; padding-top: 0.15rem; }
+.pd .pd-item-icon img { max-width: 36px; max-height: 36px; display: block; }
+.pd .pd-item-icon svg { width: 34px; height: 34px; display: block; }
+.pd .pd-item-body { flex: 1; min-width: 0; }
+.pd .pd-item-name { display: inline-block; font-weight: 800; color: #0d2b1a; font-size: 1rem !important; line-height: 1.3; }
+.pd .pd-item-desc { color: #555; font-size: 0.88rem !important; line-height: 1.45; margin-top: 0.2rem; font-weight: 400; }
+.pd .pd-badge-new { display: inline-block; background: #1e8449; color: #fff; font-size: 0.62rem !important; padding: 0.12rem 0.45rem; border-radius: 3px; margin-left: 0.45rem; vertical-align: middle; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 
 @media (max-width: 800px) {
   .pd .pd-cards-scroll { position: relative; margin: 0 -1.25rem; }
@@ -515,40 +521,155 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
       <div class="pd-cards">
 
         <div class="pd-card" data-card-title="Reference">
-          <div class="pd-card-icon">📖</div>
           <h3>Reference</h3>
+          <hr class="pd-card-divider">
           <ul class="pd-card-list">
-            <li><span class="pd-item-icon">📖</span><span>100% of Wikipedia · over 7 million articles, fully searchable</span></li>
-            <li><span class="pd-item-icon">🛠️</span><span>iFixit + 117,000+ repair tutorials</span></li>
-            <li><span class="pd-item-icon">🎓</span><span>Khan Academy courses</span></li>
-            <li><span class="pd-item-icon">📚</span><span>60,000+ books, classics, and US Military field guides</span></li>
-            <li><span class="pd-item-icon">🏥</span><span>Medical manuals + full FEMA disaster guide library</span></li>
-            <li><span class="pd-item-icon">📝</span><span>[PASTE: remaining Reference items from prepperdisk.com/pages/how-does-it-work]</span></li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Wikipedia (English)</span>
+                <div class="pd-item-desc">Over 6 million articles and images. Searchable and browsable just like the real site.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PostPI_d78430d5-10d4-485e-9e99-96d6c7dca2ff.png?v=1744858848" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Project Gutenberg</span>
+                <div class="pd-item-desc">60,000 eBooks across 300+ categories — classics, non-fiction, children's books, and more.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/TedPI.png?v=1744843445" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">TED Talks</span>
+                <div class="pd-item-desc">Curated videos on farming and extreme weather.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/HowPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">WikiHow</span>
+                <div class="pd-item-desc">90,000+ how-to guides, from finding shelter to wiring a house.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/QAPI.png?v=1744843514" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Stack Exchange Q&amp;A</span>
+                <div class="pd-item-desc">Thousands of searchable questions on sustainable living and the outdoors.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/FixItPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">iFixit Repair Guides</span>
+                <div class="pd-item-desc">Professional-grade repair instructions for autos, electronics, and home appliances.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#1e8449"/>
+                  <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#1e8449" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="27" y1="12" x2="27" y2="20" stroke="#1e8449" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="27" cy="22.5" r="1.4" fill="#1e8449"/>
+                </svg>
+              </span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Khan Academy</span>
+                <div class="pd-item-desc">[Khan Academy short description — please paste exact copy]</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pd-card" data-card-title="Crisis Response">
+          <h3>Crisis Response</h3>
+          <hr class="pd-card-divider">
+          <ul class="pd-card-list">
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/ReadyPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Ready.gov / FEMA</span>
+                <div class="pd-item-desc">Disaster planning for biohazards, weather events, mass attacks, home fires, and more.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Medical Wikis &amp; Guides</span>
+                <div class="pd-item-desc">50,000+ articles from the National Library of Medicine, MedlinePlus, and surgical/first-aid guides.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GutenPI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Survival Bookshelf</span>
+                <div class="pd-item-desc">Military survival manuals, hunting and trapping, foraging, post-disaster cooking.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/KyPI.png?v=1744845278" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Ky Furneaux Field Guides</span>
+                <div class="pd-item-desc">Fortifying your home, finding water, signaling, rescue — from the survival expert (Discovery, MTV).</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PDPI.png?v=1744841833" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Prepper Disk Exclusives</span>
+                <div class="pd-item-desc">Original eBooks: livestock for survival, woodland survival, emergency communication.</div>
+              </div>
+            </li>
           </ul>
         </div>
 
         <div class="pd-card" data-card-title="Comms and Navigation">
-          <div class="pd-card-icon">🗺️</div>
           <h3>Comms and Navigation</h3>
+          <hr class="pd-card-divider">
           <ul class="pd-card-list">
-            <li><span class="pd-item-icon">🗺️</span><span>Offline maps of the USA, Europe, and Oceania</span></li>
-            <li><span class="pd-item-icon">🏞️</span><span>US National Park trail systems</span></li>
-            <li><span class="pd-item-icon">📻</span><span>Ham radio database · frequencies, callsigns, emergency channels</span></li>
-            <li><span class="pd-item-icon">📝</span><span>[PASTE: remaining Comms / Navigation items]</span></li>
-          </ul>
-        </div>
-
-        <div class="pd-card" data-card-title="[Third card title]">
-          <div class="pd-card-icon">📝</div>
-          <h3>[Third card — please paste title]</h3>
-          <ul class="pd-card-list">
-            <li><span class="pd-item-icon">📝</span><span>[PASTE: items + icons from prepperdisk.com/pages/how-does-it-work]</span></li>
+            <li>
+              <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">World Street Maps</span>
+                <div class="pd-item-desc">North America, Europe, and Oceania street maps with satellite imagery.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/natparks.png?v=1757477301" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">National Park Maps<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">Official trail maps for all 63 US National Parks.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Ham_icon_ff9e6fd3-4128-4595-b909-13be40e9574f.png?v=1752638752" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">RepeaterBook (HAM)</span>
+                <div class="pd-item-desc">Searchable amateur radio repeater data for the US and Canada.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/morse___icon_0a40a4c5-cfbe-4dad-9b4f-1bb6ff7bb1ba.png?v=1757462925" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Morse Code Decoder<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">Decodes and translates Morse with audio and visual signal output.</div>
+              </div>
+            </li>
+            <li>
+              <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/translate.png?v=1757476987" alt=""></span>
+              <div class="pd-item-body">
+                <span class="pd-item-name">Emergency Phrase Translator<span class="pd-badge-new">New</span></span>
+                <div class="pd-item-desc">200+ emergency phrases across English, Spanish, French, Italian, German, Russian.</div>
+              </div>
+            </li>
           </ul>
         </div>
 
       </div>
     </div>
-    <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Comms and Navigation</span></div>
+    <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
     <div class="pd-cards-dots" id="pdCardsDots"></div>
     <details class="pd-full">
       <summary>View the full content list</summary>
