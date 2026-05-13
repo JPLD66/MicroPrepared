@@ -201,8 +201,11 @@
 
 .pd .pd-tests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 @media (max-width: 800px) { .pd .pd-tests { grid-template-columns: 1fr; } }
-.pd .pd-test { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 1.5rem; }
-.pd .pd-test .pd-stars { margin-bottom: 0.5rem; font-size: 1rem; }
+.pd .pd-test { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
+.pd .pd-test-img { position: relative; }
+.pd .pd-test-img .pd-ph { aspect-ratio: 16/10; min-height: 0 !important; border: 0; border-radius: 0; background: #e8e8e8; color: #777; }
+.pd .pd-test-stars { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #f5a623; font-size: 1.9rem; letter-spacing: 0.15em; text-shadow: 0 2px 8px rgba(0,0,0,0.55); pointer-events: none; }
+.pd .pd-test-body { padding: 1.25rem 1.5rem 1.5rem; }
 .pd .pd-quote { color: #333; font-size: 0.95rem; margin-bottom: 1rem; }
 .pd .pd-quote b { color: #0d2b1a; }
 .pd .pd-author { font-weight: 600; font-size: 0.9rem; color: #555; }
@@ -286,6 +289,9 @@
 .pd .pd-opt p { margin: 0 0 0.85rem; color: #333; }
 .pd .pd-opt p:last-child { margin-bottom: 0; }
 .pd .pd-opt .pd-ph { margin-top: 1.25rem; aspect-ratio: 16/9; border-radius: 8px; }
+.pd .pd-c3-steps { margin: 0.5rem 0 1.25rem; padding-left: 1.75rem; list-style: decimal; }
+.pd .pd-c3-steps li { margin-bottom: 0.45rem; color: #0d2b1a; font-weight: 700; font-size: 1.02rem !important; line-height: 1.45; }
+.pd .pd-c3-steps li::marker { color: #1e8449; font-weight: 900; }
 .pd .pd-cwrap { text-align: center; }
 
 .pd .pd-faq { max-width: 800px; margin: 0 auto; }
@@ -638,19 +644,34 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
     </div>
     <div class="pd-tests">
       <div class="pd-test">
-        <div class="pd-stars">★★★★★</div>
-        <p class="pd-quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
-        <div class="pd-author">— Douglas G., verified buyer</div>
+        <div class="pd-test-img">
+          <div class="pd-ph">[Douglas Testimonial Image]</div>
+          <div class="pd-test-stars">★★★★★</div>
+        </div>
+        <div class="pd-test-body">
+          <p class="pd-quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
+          <div class="pd-author">— Douglas G., verified buyer</div>
+        </div>
       </div>
       <div class="pd-test">
-        <div class="pd-stars">★★★★★</div>
-        <p class="pd-quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
-        <div class="pd-author">— Micaela B., verified buyer</div>
+        <div class="pd-test-img">
+          <div class="pd-ph">[Micaela Testimonial Image]</div>
+          <div class="pd-test-stars">★★★★★</div>
+        </div>
+        <div class="pd-test-body">
+          <p class="pd-quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
+          <div class="pd-author">— Micaela B., verified buyer</div>
+        </div>
       </div>
       <div class="pd-test">
-        <div class="pd-stars">★★★★★</div>
-        <p class="pd-quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
-        <div class="pd-author">— Garrett D., verified buyer</div>
+        <div class="pd-test-img">
+          <div class="pd-ph">[Garrett Testimonial Image]</div>
+          <div class="pd-test-stars">★★★★★</div>
+        </div>
+        <div class="pd-test-body">
+          <p class="pd-quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
+          <div class="pd-author">— Garrett D., verified buyer</div>
+        </div>
       </div>
     </div>
   </div>
@@ -677,7 +698,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
           <li>Rugged aluminum case with passive cooling, no fan to fail</li>
           <li>Connects up to 20 devices to its own private WiFi</li>
           <li>USB-C charger and cable included, ready in 60 seconds</li>
-          <li>Free lifetime content updates, no subscriptions</li>
+          <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
         </ul>
         <a href="[checkout-link]" class="pd-mono-cta">Order Now — $279</a>
         <div class="pd-mono-trust">
@@ -784,13 +805,18 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
         <p>We then go to work. A family member or I will prepare your package in person.</p>
         <p>Next, we either ship it tomorrow or Monday so you don’t have to wait long.</p>
         <p>As soon as it arrives, it’s simple.</p>
-        <p>Unpack.<br>Plug it into the wall or a battery.<br>Take your phone/laptop and connect to “PrepperDisk” WIFI.<br>Type 10.10.10.10 in the search bar.<br>And start exploring the content!</p>
+        <ol class="pd-c3-steps">
+          <li>Unpack.</li>
+          <li>Plug it into the wall or a battery.</li>
+          <li>Take your phone/laptop and connect to “PrepperDisk” WIFI.</li>
+          <li>Type 10.10.10.10 in the search bar.</li>
+          <li>And start exploring the content!</li>
+        </ol>
         <p>Yours to keep forever, without subscriptions.</p>
         <div class="pd-ph">[IMAGE: Prepper Disk product shot]</div>
-        <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
+        <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">I Choose This</a></div>
       </div>
     </div>
-    <div class="pd-cwrap"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
   </div>
 </section>
 
