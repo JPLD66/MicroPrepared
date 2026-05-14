@@ -41,16 +41,14 @@
 .pd button { cursor: pointer; font-family: inherit; }
 .pd p { margin-bottom: 1rem; }
 
-.pd .pd-announce { background: #0d2b1a; color: #fff; text-align: center; font-size: 0.85rem; padding: 0.6rem 1rem; letter-spacing: 0.05em; font-weight: 600; }
-
-.pd .pd-header { border-bottom: 1px solid #eee; padding: 1rem 0; position: sticky; top: 0; background: #fff; z-index: 50; }
+.pd .pd-header { border-bottom: 1px solid #eee; padding: 1rem 0; background: #fff; }
 .pd .pd-header .pd-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
 .pd .pd-logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.05em; color: #0d2b1a; }
 .pd .pd-nav ul { display: flex; gap: 1.75rem; list-style: none; font-size: 0.9rem; }
 @media (max-width: 700px) { .pd .pd-nav { display: none; } }
 
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
-.pd .pd-eyebrow { display: inline-block; background: #fff3cd; color: #7a5a00; padding: 0.3rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: 0.05em; }
+.pd .pd-eyebrow { display: inline-block; background: #fff200; color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 0; border: 2px solid #1a1a1a; font-size: 0.85rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.04em; }
 .pd .pd-hero h1 { font-size: 2.6rem; line-height: 1.15; max-width: 850px; margin: 0 auto 1rem; color: #0d2b1a; }
 @media (max-width: 700px) {
   .pd .pd-hero { padding: 2rem 0 2.5rem; }
@@ -363,7 +361,7 @@
   <div class="pd-container">
     <div class="pd-eyebrow">What if you need crucial information, but you get no signal?</div>
     <h1>This Tiny Emergency Hotspot Shows You How To Survive Outdoors, Find Your Way Back Home, or Treat Wounds in Seconds</h1>
-    <p class="pd-sub">Even when you're off-grid or the internet is down (forever)</p>
+    <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Even when you're off-grid or the internet is down (forever)</p>
     <div class="pd-ph pd-shot">[IMAGE: Prepper Disk on a desk with phone connected and Wikipedia loading on the screen]</div>
     <ul class="pd-bullets">
       <li>✔️ 100% Of Wikipedia</li>
@@ -569,10 +567,10 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
             <li>
               <span class="pd-item-icon">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#f5a623"/>
-                  <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#f5a623" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  <line x1="27" y1="12" x2="27" y2="20" stroke="#f5a623" stroke-width="2" stroke-linecap="round"/>
-                  <circle cx="27" cy="22.5" r="1.4" fill="#f5a623"/>
+                  <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#1a1a1a"/>
+                  <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <line x1="27" y1="12" x2="27" y2="20" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="27" cy="22.5" r="1.4" fill="#1a1a1a"/>
                 </svg>
               </span>
               <div class="pd-item-body">
@@ -808,13 +806,10 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
   <div class="pd-container">
     <h2>Stashed With 7,000+ Households</h2>
     <p class="pd-sub">From homesteaders to prepared families, here's what people are saying.</p>
-    <div class="pd-sp-top">
-      <div class="pd-ph pd-video">[VIDEO: YouTube review embed placeholder]</div>
-      <div class="pd-rating">
-        <div class="pd-big">4.8</div>
-        <div class="pd-stars">★★★★★</div>
-        <div class="pd-rcount">Based on 114+ verified reviews</div>
-      </div>
+    <div class="pd-rating" style="margin-bottom: 2.5rem;">
+      <div class="pd-big">4.8</div>
+      <div class="pd-stars">★★★★★</div>
+      <div class="pd-rcount">Based on 114+ verified reviews</div>
     </div>
     <div class="pd-tests">
       <div class="pd-test">
@@ -891,25 +886,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
     <h2>Our 60-Day 'Peace of Mind' Guarantee</h2>
     <p class="pd-sub">Because the only way you should ever feel about your Prepper Disk is genuinely safer, more capable, and more prepared than you were the day before it arrived</p>
     <div class="pd-seal-wrap">
-      <svg class="pd-seal-svg" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="60 Day Money Back Guarantee Seal">
-        <defs>
-          <path id="pd-seal-arc-top" d="M 28 100 A 72 72 0 0 1 172 100" fill="none"/>
-          <path id="pd-seal-arc-bot" d="M 28 100 A 72 72 0 0 0 172 100" fill="none"/>
-        </defs>
-        <g fill="none" stroke="#f5a623">
-          <circle cx="100" cy="100" r="92" stroke-width="3" stroke-dasharray="3 5"/>
-          <circle cx="100" cy="100" r="80" stroke-width="2"/>
-          <circle cx="100" cy="100" r="62" stroke-width="2"/>
-        </g>
-        <text fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" letter-spacing="2.5">
-          <textPath href="#pd-seal-arc-top" startOffset="50%" text-anchor="middle">MONEY BACK GUARANTEE</textPath>
-        </text>
-        <text fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" letter-spacing="2">
-          <textPath href="#pd-seal-arc-bot" startOffset="50%" text-anchor="middle">★   PREPPER DISK   ★</textPath>
-        </text>
-        <text x="100" y="95" text-anchor="middle" fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="38" font-weight="900" letter-spacing="-1">60</text>
-        <text x="100" y="120" text-anchor="middle" fill="#f5a623" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" letter-spacing="3">DAY</text>
-      </svg>
+      <div class="pd-ph" style="width: 180px; height: 180px; border-radius: 12px;">[Money-Back Guarantee Image]</div>
     </div>
     <p>So if somehow your Prepper Disk doesn't meet your expectations, just email our team at <strong>support@prepperdisk.com</strong> within sixty days and we'll send you instructions for getting it back to us, with a full refund processed the moment it arrives.</p>
     <p>On top of that, every single unit we ship comes with a full one-year hardware warranty, so you're covered in every direction from the moment your order is placed.</p>
