@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prepper Disk Premium</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- =========================================================================
@@ -67,13 +68,27 @@
 .pd .pd-btn:hover { transform: translateY(-2px); }
 .pd .pd-trust { margin-top: 1.25rem; font-size: 0.85rem; color: #555; }
 
-.pd .pd-cred { background: #f7f5f0; padding: 2.5rem 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-.pd .pd-cred .pd-label { text-align: center; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: #777; margin-bottom: 1.25rem; }
-.pd .pd-cred .pd-logos { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; align-items: center; margin-bottom: 1.5rem; }
-@media (max-width: 700px) { .pd .pd-cred .pd-logos { grid-template-columns: repeat(2, 1fr); } }
-.pd .pd-cred .pd-ph { min-height: 50px; background: transparent; border-color: #ccc; }
-.pd .pd-access { text-align: center; font-size: 1.05rem; color: #333; max-width: 700px; margin: 0 auto; }
-.pd .pd-access strong { color: #0d2b1a; }
+.pd .pd-cred { background: #b8d9a0; padding: 2.5rem 1.25rem; }
+.pd .pd-trust-bar { width: 100%; max-width: 740px; margin: 0 auto; border-radius: 8px; overflow: hidden; border: 1px solid #a8cc90; font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+.pd .pd-trust-row { display: flex; flex-direction: column; align-items: center; padding: 26px 32px; gap: 18px; text-align: center; }
+.pd .pd-trust-row.pd-trusted { background: #dff0d4; border-bottom: 1px solid #c4ddb0; }
+.pd .pd-trust-row.pd-perfect { background: #cce8bb; }
+.pd .pd-trust-label { font-size: 11px !important; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #6a9552; line-height: 1.2; }
+.pd .pd-trust-label span { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 22px !important; letter-spacing: 0.06em; color: #2e5c1a; margin-bottom: 1px; font-weight: 400; }
+.pd .pd-trust-logos { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; }
+.pd .pd-trust-logos img { display: block; opacity: 0.55; transition: opacity 0.2s; max-height: 38px; width: auto; }
+.pd .pd-trust-logos img:hover { opacity: 0.85; }
+.pd .pd-trust-logo-ph { font-size: 10px !important; font-weight: 700; letter-spacing: 0.05em; color: #6a9552; text-transform: uppercase; padding: 8px 14px; border: 1px dashed #6a9552; border-radius: 4px; opacity: 0.75; background: transparent; min-height: 0; }
+.pd .pd-trust-wiki { display: inline-flex; align-items: center; gap: 6px; opacity: 0.55; transition: opacity 0.2s; }
+.pd .pd-trust-wiki:hover { opacity: 0.85; }
+.pd .pd-trust-wiki img { opacity: 1 !important; max-height: 38px; }
+.pd .pd-trust-wiki .pd-trust-w { font-family: 'Linux Libertine', 'Times New Roman', Georgia, serif; font-size: 30px; font-weight: 400; color: #1a1a1a; line-height: 1; }
+@media (max-width: 600px) {
+  .pd .pd-trust-row { padding: 22px 20px; gap: 14px; }
+  .pd .pd-trust-logos { gap: 22px; }
+  .pd .pd-trust-logos img, .pd .pd-trust-wiki img { max-height: 32px; }
+  .pd .pd-trust-wiki .pd-trust-w { font-size: 26px; }
+}
 
 .pd .pd-block { padding: 4.5rem 0; }
 .pd .pd-block.pd-alt { background: #faf7f2; }
@@ -359,16 +374,36 @@
 </section>
 
 <section class="pd-cred">
-  <div class="pd-container">
-    <div class="pd-label">Trusted by</div>
-    <div class="pd-logos">
-      <div class="pd-ph">[Casual Prepper Podcast]</div>
-      <div class="pd-ph">[Urban Prepper]</div>
-      <div class="pd-ph">[Alaska Prepper]</div>
-      <div class="pd-ph">[City Prepper]</div>
-      <div class="pd-ph">[News logo]</div>
+  <div class="pd-trust-bar">
+
+    <div class="pd-trust-row pd-trusted">
+      <div class="pd-trust-label">
+        <span>Prepper Disk</span>
+        Trusted by
+      </div>
+      <div class="pd-trust-logos">
+        <div class="pd-trust-logo-ph">[Casual Prepper]</div>
+        <div class="pd-trust-logo-ph">[Urban Prepper]</div>
+        <div class="pd-trust-logo-ph">[Alaska Prepper]</div>
+        <div class="pd-trust-logo-ph">[City Prepper]</div>
+      </div>
     </div>
-    <p class="pd-access">For the people who want to keep accessing <strong>Wikipedia, WikiHow, iFixit</strong>, and so much more, completely offline.</p>
+
+    <div class="pd-trust-row pd-perfect">
+      <div class="pd-trust-label">
+        <span>Wikipedia · WikiHow · iFixit</span>
+        Perfect for accessing
+      </div>
+      <div class="pd-trust-logos">
+        <span class="pd-trust-wiki">
+          <img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt="Wikipedia">
+          <span class="pd-trust-w">W</span>
+        </span>
+        <img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/HowPI.png" alt="WikiHow">
+        <img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/FixItPI.png" alt="iFixit">
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -654,19 +689,6 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
     </div>
     <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
     <div class="pd-cards-dots" id="pdCardsDots"></div>
-    <details class="pd-full">
-      <summary>View the full content list</summary>
-      <div class="pd-fcontent">
-        <ul>
-          <li>[Full content item 1]</li>
-          <li>[Full content item 2]</li>
-          <li>[Full content item 3]</li>
-          <li>[Full content item 4]</li>
-          <li>[Full content item 5]</li>
-          <li>[…full inventory placeholder]</li>
-        </ul>
-      </div>
-    </details>
     <p class="pd-updates">Plus, we release new content updates regularly to keep your library growing over time.</p>
     <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
   </div>
