@@ -1,27 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prepper Disk Premium</title>
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-<!-- =========================================================================
-     GitHub Pages preview wrapper.
-     When deploying this file as a Shopify section, delete:
-       - everything from <!DOCTYPE html> through <body> above
-       - the </body></html> at the very bottom
-     The Shopify theme provides those tags from its layout.
-     ========================================================================= -->
-<!-- {%- comment -%}
+# Prepper Disk Landing — Shopify Section (Dawn-compatible)
+
+This is the full landing page packaged as a single Shopify section file, ready
+to drop into a Dawn theme.
+
+## How to install
+
+1. In your Shopify admin, go to **Online Store → Themes → Dawn → Actions →
+   Edit code**.
+2. Under the `sections/` folder, click **Add a new section**.
+3. Name it `prepper-disk-landing` (Shopify will create
+   `sections/prepper-disk-landing.liquid` automatically).
+4. **Delete the boilerplate** Shopify pre-fills, then **paste the whole code
+   block below** as the file contents.
+5. Save.
+
+## How to put it on a page
+
+Two options:
+
+**Option A — bind it to a dedicated page template.** Create
+`templates/page.prepper-disk.json` (or use the Theme Editor to "Create
+template" from the customizer) and assign the `Prepper Disk Landing` section
+to it. Then in **Online Store → Pages**, create a page (e.g. titled
+"PrepperDisk Landing") and choose this template.
+
+**Option B — add via Theme Editor.** Open any page in the Theme Customizer,
+click **Add section**, search for *Prepper Disk Landing* (from the preset
+defined in the schema), and add it.
+
+## What got changed for Shopify
+
+- Removed the `<!DOCTYPE html>`, `<head>`, `<body>` wrapper that was only
+  there for the GitHub Pages preview. Dawn's `layout/theme.liquid` provides
+  those.
+- Header and footer were already removed earlier — Dawn's own header and
+  footer will sit above and below this section, exactly what you wanted.
+- The Google Fonts request (Bebas Neue + DM Sans, used by the trust bar) is
+  now an `@import` at the top of the section's `<style>` block, so it stays
+  self-contained. If you'd rather pre-load it from `layout/theme.liquid`
+  instead (slightly faster first paint), copy this line into the theme
+  layout's `<head>` and remove the `@import` from the section:
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+- All CSS is scoped under the `.pd` root class to avoid colliding with Dawn's
+  theme styles. No global selectors, no resets that would bleed into other
+  sections.
+- Mobile breakpoints (≤800px and ≤700px) are preserved — Problem cards,
+  VS-Alternatives cards, About bio, "When You'd Use It" scenes, and the
+  "What's Stored" 3-card carousel all collapse / become swipeable on phones.
+- The Order Now CTA inside the buy box (`#pd-offer`) is pointed at:
+
+      https://prepperdisk.myshopify.com/cart/43384681136182:1
+
+  That's Shopify's cart-permalink format — clicking it adds variant
+  `43384681136182` (quantity 1) to the cart and goes straight there. If you
+  change the variant ID later, update that one href.
+
+## Things to swap before going live
+
+- All image placeholders (`[Hero Shot]`, `[Storm Damage]`, `[Adam Profile]`,
+  `[Jackson Packing]`, `[Douglas Photo]`, etc.) need real images. Easiest
+  path: upload assets to **Settings → Files** in Shopify, copy the CDN URLs,
+  and replace each placeholder `<div class="pd-ph">[…]</div>` with
+  `<img src="…" alt="…">` or paste the Shopify `{{ 'filename.jpg' | asset_url }}` helper if you save the assets in the theme's `assets/` folder.
+- Trust bar's row 1 still has dashed `[Casual Prepper]` / `[Urban Prepper]`
+  etc. placeholders — same swap pattern.
+- `[Khan Academy Lite description]` and other in-line placeholder text are
+  already filled with your real copy in the version below. The Wikipedia /
+  WikiHow / iFixit row in the trust bar was removed earlier and replaced
+  with the "Stashed in over 7,000 households / 4.8 ★★★★★" row.
+
+## The section file
+
+Copy everything between the fences below into
+`sections/prepper-disk-landing.liquid`.
+
+```liquid
+{%- comment -%}
   Prepper Disk Premium landing section.
   Save as: sections/prepper-disk.liquid
   Add to a page template (templates/page.prepper-disk.json) or via the theme editor.
-{%- endcomment -%} -->
+{%- endcomment -%}
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap');
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 .pd p { font-size: 1.05rem !important; line-height: 1.65 !important; }
@@ -1104,7 +1169,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
 })();
 </script>
 
-<!-- {% schema %}
+{% schema %}
 {
   "name": "Prepper Disk Landing",
   "settings": [],
@@ -1112,8 +1177,17 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
     { "name": "Prepper Disk Landing" }
   ]
 }
-{% endschema %} -->
+{% endschema %}
+```
 
-<!-- ===== End of preview wrapper. Remove the </body></html> below when deploying to Shopify. ===== -->
-</body>
-</html>
+## After it's live
+
+If you decide to remove the dead CSS that's still in there from earlier
+iterations (`.pd-announce`, `.pd-header`, `.pd-nav`, `.pd-foot`,
+`.pd-cols`, `.pd-legal`, `.pd-full`, `.pd-fcontent`, `.pd-seal`,
+`.pd-seal-svg`, `.pd-prices`, `.pd-price`, `.pd-feat`, `.pd-badge`,
+`.pd-qty`, `.pd-qsub`, `.pd-unit`, `.pd-total`, `.pd-save`, `.pd-order`,
+`.pd-otrust`, `.pd-pay`, `.pd-sp-top`, `.pd-video`, `.pd-rating`,
+`.pd-big`, `.pd-rcount`, `.pd-tiles`, `.pd-tile`), it'll shave a few KB
+off the section. Nothing references them anymore. I left them in so you
+could compare cleanly against the preview version — strip whenever.
