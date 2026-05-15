@@ -101,8 +101,8 @@ Copy everything between the fences below into
 .pd .pd-btn { font-size: 1.15em !important; }
 .pd img, .pd .pd-ph { max-width: 100%; display: block; }
 .pd .pd-ph { background: #f0f0f0; border: 1px dashed #bbb; color: #888; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.85em; padding: 1rem; min-height: 200px; }
-.pd .pd-ph:has(img) { background: transparent; border: 0; padding: 0; color: transparent; min-height: 0; font-size: 0; }
-.pd .pd-ph img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
+.pd .pd-ph:has(img) { background: transparent !important; border: 0 !important; padding: 0 !important; color: transparent; min-height: 0 !important; font-size: 0; display: block !important; aspect-ratio: auto !important; }
+.pd .pd-ph img { width: 100%; height: auto; max-width: 100%; display: block; border-radius: inherit; }
 .pd .pd-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
 .pd a { color: inherit; text-decoration: none; }
 .pd button { cursor: pointer; font-family: inherit; }
@@ -429,6 +429,7 @@ Copy everything between the fences below into
 <section class="pd-block" id="pd-problem">
   <div class="pd-container">
     <h2>The End of the Internet As We Know It</h2>
+    <p class="pd-sub">We take the web for granted, but our access to it can be snatched away at any time</p>
     <div class="pd-pgrid">
       <div class="pd-pcard">
         <button class="pd-psum" type="button">
