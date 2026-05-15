@@ -102,6 +102,8 @@ Copy everything between the fences below into
 .pd .pd-btn { font-size: 1.15em !important; }
 .pd img, .pd .pd-ph { max-width: 100%; display: block; }
 .pd .pd-ph { background: #f0f0f0; border: 1px dashed #bbb; color: #888; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.85em; padding: 1rem; min-height: 200px; }
+.pd .pd-ph:has(img) { background: transparent; border: 0; padding: 0; color: transparent; min-height: 0; font-size: 0; }
+.pd .pd-ph img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: inherit; }
 .pd .pd-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
 .pd a { color: inherit; text-decoration: none; }
 .pd button { cursor: pointer; font-family: inherit; }
