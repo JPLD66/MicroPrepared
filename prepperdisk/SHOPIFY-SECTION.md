@@ -89,19 +89,19 @@ Copy everything between the fences below into
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap');
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
-.pd p { font-size: 1.05rem !important; line-height: 1.65 !important; }
-.pd li { font-size: 1rem !important; }
-.pd h1 { font-size: 2.8rem !important; }
-.pd h2 { font-size: 2.3rem !important; }
-.pd h3 { font-size: 1.35rem !important; }
-.pd h4 { font-size: 1.2rem !important; }
-.pd .pd-sub { font-size: 1.15rem !important; }
-.pd .pd-desc { font-size: 1.1rem !important; }
-.pd .pd-quote { font-size: 1.05rem !important; }
-.pd .pd-faq summary { font-size: 1.1rem !important; }
-.pd .pd-btn { font-size: 1.15rem !important; }
+.pd p { font-size: 1.05em !important; line-height: 1.65 !important; }
+.pd li { font-size: 1em !important; }
+.pd h1 { font-size: 2.8em !important; }
+.pd h2 { font-size: 2.3em !important; }
+.pd h3 { font-size: 1.35em !important; }
+.pd h4 { font-size: 1.2em !important; }
+.pd .pd-sub { font-size: 1.15em !important; }
+.pd .pd-desc { font-size: 1.1em !important; }
+.pd .pd-quote { font-size: 1.05em !important; }
+.pd .pd-faq summary { font-size: 1.1em !important; }
+.pd .pd-btn { font-size: 1.15em !important; }
 .pd img, .pd .pd-ph { max-width: 100%; display: block; }
-.pd .pd-ph { background: #f0f0f0; border: 1px dashed #bbb; color: #888; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.85rem; padding: 1rem; min-height: 200px; }
+.pd .pd-ph { background: #f0f0f0; border: 1px dashed #bbb; color: #888; display: flex; align-items: center; justify-content: center; text-align: center; font-size: 0.85em; padding: 1rem; min-height: 200px; }
 .pd .pd-container { max-width: 1100px; margin: 0 auto; padding: 0 1.25rem; }
 .pd a { color: inherit; text-decoration: none; }
 .pd button { cursor: pointer; font-family: inherit; }
@@ -109,29 +109,29 @@ Copy everything between the fences below into
 
 .pd .pd-header { border-bottom: 1px solid #eee; padding: 1rem 0; background: #fff; }
 .pd .pd-header .pd-row { display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
-.pd .pd-logo { font-weight: 800; font-size: 1.3rem; letter-spacing: 0.05em; color: #0d2b1a; }
-.pd .pd-nav ul { display: flex; gap: 1.75rem; list-style: none; font-size: 0.9rem; }
+.pd .pd-logo { font-weight: 800; font-size: 1.3em; letter-spacing: 0.05em; color: #0d2b1a; }
+.pd .pd-nav ul { display: flex; gap: 1.75rem; list-style: none; font-size: 0.9em; }
 @media (max-width: 700px) { .pd .pd-nav { display: none; } }
 
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
-.pd .pd-eyebrow { display: inline-block; background: #fff200; color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 0; border: 2px solid #1a1a1a; font-size: 0.85rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.04em; }
-.pd .pd-hero h1 { font-size: 2.6rem; line-height: 1.15; max-width: 850px; margin: 0 auto 1rem; color: #0d2b1a; }
+.pd .pd-eyebrow { display: inline-block; background: #fff200; color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 0; border: 2px solid #1a1a1a; font-size: 0.85em; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.04em; }
+.pd .pd-hero h1 { font-size: 2.6em; line-height: 1.15; max-width: 850px; margin: 0 auto 1rem; color: #0d2b1a; }
 @media (max-width: 700px) {
   .pd .pd-hero { padding: 2rem 0 2.5rem; }
-  .pd .pd-hero h1 { font-size: 1.5rem !important; line-height: 1.2; }
-  .pd .pd-hero .pd-sub { font-size: 1rem !important; }
-  .pd .pd-hero .pd-desc { font-size: 0.95rem !important; }
-  .pd h1 { font-size: 1.5rem !important; }
+  .pd .pd-hero h1 { font-size: 1.5em !important; line-height: 1.2; }
+  .pd .pd-hero .pd-sub { font-size: 1em !important; }
+  .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
+  .pd h1 { font-size: 1.5em !important; }
 }
-.pd .pd-hero .pd-sub { font-size: 1.15rem; color: #444; max-width: 800px; margin: 0 auto 2rem; }
+.pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
 .pd .pd-shot { max-width: 700px; margin: 0 auto 2rem; aspect-ratio: 16/9; }
-.pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05rem; }
+.pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05em; }
 .pd .pd-bullets { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; list-style: none; }
-.pd .pd-bullets li { font-weight: 600; font-size: 1rem; color: #0d2b1a; }
+.pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; }
 
-.pd .pd-btn { display: inline-block; background: #c0392b; color: #fff; padding: 1.1rem 2.5rem; font-size: 1.1rem; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
+.pd .pd-btn { display: inline-block; background: #c0392b; color: #fff; padding: 1.1rem 2.5rem; font-size: 1.1em; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
 .pd .pd-btn:hover { transform: translateY(-2px); }
-.pd .pd-trust { margin-top: 1.25rem; font-size: 0.85rem; color: #555; }
+.pd .pd-trust { margin-top: 1.25rem; font-size: 0.85em; color: #555; }
 
 .pd .pd-cred { background: transparent; padding: 2.5rem 1.25rem; }
 .pd .pd-trust-bar { width: 100%; max-width: 740px; margin: 0 auto; border-radius: 8px; overflow: hidden; border: 1px solid #b1cde5; font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
@@ -157,16 +157,16 @@ Copy everything between the fences below into
 
 .pd .pd-block { padding: 4.5rem 0; }
 .pd .pd-block.pd-alt { background: #faf7f2; }
-.pd .pd-block h2 { font-size: 2.1rem; text-align: center; margin-bottom: 0.75rem; line-height: 1.2; color: #0d2b1a; }
+.pd .pd-block h2 { font-size: 2.1em; text-align: center; margin-bottom: 0.75rem; line-height: 1.2; color: #0d2b1a; }
 @media (max-width: 700px) {
   .pd .pd-block { padding: 2.5rem 0; }
-  .pd .pd-block h2 { font-size: 1.35rem !important; }
-  .pd h2 { font-size: 1.35rem !important; }
-  .pd h3 { font-size: 1.1rem !important; }
-  .pd .pd-block .pd-sub { font-size: 0.95rem !important; margin-bottom: 1.5rem; }
-  .pd .pd-sub { font-size: 0.95rem !important; }
+  .pd .pd-block h2 { font-size: 1.35em !important; }
+  .pd h2 { font-size: 1.35em !important; }
+  .pd h3 { font-size: 1.1em !important; }
+  .pd .pd-block .pd-sub { font-size: 0.95em !important; margin-bottom: 1.5rem; }
+  .pd .pd-sub { font-size: 0.95em !important; }
 }
-.pd .pd-block .pd-sub { text-align: center; color: #555; max-width: 750px; margin: 0 auto 2.5rem; font-size: 1.05rem; }
+.pd .pd-block .pd-sub { text-align: center; color: #555; max-width: 750px; margin: 0 auto 2.5rem; font-size: 1.05em; }
 
 .pd .pd-pgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; max-width: 950px; margin: 0 auto; }
 @media (max-width: 700px) { .pd .pd-pgrid { grid-template-columns: 1fr; } }
@@ -174,8 +174,8 @@ Copy everything between the fences below into
 .pd .pd-pcard-img { aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; min-height: 0 !important; }
 .pd .pd-pcard .pd-icon { display: flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 12px; background: #eaf6ee; color: #1e8449; margin-bottom: 0.75rem; font-size: 0; }
 .pd .pd-pcard .pd-icon svg { width: 32px; height: 32px; display: block; }
-.pd .pd-pcard h3 { font-size: 1.25rem; margin-bottom: 0.75rem; color: #0d2b1a; }
-.pd .pd-ex { background: #f7f5f0; border-left: 3px solid #1e8449; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 0.9rem; color: #444; }
+.pd .pd-pcard h3 { font-size: 1.25em; margin-bottom: 0.75rem; color: #0d2b1a; }
+.pd .pd-ex { background: #f7f5f0; border-left: 3px solid #1e8449; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 0.9em; color: #444; }
 .pd .pd-ex strong { color: #0d2b1a; }
 
 .pd .pd-chev { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.25s ease; color: #888; }
@@ -186,7 +186,7 @@ Copy everything between the fences below into
   .pd .pd-psum { display: flex; align-items: center; gap: 1rem; cursor: pointer; padding: 0; }
   .pd .pd-psum .pd-icon { width: 44px; height: 44px; margin-bottom: 0; }
   .pd .pd-psum .pd-icon svg { width: 24px; height: 24px; }
-  .pd .pd-psum h3 { margin: 0; font-size: 1.05rem; flex: 1; }
+  .pd .pd-psum h3 { margin: 0; font-size: 1.05em; flex: 1; }
   .pd .pd-pchev { display: inline-block; }
   .pd .pd-pbody { display: none; margin-top: 1rem; }
   .pd .pd-pcard.pd-open .pd-pbody { display: block; }
@@ -194,20 +194,20 @@ Copy everything between the fences below into
 }
 
 .pd .pd-sol-img { aspect-ratio: 16/9; max-width: 800px; margin: 0 auto 2rem; }
-.pd .pd-sol-text { max-width: 850px; margin: 0 auto; font-size: 1.05rem; color: #333; text-align: center; }
+.pd .pd-sol-text { max-width: 850px; margin: 0 auto; font-size: 1.05em; color: #333; text-align: center; }
 .pd .pd-sol-text p { margin-bottom: 1.25rem; }
-.pd .pd-sol-lead { font-weight: 700; color: #0d2b1a; font-size: 1.15rem !important; }
+.pd .pd-sol-lead { font-weight: 700; color: #0d2b1a; font-size: 1.15em !important; }
 .pd .pd-sol-outro { font-style: italic; color: #555; margin-top: 0.5rem; }
 .pd .pd-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; max-width: 900px; margin: 1.5rem auto 2rem; }
 @media (max-width: 700px) { .pd .pd-steps { grid-template-columns: 1fr; gap: 1rem; } }
 .pd .pd-step { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.5rem 1.25rem 1.75rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.pd .pd-step-num { display: inline-block; background: #1e8449; color: #fff; font-weight: 800; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.85rem !important; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
+.pd .pd-step-num { display: inline-block; background: #1e8449; color: #fff; font-weight: 800; padding: 0.4rem 1rem; border-radius: 999px; font-size: 0.85em !important; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; }
 .pd .pd-step-icon { width: 44px; height: 44px; display: block; margin: 0 auto 0.85rem; color: #1e8449; }
-.pd .pd-step-text { color: #0d2b1a; font-size: 1.05rem !important; line-height: 1.5; font-weight: 700; }
+.pd .pd-step-text { color: #0d2b1a; font-size: 1.05em !important; line-height: 1.5; font-weight: 700; }
 
 .pd .pd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 0; }
 .pd .pd-card { background: #fff; border: 1px solid #eee; border-radius: 14px; padding: 1.5rem 1.5rem 1.25rem; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
-.pd .pd-card h3 { font-size: 1.3rem !important; color: #0d2b1a; margin-bottom: 0.6rem; text-align: center; }
+.pd .pd-card h3 { font-size: 1.3em !important; color: #0d2b1a; margin-bottom: 0.6rem; text-align: center; }
 .pd .pd-card-divider { border: 0; border-top: 1px solid #e8e8e8; margin: 0 0 0.5rem; }
 .pd .pd-card-list { list-style: none; padding: 0; margin: 0; }
 .pd .pd-card-list li { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.7rem 0; border-bottom: 1px solid #f3f3f3; }
@@ -216,9 +216,9 @@ Copy everything between the fences below into
 .pd .pd-item-icon img { max-width: 36px; max-height: 36px; display: block; }
 .pd .pd-item-icon svg { width: 34px; height: 34px; display: block; }
 .pd .pd-item-body { flex: 1; min-width: 0; }
-.pd .pd-item-name { display: inline-block; font-weight: 800; color: #0d2b1a; font-size: 1rem !important; line-height: 1.3; }
-.pd .pd-item-desc { color: #555; font-size: 0.88rem !important; line-height: 1.45; margin-top: 0.2rem; font-weight: 400; }
-.pd .pd-badge-new { display: inline-block; background: #1e8449; color: #fff; font-size: 0.62rem !important; padding: 0.12rem 0.45rem; border-radius: 3px; margin-left: 0.45rem; vertical-align: middle; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.pd .pd-item-name { display: inline-block; font-weight: 800; color: #0d2b1a; font-size: 1em !important; line-height: 1.3; }
+.pd .pd-item-desc { color: #555; font-size: 0.88em !important; line-height: 1.45; margin-top: 0.2rem; font-weight: 400; }
+.pd .pd-badge-new { display: inline-block; background: #1e8449; color: #fff; font-size: 0.62em !important; padding: 0.12rem 0.45rem; border-radius: 3px; margin-left: 0.45rem; vertical-align: middle; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
 
 @media (max-width: 800px) {
   .pd .pd-cards-scroll { position: relative; margin: 0 -1.25rem; }
@@ -229,7 +229,7 @@ Copy everything between the fences below into
 
 .pd .pd-cards-hint { display: none; }
 @media (max-width: 800px) {
-  .pd .pd-cards-hint { display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin: 1rem auto 0; color: #1e8449; font-weight: 700; font-size: 0.9rem !important; min-height: 1.5rem; }
+  .pd .pd-cards-hint { display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin: 1rem auto 0; color: #1e8449; font-weight: 700; font-size: 0.9em !important; min-height: 1.5rem; }
   .pd .pd-cards-hint .pd-hint-arrow { display: inline-block; animation: pdHintBounce 1.4s ease-in-out infinite; font-weight: 900; }
   @keyframes pdHintBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
   .pd .pd-cards-hint.pd-hint-prev .pd-hint-arrow { animation: pdHintBouncePrev 1.4s ease-in-out infinite; }
@@ -244,9 +244,9 @@ Copy everything between the fences below into
 
 .pd .pd-full { max-width: 800px; margin: 0 auto 1.5rem; background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 1rem 1.25rem; }
 .pd .pd-full summary { cursor: pointer; font-weight: 600; color: #1e8449; list-style: none; }
-.pd .pd-full summary::after { content: "  ▼"; font-size: 0.8rem; }
+.pd .pd-full summary::after { content: "  ▼"; font-size: 0.8em; }
 .pd .pd-full[open] summary::after { content: "  ▲"; }
-.pd .pd-full .pd-fcontent { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.95rem; color: #444; }
+.pd .pd-full .pd-fcontent { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.95em; color: #444; }
 .pd .pd-full .pd-fcontent ul { padding-left: 1.25rem; }
 .pd .pd-updates { text-align: center; color: #555; font-style: italic; margin-bottom: 2rem; }
 
@@ -256,12 +256,12 @@ Copy everything between the fences below into
 .pd .pd-scene.pd-flip .pd-scene-img { order: 2; }
 .pd .pd-scene-img .pd-ph { aspect-ratio: 4/3; border-radius: 10px; }
 .pd .pd-scene-sum { background: transparent; border: 0; padding: 0; text-align: left; width: 100%; font-family: inherit; display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; cursor: default; }
-.pd .pd-scene-num { position: relative; width: 56px; height: 56px; border-radius: 50%; background: #1e8449; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3rem; flex-shrink: 0; }
+.pd .pd-scene-num { position: relative; width: 56px; height: 56px; border-radius: 50%; background: #1e8449; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1.3em; flex-shrink: 0; }
 .pd .pd-scene-num::before { content: ''; position: absolute; inset: 0; border-radius: 50%; background: #1e8449; animation: pdPulse 2.2s ease-out infinite; z-index: -1; }
 @keyframes pdPulse { 0% { transform: scale(1); opacity: 0.55; } 80% { transform: scale(1.7); opacity: 0; } 100% { transform: scale(1.7); opacity: 0; } }
-.pd .pd-scene-title { font-size: 1.5rem; color: #0d2b1a; line-height: 1.25; margin: 0; }
+.pd .pd-scene-title { font-size: 1.5em; color: #0d2b1a; line-height: 1.25; margin: 0; }
 .pd .pd-scene-chev { display: none; }
-.pd .pd-scene-text { color: #333; font-size: 1.05rem; margin-top: 0.25rem; }
+.pd .pd-scene-text { color: #333; font-size: 1.05em; margin-top: 0.25rem; }
 
 @media (max-width: 800px) {
   .pd .pd-scene { display: flex; flex-direction: column; margin-bottom: 0; border-bottom: 1px solid #e5e5e5; padding: 1rem 0; gap: 0; }
@@ -271,8 +271,8 @@ Copy everything between the fences below into
   .pd .pd-scene.pd-flip .pd-scene-img { order: 2; }
   .pd .pd-scene-text { order: 3; }
   .pd .pd-scene-sum { flex-direction: row; align-items: center; gap: 1rem; cursor: pointer; padding: 0.5rem 0; }
-  .pd .pd-scene-num { width: 44px; height: 44px; font-size: 1.1rem; }
-  .pd .pd-scene-title { font-size: 1.1rem; flex: 1; }
+  .pd .pd-scene-num { width: 44px; height: 44px; font-size: 1.1em; }
+  .pd .pd-scene-title { font-size: 1.1em; flex: 1; }
   .pd .pd-scene-chev { display: inline-flex; align-items: center; color: #888; transition: transform 0.25s ease; }
   .pd .pd-scene-chev svg { width: 18px; height: 18px; display: block; }
   .pd .pd-scene-img, .pd .pd-scene-text { display: none; margin-top: 1rem; }
@@ -282,7 +282,7 @@ Copy everything between the fences below into
 
 .pd .pd-vs { display: grid; gap: 1.5rem; max-width: 850px; margin: 0 auto; }
 .pd .pd-vs-card { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 1.75rem; }
-.pd .pd-vs-card h3 { color: #1e8449; margin-bottom: 0.75rem; font-size: 1.2rem; }
+.pd .pd-vs-card h3 { color: #1e8449; margin-bottom: 0.75rem; font-size: 1.2em; }
 .pd .pd-vs-card p { color: #333; margin: 0 0 0.85rem; }
 .pd .pd-vs-card p:last-child { margin-bottom: 0; }
 .pd .pd-vsum { background: transparent; border: 0; padding: 0; text-align: left; width: 100%; color: inherit; font-family: inherit; display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: default; }
@@ -291,7 +291,7 @@ Copy everything between the fences below into
 @media (max-width: 800px) {
   .pd .pd-vs-card { padding: 1.25rem 1.5rem; }
   .pd .pd-vsum { cursor: pointer; }
-  .pd .pd-vsum h3 { font-size: 1.05rem; }
+  .pd .pd-vsum h3 { font-size: 1.05em; }
   .pd .pd-vchev { display: inline-block; }
   .pd .pd-vbody { display: none; margin-top: 0.85rem; }
   .pd .pd-vs-card.pd-open .pd-vbody { display: block; }
@@ -302,19 +302,19 @@ Copy everything between the fences below into
 @media (max-width: 800px) { .pd .pd-sp-top { grid-template-columns: 1fr; } }
 .pd .pd-video { aspect-ratio: 16/9; }
 .pd .pd-rating { text-align: center; }
-.pd .pd-big { font-size: 4rem; font-weight: 800; color: #0d2b1a; line-height: 1; }
-.pd .pd-stars { color: #f5a623; font-size: 1.5rem; margin: 0.25rem 0; }
-.pd .pd-rcount { color: #555; font-size: 0.95rem; }
+.pd .pd-big { font-size: 4em; font-weight: 800; color: #0d2b1a; line-height: 1; }
+.pd .pd-stars { color: #f5a623; font-size: 1.5em; margin: 0.25rem 0; }
+.pd .pd-rcount { color: #555; font-size: 0.95em; }
 
 .pd .pd-tests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
 @media (max-width: 800px) { .pd .pd-tests { grid-template-columns: 1fr; } }
 .pd .pd-test { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 0; overflow: hidden; display: flex; flex-direction: column; }
 .pd .pd-test-img .pd-ph { aspect-ratio: 16/10; min-height: 0 !important; border: 0; border-radius: 0; background: #e8e8e8; color: #777; }
-.pd .pd-test-stars { color: #f5a623; font-size: 1.5rem; letter-spacing: 0.15em; text-align: center; padding: 1rem 1.5rem 0; }
+.pd .pd-test-stars { color: #f5a623; font-size: 1.5em; letter-spacing: 0.15em; text-align: center; padding: 1rem 1.5rem 0; }
 .pd .pd-test-body { padding: 0.75rem 1.5rem 1.5rem; }
-.pd .pd-quote { color: #333; font-size: 0.95rem; margin-bottom: 1rem; }
+.pd .pd-quote { color: #333; font-size: 0.95em; margin-bottom: 1rem; }
 .pd .pd-quote b { color: #0d2b1a; }
-.pd .pd-author { font-weight: 600; font-size: 0.9rem; color: #555; }
+.pd .pd-author { font-weight: 600; font-size: 0.9em; color: #555; }
 
 .pd .pd-offer { background: linear-gradient(180deg, #0d2b1a 0%, #1a3d2a 100%); color: #fff; padding: 5rem 0; }
 .pd .pd-offer h2 { color: #fff; }
@@ -322,36 +322,36 @@ Copy everything between the fences below into
 .pd .pd-mono { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 1000px; margin: 0 auto; background: #fff; color: #1a1a1a; border-radius: 16px; padding: 2.5rem; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.25); }
 @media (max-width: 800px) { .pd .pd-mono { grid-template-columns: 1fr; gap: 1.5rem; padding: 1.5rem; } }
 .pd .pd-mono-img .pd-ph { aspect-ratio: 1/1; border-radius: 12px; min-height: 280px; }
-.pd .pd-mono-info h3 { color: #0d2b1a; font-size: 1.5rem !important; margin-bottom: 0.5rem; }
-.pd .pd-mono-rating { display: flex; align-items: center; gap: 0.5rem; color: #f5a623; margin-bottom: 1rem; font-size: 0.95rem; flex-wrap: wrap; }
+.pd .pd-mono-info h3 { color: #0d2b1a; font-size: 1.5em !important; margin-bottom: 0.5rem; }
+.pd .pd-mono-rating { display: flex; align-items: center; gap: 0.5rem; color: #f5a623; margin-bottom: 1rem; font-size: 0.95em; flex-wrap: wrap; }
 .pd .pd-mono-rating .pd-rtxt { color: #555; }
 .pd .pd-mono-price { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap; }
-.pd .pd-mono-price-now { font-size: 2.25rem; font-weight: 800; color: #0d2b1a; line-height: 1; }
-.pd .pd-mono-price-was { text-decoration: line-through; color: #888; font-size: 1.1rem; }
-.pd .pd-mono-savings { background: #eaf6ee; color: #1e8449; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.8rem !important; font-weight: 700; letter-spacing: 0.05em; }
+.pd .pd-mono-price-now { font-size: 2.25em; font-weight: 800; color: #0d2b1a; line-height: 1; }
+.pd .pd-mono-price-was { text-decoration: line-through; color: #888; font-size: 1.1em; }
+.pd .pd-mono-savings { background: #eaf6ee; color: #1e8449; padding: 0.25rem 0.6rem; border-radius: 4px; font-size: 0.8em !important; font-weight: 700; letter-spacing: 0.05em; }
 .pd .pd-mono-includes { list-style: none; margin: 1rem 0 1.5rem; padding: 0; }
-.pd .pd-mono-includes li { padding: 0.5rem 0; display: flex; gap: 0.6rem; font-size: 1rem !important; color: #0d2b1a; font-weight: 700; border-bottom: 1px solid #f0f0f0; }
+.pd .pd-mono-includes li { padding: 0.5rem 0; display: flex; gap: 0.6rem; font-size: 1em !important; color: #0d2b1a; font-weight: 700; border-bottom: 1px solid #f0f0f0; }
 .pd .pd-mono-includes li:last-child { border-bottom: 0; }
 .pd .pd-mono-includes li::before { content: "✓"; color: #27ae60; font-weight: 700; flex-shrink: 0; }
-.pd .pd-mono-cta { display: block; width: 100%; background: #c0392b; color: #fff; padding: 1.1rem; font-size: 1.1rem !important; font-weight: 800; border: 0; border-radius: 8px; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
+.pd .pd-mono-cta { display: block; width: 100%; background: #c0392b; color: #fff; padding: 1.1rem; font-size: 1.1em !important; font-weight: 800; border: 0; border-radius: 8px; text-align: center; text-transform: uppercase; letter-spacing: 0.04em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
 .pd .pd-mono-cta:hover { transform: translateY(-2px); }
-.pd .pd-mono-trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; margin-top: 1rem; font-size: 0.8rem !important; color: #555; }
+.pd .pd-mono-trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; margin-top: 1rem; font-size: 0.8em !important; color: #555; }
 .pd .pd-mono-trust .pd-titem { display: flex; align-items: center; gap: 0.4rem; }
 .pd .pd-mono-pay { display: flex; gap: 0.45rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
-.pd .pd-mono-pay .pd-payph { background: #f7f7f7; border: 1px solid #ddd; border-radius: 4px; padding: 0.3rem 0.55rem; font-size: 0.7rem !important; color: #555; font-weight: 700; letter-spacing: 0.05em; }
+.pd .pd-mono-pay .pd-payph { background: #f7f7f7; border: 1px solid #ddd; border-radius: 4px; padding: 0.3rem 0.55rem; font-size: 0.7em !important; color: #555; font-weight: 700; letter-spacing: 0.05em; }
 .pd .pd-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 2rem; }
 @media (max-width: 800px) { .pd .pd-prices { grid-template-columns: 1fr; } }
 .pd .pd-price { background: #fff; color: #1a1a1a; border-radius: 12px; padding: 2rem 1.5rem; text-align: center; position: relative; border: 3px solid transparent; }
 .pd .pd-price.pd-feat { border-color: #f5a623; transform: scale(1.03); }
 @media (max-width: 800px) { .pd .pd-price.pd-feat { transform: none; } }
-.pd .pd-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #f5a623; color: #1a1a1a; font-weight: 700; font-size: 0.75rem; padding: 0.3rem 0.9rem; border-radius: 999px; letter-spacing: 0.05em; }
-.pd .pd-qty { font-size: 1rem; font-weight: 700; color: #0d2b1a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
-.pd .pd-qsub { font-size: 0.9rem; color: #666; margin-bottom: 1.25rem; min-height: 2.5rem; }
-.pd .pd-unit { font-size: 1rem; color: #555; margin-bottom: 0.25rem; }
-.pd .pd-total { font-size: 2.5rem; font-weight: 800; color: #0d2b1a; line-height: 1; margin-bottom: 0.25rem; }
-.pd .pd-save { color: #1e8449; font-weight: 600; font-size: 0.9rem; margin-bottom: 1.5rem; }
-.pd .pd-order { display: block; width: 100%; background: #c0392b; color: #fff; padding: 0.9rem; font-size: 1rem; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
-.pd .pd-otrust { text-align: center; color: #d4d4d4; font-size: 0.85rem; margin-top: 1.5rem; }
+.pd .pd-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #f5a623; color: #1a1a1a; font-weight: 700; font-size: 0.75em; padding: 0.3rem 0.9rem; border-radius: 999px; letter-spacing: 0.05em; }
+.pd .pd-qty { font-size: 1em; font-weight: 700; color: #0d2b1a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.25rem; }
+.pd .pd-qsub { font-size: 0.9em; color: #666; margin-bottom: 1.25rem; min-height: 2.5rem; }
+.pd .pd-unit { font-size: 1em; color: #555; margin-bottom: 0.25rem; }
+.pd .pd-total { font-size: 2.5em; font-weight: 800; color: #0d2b1a; line-height: 1; margin-bottom: 0.25rem; }
+.pd .pd-save { color: #1e8449; font-weight: 600; font-size: 0.9em; margin-bottom: 1.5rem; }
+.pd .pd-order { display: block; width: 100%; background: #c0392b; color: #fff; padding: 0.9rem; font-size: 1em; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.04em; }
+.pd .pd-otrust { text-align: center; color: #d4d4d4; font-size: 0.85em; margin-top: 1.5rem; }
 .pd .pd-pay { margin-top: 0.75rem; }
 
 .pd .pd-inside { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; max-width: 1000px; margin: 0 auto; }
@@ -365,17 +365,17 @@ Copy everything between the fences below into
 .pd .pd-guar { background: #0d2b1a; color: #fff; padding: 4rem 0; text-align: center; }
 .pd .pd-guar h2 { color: #fff; }
 .pd .pd-guar .pd-sub { color: #d4d4d4; max-width: 700px; margin: 0 auto 2rem; }
-.pd .pd-seal { width: 160px; height: 160px; border-radius: 50%; border: 3px dashed #f5a623; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: #f5a623; font-weight: 700; text-align: center; padding: 1rem; font-size: 0.9rem; }
+.pd .pd-seal { width: 160px; height: 160px; border-radius: 50%; border: 3px dashed #f5a623; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; color: #f5a623; font-weight: 700; text-align: center; padding: 1rem; font-size: 0.9em; }
 .pd .pd-seal-wrap { display: flex; justify-content: center; margin: 0 auto 1.5rem; }
 .pd .pd-seal-svg { width: 170px; height: 170px; display: block; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
 .pd .pd-guar p { max-width: 700px; margin: 0 auto 1rem; }
 
 .pd .pd-about { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: start; max-width: 1000px; margin: 0 auto 2.5rem; }
-.pd .pd-adam-profile { width: 96px; height: 96px; border-radius: 50%; background: #e8e8e8; border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; color: #777; font-size: 0.78rem !important; text-align: center; margin: 0 auto 1.25rem; padding: 0.5rem; }
+.pd .pd-adam-profile { width: 96px; height: 96px; border-radius: 50%; background: #e8e8e8; border: 3px solid #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.12); display: flex; align-items: center; justify-content: center; color: #777; font-size: 0.78em !important; text-align: center; margin: 0 auto 1.25rem; padding: 0.5rem; }
 @media (max-width: 800px) { .pd .pd-about { grid-template-columns: 1fr; gap: 1.5rem; } }
 .pd .pd-about .pd-ph { aspect-ratio: 3/4; }
 .pd .pd-about p { color: #333; }
-.pd .pd-about-expand { display: none; background: transparent; border: 1px solid #1e8449; color: #1e8449; padding: 0.55rem 1.1rem 0.55rem 1.25rem; border-radius: 999px; font-weight: 600; font-size: 0.9rem; font-family: inherit; cursor: pointer; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+.pd .pd-about-expand { display: none; background: transparent; border: 1px solid #1e8449; color: #1e8449; padding: 0.55rem 1.1rem 0.55rem 1.25rem; border-radius: 999px; font-weight: 600; font-size: 0.9em; font-family: inherit; cursor: pointer; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
 .pd .pd-about-expand .pd-chev { width: 14px; height: 14px; color: #1e8449; }
 @media (max-width: 800px) {
   .pd .pd-about-body .pd-about-more { display: none; }
@@ -385,27 +385,27 @@ Copy everything between the fences below into
 }
 
 .pd .pd-cross { padding: 5rem 0; background: #fff; }
-.pd .pd-cross h2 { text-align: center; margin-bottom: 0.75rem; color: #0d2b1a; font-size: 2.1rem; }
+.pd .pd-cross h2 { text-align: center; margin-bottom: 0.75rem; color: #0d2b1a; font-size: 2.1em; }
 .pd .pd-cross .pd-sub { text-align: center; color: #555; max-width: 700px; margin: 0 auto 2.5rem; }
 .pd .pd-opts { max-width: 800px; margin: 0 auto 2.5rem; }
 .pd .pd-opt { background: #fff; border: 1px solid #eee; border-left: 4px solid #cfcfcf; padding: 1.5rem 1.75rem; margin-bottom: 1rem; border-radius: 0 8px 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
 .pd .pd-opt.pd-best { border-left-color: #27ae60; background: #f3faf5; }
-.pd .pd-opt .pd-olabel { font-weight: 800; color: #555; font-size: 1.02rem !important; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.6rem; text-align: center; }
+.pd .pd-opt .pd-olabel { font-weight: 800; color: #555; font-size: 1.02em !important; margin-bottom: 0.6rem; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.6rem; text-align: center; }
 .pd .pd-opt.pd-best .pd-olabel { color: #1e8449; }
-.pd .pd-btag { background: #27ae60; color: #fff; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.78rem; letter-spacing: 0.02em; font-weight: 700; white-space: nowrap; }
+.pd .pd-btag { background: #27ae60; color: #fff; padding: 0.25rem 0.7rem; border-radius: 999px; font-size: 0.78em; letter-spacing: 0.02em; font-weight: 700; white-space: nowrap; }
 .pd .pd-opt p { margin: 0 0 0.85rem; color: #333; }
 .pd .pd-opt p:last-child { margin-bottom: 0; }
 .pd .pd-opt .pd-ph { margin-top: 1.25rem; aspect-ratio: 16/9; border-radius: 8px; }
 .pd .pd-c3-steps { margin: 0.5rem 0 1.25rem; padding-left: 1.75rem; list-style: decimal; }
-.pd .pd-c3-steps li { margin-bottom: 0.45rem; color: #0d2b1a; font-weight: 700; font-size: 1.02rem !important; line-height: 1.45; }
+.pd .pd-c3-steps li { margin-bottom: 0.45rem; color: #0d2b1a; font-weight: 700; font-size: 1.02em !important; line-height: 1.45; }
 .pd .pd-c3-steps li::marker { color: #1e8449; font-weight: 900; }
 .pd .pd-cwrap { text-align: center; }
 
 .pd .pd-faq { max-width: 800px; margin: 0 auto; }
 .pd .pd-faq details { background: #fff; border: 1px solid #eee; border-radius: 8px; margin-bottom: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.03); }
-.pd .pd-faq summary { padding: 1.1rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: #0d2b1a; font-size: 1.02rem; }
+.pd .pd-faq summary { padding: 1.1rem 1.25rem; font-weight: 600; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; color: #0d2b1a; font-size: 1.02em; }
 .pd .pd-faq summary::-webkit-details-marker { display: none; }
-.pd .pd-faq summary::after { content: "+"; font-size: 1.5rem; color: #1e8449; font-weight: 400; line-height: 1; }
+.pd .pd-faq summary::after { content: "+"; font-size: 1.5em; color: #1e8449; font-weight: 400; line-height: 1; }
 .pd .pd-faq details[open] summary::after { content: "−"; }
 .pd .pd-faq details > p { padding: 0 1.25rem 1.25rem; color: #444; margin: 0; }
 
@@ -414,10 +414,10 @@ Copy everything between the fences below into
 .pd .pd-foot { background: #0a0a0a; color: #aaa; padding: 3rem 0 1.5rem; }
 .pd .pd-foot .pd-cols { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-bottom: 2rem; }
 @media (max-width: 800px) { .pd .pd-foot .pd-cols { grid-template-columns: repeat(2, 1fr); } }
-.pd .pd-foot h5 { color: #fff; margin-bottom: 0.75rem; font-size: 0.95rem; }
+.pd .pd-foot h5 { color: #fff; margin-bottom: 0.75rem; font-size: 0.95em; }
 .pd .pd-foot ul { list-style: none; }
-.pd .pd-foot li { margin-bottom: 0.4rem; font-size: 0.85rem; }
-.pd .pd-legal { border-top: 1px solid #222; padding-top: 1rem; text-align: center; font-size: 0.8rem; color: #777; }
+.pd .pd-foot li { margin-bottom: 0.4rem; font-size: 0.85em; }
+.pd .pd-legal { border-top: 1px solid #222; padding-top: 1rem; text-align: center; font-size: 0.8em; color: #777; }
 </style>
 
 <div class="pd">
@@ -1025,7 +1025,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
         </ol>
         <p>Yours to keep forever, without subscriptions.</p>
         <div class="pd-ph">[Jackson Packing]</div>
-        <p style="font-style: italic; text-align: center; font-size: 0.85rem !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment</p>
+        <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment</p>
         <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">I Choose This</a></div>
       </div>
     </div>
