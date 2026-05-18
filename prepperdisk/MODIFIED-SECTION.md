@@ -1,17 +1,15 @@
-# Prepper Disk Section — Updated
+# Prepper Disk Section — Updated with Hero Bullet Icons
 
-Two changes applied to your version:
+Your latest code with one change applied:
 
-1. **Subheadline added** under *"The End of the Internet As We Know It"*:
-   > We take the web for granted, but our access to it can be snatched away at any time
+- **Hero bullets** now show the same icons used later in the *"What's Stored on a Prepper Disk"* section instead of the green checkmark emojis:
+  - **Wikipedia** logo → *"100% Of Wikipedia"* (`WikipediaPI.png`)
+  - **Medical Wikis** icon → *"117,000+ How-To DIY Guides, Repair Manuals, and Medical Guides"* (`MedPI.png`)
+  - **Globe** icon → *"Maps of Entire USA, EUROPE, & OCEANIA"* (`GlobePI.png`)
 
-2. **Image dimensions unlocked.** Replaced the `.pd-ph:has(img)` and `.pd-ph img` rules so images render at their natural aspect ratio instead of being cropped to `object-fit: cover`. Each slot now sizes itself to whatever image you drop in.
+Same Shopify CDN URLs as the cards section so visual consistency is automatic. Added a small `.pd-bullet-icon` CSS rule that sizes them at 28×28 and aligns them inline with each bullet's text via `display: inline-flex` + `gap: 0.55rem` on the `<li>`.
 
-**Preserved on purpose:**
-- **Adam Profile photo** — still cropped to a perfect circle (it has its own `.pd-adam-profile img` rule, completely unaffected by the unlock).
-- **Money-back guarantee badge** — kept its square cover behavior via a small inline override on the `<img>` (`style="height: 100%; object-fit: cover;"` plus `overflow: hidden;` on its wrapper) so the badge stays 180×180 and doesn't escape its rounded corners if the SVG isn't perfectly square.
-
-Copy the full block below into your Shopify section.
+Paste the full block below into your Shopify section, replacing the previous version.
 
 ```liquid
 <style>
@@ -57,7 +55,8 @@ Copy the full block below into your Shopify section.
 .pd .pd-shot { max-width: 700px; margin: 0 auto 2rem; aspect-ratio: 16/9; }
 .pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05em; }
 .pd .pd-bullets { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem; list-style: none; }
-.pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; }
+.pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; display: inline-flex; align-items: center; gap: 0.55rem; }
+.pd .pd-bullets .pd-bullet-icon { width: 28px; height: 28px; max-width: 28px; max-height: 28px; display: block; flex-shrink: 0; }
 
 .pd .pd-btn { display: inline-block; background: #c0392b; color: #fff; padding: 1.1rem 2.5rem; font-size: 1.1em; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
 .pd .pd-btn:hover { transform: translateY(-2px); }
@@ -340,14 +339,14 @@ Copy the full block below into your Shopify section.
 
 <section class="pd-hero">
   <div class="pd-container">
-    <div class="pd-eyebrow">What if you need crucial information, but you get no signal?</div>
+    <div class="pd-eyebrow">What if you need to Google life-saving info, but you have no connection?</div>
     <h1>This Tiny Emergency Hotspot Shows You How To Survive Outdoors, Find Your Way Back Home, or Treat Wounds in Seconds</h1>
     <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Even when you're off-grid or the internet is down (forever)</p>
     <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
     <ul class="pd-bullets">
-      <li>✔️ 100% Of Wikipedia</li>
-      <li>✔️ 117,000+ How-To DIY Guides, Repair Manuals, and Medical Guides</li>
-      <li>✔️ Maps of Entire USA, EUROPE, & OCEANIA</li>
+      <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt="" class="pd-bullet-icon"> 100% Of Wikipedia</li>
+      <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt="" class="pd-bullet-icon"> 117,000+ How-To DIY Guides, Repair Manuals, and Medical Guides</li>
+      <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt="" class="pd-bullet-icon"> Maps of Entire USA, EUROPE, & OCEANIA</li>
     </ul>
     <a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a>
     <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
@@ -368,7 +367,7 @@ Copy the full block below into your Shopify section.
               <polyline points="15,18 11,25 17,25 13,30"/>
             </svg>
           </div>
-          <h3>Natural Disasters</h3>
+          <h3><strong>Natural Disasters</strong></h3>
           <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-pbody">
@@ -385,7 +384,7 @@ Copy the full block below into your Shopify section.
               <line x1="7.5" y1="24.5" x2="24.5" y2="7.5"/>
             </svg>
           </div>
-          <h3>Government Shutdown</h3>
+          <h3><strong>Government Shutdown</strong></h3>
           <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-pbody">
@@ -403,7 +402,7 @@ Copy the full block below into your Shopify section.
               <circle cx="16" cy="24.5" r="0.5" fill="currentColor"/>
             </svg>
           </div>
-          <h3>Accident... or attack?</h3>
+          <h3><strong>Accident... or attack?</strong></h3>
           <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-pbody">
@@ -422,13 +421,13 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
               <line x1="11" y1="28" x2="21" y2="28"/>
             </svg>
           </div>
-          <h3>Off-Grid and Off-Line</h3>
+          <h3><strong>Off-Grid and Off-Line</strong></h3>
           <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-pbody">
           <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid_Cabin.webp?v=1778838659" alt="Off-grid cabin"></div>
           <p>A homestead, a hike in the mountains, or even a total collapse of the grid. Answers to questions like “how to give birth” or “what plants are edible” can save lives.</p>
-          <div class="pd-ex"><strong>Real World Example:</strong>In 2022, a pregnant Air Force member was stuck in a hotel room in Istanbul. Alone, she used internet instructions on giving birth to safely deliver her baby.</div>
+          <div class="pd-ex"><strong>Real World Example:</strong> In 2022, a pregnant Air Force member was stuck in a hotel room in Istanbul. Alone, she used internet instructions on giving birth to safely deliver her baby.</div>
         </div>
       </div>
     </div>
@@ -437,11 +436,11 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 
 <section class="pd-block pd-alt">
   <div class="pd-container">
-    <h2>When the Internet Goes Down -> Grab Your Prepper Disk</h2>
-    <p class="pd-sub">As it's no larger than a deck of cards, you simply take it out of your pocket, bug-out-bag, or desk drawer</p>
+    <h2>Grab Your Off-Line Emergency Internet</h2>
+    <p class="pd-sub">No larger than a deck of cards, simply take the Prepper Disk out of your pocket, bug-out-bag, or desk drawer</p>
     <div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo.webp?v=1778838659" alt="Prepper Disk setup demo"></div>
     <div class="pd-sol-text">
-      <p class="pd-sol-lead">Then you simply:</p>
+      <p class="pd-sol-lead">Next you simply:</p>
     </div>
     <div class="pd-steps">
       <div class="pd-step">
@@ -475,7 +474,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
       </div>
     </div>
     <div class="pd-sol-text">
-      <p class="pd-sol-outro">It takes just 60 seconds to get your off-line library up and running</p>
+      <p class="pd-sol-outro">60 seconds later your off-line library is up and running</p>
     </div>
     <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
   </div>
@@ -644,76 +643,99 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 </section>
 
 <section class="pd-block pd-alt">
+  <style>
+    /* Increases the body text size on desktop and adds the line break gap */
+    .pd-scene-text {
+      font-size: 1.15em !important; 
+      margin-top: 1.25rem !important; 
+      line-height: 1.6 !important;
+    }
+
+    /* Keeps mobile text size balanced */
+    @media (max-width: 800px) {
+      .pd-scene-text {
+        font-size: 1.05em !important;
+        margin-top: 1rem !important;
+      }
+    }
+  </style>
+
   <div class="pd-container">
     <h2>When You'd Use It</h2>
     <div class="pd-scenes">
+      
       <div class="pd-scene">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/First_Aid.png?v=1778838700" alt="Medical emergency lookup"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">1</div>
-            <h3 class="pd-scene-title">Medical Emergencies</h3>
+            <h3 class="pd-scene-title"><strong>Medical Emergencies</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="pd-scene-text">Someone in your group has been hurt? Instead of wading through a medical tome, you'll find the right treatment through keywords, and apply aid within seconds.</div>
         </div>
       </div>
+      
       <div class="pd-scene pd-flip">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Bug_Out.png?v=1778838700" alt="Bug out shelter"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">2</div>
-            <h3 class="pd-scene-title">Survival Techniques</h3>
+            <h3 class="pd-scene-title"><strong>Survival Techniques</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="pd-scene-text">You're forced to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
         </div>
       </div>
+      
       <div class="pd-scene">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Car_Repair.png?v=1778838700" alt="Car repair walkthrough"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">3</div>
-            <h3 class="pd-scene-title">Mechanical Repairs</h3>
+            <h3 class="pd-scene-title"><strong>Mechanical Repairs</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
-          <div class="pd-scene-text">Imagine your car not starting during an evacuation. Log into the Prepper Disk and look up the exact make and model. Next, follow the repair walkthrough step by step until you've got it running again.
-</div>
+          <div class="pd-scene-text">Imagine your car not starting during an evacuation. Log into the Prepper Disk and look up the exact make and model. Next, follow the repair walkthrough step by step until you've got it running again.</div>
         </div>
       </div>
+      
       <div class="pd-scene pd-flip">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Kids_Learning.png?v=1778838700" alt="Kids learning offline"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">4</div>
-            <h3 class="pd-scene-title">Education for the Kids</h3>
+            <h3 class="pd-scene-title"><strong>Education for the Kids</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="pd-scene-text">Hey, even in the post-apocalypse the kids still need to keep learning. There's Khan Academy courses, 6,000 Q&As, and 100% of Wikipedia waiting for them.</div>
         </div>
       </div>
+      
       <div class="pd-scene">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Offline_map.png?v=1778838700" alt="Offline city map"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">5</div>
-            <h3 class="pd-scene-title">Finding Your Way</h3>
+            <h3 class="pd-scene-title"><strong>Finding Your Way</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="pd-scene-text">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and if there’s a hospital, pharmacy, or grocery store around the block.</div>
         </div>
       </div>
+      
       <div class="pd-scene pd-flip">
         <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid_Read.png?v=1778838700" alt="Reading off-grid"></div></div>
         <div class="pd-scene-content">
           <button class="pd-scene-sum" type="button">
             <div class="pd-scene-num">6</div>
-            <h3 class="pd-scene-title">Off-Grid Downtime</h3>
+            <h3 class="pd-scene-title"><strong>Off-Grid Downtime</strong></h3>
             <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
           </button>
           <div class="pd-scene-text">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
@@ -725,7 +747,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
     <div class="pd-vs">
       <div class="pd-vs-card">
         <button class="pd-vsum" type="button">
-          <h3>Books?</h3>
+          <h3><strong>Books?</strong></h3>
           <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-vbody">
@@ -735,22 +757,22 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
       </div>
       <div class="pd-vs-card">
         <button class="pd-vsum" type="button">
-          <h3>Kiwix on My Phone?</h3>
+          <h3><strong>Kiwix on My Phone?</strong></h3>
           <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-vbody">
-          <p>True, Prepper Disk actually runs on Kiwix under the hood. But Kiwix on your phone comes with nothing on it. Every piece of content is a separate download you have to find, vet, and pull down yourself before disaster strikes. That's hundreds of gigabytes and dozens of hours, assuming you even know what you'll need.</p>
-          <p>Also, Prepper Disk comes loaded with everything Kiwix can offer plus content you cannot assemble yourself: survival guides by Ky Furneaux, purpose-built Quick References, a Morse code translator, and more. You'd also just have your phone, meaning you'd have to loan it out if someone needs information. Meanwhile your Prepper Disk can be shared wirelessly to 20+ devices.</p>
+          <p>True, Prepper Disk actually runs on Kiwix under the hood. But Kiwix on your phone comes with nothing on it. Every piece of content is a separate download you have to <strong>find, vet, and pull down yourself before disaster strikes.</strong> That's hundreds of gigabytes and dozens of hours, assuming you even know what you'll need.</p>
+          <p>Also, <strong>Prepper Disk comes loaded with everything Kiwix can offer plus content you cannot assemble yourself:</strong> survival guides by Ky Furneaux, purpose-built Quick References, a Morse code translator, and more. You'd also just have your phone, meaning you'd have to loan it out if someone needs information. Meanwhile your Prepper Disk can be shared wirelessly to 20+ devices.</p>
         </div>
       </div>
       <div class="pd-vs-card">
         <button class="pd-vsum" type="button">
-          <h3>My own Raspberri PI?</h3>
+          <h3><strong>My own Raspberri PI?</strong></h3>
           <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="pd-vbody">
-          <p>Hey, DIY can be fun. But it's all the same content assembling as with Kiwix, and you are also taking on the hardware build, the server setup, and the ongoing updates, with no support.
-Prepper Disk is that same foundation, already assembled and tested, with exclusive content loaded on top.</p>
+          <p>Hey, DIY can be fun. But it's all the same content assembling as with Kiwix... <strong>PLUS</strong> also taking on the hardware build, the server setup, and the ongoing updates, with no support.
+Prepper Disk is that same foundation, <strong>already assembled and tested</strong>, with exclusive content loaded on top.</p>
         </div>
       </div>
     </div>
@@ -798,8 +820,10 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
 
 <section class="pd-offer" id="pd-offer">
   <div class="pd-container">
-    <h2>Get the Prepper Disk Premium 512GB</h2>
-    <p class="pd-sub">Yours to keep for life. No subscriptions, no monthly fees, ever.</p>
+    
+    <h2 style="text-align: center; margin-bottom: 0.75rem;">Get the Prepper Disk Premium 512GB</h2>
+    <p class="pd-sub" style="text-align: center; margin: 0 auto 2.5rem;">Yours to keep for life. No subscriptions, no monthly fees, ever.</p>
+    
     <div class="pd-mono">
       <div class="pd-mono-img">
         <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Product_Shot.webp?v=1778838659" alt="Prepper Disk Premium"></div>
@@ -811,26 +835,18 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
           <span class="pd-mono-price-now">$279</span>
         </div>
         <ul class="pd-mono-includes">
-          <li>Raspberry Pi 4B with 2GB RAM and 512GB pre-loaded SD card</li>
-          <li>Rugged aluminum case with passive cooling, no fan to fail</li>
-          <li>Connects up to 20 devices to its own private WiFi</li>
-          <li>USB-C charger and cable included, ready in 60 seconds</li>
+          <li>Raspberry Pi 4B with 512GB pre-loaded SD card</li>
+          <li>Rugged aluminum case with passive cooling</li>
+          <li>Connects up to 20 devices to its own WiFi</li>
+          <li>USB-C charger and cable included</li>
           <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
         </ul>
-        <a href="https://prepperdisk.myshopify.com/cart/43384681136182:1" class="pd-mono-cta">Order Now</a>
+        <a href="https://prepperdisk.myshopify.com/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-mono-cta">Order Now</a>
         <div class="pd-mono-trust">
           <div class="pd-titem">🔒 Secure checkout</div>
           <div class="pd-titem">🚚 Ships in 24 hours from USA</div>
           <div class="pd-titem">✅ 60-day money back</div>
           <div class="pd-titem">🛡️ 1-year hardware warranty</div>
-        </div>
-        <div class="pd-mono-pay">
-          <span class="pd-payph">VISA</span>
-          <span class="pd-payph">MASTERCARD</span>
-          <span class="pd-payph">AMEX</span>
-          <span class="pd-payph">PAYPAL</span>
-          <span class="pd-payph">APPLE PAY</span>
-          <span class="pd-payph">SHOP PAY</span>
         </div>
       </div>
     </div>
@@ -853,11 +869,15 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
   <div class="pd-container">
     <h2>Why We Built This</h2>
     <div class="pd-adam-profile"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam_Profile.webp?v=1778838657" alt="Adam"></div>
-    <div class="pd-about">
-      <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam_Workshop.webp?v=1778838659" alt="Adam in workshop with family"></div>
-      <div class="pd-about-body">
+    
+    <div class="pd-about" style="display: block;">
+      
+      <div class="pd-about-body" style="max-width: 650px; margin: 0 auto;">
         <p>Hi, Adam here! That's me in the workshop that started it all.</p>
         <div class="pd-about-more">
+          
+          <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam_Workshop.webp?v=1778838659" alt="Adam in workshop with family"></div>
+          
           <p>After spending years as a software engineer, then a tech executive, eventually led me to board service with The Water Project, traveling to communities in Kenya to help build wells and water infrastructure. </p>
           <p>What struck me was watching schools trying to teach computer science on chalkboards because they had no electricity or world wide web. </p>
           <p>And yet, by offline storing pieces of the internet, those kids kept learning anyway.</p>
@@ -913,7 +933,7 @@ Prepper Disk is that same foundation, already assembled and tested, with exclusi
         </ol>
         <p>Yours to keep forever, without subscriptions.</p>
         <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
-        <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment</p>
+        <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment. Yours might be next!</p>
         <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">I Choose This</a></div>
       </div>
     </div>
