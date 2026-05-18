@@ -55,7 +55,7 @@ Paste the full block below into your Shopify section, replacing the previous ver
 .pd .pd-shot { max-width: 700px; margin: 0 auto 2rem; aspect-ratio: 16/9; }
 .pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05em; }
 .pd .pd-bullets { display: flex; flex-direction: column; align-items: stretch; gap: 0.65rem; max-width: 540px; margin: 0 auto 2rem; list-style: none; padding: 0; }
-.pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; display: flex; align-items: center; gap: 0.75rem; background: #f5f5f5; border: 1px solid #e8e8e8; border-radius: 10px; padding: 0.75rem 1rem; }
+.pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; display: flex; align-items: center; gap: 1rem; background: #f5f5f5; border: 1px solid #e8e8e8; border-radius: 10px; padding: 0.85rem 1rem; text-align: left; }
 .pd .pd-bullets .pd-bullet-icon { width: 28px; height: 28px; max-width: 28px; max-height: 28px; display: block; flex-shrink: 0; }
 
 .pd .pd-btn { display: inline-block; background: #c0392b; color: #fff; padding: 1.1rem 2.5rem; font-size: 1.1em; font-weight: 700; border: 0; border-radius: 8px; text-transform: uppercase; letter-spacing: 0.05em; box-shadow: 0 4px 14px rgba(192,57,43,0.3); transition: transform 0.15s; }
