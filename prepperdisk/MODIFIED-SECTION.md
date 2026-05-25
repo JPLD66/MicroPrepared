@@ -2,7 +2,7 @@
 
 <style>
 
-.pd \* { box-sizing: border-box; margin: 0; padding: 0; }
+.pd * { box-sizing: border-box; margin: 0; padding: 0; }
 
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 
@@ -66,15 +66,15 @@
 
 @media (max-width: 700px) {
 
-&#x20; .pd .pd-hero { padding: 2rem 0 2.5rem; }
+ .pd .pd-hero { padding: 2rem 0 2.5rem; }
 
-&#x20; .pd .pd-hero h1 { font-size: 1.5em !important; line-height: 1.2; }
+ .pd .pd-hero h1 { font-size: 1.5em !important; line-height: 1.2; }
 
-&#x20; .pd .pd-hero .pd-sub { font-size: 1em !important; }
+ .pd .pd-hero .pd-sub { font-size: 1em !important; }
 
-&#x20; .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
+ .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
 
-&#x20; .pd h1 { font-size: 1.5em !important; }
+ .pd h1 { font-size: 1.5em !important; }
 
 }
 
@@ -116,7 +116,7 @@
 
 @media (max-width: 600px) {
 
-&#x20;         }
+         }
 
 
 
@@ -128,17 +128,17 @@
 
 @media (max-width: 700px) {
 
-&#x20; .pd .pd-block { padding: 2.5rem 0; }
+ .pd .pd-block { padding: 2.5rem 0; }
 
-&#x20; .pd .pd-block h2 { font-size: 1.35em !important; }
+ .pd .pd-block h2 { font-size: 1.35em !important; }
 
-&#x20; .pd h2 { font-size: 1.35em !important; }
+ .pd h2 { font-size: 1.35em !important; }
 
-&#x20; .pd h3 { font-size: 1.1em !important; }
+ .pd h3 { font-size: 1.1em !important; }
 
-&#x20; .pd .pd-block .pd-sub { font-size: 0.95em !important; margin-bottom: 1.5rem; }
+ .pd .pd-block .pd-sub { font-size: 0.95em !important; margin-bottom: 1.5rem; }
 
-&#x20; .pd .pd-sub { font-size: 0.95em !important; }
+ .pd .pd-sub { font-size: 0.95em !important; }
 
 }
 
@@ -174,23 +174,23 @@
 
 @media (max-width: 700px) {
 
-&#x20; .pd .pd-pcard { padding: 1.25rem; }
+ .pd .pd-pcard { padding: 1.25rem; }
 
-&#x20; .pd .pd-psum { display: flex; align-items: center; gap: 1rem; cursor: pointer; padding: 0; }
+ .pd .pd-psum { display: flex; align-items: center; gap: 1rem; cursor: pointer; padding: 0; }
 
-&#x20; .pd .pd-psum .pd-icon { width: 44px; height: 44px; margin-bottom: 0; }
+ .pd .pd-psum .pd-icon { width: 44px; height: 44px; margin-bottom: 0; }
 
-&#x20; .pd .pd-psum .pd-icon svg { width: 24px; height: 24px; }
+ .pd .pd-psum .pd-icon svg { width: 24px; height: 24px; }
 
-&#x20; .pd .pd-psum h3 { margin: 0; font-size: 1.05em; flex: 1; }
+ .pd .pd-psum h3 { margin: 0; font-size: 1.05em; flex: 1; }
 
-&#x20; .pd .pd-pchev { display: inline-block; }
+ .pd .pd-pchev { display: inline-block; }
 
-&#x20; .pd .pd-pbody { display: none; margin-top: 1rem; }
+ .pd .pd-pbody { display: none; margin-top: 1rem; }
 
-&#x20; .pd .pd-pcard.pd-open .pd-pbody { display: block; }
+ .pd .pd-pcard.pd-open .pd-pbody { display: block; }
 
-&#x20; .pd .pd-pcard.pd-open .pd-pchev { transform: rotate(180deg); }
+ .pd .pd-pcard.pd-open .pd-pchev { transform: rotate(180deg); }
 
 }
 
@@ -252,13 +252,13 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-cards-scroll { position: relative; margin: 0 -1.25rem; }
+ .pd .pd-cards-scroll { position: relative; margin: 0 -1.25rem; }
 
-&#x20; .pd .pd-cards { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0.85rem; padding: 0.5rem 2rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+ .pd .pd-cards { display: flex; flex-wrap: nowrap; overflow-x: auto; scroll-snap-type: x mandatory; gap: 0.85rem; padding: 0.5rem 2rem; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 
-&#x20; .pd .pd-cards::-webkit-scrollbar { display: none; }
+ .pd .pd-cards::-webkit-scrollbar { display: none; }
 
-&#x20; .pd .pd-card { flex: 0 0 82%; scroll-snap-align: center; }
+ .pd .pd-card { flex: 0 0 82%; scroll-snap-align: center; }
 
 }
 
@@ -268,15 +268,15 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-cards-hint { display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin: 1rem auto 0; color: #1e8449; font-weight: 700; font-size: 0.9em !important; min-height: 1.5rem; }
+ .pd .pd-cards-hint { display: flex; align-items: center; justify-content: center; gap: 0.45rem; margin: 1rem auto 0; color: #1e8449; font-weight: 700; font-size: 0.9em !important; min-height: 1.5rem; }
 
-&#x20; .pd .pd-cards-hint .pd-hint-arrow { display: inline-block; animation: pdHintBounce 1.4s ease-in-out infinite; font-weight: 900; }
+ .pd .pd-cards-hint .pd-hint-arrow { display: inline-block; animation: pdHintBounce 1.4s ease-in-out infinite; font-weight: 900; }
 
-&#x20; @keyframes pdHintBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
+ @keyframes pdHintBounce { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(5px); } }
 
-&#x20; .pd .pd-cards-hint.pd-hint-prev .pd-hint-arrow { animation: pdHintBouncePrev 1.4s ease-in-out infinite; }
+ .pd .pd-cards-hint.pd-hint-prev .pd-hint-arrow { animation: pdHintBouncePrev 1.4s ease-in-out infinite; }
 
-&#x20; @keyframes pdHintBouncePrev { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
+ @keyframes pdHintBouncePrev { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(-5px); } }
 
 }
 
@@ -284,11 +284,11 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-cards-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 0.75rem; }
+ .pd .pd-cards-dots { display: flex; justify-content: center; gap: 0.45rem; margin-top: 0.75rem; }
 
-&#x20; .pd .pd-cards-dots .pd-dot { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; transition: all 0.25s ease; }
+ .pd .pd-cards-dots .pd-dot { width: 8px; height: 8px; border-radius: 50%; background: #d0d0d0; transition: all 0.25s ease; }
 
-&#x20; .pd .pd-cards-dots .pd-dot.pd-on { background: #1e8449; width: 24px; border-radius: 4px; }
+ .pd .pd-cards-dots .pd-dot.pd-on { background: #1e8449; width: 24px; border-radius: 4px; }
 
 }
 
@@ -300,7 +300,7 @@
 
 .pd .pd-full summary::after { content: "  ▼"; font-size: 0.8em; }
 
-.pd .pd-full\[open] summary::after { content: "  ▲"; }
+.pd .pd-full[open] summary::after { content: "  ▲"; }
 
 .pd .pd-full .pd-fcontent { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eee; font-size: 0.95em; color: #444; }
 
@@ -338,33 +338,33 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-scene { display: flex; flex-direction: column; margin-bottom: 0; border-bottom: 1px solid #e5e5e5; padding: 1rem 0; gap: 0; }
+ .pd .pd-scene { display: flex; flex-direction: column; margin-bottom: 0; border-bottom: 1px solid #e5e5e5; padding: 1rem 0; gap: 0; }
 
-&#x20; .pd .pd-scene-content { display: contents; }
+ .pd .pd-scene-content { display: contents; }
 
-&#x20; .pd .pd-scene-sum { order: 1; }
+ .pd .pd-scene-sum { order: 1; }
 
-&#x20; .pd .pd-scene-img { order: 2; }
+ .pd .pd-scene-img { order: 2; }
 
-&#x20; .pd .pd-scene.pd-flip .pd-scene-img { order: 2; }
+ .pd .pd-scene.pd-flip .pd-scene-img { order: 2; }
 
-&#x20; .pd .pd-scene-text { order: 3; }
+ .pd .pd-scene-text { order: 3; }
 
-&#x20; .pd .pd-scene-sum { flex-direction: row; align-items: center; gap: 1rem; cursor: pointer; padding: 0.5rem 0; }
+ .pd .pd-scene-sum { flex-direction: row; align-items: center; gap: 1rem; cursor: pointer; padding: 0.5rem 0; }
 
-&#x20; .pd .pd-scene-num { width: 44px; height: 44px; font-size: 1.1em; }
+ .pd .pd-scene-num { width: 44px; height: 44px; font-size: 1.1em; }
 
-&#x20; .pd .pd-scene-title { font-size: 1.1em; flex: 1; }
+ .pd .pd-scene-title { font-size: 1.1em; flex: 1; }
 
-&#x20; .pd .pd-scene-chev { display: inline-flex; align-items: center; color: #888; transition: transform 0.25s ease; }
+ .pd .pd-scene-chev { display: inline-flex; align-items: center; color: #888; transition: transform 0.25s ease; }
 
-&#x20; .pd .pd-scene-chev svg { width: 18px; height: 18px; display: block; }
+ .pd .pd-scene-chev svg { width: 18px; height: 18px; display: block; }
 
-&#x20; .pd .pd-scene-img, .pd .pd-scene-text { display: none; margin-top: 1rem; }
+ .pd .pd-scene-img, .pd .pd-scene-text { display: none; margin-top: 1rem; }
 
-&#x20; .pd .pd-scene.pd-open .pd-scene-img, .pd .pd-scene.pd-open .pd-scene-text { display: block; }
+ .pd .pd-scene.pd-open .pd-scene-img, .pd .pd-scene.pd-open .pd-scene-text { display: block; }
 
-&#x20; .pd .pd-scene.pd-open .pd-scene-chev { transform: rotate(180deg); }
+ .pd .pd-scene.pd-open .pd-scene-chev { transform: rotate(180deg); }
 
 }
 
@@ -388,19 +388,19 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-vs-card { padding: 1.25rem 1.5rem; }
+ .pd .pd-vs-card { padding: 1.25rem 1.5rem; }
 
-&#x20; .pd .pd-vsum { cursor: pointer; }
+ .pd .pd-vsum { cursor: pointer; }
 
-&#x20; .pd .pd-vsum h3 { font-size: 1.05em; }
+ .pd .pd-vsum h3 { font-size: 1.05em; }
 
-&#x20; .pd .pd-vchev { display: inline-block; }
+ .pd .pd-vchev { display: inline-block; }
 
-&#x20; .pd .pd-vbody { display: none; margin-top: 0.85rem; }
+ .pd .pd-vbody { display: none; margin-top: 0.85rem; }
 
-&#x20; .pd .pd-vs-card.pd-open .pd-vbody { display: block; }
+ .pd .pd-vs-card.pd-open .pd-vbody { display: block; }
 
-&#x20; .pd .pd-vs-card.pd-open .pd-vchev { transform: rotate(180deg); }
+ .pd .pd-vs-card.pd-open .pd-vchev { transform: rotate(180deg); }
 
 }
 
@@ -570,13 +570,13 @@
 
 @media (max-width: 800px) {
 
-&#x20; .pd .pd-about-body .pd-about-more { display: none; }
+ .pd .pd-about-body .pd-about-more { display: none; }
 
-&#x20; .pd .pd-about-body.pd-open .pd-about-more { display: block; }
+ .pd .pd-about-body.pd-open .pd-about-more { display: block; }
 
-&#x20; .pd .pd-about-body.pd-open .pd-about-expand .pd-chev { transform: rotate(180deg); }
+ .pd .pd-about-body.pd-open .pd-about-expand .pd-chev { transform: rotate(180deg); }
 
-&#x20; .pd .pd-about-expand { display: inline-flex; }
+ .pd .pd-about-expand { display: inline-flex; }
 
 }
 
@@ -626,7 +626,7 @@
 
 .pd .pd-faq summary::after { content: "+"; font-size: 1.5em; color: #1e8449; font-weight: 400; line-height: 1; }
 
-.pd .pd-faq details\[open] summary::after { content: "−"; }
+.pd .pd-faq details[open] summary::after { content: "−"; }
 
 .pd .pd-faq details > p { padding: 0 1.25rem 1.25rem; color: #444; margin: 0; }
 
@@ -660,31 +660,31 @@
 
 <section class="pd-hero">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <div class="pd-eyebrow">What if you need to Google life-saving info, but you have no connection?</div>
+   <div class="pd-eyebrow">What if you need to Google life-saving info, but you have no connection?</div>
 
-&#x20;   <h1>This Tiny Emergency Hotspot Shows You How To Survive Outdoors, Find Your Way Back Home, or Treat Wounds in Seconds</h1>
+   <h1>This Tiny Emergency Hotspot Shows You How To Survive Outdoors, Find Your Way Back Home, or Treat Wounds in Seconds</h1>
 
-&#x20;   <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Even when you're off-grid or the internet is down (forever)</p>
+   <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Even when you're off-grid or the internet is down (forever)</p>
 
-&#x20;   <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero\_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
+   <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
 
-&#x20;   <ul class="pd-bullets">
+   <ul class="pd-bullets">
 
-&#x20;     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt="" class="pd-bullet-icon"> 100% Of Wikipedia, including  pictures</li>
+     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt="" class="pd-bullet-icon"> 100% Of Wikipedia, including  pictures</li>
 
-&#x20;     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt="" class="pd-bullet-icon"> 117,000+ How-To DIY Guides, Repair Manuals, and Medical Videos</li>
+     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt="" class="pd-bullet-icon"> 117,000+ How-To DIY Guides, Repair Manuals, and Medical Videos</li>
 
-&#x20;     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt="" class="pd-bullet-icon"> Maps For The Entire USA, Europe, \& Oceania</li>
+     <li><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt="" class="pd-bullet-icon"> Maps For The Entire USA, Europe, & Oceania</li>
 
-&#x20;   </ul>
+   </ul>
 
-&#x20;   <a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a>
+   <a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a>
 
-&#x20;   <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
+   <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -705,159 +705,159 @@
 
 <section class="pd-block" id="pd-problem">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>The End of the Internet As We Know It</h2>
+   <h2>The End of the Internet As We Know It</h2>
 
-&#x20;   <p class="pd-sub">We take the web for granted, but our access to it can be snatched away at any time</p>
+   <p class="pd-sub">We take the web for granted, but our access to it can be snatched away at any time</p>
 
-&#x20;   <div class="pd-pgrid">
+   <div class="pd-pgrid">
 
-&#x20;     <div class="pd-pcard">
+     <div class="pd-pcard">
 
-&#x20;       <button class="pd-psum" type="button">
+       <button class="pd-psum" type="button">
 
-&#x20;         <div class="pd-icon">
+         <div class="pd-icon">
 
-&#x20;           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;             <path d="M8 18 Q4 18 4 13 Q4 8 10 8 Q11 3 17 3 Q23 3 24 8 Q30 8 30 13 Q30 18 26 18"/>
+             <path d="M8 18 Q4 18 4 13 Q4 8 10 8 Q11 3 17 3 Q23 3 24 8 Q30 8 30 13 Q30 18 26 18"/>
 
-&#x20;             <polyline points="15,18 11,25 17,25 13,30"/>
+             <polyline points="15,18 11,25 17,25 13,30"/>
 
-&#x20;           </svg>
+           </svg>
 
-&#x20;         </div>
+         </div>
 
-&#x20;         <h3><strong>Natural Disasters</strong></h3>
+         <h3><strong>Natural Disasters</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-pbody">
+       <div class="pd-pbody">
 
-&#x20;         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Storm\_Damage.webp?v=1778838658" alt="Storm damage"></div>
+         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Storm_Damage.webp?v=1778838658" alt="Storm damage"></div>
 
-&#x20;         <p>A local disaster can cut off the power, your internet, and put you in life-threatening situations. It’ll be the worst possible moment to be cut off from life-saving information like FEMA survival instructions and medical guides.</p>
+         <p>A local disaster can cut off the power, your internet, and put you in life-threatening situations. It’ll be the worst possible moment to be cut off from life-saving information like FEMA survival instructions and medical guides.</p>
 
-&#x20;         <div class="pd-ex"><strong>Real World Example:</strong> During the 2025 Pacific Winter Storm, tens of thousands of people across the United States lost internet access for five straight days.</div>
+         <div class="pd-ex"><strong>Real World Example:</strong> During the 2025 Pacific Winter Storm, tens of thousands of people across the United States lost internet access for five straight days.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-pcard">
+     <div class="pd-pcard">
 
-&#x20;       <button class="pd-psum" type="button">
+       <button class="pd-psum" type="button">
 
-&#x20;         <div class="pd-icon">
+         <div class="pd-icon">
 
-&#x20;           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;             <circle cx="16" cy="16" r="12"/>
+             <circle cx="16" cy="16" r="12"/>
 
-&#x20;             <line x1="7.5" y1="24.5" x2="24.5" y2="7.5"/>
+             <line x1="7.5" y1="24.5" x2="24.5" y2="7.5"/>
 
-&#x20;           </svg>
+           </svg>
 
-&#x20;         </div>
+         </div>
 
-&#x20;         <h3><strong>Government Shutdown</strong></h3>
+         <h3><strong>Government Shutdown</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-pbody">
+       <div class="pd-pbody">
 
-&#x20;         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Censored\_Screen.webp?v=1778838659" alt="Censored website"></div>
+         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Censored_Screen.webp?v=1778838659" alt="Censored website"></div>
 
-&#x20;         <p>Governments hold the power to censor, restrict, or even completely cut off the internet from its citizens. </p>
+         <p>Governments hold the power to censor, restrict, or even completely cut off the internet from its citizens. </p>
 
-&#x20;         <div class="pd-ex"><strong>Real World Example:</strong> In 2017, the Turkish government blocked access to Wikipedia for three years, leaving 87 million of its people without the most useful reference site in the world.</div>
+         <div class="pd-ex"><strong>Real World Example:</strong> In 2017, the Turkish government blocked access to Wikipedia for three years, leaving 87 million of its people without the most useful reference site in the world.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-pcard">
+     <div class="pd-pcard">
 
-&#x20;       <button class="pd-psum" type="button">
+       <button class="pd-psum" type="button">
 
-&#x20;         <div class="pd-icon">
+         <div class="pd-icon">
 
-&#x20;           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;             <polygon points="16,4 30,28 2,28"/>
+             <polygon points="16,4 30,28 2,28"/>
 
-&#x20;             <line x1="16" y1="13" x2="16" y2="21"/>
+             <line x1="16" y1="13" x2="16" y2="21"/>
 
-&#x20;             <circle cx="16" cy="24.5" r="0.5" fill="currentColor"/>
+             <circle cx="16" cy="24.5" r="0.5" fill="currentColor"/>
 
-&#x20;           </svg>
+           </svg>
 
-&#x20;         </div>
+         </div>
 
-&#x20;         <h3><strong>Accident... or attack?</strong></h3>
+         <h3><strong>Accident... or attack?</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-pbody">
+       <div class="pd-pbody">
 
-&#x20;         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/ManMade.png?v=1779116730" alt="Severed undersea cable"></div>
+         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/ManMade.png?v=1779116730" alt="Severed undersea cable"></div>
 
-&#x20;         <p>The internet is a strangely fragile thing, and we’ve seen outages from both manmade accidents and attacks. And now with ‘Doomsday AI models’ like Claude Mythos being leaked, it’s at its most vulnerable yet.
+         <p>The internet is a strangely fragile thing, and we’ve seen outages from both manmade accidents and attacks. And now with ‘Doomsday AI models’ like Claude Mythos being leaked, it’s at its most vulnerable yet.
 
 Most are not worried anymore about the “if”, but of the “when”.</p>
 
-&#x20;         <div class="pd-ex"><strong>Real World Example:</strong> Since 2022, ten incidents have been recorded off underseas data cables being severed by Russian vessels.</div>
+         <div class="pd-ex"><strong>Real World Example:</strong> Since 2022, ten incidents have been recorded off underseas data cables being severed by Russian vessels.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-pcard">
+     <div class="pd-pcard">
 
-&#x20;       <button class="pd-psum" type="button">
+       <button class="pd-psum" type="button">
 
-&#x20;         <div class="pd-icon">
+         <div class="pd-icon">
 
-&#x20;           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+           <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;             <polygon points="16,4 22,14 19,14 25,22 7,22 13,14 10,14"/>
+             <polygon points="16,4 22,14 19,14 25,22 7,22 13,14 10,14"/>
 
-&#x20;             <line x1="16" y1="22" x2="16" y2="28"/>
+             <line x1="16" y1="22" x2="16" y2="28"/>
 
-&#x20;             <line x1="11" y1="28" x2="21" y2="28"/>
+             <line x1="11" y1="28" x2="21" y2="28"/>
 
-&#x20;           </svg>
+           </svg>
 
-&#x20;         </div>
+         </div>
 
-&#x20;         <h3><strong>Off-Grid and Off-Line</strong></h3>
+         <h3><strong>Off-Grid and Off-Line</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-pchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-pbody">
+       <div class="pd-pbody">
 
-&#x20;         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid\_Cabin.webp?v=1778838659" alt="Off-grid cabin"></div>
+         <div class="pd-ph pd-pcard-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid_Cabin.webp?v=1778838659" alt="Off-grid cabin"></div>
 
-&#x20;         <p>A homestead, a hike in the mountains, or even a total collapse of the grid. Answers to questions like “how to give birth” or “what plants are edible” can save lives.</p>
+         <p>A homestead, a hike in the mountains, or even a total collapse of the grid. Answers to questions like “how to give birth” or “what plants are edible” can save lives.</p>
 
-&#x20;         <div class="pd-ex"><strong>Real World Example:</strong> In 2022, a pregnant Air Force member was stuck in a hotel room in Istanbul. Alone, she used internet instructions on giving birth to safely deliver her baby.</div>
+         <div class="pd-ex"><strong>Real World Example:</strong> In 2022, a pregnant Air Force member was stuck in a hotel room in Istanbul. Alone, she used internet instructions on giving birth to safely deliver her baby.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -865,91 +865,91 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 
 <section class="pd-block pd-alt">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Grab Your Off-Line Emergency Internet</h2>
+   <h2>Grab Your Off-Line Emergency Internet</h2>
 
-&#x20;   <p class="pd-sub">No larger than a deck of cards, simply take the Prepper Disk out of your pocket, bug-out-bag, or desk drawer</p>
+   <p class="pd-sub">No larger than a deck of cards, simply take the Prepper Disk out of your pocket, bug-out-bag, or desk drawer</p>
 
-&#x20;   <div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup\_Demo\_TP.webp?v=1779096631" alt="Prepper Disk setup demo"></div>
+   <div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo_TP.webp?v=1779096631" alt="Prepper Disk setup demo"></div>
 
-&#x20;   <div class="pd-sol-text">
+   <div class="pd-sol-text">
 
-&#x20;     <p class="pd-sol-lead">Next you simply:</p>
+     <p class="pd-sol-lead">Next you simply:</p>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-steps">
+   <div class="pd-steps">
 
-&#x20;     <div class="pd-step">
+     <div class="pd-step">
 
-&#x20;       <div class="pd-step-num">Step 1</div>
+       <div class="pd-step-num">Step 1</div>
 
-&#x20;       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;         <line x1="12" y1="3" x2="12" y2="9"/>
+         <line x1="12" y1="3" x2="12" y2="9"/>
 
-&#x20;         <line x1="20" y1="3" x2="20" y2="9"/>
+         <line x1="20" y1="3" x2="20" y2="9"/>
 
-&#x20;         <path d="M8 9h16v5a8 8 0 0 1-16 0z"/>
+         <path d="M8 9h16v5a8 8 0 0 1-16 0z"/>
 
-&#x20;         <line x1="16" y1="22" x2="16" y2="29"/>
+         <line x1="16" y1="22" x2="16" y2="29"/>
 
-&#x20;       </svg>
+       </svg>
 
-&#x20;       <div class="pd-step-text">Plug it into a wall outlet, battery or your car</div>
+       <div class="pd-step-text">Plug it into a wall outlet, battery or your car</div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-step">
+     <div class="pd-step">
 
-&#x20;       <div class="pd-step-num">Step 2</div>
+       <div class="pd-step-num">Step 2</div>
 
-&#x20;       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;         <path d="M3 12 Q16 2 29 12"/>
+         <path d="M3 12 Q16 2 29 12"/>
 
-&#x20;         <path d="M7 17 Q16 9 25 17"/>
+         <path d="M7 17 Q16 9 25 17"/>
 
-&#x20;         <path d="M11 22 Q16 17 21 22"/>
+         <path d="M11 22 Q16 17 21 22"/>
 
-&#x20;         <circle cx="16" cy="26" r="1.5" fill="currentColor"/>
+         <circle cx="16" cy="26" r="1.5" fill="currentColor"/>
 
-&#x20;       </svg>
+       </svg>
 
-&#x20;       <div class="pd-step-text">Connect your phone/laptop to its WIFI channel “PrepperDisk”</div>
+       <div class="pd-step-text">Connect your phone/laptop to its WIFI channel “PrepperDisk”</div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-step">
+     <div class="pd-step">
 
-&#x20;       <div class="pd-step-num">Step 3</div>
+       <div class="pd-step-num">Step 3</div>
 
-&#x20;       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+       <svg class="pd-step-icon" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
 
-&#x20;         <circle cx="16" cy="16" r="12"/>
+         <circle cx="16" cy="16" r="12"/>
 
-&#x20;         <line x1="4" y1="16" x2="28" y2="16"/>
+         <line x1="4" y1="16" x2="28" y2="16"/>
 
-&#x20;         <path d="M16 4 Q9 16 16 28 Q23 16 16 4"/>
+         <path d="M16 4 Q9 16 16 28 Q23 16 16 4"/>
 
-&#x20;       </svg>
+       </svg>
 
-&#x20;       <div class="pd-step-text">Type in 10.10.10.10 and browse!</div>
+       <div class="pd-step-text">Type in 10.10.10.10 and browse!</div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-sol-text">
+   <div class="pd-sol-text">
 
-&#x20;     <p class="pd-sol-outro">60 seconds later your off-line library is up and running</p>
+     <p class="pd-sol-outro">60 seconds later your off-line library is up and running</p>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
+   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -957,323 +957,323 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 
 <section class="pd-block" id="pd-whats">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>What's Stored on a Prepper Disk</h2>
+   <h2>What's Stored on a Prepper Disk</h2>
 
-&#x20;   <div class="pd-cards-scroll">
+   <div class="pd-cards-scroll">
 
-&#x20;     <div class="pd-cards">
+     <div class="pd-cards">
 
 
 
-&#x20;       <div class="pd-card" data-card-title="Reference">
+       <div class="pd-card" data-card-title="Reference">
 
-&#x20;         <h3>Reference</h3>
+         <h3>Reference</h3>
 
-&#x20;         <hr class="pd-card-divider">
+         <hr class="pd-card-divider">
 
-&#x20;         <ul class="pd-card-list">
+         <ul class="pd-card-list">
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/WikipediaPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Wikipedia (English)</span>
+               <span class="pd-item-name">Wikipedia (English)</span>
 
-&#x20;               <div class="pd-item-desc">Over 6 million articles and images. Searchable and browsable just like the real site.</div>
+               <div class="pd-item-desc">Over 6 million articles and images. Searchable and browsable just like the real site.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;          <li>
+          <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/HowPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/HowPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">WikiHow</span>
+               <span class="pd-item-name">WikiHow</span>
 
-&#x20;               <div class="pd-item-desc">90,000+ how-to guides, from finding shelter to wiring a house.</div>
+               <div class="pd-item-desc">90,000+ how-to guides, from finding shelter to wiring a house.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/FixItPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/FixItPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">iFixit Repair Guides</span>
+               <span class="pd-item-name">iFixit Repair Guides</span>
 
-&#x20;               <div class="pd-item-desc">Professional-grade repair instructions for autos, electronics, and home appliances.</div>
+               <div class="pd-item-desc">Professional-grade repair instructions for autos, electronics, and home appliances.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PostPI\_d78430d5-10d4-485e-9e99-96d6c7dca2ff.png?v=1744858848" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PostPI_d78430d5-10d4-485e-9e99-96d6c7dca2ff.png?v=1744858848" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Project Gutenberg</span>
+               <span class="pd-item-name">Project Gutenberg</span>
 
-&#x20;               <div class="pd-item-desc">60,000 eBooks across 300+ categories — classics, non-fiction, children's books, and more.</div>
+               <div class="pd-item-desc">60,000 eBooks across 300+ categories — classics, non-fiction, children's books, and more.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/TedPI.png?v=1744843445" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/TedPI.png?v=1744843445" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">TED Talks</span>
+               <span class="pd-item-name">TED Talks</span>
 
-&#x20;               <div class="pd-item-desc">Curated videos on farming and extreme weather.</div>
+               <div class="pd-item-desc">Curated videos on farming and extreme weather.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/QAPI.png?v=1744843514" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/QAPI.png?v=1744843514" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Stack Exchange Q\&amp;A</span>
+               <span class="pd-item-name">Stack Exchange Q&amp;A</span>
 
-&#x20;               <div class="pd-item-desc">Thousands of searchable questions on sustainable living and the outdoors.</div>
+               <div class="pd-item-desc">Thousands of searchable questions on sustainable living and the outdoors.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon">
+             <span class="pd-item-icon">
 
-&#x20;               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+               <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
 
-&#x20;                 <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#1a1a1a"/>
+                 <path d="M16 5 L2 12 L16 19 L30 12 Z" fill="#1a1a1a"/>
 
-&#x20;                 <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                 <path d="M9 16 L9 21 Q9 24 16 25 Q23 24 23 21 L23 16" fill="none" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 
-&#x20;                 <line x1="27" y1="12" x2="27" y2="20" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+                 <line x1="27" y1="12" x2="27" y2="20" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
 
-&#x20;                 <circle cx="27" cy="22.5" r="1.4" fill="#1a1a1a"/>
+                 <circle cx="27" cy="22.5" r="1.4" fill="#1a1a1a"/>
 
-&#x20;               </svg>
+               </svg>
 
-&#x20;             </span>
+             </span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Khan Academy Lite</span>
+               <span class="pd-item-name">Khan Academy Lite</span>
 
-&#x20;               <div class="pd-item-desc">Hundreds of video lessons and quizzes on Math, Biology, History, Computer Programming, and more. Store and track your progress on your Prepper Disk.</div>
+               <div class="pd-item-desc">Hundreds of video lessons and quizzes on Math, Biology, History, Computer Programming, and more. Store and track your progress on your Prepper Disk.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;         </ul>
+         </ul>
 
-&#x20;       </div>
+       </div>
 
 
 
-&#x20;       <div class="pd-card" data-card-title="Crisis Response">
+       <div class="pd-card" data-card-title="Crisis Response">
 
-&#x20;         <h3>Crisis Response</h3>
+         <h3>Crisis Response</h3>
 
-&#x20;         <hr class="pd-card-divider">
+         <hr class="pd-card-divider">
 
-&#x20;         <ul class="pd-card-list">
+         <ul class="pd-card-list">
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/ReadyPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/ReadyPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Ready.gov / FEMA</span>
+               <span class="pd-item-name">Ready.gov / FEMA</span>
 
-&#x20;               <div class="pd-item-desc">Disaster planning for biohazards, weather events, mass attacks, home fires, and more.</div>
+               <div class="pd-item-desc">Disaster planning for biohazards, weather events, mass attacks, home fires, and more.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/MedPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Medical Wikis \&amp; Guides</span>
+               <span class="pd-item-name">Medical Wikis &amp; Guides</span>
 
-&#x20;               <div class="pd-item-desc">50,000+ articles from the National Library of Medicine, MedlinePlus, and surgical/first-aid guides.</div>
+               <div class="pd-item-desc">50,000+ articles from the National Library of Medicine, MedlinePlus, and surgical/first-aid guides.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GutenPI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GutenPI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Survival Bookshelf</span>
+               <span class="pd-item-name">Survival Bookshelf</span>
 
-&#x20;               <div class="pd-item-desc">Military survival manuals, hunting and trapping, foraging, post-disaster cooking.</div>
+               <div class="pd-item-desc">Military survival manuals, hunting and trapping, foraging, post-disaster cooking.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/KyPI.png?v=1744845278" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/KyPI.png?v=1744845278" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Ky Furneaux Field Guides</span>
+               <span class="pd-item-name">Ky Furneaux Field Guides</span>
 
-&#x20;               <div class="pd-item-desc">Fortifying your home, finding water, signaling, rescue — from the survival expert (Discovery, MTV).</div>
+               <div class="pd-item-desc">Fortifying your home, finding water, signaling, rescue — from the survival expert (Discovery, MTV).</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PDPI.png?v=1744841833" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/PDPI.png?v=1744841833" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Prepper Disk Exclusives</span>
+               <span class="pd-item-name">Prepper Disk Exclusives</span>
 
-&#x20;               <div class="pd-item-desc">Original eBooks: livestock for survival, woodland survival, emergency communication.</div>
+               <div class="pd-item-desc">Original eBooks: livestock for survival, woodland survival, emergency communication.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;         </ul>
+         </ul>
 
-&#x20;       </div>
+       </div>
 
 
 
-&#x20;       <div class="pd-card" data-card-title="Comms and Navigation">
+       <div class="pd-card" data-card-title="Comms and Navigation">
 
-&#x20;         <h3>Comms and Navigation</h3>
+         <h3>Comms and Navigation</h3>
 
-&#x20;         <hr class="pd-card-divider">
+         <hr class="pd-card-divider">
 
-&#x20;         <ul class="pd-card-list">
+         <ul class="pd-card-list">
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt=""></span>
+             <span class="pd-item-icon"><img src="https://s3.us-east-1.amazonaws.com/gcassets.chace/shopify/GlobePI.png" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">World Street Maps</span>
+               <span class="pd-item-name">World Street Maps</span>
 
-&#x20;               <div class="pd-item-desc">North America, Europe, and Oceania street maps with satellite imagery.</div>
+               <div class="pd-item-desc">North America, Europe, and Oceania street maps with satellite imagery.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/natparks.png?v=1757477301" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/natparks.png?v=1757477301" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">National Park Maps<span class="pd-badge-new">New</span></span>
+               <span class="pd-item-name">National Park Maps<span class="pd-badge-new">New</span></span>
 
-&#x20;               <div class="pd-item-desc">Official trail maps for all 63 US National Parks.</div>
+               <div class="pd-item-desc">Official trail maps for all 63 US National Parks.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Ham\_icon\_ff9e6fd3-4128-4595-b909-13be40e9574f.png?v=1752638752" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Ham_icon_ff9e6fd3-4128-4595-b909-13be40e9574f.png?v=1752638752" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">RepeaterBook (HAM)</span>
+               <span class="pd-item-name">RepeaterBook (HAM)</span>
 
-&#x20;               <div class="pd-item-desc">Searchable amateur radio repeater data for the US and Canada.</div>
+               <div class="pd-item-desc">Searchable amateur radio repeater data for the US and Canada.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/morse\_\_\_icon\_0a40a4c5-cfbe-4dad-9b4f-1bb6ff7bb1ba.png?v=1757462925" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/morse___icon_0a40a4c5-cfbe-4dad-9b4f-1bb6ff7bb1ba.png?v=1757462925" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Morse Code Decoder<span class="pd-badge-new">New</span></span>
+               <span class="pd-item-name">Morse Code Decoder<span class="pd-badge-new">New</span></span>
 
-&#x20;               <div class="pd-item-desc">Decodes and translates Morse with audio and visual signal output.</div>
+               <div class="pd-item-desc">Decodes and translates Morse with audio and visual signal output.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;           <li>
+           <li>
 
-&#x20;             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/translate.png?v=1757476987" alt=""></span>
+             <span class="pd-item-icon"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/translate.png?v=1757476987" alt=""></span>
 
-&#x20;             <div class="pd-item-body">
+             <div class="pd-item-body">
 
-&#x20;               <span class="pd-item-name">Emergency Phrase Translator<span class="pd-badge-new">New</span></span>
+               <span class="pd-item-name">Emergency Phrase Translator<span class="pd-badge-new">New</span></span>
 
-&#x20;               <div class="pd-item-desc">200+ emergency phrases across English, Spanish, French, Italian, German, Russian.</div>
+               <div class="pd-item-desc">200+ emergency phrases across English, Spanish, French, Italian, German, Russian.</div>
 
-&#x20;             </div>
+             </div>
 
-&#x20;           </li>
+           </li>
 
-&#x20;         </ul>
+         </ul>
 
-&#x20;       </div>
+       </div>
 
 
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
+   <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
 
-&#x20;   <div class="pd-cards-dots" id="pdCardsDots"></div>
+   <div class="pd-cards-dots" id="pdCardsDots"></div>
 
-&#x20;   <p class="pd-updates">Plus, we release new content updates regularly to keep your library growing over time.</p>
+   <p class="pd-updates">Plus, we release new content updates regularly to keep your library growing over time.</p>
 
-&#x20;   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
+   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1281,195 +1281,195 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 
 <section class="pd-block pd-alt">
 
-&#x20; <style>
+ <style>
 
-&#x20;   /\* Increases the body text size on desktop and adds the line break gap \*/
+   /* Increases the body text size on desktop and adds the line break gap */
 
-&#x20;   .pd-scene-text {
+   .pd-scene-text {
 
-&#x20;     font-size: 1.15em !important; 
+     font-size: 1.15em !important; 
 
-&#x20;     margin-top: 1.25rem !important; 
+     margin-top: 1.25rem !important; 
 
-&#x20;     line-height: 1.6 !important;
+     line-height: 1.6 !important;
 
-&#x20;   }
+   }
 
 
 
-&#x20;   /\* Keeps mobile text size balanced \*/
+   /* Keeps mobile text size balanced */
 
-&#x20;   @media (max-width: 800px) {
+   @media (max-width: 800px) {
 
-&#x20;     .pd-scene-text {
+     .pd-scene-text {
 
-&#x20;       font-size: 1.05em !important;
+       font-size: 1.05em !important;
 
-&#x20;       margin-top: 1rem !important;
+       margin-top: 1rem !important;
 
-&#x20;     }
+     }
 
-&#x20;   }
+   }
 
-&#x20; </style>
+ </style>
 
 
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>When You'd Use It</h2>
+   <h2>When You'd Use It</h2>
 
-&#x20;   <div class="pd-scenes">
+   <div class="pd-scenes">
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene">
+     <div class="pd-scene">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Medic\_1.png?v=1779203874" alt="Medical emergency lookup"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Medic_1.png?v=1779203874" alt="Medical emergency lookup"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">1</div>
+           <div class="pd-scene-num">1</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Medical Emergencies</strong></h3>
+           <h3 class="pd-scene-title"><strong>Medical Emergencies</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">Someone in your group is hurt? Instead of wading through a medical tome, find the right treatment through keywords and apply aid within seconds.</div>
+         <div class="pd-scene-text">Someone in your group is hurt? Instead of wading through a medical tome, find the right treatment through keywords and apply aid within seconds.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene pd-flip">
+     <div class="pd-scene pd-flip">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Bug\_Out.png?v=1778838700" alt="Bug out shelter"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Bug_Out.png?v=1778838700" alt="Bug out shelter"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">2</div>
+           <div class="pd-scene-num">2</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Survival Techniques</strong></h3>
+           <h3 class="pd-scene-title"><strong>Survival Techniques</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">You're forced to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
+         <div class="pd-scene-text">You're forced to bug out, and on the very first day you need to know how to start a fire, filter water, and put together a shelter from whatever happens to be around you.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene">
+     <div class="pd-scene">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Car\_Repair.png?v=1778838700" alt="Car repair walkthrough"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Car_Repair.png?v=1778838700" alt="Car repair walkthrough"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">3</div>
+           <div class="pd-scene-num">3</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Mechanical Repairs</strong></h3>
+           <h3 class="pd-scene-title"><strong>Mechanical Repairs</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">Imagine your car not starting during an evacuation. Log into the Prepper Disk and look up the exact make and model. Next, follow the repair walkthrough step by step until you've got it running again.</div>
+         <div class="pd-scene-text">Imagine your car not starting during an evacuation. Log into the Prepper Disk and look up the exact make and model. Next, follow the repair walkthrough step by step until you've got it running again.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene pd-flip">
+     <div class="pd-scene pd-flip">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Kids\_Learning.png?v=1778838700" alt="Kids learning offline"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Kids_Learning.png?v=1778838700" alt="Kids learning offline"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">4</div>
+           <div class="pd-scene-num">4</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Education for the Kids</strong></h3>
+           <h3 class="pd-scene-title"><strong>Education for the Kids</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">Hey, even in the post-apocalypse the kids still need to keep learning. There's Khan Academy courses, 6,000 Q\&As, and 100% of Wikipedia waiting for them.</div>
+         <div class="pd-scene-text">Hey, even in the post-apocalypse the kids still need to keep learning. There's Khan Academy courses, 6,000 Q&As, and 100% of Wikipedia waiting for them.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene">
+     <div class="pd-scene">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Offline\_map.png?v=1778838700" alt="Offline city map"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Offline_map.png?v=1778838700" alt="Offline city map"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">5</div>
+           <div class="pd-scene-num">5</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Finding Your Way</strong></h3>
+           <h3 class="pd-scene-title"><strong>Finding Your Way</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and if there’s a hospital, pharmacy, or grocery store around the block.</div>
+         <div class="pd-scene-text">You are lost in an unfamiliar city, so you pull up the offline maps to figure out exactly where you are and if there’s a hospital, pharmacy, or grocery store around the block.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-scene pd-flip">
+     <div class="pd-scene pd-flip">
 
-&#x20;       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid\_Read.png?v=1778838700" alt="Reading off-grid"></div></div>
+       <div class="pd-scene-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Off-Grid_Read.png?v=1778838700" alt="Reading off-grid"></div></div>
 
-&#x20;       <div class="pd-scene-content">
+       <div class="pd-scene-content">
 
-&#x20;         <button class="pd-scene-sum" type="button">
+         <button class="pd-scene-sum" type="button">
 
-&#x20;           <div class="pd-scene-num">6</div>
+           <div class="pd-scene-num">6</div>
 
-&#x20;           <h3 class="pd-scene-title"><strong>Off-Grid Downtime</strong></h3>
+           <h3 class="pd-scene-title"><strong>Off-Grid Downtime</strong></h3>
 
-&#x20;           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
+           <span class="pd-scene-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></span>
 
-&#x20;         </button>
+         </button>
 
-&#x20;         <div class="pd-scene-text">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
+         <div class="pd-scene-text">You're off-grid for the long haul and looking for something to do, so you watch a TED talk, open up one of the 60,000 books, or play a quiet round of Patience to pass the evening.</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     
+     
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1477,79 +1477,79 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 
 <section class="pd-block">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Prepper Disk Versus Alternatives</h2>
+   <h2>Prepper Disk Versus Alternatives</h2>
 
-&#x20;   <p class="pd-sub"><i>"So why can't I just use..."</i></p>
+   <p class="pd-sub"><i>"So why can't I just use..."</i></p>
 
-&#x20;   <div class="pd-vs">
+   <div class="pd-vs">
 
-&#x20;     <div class="pd-vs-card">
+     <div class="pd-vs-card">
 
-&#x20;       <button class="pd-vsum" type="button">
+       <button class="pd-vsum" type="button">
 
-&#x20;         <h3><strong>Books?</strong></h3>
+         <h3><strong>Books?</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-vbody">
+       <div class="pd-vbody">
 
-&#x20;         <p>You'd need a <strong>forty-foot shipping container</strong> just to store a small fraction of the same information in printed form, and even then you would be flipping through pages by hand, hoping you bought the right book before the shelves went empty.</p>
+         <p>You'd need a <strong>forty-foot shipping container</strong> just to store a small fraction of the same information in printed form, and even then you would be flipping through pages by hand, hoping you bought the right book before the shelves went empty.</p>
 
-&#x20;         <p><strong>Prepper Disk holds about 5 libraries of information in the palm of your hand</strong>, accessible from every device in the room the moment you power it on.</p>
+         <p><strong>Prepper Disk holds about 5 libraries of information in the palm of your hand</strong>, accessible from every device in the room the moment you power it on.</p>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-vs-card">
+     <div class="pd-vs-card">
 
-&#x20;       <button class="pd-vsum" type="button">
+       <button class="pd-vsum" type="button">
 
-&#x20;         <h3><strong>Kiwix on My Phone?</strong></h3>
+         <h3><strong>Kiwix on My Phone?</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-vbody">
+       <div class="pd-vbody">
 
-&#x20;         <p>True, Prepper Disk actually runs on Kiwix under the hood. But Kiwix on your phone comes with nothing on it. Every piece of content is a separate download you have to <strong>find, vet, and pull down yourself before disaster strikes.</strong> That's hundreds of gigabytes and dozens of hours, assuming you even know what you'll need.</p>
+         <p>True, Prepper Disk actually runs on Kiwix under the hood. But Kiwix on your phone comes with nothing on it. Every piece of content is a separate download you have to <strong>find, vet, and pull down yourself before disaster strikes.</strong> That's hundreds of gigabytes and dozens of hours, assuming you even know what you'll need.</p>
 
-&#x20;         <p>Also, <strong>Prepper Disk comes loaded with everything Kiwix can offer plus content you cannot assemble yourself:</strong> survival guides by Ky Furneaux, purpose-built Quick References, a Morse code translator, and more. You'd also just have your phone, meaning you'd have to loan it out if someone needs information. Meanwhile your Prepper Disk can be shared wirelessly to 20+ devices.</p>
+         <p>Also, <strong>Prepper Disk comes loaded with everything Kiwix can offer plus content you cannot assemble yourself:</strong> survival guides by Ky Furneaux, purpose-built Quick References, a Morse code translator, and more. You'd also just have your phone, meaning you'd have to loan it out if someone needs information. Meanwhile your Prepper Disk can be shared wirelessly to 20+ devices.</p>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-vs-card">
+     <div class="pd-vs-card">
 
-&#x20;       <button class="pd-vsum" type="button">
+       <button class="pd-vsum" type="button">
 
-&#x20;         <h3><strong>My own Raspberri PI?</strong></h3>
+         <h3><strong>My own Raspberri PI?</strong></h3>
 
-&#x20;         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev pd-vchev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;       <div class="pd-vbody">
+       <div class="pd-vbody">
 
-&#x20;         <p>Hey, DIY can be fun. But it's all the same content assembling as with Kiwix... <strong>PLUS</strong> also taking on the hardware build, the server setup, and the ongoing updates, with no support.
+         <p>Hey, DIY can be fun. But it's all the same content assembling as with Kiwix... <strong>PLUS</strong> also taking on the hardware build, the server setup, and the ongoing updates, with no support.
 
 Prepper Disk is that same foundation, <strong>already assembled and tested</strong>, with exclusive content loaded on top.</p>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
+   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1557,75 +1557,75 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-block pd-alt">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Stashed With 7,000+ Households</h2>
+   <h2>Stashed With 7,000+ Households</h2>
 
-&#x20;   <p class="pd-sub">From homesteaders to prepared families, here's what people are saying.</p>
+   <p class="pd-sub">From homesteaders to prepared families, here's what people are saying.</p>
 
-&#x20;   <div class="pd-rating" style="margin-bottom: 2.5rem;">
+   <div class="pd-rating" style="margin-bottom: 2.5rem;">
 
-&#x20;     <div class="pd-big">4.8</div>
+     <div class="pd-big">4.8</div>
 
-&#x20;     <div class="pd-stars">★★★★★</div>
+     <div class="pd-stars">★★★★★</div>
 
-&#x20;     <div class="pd-rcount">Based on 114+ verified reviews</div>
+     <div class="pd-rcount">Based on 114+ verified reviews</div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-tests">
+   <div class="pd-tests">
 
-&#x20;     <div class="pd-test">
+     <div class="pd-test">
 
-&#x20;       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Douglas\_Photo.webp?v=1778838659" alt="Douglas G."></div></div>
+       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Douglas_Photo.webp?v=1778838659" alt="Douglas G."></div></div>
 
-&#x20;       <div class="pd-test-stars">★★★★★</div>
+       <div class="pd-test-stars">★★★★★</div>
 
-&#x20;       <div class="pd-test-body">
+       <div class="pd-test-body">
 
-&#x20;         <p class="pd-quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
+         <p class="pd-quote">This device is a must have in a disaster situation. I can have <b>the library of Alexandria in my hands</b> using the USB feature with an external drive on multiple devices. If I could give Prepper Disk six stars, I would.</p>
 
-&#x20;         <div class="pd-author">— Douglas G., verified buyer</div>
+         <div class="pd-author">— Douglas G., verified buyer</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-test">
+     <div class="pd-test">
 
-&#x20;       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Micaela\_Photo.webp?v=1778838659" alt="Micaela B."></div></div>
+       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Micaela_Photo.webp?v=1778838659" alt="Micaela B."></div></div>
 
-&#x20;       <div class="pd-test-stars">★★★★★</div>
+       <div class="pd-test-stars">★★★★★</div>
 
-&#x20;       <div class="pd-test-body">
+       <div class="pd-test-body">
 
-&#x20;         <p class="pd-quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
+         <p class="pd-quote">WOW! Firstly, <b>the customer service is above and beyond fantastic.</b> When I encountered a delivery hiccup I reached out to the company and Adam responded promptly and thoughtfully.</p>
 
-&#x20;         <div class="pd-author">— Micaela B., verified buyer</div>
+         <div class="pd-author">— Micaela B., verified buyer</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-test">
+     <div class="pd-test">
 
-&#x20;       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Garrett\_Photo.webp?v=1778838658" alt="Garrett D."></div></div>
+       <div class="pd-test-img"><div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Garrett_Photo.webp?v=1778838658" alt="Garrett D."></div></div>
 
-&#x20;       <div class="pd-test-stars">★★★★★</div>
+       <div class="pd-test-stars">★★★★★</div>
 
-&#x20;       <div class="pd-test-body">
+       <div class="pd-test-body">
 
-&#x20;         <p class="pd-quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
+         <p class="pd-quote">Within seconds I was connected on my mini PC and my phone. It's really a pretty amazing device. The Pi is USB-C powered so it makes it <b>super easy to take on the go, in the car, or in my comms trailer.</b> It's well organized and easy to find everything.</p>
 
-&#x20;         <div class="pd-author">— Garrett D., verified buyer</div>
+         <div class="pd-author">— Garrett D., verified buyer</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1633,69 +1633,69 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-offer" id="pd-offer">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   
+   
 
-&#x20;   <h2 style="text-align: center; margin-bottom: 0.75rem;">Get the Prepper Disk Premium 512GB</h2>
+   <h2 style="text-align: center; margin-bottom: 0.75rem;">Get the Prepper Disk Premium 512GB</h2>
 
-&#x20;   <p class="pd-sub" style="text-align: center; margin: 0 auto 2.5rem;">Yours to keep for life. No subscriptions, no monthly fees, ever.</p>
+   <p class="pd-sub" style="text-align: center; margin: 0 auto 2.5rem;">Yours to keep for life. No subscriptions, no monthly fees, ever.</p>
 
-&#x20;   
+   
 
-&#x20;   <div class="pd-mono">
+   <div class="pd-mono">
 
-&#x20;     <div class="pd-mono-img">
+     <div class="pd-mono-img">
 
-&#x20;       <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Product\_Shot.webp?v=1778838659" alt="Prepper Disk Premium"></div>
+       <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Product_Shot.webp?v=1778838659" alt="Prepper Disk Premium"></div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-mono-info">
+     <div class="pd-mono-info">
 
-&#x20;       <h3>Prepper Disk Premium · 512GB</h3>
+       <h3>Prepper Disk Premium · 512GB</h3>
 
-&#x20;       <div class="pd-mono-rating">★★★★★ <span class="pd-rtxt">4.8 / 5 from 114+ verified reviews</span></div>
+       <div class="pd-mono-rating">★★★★★ <span class="pd-rtxt">4.8 / 5 from 114+ verified reviews</span></div>
 
-&#x20;       <div class="pd-mono-price">
+       <div class="pd-mono-price">
 
-&#x20;         <span class="pd-mono-price-now">$279</span>
+         <span class="pd-mono-price-now">$279</span>
 
-&#x20;       </div>
+       </div>
 
-&#x20;       <ul class="pd-mono-includes">
+       <ul class="pd-mono-includes">
 
-&#x20;         <li>Raspberry Pi 4B with 512GB pre-loaded SD card</li>
+         <li>Raspberry Pi 4B with 512GB pre-loaded SD card</li>
 
-&#x20;         <li>Rugged aluminum case with passive cooling</li>
+         <li>Rugged aluminum case with passive cooling</li>
 
-&#x20;         <li>Connects up to 20 devices to its own WiFi</li>
+         <li>Connects up to 20 devices to its own WiFi</li>
 
-&#x20;         <li>USB-C charger and cable included</li>
+         <li>USB-C charger and cable included</li>
 
-&#x20;         <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps \& More</li>
+         <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 
-&#x20;       </ul>
+       </ul>
 
-&#x20;       <a href="https://prepperdisk.myshopify.com/cart/add?id=43384681136182\&quantity=1\&return\_to=/cart" class="pd-mono-cta">Order Now</a>
+       <a href="https://prepperdisk.myshopify.com/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-mono-cta">Order Now</a>
 
-&#x20;       <div class="pd-mono-trust">
+       <div class="pd-mono-trust">
 
-&#x20;         <div class="pd-titem">🔒 Secure checkout</div>
+         <div class="pd-titem">🔒 Secure checkout</div>
 
-&#x20;         <div class="pd-titem">🚚 Ships in 24 hours from USA</div>
+         <div class="pd-titem">🚚 Ships in 24 hours from USA</div>
 
-&#x20;         <div class="pd-titem">✅ 60-day money back</div>
+         <div class="pd-titem">✅ 60-day money back</div>
 
-&#x20;         <div class="pd-titem">🛡️ 1-year hardware warranty</div>
+         <div class="pd-titem">🛡️ 1-year hardware warranty</div>
 
-&#x20;       </div>
+       </div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1703,23 +1703,23 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-guar">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Our 60-Day 'Peace of Mind' Guarantee</h2>
+   <h2>Our 60-Day 'Peace of Mind' Guarantee</h2>
 
-&#x20;   <p class="pd-sub">Because the only way you should ever feel about your Prepper Disk is genuinely safer, more capable, and more prepared than you were the day before it arrived</p>
+   <p class="pd-sub">Because the only way you should ever feel about your Prepper Disk is genuinely safer, more capable, and more prepared than you were the day before it arrived</p>
 
-&#x20;   <div class="pd-seal-wrap">
+   <div class="pd-seal-wrap">
 
-&#x20;     <div class="pd-ph" style="width: 180px; height: 180px; border-radius: 12px; overflow: hidden;"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Guarantee\_badge.svg?v=1778838911" alt="60-day money-back guarantee" style="height: 100%; object-fit: cover;"></div>
+     <div class="pd-ph" style="width: 180px; height: 180px; border-radius: 12px; overflow: hidden;"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Guarantee_badge.svg?v=1778838911" alt="60-day money-back guarantee" style="height: 100%; object-fit: cover;"></div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <p>So if somehow your Prepper Disk doesn't meet your expectations, just email our team at <strong>support@prepperdisk.com</strong> within sixty days and we'll send you instructions for getting it back to us, with a full refund processed the moment it arrives.</p>
+   <p>So if somehow your Prepper Disk doesn't meet your expectations, just email our team at <strong>support@prepperdisk.com</strong> within sixty days and we'll send you instructions for getting it back to us, with a full refund processed the moment it arrives.</p>
 
-&#x20;   <p>On top of that, every single unit we ship comes with a full one-year hardware warranty, so you're covered in every direction from the moment your order is placed.</p>
+   <p>On top of that, every single unit we ship comes with a full one-year hardware warranty, so you're covered in every direction from the moment your order is placed.</p>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1727,71 +1727,71 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-block pd-alt" id="pd-about">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Why We Built This</h2>
+   <h2>Why We Built This</h2>
 
-&#x20;   <div class="pd-adam-profile"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam\_Profile.webp?v=1778838657" alt="Adam"></div>
+   <div class="pd-adam-profile"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam_Profile.webp?v=1778838657" alt="Adam"></div>
 
-&#x20;   
+   
 
-&#x20;   <div class="pd-about" style="display: block;">
+   <div class="pd-about" style="display: block;">
 
-&#x20;     
+     
 
-&#x20;     <div class="pd-about-body" style="max-width: 650px; margin: 0 auto;">
+     <div class="pd-about-body" style="max-width: 650px; margin: 0 auto;">
 
-&#x20;       <p>Hi, Adam here! That's me in the workshop that started it all.</p>
+       <p>Hi, Adam here! That's me in the workshop that started it all.</p>
 
-&#x20;       <div class="pd-about-more">
+       <div class="pd-about-more">
 
-&#x20;         
+         
 
-&#x20;         <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam\_Workshop.webp?v=1778838659" alt="Adam in workshop with family"></div>
+         <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Adam_Workshop.webp?v=1778838659" alt="Adam in workshop with family"></div>
 
-&#x20;         
+         
 
-&#x20;         <p>After spending years as a software engineer, then a tech executive, eventually led me to board service with The Water Project, traveling to communities in Kenya to help build wells and water infrastructure. </p>
+         <p>After spending years as a software engineer, then a tech executive, eventually led me to board service with The Water Project, traveling to communities in Kenya to help build wells and water infrastructure. </p>
 
-&#x20;         <p>What struck me was watching schools trying to teach computer science on chalkboards because they had no electricity or world wide web. </p>
+         <p>What struck me was watching schools trying to teach computer science on chalkboards because they had no electricity or world wide web. </p>
 
-&#x20;         <p>And yet, by offline storing pieces of the internet, those kids kept learning anyway.</p>
+         <p>And yet, by offline storing pieces of the internet, those kids kept learning anyway.</p>
 
-&#x20;         <p>So it hit me: </p>
+         <p>So it hit me: </p>
 
-&#x20;         <p>If access to the right information can change lives in the most disconnected corners of the world…</p>
+         <p>If access to the right information can change lives in the most disconnected corners of the world…</p>
 
-&#x20;         <p>… why don't we have something like that <strong>ready for when things go sideways closer to home?</strong></p>
+         <p>… why don't we have something like that <strong>ready for when things go sideways closer to home?</strong></p>
 
-&#x20;         <p>I brought the idea to my oldest son, an outdoorsman and casual prepper. </p>
+         <p>I brought the idea to my oldest son, an outdoorsman and casual prepper. </p>
 
-&#x20;         <p>And we started asking one simple question: what does the digital version of a prep actually look like? </p>
+         <p>And we started asking one simple question: what does the digital version of a prep actually look like? </p>
 
-&#x20;         <p>We worked closely with <strong>survival experts and seasoned preppers</strong> to make sure everything on the disk was genuinely useful in the field.</p>
+         <p>We worked closely with <strong>survival experts and seasoned preppers</strong> to make sure everything on the disk was genuinely useful in the field.</p>
 
-&#x20;         <p>The response since launch has honestly blown us away. Families, schools, even hardcore survivalists - all praising The Prepper Disk!</p>
+         <p>The response since launch has honestly blown us away. Families, schools, even hardcore survivalists - all praising The Prepper Disk!</p>
 
-&#x20;         <p>My wife, daughter, son and I still pack and ship every unit ourselves, right from home in Massachusetts. </p>
+         <p>My wife, daughter, son and I still pack and ship every unit ourselves, right from home in Massachusetts. </p>
 
-&#x20;         <p>And the fact that something that started on our workbench is now in <strong>7,000+ homes</strong> around the world… that's something we're <strong>genuinely proud of.</strong> </p>
+         <p>And the fact that something that started on our workbench is now in <strong>7,000+ homes</strong> around the world… that's something we're <strong>genuinely proud of.</strong> </p>
 
-&#x20;       </div>
+       </div>
 
-&#x20;       <button class="pd-about-expand" type="button">
+       <button class="pd-about-expand" type="button">
 
-&#x20;         <span class="pd-expand-label">Read more</span>
+         <span class="pd-expand-label">Read more</span>
 
-&#x20;         <svg class="pd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+         <svg class="pd-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
 
-&#x20;       </button>
+       </button>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20;   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
+   <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a></div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1799,77 +1799,77 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-cross">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Now it's up to you. What do you do?</h2>
+   <h2>Now it's up to you. What do you do?</h2>
 
-&#x20;   <div class="pd-opts">
+   <div class="pd-opts">
 
-&#x20;     <div class="pd-opt">
+     <div class="pd-opt">
 
-&#x20;       <div class="pd-olabel">#1 You leave this page</div>
+       <div class="pd-olabel">#1 You leave this page</div>
 
-&#x20;       <p>This is not for you, so you decide not to get a Prepper Disk. Maybe you don’t believe information is vital. Or you do and you have volumes of books, guides, and maps already. But you don't need a digital backup in case of fire, or “pocket library” for when you need to abandon your house within 5 minutes because it’s about to be flooded.</p>
+       <p>This is not for you, so you decide not to get a Prepper Disk. Maybe you don’t believe information is vital. Or you do and you have volumes of books, guides, and maps already. But you don't need a digital backup in case of fire, or “pocket library” for when you need to abandon your house within 5 minutes because it’s about to be flooded.</p>
 
-&#x20;       <p>Or maybe it’s too expensive? Then send us an email here and we’ll see what we can do.</p>
+       <p>Or maybe it’s too expensive? Then send us an email here and we’ll see what we can do.</p>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-opt">
+     <div class="pd-opt">
 
-&#x20;       <div class="pd-olabel">#2 You'll DIY your own Prepper Disk</div>
+       <div class="pd-olabel">#2 You'll DIY your own Prepper Disk</div>
 
-&#x20;       <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly.</p>
+       <p>Building a Prepper Disk yourself is doable. All you need is a Raspberry Pi, a durable case, all of the information on it which will take weeks to collect and download, build a UI, and then hope it all works smoothly.</p>
 
-&#x20;       <p>Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it.</p>
+       <p>Yes, it's doable for sure. I've done it myself, and if you want a challenging DIY project, go for it.</p>
 
-&#x20;       <p>To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
+       <p>To be honest, it's a fun project, but it took me a tremendous amount of effort and troubleshooting to get the setup right, and the hours and frustration involved aren't really for everyone.</p>
 
-&#x20;     </div>
+     </div>
 
-&#x20;     <div class="pd-opt pd-best">
+     <div class="pd-opt pd-best">
 
-&#x20;       <div class="pd-olabel">#3 You go for convenience, speed, and peace of mind <span class="pd-btag">7,000+ picked this</span></div>
+       <div class="pd-olabel">#3 You go for convenience, speed, and peace of mind <span class="pd-btag">7,000+ picked this</span></div>
 
-&#x20;       <p>Over seven thousand people chose to have off-line internet delivered to their doorstep - plug \& play in 60 seconds.</p>
+       <p>Over seven thousand people chose to have off-line internet delivered to their doorstep - plug & play in 60 seconds.</p>
 
-&#x20;       <p>If you also pick this option, here’s what'll happen.</p>
+       <p>If you also pick this option, here’s what'll happen.</p>
 
-&#x20;       <p>You hit our <strong>secure checkout</strong>, which notifies us of your order.</p>
+       <p>You hit our <strong>secure checkout</strong>, which notifies us of your order.</p>
 
-&#x20;       <p>Then it's up to us! A family member or I will prepare your package in person.</p>
+       <p>Then it's up to us! A family member or I will prepare your package in person.</p>
 
-&#x20;       <p>And within 3 business days, we'll be shipping it out to you.</p>
+       <p>And within 3 business days, we'll be shipping it out to you.</p>
 
-&#x20;       <p>As soon as it arrives, the next steps are in your hands:</p>
+       <p>As soon as it arrives, the next steps are in your hands:</p>
 
-&#x20;       <ol class="pd-c3-steps">
+       <ol class="pd-c3-steps">
 
-&#x20;         <li>Unpack.</li>
+         <li>Unpack.</li>
 
-&#x20;         <li>Plug it into the wall or a battery.</li>
+         <li>Plug it into the wall or a battery.</li>
 
-&#x20;         <li>Take your phone/laptop and connect to “PrepperDisk” WIFI.</li>
+         <li>Take your phone/laptop and connect to “PrepperDisk” WIFI.</li>
 
-&#x20;         <li>Type 10.10.10.10 in the search bar.</li>
+         <li>Type 10.10.10.10 in the search bar.</li>
 
-&#x20;         <li>And start exploring the content!</li>
+         <li>And start exploring the content!</li>
 
-&#x20;       </ol>
+       </ol>
 
-&#x20;       <p>Yours to keep forever, without subscriptions.</p>
+       <p>Yours to keep forever, without subscriptions.</p>
 
-&#x20;       <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson\_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
+       <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
 
-&#x20;       <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment. Yours might be next!</p>
+       <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment. Yours might be next!</p>
 
-&#x20;       <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">I Choose This</a></div>
+       <div class="pd-cta-div"><a href="#pd-offer" class="pd-btn">I Choose This</a></div>
 
-&#x20;     </div>
+     </div>
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1877,73 +1877,73 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 <section class="pd-block pd-alt" id="pd-faq">
 
-&#x20; <div class="pd-container">
+ <div class="pd-container">
 
-&#x20;   <h2>Frequently Asked Questions</h2>
+   <h2>Frequently Asked Questions</h2>
 
-&#x20;   <p class="pd-sub">Quick answers to the questions we hear most often. If yours isn't here, just shoot us a note at support@prepperdisk.com and we'll get right back to you.</p>
+   <p class="pd-sub">Quick answers to the questions we hear most often. If yours isn't here, just shoot us a note at support@prepperdisk.com and we'll get right back to you.</p>
 
-&#x20;   <div class="pd-faq">
+   <div class="pd-faq">
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>Is there a subscription, or any kind of ongoing fee?</summary>
+       <summary>Is there a subscription, or any kind of ongoing fee?</summary>
 
-&#x20;       <p>There are no subscriptions, no monthly fees, and no usage limits whatsoever. Once your Prepper Disk arrives, every single piece of content on it is yours to keep forever, and any future content updates we release are included at absolutely no extra cost.</p>
+       <p>There are no subscriptions, no monthly fees, and no usage limits whatsoever. Once your Prepper Disk arrives, every single piece of content on it is yours to keep forever, and any future content updates we release are included at absolutely no extra cost.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>Do I really need to be tech-savvy to set this up?</summary>
+       <summary>Do I really need to be tech-savvy to set this up?</summary>
 
-&#x20;       <p>Not even a little bit. The Prepper Disk arrives fully loaded and ready to go, so all you need to do is plug it in, switch your phone or laptop's WiFi over to its private network, and start browsing like you would on any normal website. Most of our customers are completely up and running within five minutes of opening the box.</p>
+       <p>Not even a little bit. The Prepper Disk arrives fully loaded and ready to go, so all you need to do is plug it in, switch your phone or laptop's WiFi over to its private network, and start browsing like you would on any normal website. Most of our customers are completely up and running within five minutes of opening the box.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>What happens when there is no electricity?</summary>
+       <summary>What happens when there is no electricity?</summary>
 
-&#x20;       <p>The Prepper Disk runs on a standard USB-C power source, which means a regular wall outlet, a car charger, a portable power bank, or even a (solar) generator will all do the job perfectly. The moment it has power, it creates its own private WiFi network and is ready to use within a few seconds.</p>
+       <p>The Prepper Disk runs on a standard USB-C power source, which means a regular wall outlet, a car charger, a portable power bank, or even a (solar) generator will all do the job perfectly. The moment it has power, it creates its own private WiFi network and is ready to use within a few seconds.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>How many devices can connect to a single Disk at the same time?</summary>
+       <summary>How many devices can connect to a single Disk at the same time?</summary>
 
-&#x20;       <p>Up to twenty devices can be connected to a single Prepper Disk at once, which is more than enough capacity for a typical household, a small classroom, a community group, or even a fully off-grid homestead with extended family staying through an emergency.</p>
+       <p>Up to twenty devices can be connected to a single Prepper Disk at once, which is more than enough capacity for a typical household, a small classroom, a community group, or even a fully off-grid homestead with extended family staying through an emergency.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>How big is it, and is it durable enough to take outdoors?</summary>
+       <summary>How big is it, and is it durable enough to take outdoors?</summary>
 
-&#x20;       <p>The Disk measures 3.5 by 2.75 by 1 inches and slips comfortably into a jacket pocket, glove box, or bug-out bag. It lives inside a rugged aluminum case with passive cooling, which means there is no internal fan that could fail on you in dusty, sandy, or wet field conditions.</p>
+       <p>The Disk measures 3.5 by 2.75 by 1 inches and slips comfortably into a jacket pocket, glove box, or bug-out bag. It lives inside a rugged aluminum case with passive cooling, which means there is no internal fan that could fail on you in dusty, sandy, or wet field conditions.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>What about EMP events or electromagnetic interference?</summary>
+       <summary>What about EMP events or electromagnetic interference?</summary>
 
-&#x20;       <p>We offer an optional Faraday Bag that protects the unit from EMP events and general electromagnetic interference, and it's something we'd genuinely recommend for anyone who wants to keep the Disk fully shielded and stored safely between uses.</p>
+       <p>We offer an optional Faraday Bag that protects the unit from EMP events and general electromagnetic interference, and it's something we'd genuinely recommend for anyone who wants to keep the Disk fully shielded and stored safely between uses.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;     <details>
+     <details>
 
-&#x20;       <summary>What happens if it doesn't work out for me?</summary>
+       <summary>What happens if it doesn't work out for me?</summary>
 
-&#x20;       <p>Every Prepper Disk comes with a 60-day return window, so if it doesn't end up making you feel safer, more capable, and more prepared, just email our team at support@prepperdisk.com and we'll send you the instructions to ship it back for a full refund. On top of that, every unit is covered by a one-year hardware warranty just in case anything ever does go sideways.</p>
+       <p>Every Prepper Disk comes with a 60-day return window, so if it doesn't end up making you feel safer, more capable, and more prepared, just email our team at support@prepperdisk.com and we'll send you the instructions to ship it back for a full refund. On top of that, every unit is covered by a one-year hardware warranty just in case anything ever does go sideways.</p>
 
-&#x20;     </details>
+     </details>
 
-&#x20;   </div>
+   </div>
 
-&#x20; </div>
+ </div>
 
 </section>
 
@@ -1959,189 +1959,189 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 (function(){
 
-&#x20; document.querySelectorAll('.pd .pd-scene-sum').forEach(function(btn){
+ document.querySelectorAll('.pd .pd-scene-sum').forEach(function(btn){
 
-&#x20;   btn.addEventListener('click', function(){
+   btn.addEventListener('click', function(){
 
-&#x20;     if (window.matchMedia('(max-width: 800px)').matches) {
+     if (window.matchMedia('(max-width: 800px)').matches) {
 
-&#x20;       btn.closest('.pd-scene').classList.toggle('pd-open');
+       btn.closest('.pd-scene').classList.toggle('pd-open');
 
-&#x20;     }
+     }
 
-&#x20;   });
+   });
 
-&#x20; });
+ });
 
 
 
-&#x20; document.querySelectorAll('.pd .pd-psum').forEach(function(btn){
+ document.querySelectorAll('.pd .pd-psum').forEach(function(btn){
 
-&#x20;   btn.addEventListener('click', function(){
+   btn.addEventListener('click', function(){
 
-&#x20;     if (window.matchMedia('(max-width: 700px)').matches) {
+     if (window.matchMedia('(max-width: 700px)').matches) {
 
-&#x20;       btn.closest('.pd-pcard').classList.toggle('pd-open');
+       btn.closest('.pd-pcard').classList.toggle('pd-open');
 
-&#x20;     }
+     }
 
-&#x20;   });
+   });
 
-&#x20; });
+ });
 
 
 
-&#x20; document.querySelectorAll('.pd .pd-vsum').forEach(function(btn){
+ document.querySelectorAll('.pd .pd-vsum').forEach(function(btn){
 
-&#x20;   btn.addEventListener('click', function(){
+   btn.addEventListener('click', function(){
 
-&#x20;     if (window.matchMedia('(max-width: 800px)').matches) {
+     if (window.matchMedia('(max-width: 800px)').matches) {
 
-&#x20;       btn.closest('.pd-vs-card').classList.toggle('pd-open');
+       btn.closest('.pd-vs-card').classList.toggle('pd-open');
 
-&#x20;     }
+     }
 
-&#x20;   });
+   });
 
-&#x20; });
+ });
 
 
 
-&#x20; document.querySelectorAll('.pd .pd-about-expand').forEach(function(btn){
+ document.querySelectorAll('.pd .pd-about-expand').forEach(function(btn){
 
-&#x20;   btn.addEventListener('click', function(){
+   btn.addEventListener('click', function(){
 
-&#x20;     var body = btn.closest('.pd-about-body');
+     var body = btn.closest('.pd-about-body');
 
-&#x20;     var expanded = body.classList.toggle('pd-open');
+     var expanded = body.classList.toggle('pd-open');
 
-&#x20;     var label = btn.querySelector('.pd-expand-label');
+     var label = btn.querySelector('.pd-expand-label');
 
-&#x20;     if (label) label.textContent = expanded ? 'Show less' : 'Read more';
+     if (label) label.textContent = expanded ? 'Show less' : 'Read more';
 
-&#x20;   });
+   });
 
-&#x20; });
+ });
 
 
 
-&#x20; (function initCardsCarousel(){
+ (function initCardsCarousel(){
 
-&#x20;   var scroller = document.querySelector('.pd .pd-cards-scroll .pd-cards');
+   var scroller = document.querySelector('.pd .pd-cards-scroll .pd-cards');
 
-&#x20;   var hint = document.getElementById('pdCardsHint');
+   var hint = document.getElementById('pdCardsHint');
 
-&#x20;   var dotsWrap = document.getElementById('pdCardsDots');
+   var dotsWrap = document.getElementById('pdCardsDots');
 
-&#x20;   if (!scroller || !hint || !dotsWrap) return;
+   if (!scroller || !hint || !dotsWrap) return;
 
-&#x20;   var cards = scroller.querySelectorAll('.pd-card');
+   var cards = scroller.querySelectorAll('.pd-card');
 
-&#x20;   if (!cards.length) return;
+   if (!cards.length) return;
 
 
 
-&#x20;   cards.forEach(function(\_, i){
+   cards.forEach(function(_, i){
 
-&#x20;     var dot = document.createElement('span');
+     var dot = document.createElement('span');
 
-&#x20;     dot.className = 'pd-dot';
+     dot.className = 'pd-dot';
 
-&#x20;     if (i === 0) dot.classList.add('pd-on');
+     if (i === 0) dot.classList.add('pd-on');
 
-&#x20;     dotsWrap.appendChild(dot);
+     dotsWrap.appendChild(dot);
 
-&#x20;   });
+   });
 
-&#x20;   var dots = dotsWrap.querySelectorAll('.pd-dot');
+   var dots = dotsWrap.querySelectorAll('.pd-dot');
 
 
 
-&#x20;   function currentIndex(){
+   function currentIndex(){
 
-&#x20;     var center = scroller.scrollLeft + scroller.clientWidth / 2;
+     var center = scroller.scrollLeft + scroller.clientWidth / 2;
 
-&#x20;     var best = 0;
+     var best = 0;
 
-&#x20;     var bestDist = Infinity;
+     var bestDist = Infinity;
 
-&#x20;     cards.forEach(function(card, i){
+     cards.forEach(function(card, i){
 
-&#x20;       var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+       var cardCenter = card.offsetLeft + card.offsetWidth / 2;
 
-&#x20;       var d = Math.abs(center - cardCenter);
+       var d = Math.abs(center - cardCenter);
 
-&#x20;       if (d < bestDist) { bestDist = d; best = i; }
+       if (d < bestDist) { bestDist = d; best = i; }
 
-&#x20;     });
+     });
 
-&#x20;     return best;
+     return best;
 
-&#x20;   }
+   }
 
 
 
-&#x20;   function update(){
+   function update(){
 
-&#x20;     var idx = currentIndex();
+     var idx = currentIndex();
 
-&#x20;     dots.forEach(function(d, i){ d.classList.toggle('pd-on', i === idx); });
+     dots.forEach(function(d, i){ d.classList.toggle('pd-on', i === idx); });
 
-&#x20;     var arrow = hint.querySelector('.pd-hint-arrow');
+     var arrow = hint.querySelector('.pd-hint-arrow');
 
-&#x20;     var label = hint.querySelector('.pd-hint-label');
+     var label = hint.querySelector('.pd-hint-label');
 
-&#x20;     var next = cards\[idx + 1];
+     var next = cards[idx + 1];
 
-&#x20;     var prev = cards\[idx - 1];
+     var prev = cards[idx - 1];
 
-&#x20;     if (next) {
+     if (next) {
 
-&#x20;       hint.classList.remove('pd-hint-prev');
+       hint.classList.remove('pd-hint-prev');
 
-&#x20;       if (arrow) arrow.textContent = '→';
+       if (arrow) arrow.textContent = '→';
 
-&#x20;       if (label) label.textContent = next.getAttribute('data-card-title') || '';
+       if (label) label.textContent = next.getAttribute('data-card-title') || '';
 
-&#x20;       hint.style.visibility = 'visible';
+       hint.style.visibility = 'visible';
 
-&#x20;     } else if (prev) {
+     } else if (prev) {
 
-&#x20;       hint.classList.add('pd-hint-prev');
+       hint.classList.add('pd-hint-prev');
 
-&#x20;       if (arrow) arrow.textContent = '←';
+       if (arrow) arrow.textContent = '←';
 
-&#x20;       if (label) label.textContent = prev.getAttribute('data-card-title') || '';
+       if (label) label.textContent = prev.getAttribute('data-card-title') || '';
 
-&#x20;       hint.style.visibility = 'visible';
+       hint.style.visibility = 'visible';
 
-&#x20;     } else {
+     } else {
 
-&#x20;       hint.style.visibility = 'hidden';
+       hint.style.visibility = 'hidden';
 
-&#x20;     }
+     }
 
-&#x20;   }
+   }
 
 
 
-&#x20;   var ticking = false;
+   var ticking = false;
 
-&#x20;   scroller.addEventListener('scroll', function(){
+   scroller.addEventListener('scroll', function(){
 
-&#x20;     if (ticking) return;
+     if (ticking) return;
 
-&#x20;     ticking = true;
+     ticking = true;
 
-&#x20;     requestAnimationFrame(function(){ update(); ticking = false; });
+     requestAnimationFrame(function(){ update(); ticking = false; });
 
-&#x20;   }, { passive: true });
+   }, { passive: true });
 
-&#x20;   window.addEventListener('resize', update);
+   window.addEventListener('resize', update);
 
-&#x20;   update();
+   update();
 
-&#x20; })();
+ })();
 
 })();
 
@@ -2153,15 +2153,15 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 
 {
 
-&#x20; "name": "Prepper Disk Landing",
+ "name": "Prepper Disk Landing",
 
-&#x20; "settings": \[],
+ "settings": [],
 
-&#x20; "presets": \[
+ "presets": [
 
-&#x20;   { "name": "Prepper Disk Landing" }
+   { "name": "Prepper Disk Landing" }
 
-&#x20; ]
+ ]
 
 }
 
