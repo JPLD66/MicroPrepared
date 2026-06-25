@@ -1,7 +1,7 @@
 # Prepper Disk Premium — CRO Test Version
 
 This is the **CRO** (conversion test) build, branched from your latest pasted
-section with the **Buzz about Prepper Disk** scrolling logo cloud added between
+section with the **Trusted by Real Preppers** scrolling logo cloud added between
 the hero and the "End of the Internet" section.
 
 **Save as:** `sections/prepper-disk-cro.liquid` (or whatever name you prefer
@@ -13,8 +13,8 @@ loads this section for the A/B test traffic.
 - Buzz scrolling marquee, 22 logo image URLs from your live Shopify CDN, in
   the same order as the homepage. Pauses on hover. Honours
   `prefers-reduced-motion`.
-- Playfair Display heading via inline `@font-face`, pulling the woff2/woff
-  straight from `prepperdisk.com/cdn/fonts/...`. No theme changes required.
+- Heading uses the same system sans-serif as the rest of the page (the
+  entire CRO variant is now uniform on one font).
 
 **What was fixed:**
 - A stray `Q` right after the hero's closing `</section>` tag in your paste
@@ -29,7 +29,8 @@ Copy everything inside the code block below:
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
-.pd h1, .pd h2, .pd h3, .pd h4, .pd h5, .pd h6 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; }
+.pd, .pd * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
+.pd h1, .pd h2, .pd h3, .pd h4, .pd h5, .pd h6 { font-weight: 800; }
 .pd p { font-size: 1.05em !important; line-height: 1.65 !important; }
 .pd li { font-size: 1em !important; }
 .pd h1 { font-size: 2.8em !important; }
@@ -83,17 +84,9 @@ Copy everything inside the code block below:
 @media (max-width: 600px) {
 }
 
-/* ===== Buzz about Prepper Disk — scrolling logo cloud ===== */
-@font-face {
-  font-family: "PD Playfair Display";
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  src: url("https://www.prepperdisk.com/cdn/fonts/playfair_display/playfairdisplay_n4.9980f3e16959dc89137cc1369bfc3ae98af1deb9.woff2") format("woff2"),
-       url("https://www.prepperdisk.com/cdn/fonts/playfair_display/playfairdisplay_n4.c562b7c8e5637886a811d2a017f9e023166064ee.woff") format("woff");
-}
+/* ===== Trusted by Real Preppers — scrolling logo cloud ===== */
 .pd .pd-buzz { padding: 17px 0 0; background: #ffffff; }
-.pd .pd-buzz-title { width: 100%; margin: 0 0 12px; padding: 0 15px; text-align: center; font-family: "PD Playfair Display", Georgia, "Times New Roman", serif; font-weight: 400; font-style: normal; font-size: 23px !important; line-height: 1.2; color: #8b7b24; }
+.pd .pd-buzz-title { width: 100%; margin: 0 0 12px; padding: 0 15px; text-align: center; font-weight: 800; font-style: normal; font-size: 23px !important; line-height: 1.2; color: #8b7b24; }
 .pd .pd-buzz-viewport { box-shadow: 4px 4px 20px rgba(191, 191, 191, 0.5); background: #ffffff; overflow: hidden; position: relative; }
 .pd .pd-buzz-track { display: flex; flex-wrap: nowrap; width: max-content; gap: 30px; padding-left: 30px; align-items: center; animation: pdBuzzScroll 100s linear infinite; will-change: transform; }
 .pd .pd-buzz-viewport:hover .pd-buzz-track { animation-play-state: paused; }
@@ -397,8 +390,8 @@ Copy everything inside the code block below:
 </div>
 </section>
 
-<section class="pd-buzz" aria-label="Buzz about Prepper Disk">
-<h2 class="pd-buzz-title">Buzz about Prepper Disk</h2>
+<section class="pd-buzz" aria-label="Trusted by Real Preppers">
+<h2 class="pd-buzz-title">Trusted by Real Preppers</h2>
 <div class="pd-buzz-viewport">
 <div class="pd-buzz-track">
 <div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/QuoteLoveThing_300x300.svg?v=1773697398" alt="" loading="lazy"></div>
