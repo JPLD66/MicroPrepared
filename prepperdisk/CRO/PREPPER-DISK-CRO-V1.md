@@ -29,6 +29,7 @@ Copy everything inside the code block below:
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
+.pd h1, .pd h2, .pd h3, .pd h4, .pd h5, .pd h6 { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; }
 .pd p { font-size: 1.05em !important; line-height: 1.65 !important; }
 .pd li { font-size: 1em !important; }
 .pd h1 { font-size: 2.8em !important; }
