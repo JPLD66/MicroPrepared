@@ -1,22 +1,37 @@
-# Prepper Disk Premium — Shopify Section (cleaned)
+# Prepper Disk Premium — Shopify Section (cleaned + Buzz bar)
 
 **Save as:** `sections/prepper-disk.liquid` in your Dawn theme, then add the
 **Prepper Disk Landing** section to any page through the theme editor.
 
-This is the whitespace-cleaned build: **~67 KB** (down from the ~2.5 MB bloated
-paste). The rendered page is identical — only meaningless leading indentation
-was removed.
+This build adds the **"Buzz about Prepper Disk"** scrolling logo cloud between
+the hero and the "End of the Internet" section, recreated 1:1 from the
+homepage version (same 22 logo image URLs, same scroll speed, same Playfair
+Display heading, same pause-on-hover behaviour, plus a `prefers-reduced-motion`
+fallback that stops the animation for users who request it).
 
-**Do not click Shopify's "Format" button** after pasting. That re-indenter is
-what ballooned the file last time; running it on already-indented code stacks
-the indentation on every save.
-
-**Final "Order Now" link:** confirm the `href` on the `.pd-mono-cta` button
-points to your cart permalink before going live.
+**Do not click Shopify's "Format" button** after pasting — that re-indenter is
+what ballooned the previous file to 2.5 MB.
 
 Copy everything inside the code block below:
 
 ```liquid
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prepper Disk Premium</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- =========================================================================
+     GitHub Pages preview wrapper.
+     When deploying this file as a Shopify section, delete:
+       - everything from <!DOCTYPE html> through <body> above
+       - the </body></html> at the very bottom
+     The Shopify theme provides those tags from its layout.
+     ========================================================================= -->
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
@@ -71,6 +86,39 @@ Copy everything inside the code block below:
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 
 @media (max-width: 600px) {
+}
+
+/* ===== Buzz about Prepper Disk — scrolling logo cloud ===== */
+@font-face {
+  font-family: "PD Playfair Display";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("https://www.prepperdisk.com/cdn/fonts/playfair_display/playfairdisplay_n4.9980f3e16959dc89137cc1369bfc3ae98af1deb9.woff2") format("woff2"),
+       url("https://www.prepperdisk.com/cdn/fonts/playfair_display/playfairdisplay_n4.c562b7c8e5637886a811d2a017f9e023166064ee.woff") format("woff");
+}
+.pd .pd-buzz { padding: 17px 0 0; background: #ffffff; }
+.pd .pd-buzz-title { width: 100%; margin: 0 0 12px; padding: 0 15px; text-align: center; font-family: "PD Playfair Display", Georgia, "Times New Roman", serif; font-weight: 400; font-style: normal; font-size: 23px !important; line-height: 1.2; color: #8b7b24; }
+.pd .pd-buzz-viewport { box-shadow: 4px 4px 20px rgba(191, 191, 191, 0.5); background: #ffffff; overflow: hidden; position: relative; }
+.pd .pd-buzz-track { display: flex; flex-wrap: nowrap; width: max-content; gap: 30px; padding-left: 30px; align-items: center; animation: pdBuzzScroll 100s linear infinite; will-change: transform; }
+.pd .pd-buzz-viewport:hover .pd-buzz-track { animation-play-state: paused; }
+.pd .pd-buzz-slide { flex: 0 0 204px; display: block; }
+.pd .pd-buzz-slide img { width: 100%; height: auto; display: block; }
+@keyframes pdBuzzScroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+@media (min-width: 768px) {
+  .pd .pd-buzz { padding: 20px 0 0; }
+  .pd .pd-buzz-title { font-size: 30px !important; }
+  .pd .pd-buzz-slide { flex: 0 0 240px; }
+  .pd .pd-buzz-track { gap: 34px; padding-left: 34px; }
+}
+@media (max-width: 767px) {
+  .pd .pd-buzz { padding: 17px 15px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pd .pd-buzz-track { animation: none; }
 }
 
 .pd .pd-block { padding: 4.5rem 0; }
@@ -355,6 +403,58 @@ Copy everything inside the code block below:
 </ul>
 <a href="#pd-offer" class="pd-btn">Get My Prepper Disk →</a>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
+</div>
+</section>
+
+<section class="pd-buzz" aria-label="Buzz about Prepper Disk">
+<h2 class="pd-buzz-title">Buzz about Prepper Disk</h2>
+<div class="pd-buzz-viewport">
+<div class="pd-buzz-track">
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/QuoteLoveThing_300x300.svg?v=1773697398" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/GearJunkieScroll_300x300.svg?v=1774024007" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Reviews_3_300x300.svg?v=1773698089" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/TopNotch_300x300.svg?v=1773697447" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/404Quote_300x300.svg?v=1762207901" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Offgrid_Holiday-2_300x300.png?v=1764117424" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_ShopifyScrollingLogoQuote2-2_300x300.svg?v=1762209333" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Ky_Quote-8_300x300.svg?v=1762461339" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Screenshot_2025-04-03_214250_300x300.png?v=1743730991" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_Copy_of_PBNQuote_300x300.svg?v=1762209245" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_PBNQuote_300x300.svg?v=1762208611" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/ituneslogo_300x300.jpg?v=1745974532" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_PBNQuote-3_300x300.svg?v=1762292390" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/CustSvc_5d137bf4-ecb0-4b59-a397-31c3dc632b6c_300x300.png?v=1750853078" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/Storm_Preps_400x400-2_300x300.png?v=1750853691" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/ShopifyScrollStorm.PrepsQuote_300x300.png?v=1743171664" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/QuotePacked_300x300.png?v=1771768290" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/AddictedToBleepsLogo_300x300.png?v=1743171135" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/AddictedToBleepsYTScrollingShopifyQuote_300x300.png?v=1743171295" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/ContentUpdates-3_300x300.png?v=1776042319" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/BackwoodsmanScrollingLogo_300x300.png?v=1743169941" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide"><img src="https://www.prepperdisk.com/cdn/shop/files/MustHaveAddition_300x300.svg?v=1773697643" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/QuoteLoveThing_300x300.svg?v=1773697398" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/GearJunkieScroll_300x300.svg?v=1774024007" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Reviews_3_300x300.svg?v=1773698089" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/TopNotch_300x300.svg?v=1773697447" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/404Quote_300x300.svg?v=1762207901" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Offgrid_Holiday-2_300x300.png?v=1764117424" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_ShopifyScrollingLogoQuote2-2_300x300.svg?v=1762209333" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Ky_Quote-8_300x300.svg?v=1762461339" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Screenshot_2025-04-03_214250_300x300.png?v=1743730991" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_Copy_of_PBNQuote_300x300.svg?v=1762209245" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_PBNQuote_300x300.svg?v=1762208611" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/ituneslogo_300x300.jpg?v=1745974532" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Copy_of_PBNQuote-3_300x300.svg?v=1762292390" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/CustSvc_5d137bf4-ecb0-4b59-a397-31c3dc632b6c_300x300.png?v=1750853078" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/Storm_Preps_400x400-2_300x300.png?v=1750853691" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/ShopifyScrollStorm.PrepsQuote_300x300.png?v=1743171664" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/QuotePacked_300x300.png?v=1771768290" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/AddictedToBleepsLogo_300x300.png?v=1743171135" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/AddictedToBleepsYTScrollingShopifyQuote_300x300.png?v=1743171295" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/ContentUpdates-3_300x300.png?v=1776042319" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/BackwoodsmanScrollingLogo_300x300.png?v=1743169941" alt="" loading="lazy"></div>
+<div class="pd-buzz-slide" aria-hidden="true"><img src="https://www.prepperdisk.com/cdn/shop/files/MustHaveAddition_300x300.svg?v=1773697643" alt="" loading="lazy"></div>
+</div>
 </div>
 </section>
 
@@ -1089,4 +1189,7 @@ update();
 ]
 }
 {% endschema %}
+<!-- ===== End of preview wrapper. Remove the </body></html> below when deploying to Shopify. ===== -->
+</body>
+</html>
 ```
