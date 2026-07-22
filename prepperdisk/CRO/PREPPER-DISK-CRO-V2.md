@@ -16,13 +16,11 @@ solution-section image has been swapped for the **VSL video**:
 **Do not click Shopify's "Format" button** after pasting.
 
 **Yotpo reviews** are embedded between the price card and the guarantee
-section, using the classic data-attribute widget bound to the product by
-handle (`all_products['prepper-disk-premium-over-512gb-of-survival-content']`).
-For it to render you must ensure Yotpo's loader runs on this page: Online
-Store → Themes → Customize → App embeds → toggle **Yotpo** on (loads
-site-wide). The widget's native "Load More Reviews" button is the "View
-More" behaviour. If it stays blank, the loader isn't active on this
-template — the app-embed toggle fixes that.
+section, using your store's actual new-format widget
+(`yotpo-widget-instance`, reviews instance `1072049`) bound to the product
+by handle. Your Yotpo loader already runs site-wide on this theme, so no
+App-embed toggle is needed. The widget's native "Load More Reviews" button
+is the "View More" behaviour.
 
 Copy everything inside the code block below:
 
@@ -301,8 +299,8 @@ Copy everything inside the code block below:
 .pd .pd-mono-trust { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem 1rem; margin-top: 1rem; font-size: 0.8em !important; color: #555; }
 .pd .pd-mono-trust .pd-titem { display: flex; align-items: center; gap: 0.4rem; }
 .pd .pd-reviews { max-width: 900px; margin: 0 auto; }
-.pd .yotpo, .pd .yotpo * { font-family: inherit !important; }
-.pd .yotpo p, .pd .yotpo li, .pd .yotpo h1, .pd .yotpo h2, .pd .yotpo h3, .pd .yotpo h4 { font-size: revert !important; }
+.pd [class*="yotpo"], .pd [class*="yotpo"] * { font-family: inherit !important; }
+.pd [class*="yotpo"] p, .pd [class*="yotpo"] li, .pd [class*="yotpo"] h1, .pd [class*="yotpo"] h2, .pd [class*="yotpo"] h3, .pd [class*="yotpo"] h4 { font-size: revert !important; }
 .pd .pd-mono-pay { display: flex; gap: 0.45rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap; }
 .pd .pd-mono-pay .pd-payph { background: #f7f7f7; border: 1px solid #ddd; border-radius: 4px; padding: 0.3rem 0.55rem; font-size: 0.7em !important; color: #555; font-weight: 700; letter-spacing: 0.05em; }
 .pd .pd-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1000px; margin: 0 auto 2rem; }
@@ -963,21 +961,19 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <div class="pd-container">
 {%- assign pd_review_product = all_products['prepper-disk-premium-over-512gb-of-survival-content'] -%}
 <div class="pd-reviews">
-<div class="yotpo yotpo-main-widget"
-data-product-id="{{ pd_review_product.id }}"
-data-name="{{ pd_review_product.title | escape }}"
-data-url="{{ shop.url }}{{ pd_review_product.url }}"
-data-image-url="{{ pd_review_product.featured_image | image_url: width: 300 }}"
-data-description="{{ pd_review_product.description | strip_html | escape }}">
+<div class="yotpo-widget-instance"
+data-yotpo-instance-id="1072049"
+data-yotpo-product-id="{{ pd_review_product.id }}"
+data-yotpo-name="{{ pd_review_product.title | escape }}"
+data-yotpo-url="{{ shop.url }}{{ pd_review_product.url }}"
+data-yotpo-price="{{ pd_review_product.price | money_without_currency }}"
+data-yotpo-currency="{{ cart.currency.iso_code }}"
+data-yotpo-image-url="{{ pd_review_product.featured_image | image_url: width: 480 }}"
+data-yotpo-prevent-load-rs="true">
 </div>
 </div>
 </div>
 </section>
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-if (window.yotpo && yotpo.refreshWidgets) yotpo.refreshWidgets();
-});
-</script>
 
 <section class="pd-guar">
 <div class="pd-container">
