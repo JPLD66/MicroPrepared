@@ -79,6 +79,7 @@ Copy everything inside the code block below:
 .pd .pd-hero-rating { margin-top: 1.25rem; font-size: 0.95em !important; color: #555; line-height: 1.5; }
 .pd .pd-hero-rating .pd-hero-rating-stars { color: #f5a623; letter-spacing: 0.08em; font-size: 1.1em !important; }
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
+.pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
 
 @media (max-width: 600px) {
 }
@@ -397,6 +398,7 @@ Copy everything inside the code block below:
 <ul class="pd-bullets">
 </ul>
 <a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as  $69.75 down today)</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
 </section>
@@ -946,6 +948,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
 <a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-mono-cta">Order Now</a>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as  $69.75 down today)</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
 <div class="pd-titem">🚚 Ships from the USA</div>
