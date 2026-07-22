@@ -148,6 +148,9 @@ Copy everything inside the code block below:
 }
 
 .pd .pd-sol-img { aspect-ratio: 16/9; max-width: 800px; margin: 0 auto 2rem; }
+.pd .pd-sol-video { max-width: 340px; margin: 0 auto 2rem; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+.pd .pd-sol-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 700px) { .pd .pd-sol-video { max-width: 240px; } }
 .pd .pd-sol-text { max-width: 850px; margin: 0 auto; font-size: 1.05em; color: #333; text-align: center; }
 .pd .pd-sol-text p { margin-bottom: 1.25rem; }
 .pd .pd-sol-lead { font-weight: 700; color: #0d2b1a; font-size: 1.15em !important; }
@@ -526,7 +529,11 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <div class="pd-container">
 <h2>Grab Your Off-Line Emergency Internet</h2>
 <p class="pd-sub">No larger than a deck of cards, simply take the Prepper Disk out of your pocket, bug-out-bag, or desk drawer</p>
-<div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo_TP.webp?v=1779096631" alt="Prepper Disk setup demo"></div>
+<div class="pd-sol-video">
+<video controls preload="none" poster="[PASTE THUMBNAIL URL — VSL_for_SP_-Cover]">
+<source src="[PASTE VIDEO URL — VSL for SP]" type="video/mp4">
+</video>
+</div>
 <div class="pd-sol-text">
 <p class="pd-sol-lead">Next you simply:</p>
 </div>
