@@ -3,8 +3,11 @@
 Built from your latest pasted section (all copy edits kept as-is). The
 solution-section image has been swapped for the **VSL video**:
 
-- Poster = `VSL_for_SP_-Cover.jpg`, click-to-play with native controls,
-  `preload="none"` so the video only downloads on play.
+- Poster = `VSL_for_SP_-Cover.jpg`, with a big centered play button.
+  **Tap anywhere on the video to play** (JS handler); native controls only
+  appear once it starts, so there's no tiny corner button at rest.
+- `preload="metadata"` so the connection + first frame load on page render,
+  making playback start fast instead of the earlier 3-4s cold start.
 - Portrait 9:16, capped at 340px desktop / 240px mobile so it never runs
   full-height. Tapping play on mobile expands to fullscreen.
 
@@ -137,8 +140,13 @@ Copy everything inside the code block below:
 }
 
 .pd .pd-sol-img { aspect-ratio: 16/9; max-width: 800px; margin: 0 auto 2rem; }
-.pd .pd-sol-video { max-width: 340px; margin: 0 auto 2rem; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); }
+.pd .pd-sol-video { position: relative; max-width: 340px; margin: 0 auto 2rem; aspect-ratio: 9 / 16; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); cursor: pointer; }
 .pd .pd-sol-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pd .pd-vsl-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 74px; height: 74px; border-radius: 50%; background: rgba(0,0,0,0.55); border: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; transition: opacity 0.2s ease, transform 0.15s ease; }
+.pd .pd-sol-video:hover .pd-vsl-play { transform: translate(-50%, -50%) scale(1.06); background: rgba(0,0,0,0.7); }
+.pd .pd-vsl-play svg { width: 30px; height: 30px; fill: #fff; margin-left: 4px; display: block; }
+.pd .pd-sol-video.pd-playing { cursor: default; }
+.pd .pd-sol-video.pd-playing .pd-vsl-play { opacity: 0; pointer-events: none; }
 @media (max-width: 700px) { .pd .pd-sol-video { max-width: 240px; } }
 .pd .pd-sol-text { max-width: 850px; margin: 0 auto; font-size: 1.05em; color: #333; text-align: center; }
 .pd .pd-sol-text p { margin-bottom: 1.25rem; }
@@ -519,9 +527,10 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <h2>Grab Your Off-Line Emergency Internet</h2>
 <p class="pd-sub">No larger than a deck of cards, the Prepper Disk fits in your pocket, bug-out-bag, or desk drawer</p>
 <div class="pd-sol-video">
-<video controls preload="none" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/VSL_for_SP_-Cover.jpg?v=1784711028">
+<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/VSL_for_SP_-Cover.jpg?v=1784711028">
 <source src="https://cdn.shopify.com/videos/c/o/v/e10386f244fc43429e05aedab053a2b9.mp4" type="video/mp4">
 </video>
+<span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 </div>
 <div class="pd-sol-text">
 <p class="pd-sol-lead">Setup is simple:</p>
@@ -1156,6 +1165,22 @@ requestAnimationFrame(function(){ update(); ticking = false; });
 }, { passive: true });
 window.addEventListener('resize', update);
 update();
+})();
+
+(function initSolVideo(){
+document.querySelectorAll('.pd .pd-sol-video').forEach(function(wrap){
+var v = wrap.querySelector('video');
+if (!v) return;
+wrap.addEventListener('click', function(){
+if (wrap.classList.contains('pd-playing')) return;
+var p = v.play();
+if (p && p.catch) p.catch(function(){});
+});
+v.addEventListener('play', function(){
+wrap.classList.add('pd-playing');
+v.setAttribute('controls', '');
+});
+});
 })();
 })();
 </script>
