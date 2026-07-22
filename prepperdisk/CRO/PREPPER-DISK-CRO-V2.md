@@ -974,6 +974,30 @@ data-yotpo-prevent-load-rs="true">
 </div>
 </div>
 </section>
+<script>
+(function () {
+var SRC = 'https://cdn-widgetsrepository.yotpo.com/v1/loader/U6mXhxeggu6sBIYgajSzuKyoLOb1AbzSKVyQ1r53';
+function reinit() {
+try {
+if (window.yotpoWidgetsContainer && window.yotpoWidgetsContainer.initWidgets) {
+window.yotpoWidgetsContainer.initWidgets();
+}
+} catch (e) {}
+}
+if (!document.querySelector('script[src*="cdn-widgetsrepository.yotpo.com/v1/loader/"]')) {
+var s = document.createElement('script');
+s.src = SRC + '?languageCode=en';
+s.async = true;
+s.onload = reinit;
+document.head.appendChild(s);
+} else {
+if (document.readyState !== 'loading') reinit();
+else document.addEventListener('DOMContentLoaded', reinit);
+}
+setTimeout(reinit, 1500);
+setTimeout(reinit, 3500);
+})();
+</script>
 
 <section class="pd-guar">
 <div class="pd-container">
