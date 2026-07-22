@@ -380,7 +380,8 @@ Copy everything inside the code block below:
 
 <section class="pd-hero">
 <div class="pd-container">
-<h1><strong>Prepper Disk:</strong> A 24/7 Pocket-Sized Hotspot That Turns Your Phone Into a Massive Survival Resource</h1>
+<h1>Prepper Disk Premium</h1>
+<p class="pd-sub" style="color: #222; margin: 0 auto 1.5rem;">Gives Emergency Off-Grid Internet to Your Phone and Laptop</p>
 <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
 <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">100% of Wikipedia, 117,000+ DIY Survival and Repair Guides, and detailed  maps of the USA -- even when the internet is down (forever)</p>
 <ul class="pd-bullets">
