@@ -395,17 +395,17 @@ Copy everything inside the code block below:
 <div class="pd-container">
 <h1>A 512GB Survival Library That Fits in Your Pocket</h1>
 <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
-<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Puts Hundreds of How-To Survival Guides Prepper DIY Projects First Aid Videos and Digital Survival Tools Right <span class="pd-hl">on Your Phone or Laptop</span></p>
-<p class="pd-hero-italic">Even when the internet and grid are down forever</p>
+<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts Thousands of How-To Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools Made by Experts <span class="pd-hl">on Your Phone or Laptop</span></p>
+<p class="pd-hero-italic">Even when the internet and grid are down (forever)</p>
 <ul class="pd-bullets">
 </ul>
 <a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as  $69.75 down today)</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
 </section>
 
-<section class="pd-buzz" aria-label="Trusted by Real Preppers">
+<section class="pd-buzz" aria-label="Trusted by Preppers & Tech Experts">
 <h2 class="pd-buzz-title">Trusted by Real Preppers</h2>
 <div class="pd-buzz-viewport">
 <div class="pd-buzz-track">
@@ -460,7 +460,7 @@ Copy everything inside the code block below:
 <section class="pd-block" id="pd-problem">
 <div class="pd-container">
 <h2>The End of the Internet As We Know It</h2>
-<p class="pd-sub">We take the web for granted, but our access to it can be snatched away at any time</p>
+<p class="pd-sub">We take the web for granted, but our access can be snatched away at any time</p>
 <div class="pd-pgrid">
 <div class="pd-pcard">
 <button class="pd-psum" type="button">
@@ -950,7 +950,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
 <a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-mono-cta">Order Now</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as  $69.75 down today)</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
 <div class="pd-titem">🚚 Ships from the USA</div>
@@ -1106,7 +1106,13 @@ setTimeout(reinit, 3500);
 </details>
 <details>
 <summary>What happens when there is no electricity?</summary>
-<p>The Prepper Disk runs on a standard USB-C power source, which means a regular wall outlet, a car charger, a portable power bank, or even a (solar) generator will all do the job perfectly. The moment it has power, it creates its own private WiFi network and is ready to use within a few seconds.</p>
+<p>The Prepper Disk runs on a standard USB-C power source, which means a regular wall outlet, a car charger, a portable power bank, or even a (solar) generator will all do the job perfectly. 
+
+After you click the order button here, you get the opportunity to buy an rechargeable battery that powers the Prepper Disk for 10-20 hours non-stop.
+
+The moment the Disk has power, it creates its own private WiFi network and is ready to use within a few seconds, even when the grid is down. 
+
+With solar power banks or hand crank radios, you could run the Prepper Disk even when the power never comes on again.</p>
 </details>
 <details>
 <summary>How many devices can connect to a single Disk at the same time?</summary>
