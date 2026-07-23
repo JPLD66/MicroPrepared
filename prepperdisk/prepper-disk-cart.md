@@ -11,8 +11,8 @@ Key differences from the reference screenshot (all intentional):
   no name/address/card form. The customer enters that on the real checkout.
 - **No trust bar** (per request).
 - **Three order bumps** with checkmark toggles and placeholder prices:
-  1. **Backup Battery — $49** (powers the Disk 10–20 hrs when the grid is down)
-  2. **Faraday Bag — $39** (EMP shielding for your Disk, phone & battery)
+  1. **10+ hour Battery — $49** (powers the Disk 10–20 hrs when the grid is down)
+  2. **EMP-Shielding Faraday Bag — $39** (shields your Disk, phone & battery)
   3. **Battery + Faraday Bundle — $79.20** (both, 10% OFF the $88 combined price)
 - The bundle is mutually exclusive with the two individual bumps — selecting
   it unchecks them, and vice-versa. The **order summary total updates live**
@@ -28,10 +28,11 @@ Key differences from the reference screenshot (all intentional):
     only work inside a genuine product/cart form. For now, all three route
     to the secure checkout, where the customer picks their installment
     provider — the same options they'd get from the branded buttons.
-
 - **Quantity steppers** on each bump. A qty control appears when a bump is
   selected; changing it updates the order-summary line (`× n`), the running
   total, and the quantity added to the cart at checkout.
+- **Testimonials** (all three from the landing page), the **60-Day Peace of
+  Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
 **⚠️ Before the cart actually adds items — fill in the config block.**
 Shopify's cart adds by numeric **variant ID**, and the numbers in your admin
@@ -52,10 +53,12 @@ variant (`43384681136182`) is already wired. On **Checkout**, the page
 rebuilds the cart to match exactly what's shown (items + quantities), then
 sends the customer to `/checkout`. (Prefer raw variant IDs? You can hard-code
 them straight into the `data-variant=""` attributes instead.)
-- **Testimonials** (all three from the landing page), the **60-Day Peace of
-  Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
-**Save as:** `sections/prepper-disk-cart.liquid` in your Dawn theme.
+**Save as:** a **page template** — `templates/page.customPDcart.liquid`
+(Liquid, *not* JSON) — then create a Page in admin and assign it that
+template. There is **no `{% schema %}` block**: schema only belongs in
+*section* files, and a page template must not contain one (it's what broke
+the template earlier).
 
 **Do not click Shopify's "Format" button** after pasting.
 
@@ -274,7 +277,7 @@ Secure 256-bit encrypted checkout
 <div class="pd-line-body">
 <h3>Prepper Disk Premium · 512GB</h3>
 <div class="pd-line-meta">Off-line survival library · Yours to keep for life</div>
-<div class="pd-line-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8 / 5 &middot; 114+ reviews</span></div>
+<div class="pd-line-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8 / 5 &middot; 124+ reviews</span></div>
 <div class="pd-line-qty">
 <button type="button" aria-label="Decrease quantity">&minus;</button>
 <span>1</span>
@@ -292,8 +295,8 @@ Secure 256-bit encrypted checkout
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
-<div class="pd-bump-name">Prepper Disk Backup Battery</div>
-<div class="pd-bump-desc">Powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more &mdash; so your library never goes dark.</div>
+<div class="pd-bump-name">10+ hour Battery</div>
+<div class="pd-bump-desc">This 10,000 mAh battery powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more. Gives your Prepperdisk a 24/7 grid failure resistance.</div>
 <div class="pd-bump-qty" data-qty-for="battery" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -312,7 +315,7 @@ Secure 256-bit encrypted checkout
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">EMP-Shielding Faraday Bag</div>
-<div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded &mdash; so even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library. The edge that wins a SHTF scenario.</div>
+<div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded. So even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library unlike the other poor souls.</div>
 <div class="pd-bump-qty" data-qty-for="faraday" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -488,7 +491,7 @@ Guaranteed safe &amp; secure checkout
   function qtyOf(b){ return parseInt(b.getAttribute('data-qty') || '1', 10); }
 
   function labelFor(key){
-    if (key === 'battery') return 'Backup Battery';
+    if (key === 'battery') return '10+ hour Battery';
     if (key === 'faraday') return 'EMP-Shielding Faraday Bag';
     if (key === 'bundle')  return 'Battery + Faraday Bundle';
     return key;
@@ -617,14 +620,4 @@ Guaranteed safe &amp; secure checkout
   });
 })();
 </script>
-
-{% schema %}
-{
-  "name": "Prepper Disk Cart",
-  "settings": [],
-  "presets": [
-    { "name": "Prepper Disk Cart" }
-  ]
-}
-{% endschema %}
 ```
