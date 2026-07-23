@@ -21,9 +21,21 @@ Key differences from the reference screenshot (all intentional):
   - **Checkout** — full price by credit card or a payment provider. This
     button is the **exact same red CTA** as the landing page (`.pd-btn`).
   - **Pay in Interest-Free Installments** — PayPal, Shop Pay, and Klarna
-    buttons. These are styled placeholders; in a live Dawn theme swap them
-    for `{{ content_for_additional_checkout_buttons }}` (Shopify's dynamic
-    checkout buttons) if you want them wired to real providers.
+    buttons. These are **branded placeholders**. Shopify's *real* one-click
+    provider buttons are dynamic checkout buttons it renders itself (via
+    `{{ content_for_additional_checkout_buttons }}` / `payment_button`),
+    show only the providers you've enabled in **Settings → Payments**, and
+    only work inside a genuine product/cart form. For now, all three route
+    to the secure checkout, where the customer picks their installment
+    provider — the same options they'd get from the branded buttons.
+
+**⚠️ Before the cart actually adds items — you need three variant IDs.**
+Shopify's cart uses numeric **variant IDs**, not SKUs. The main Prepper Disk
+variant (`43384681136182`) is already wired. Replace the three
+`data-variant="REPLACE_..._VARIANT_ID"` placeholders on the order bumps with
+the real variant ids of the Battery, Faraday Bag, and Bundle products. On
+**Checkout**, the page rebuilds the cart to match exactly what's shown, then
+sends the customer to `/checkout`.
 - **Testimonials** (all three from the landing page), the **60-Day Peace of
   Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
@@ -113,6 +125,9 @@ Copy everything inside the code block below:
 .pd .pd-bump-box svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 3.5; fill: none; opacity: 0; transition: opacity 0.15s; }
 .pd .pd-bump.pd-on .pd-bump-box { background: #27ae60; border-color: #27ae60; }
 .pd .pd-bump.pd-on .pd-bump-box svg { opacity: 1; }
+.pd .pd-bump-img { flex: 0 0 64px; width: 64px; height: 64px; border-radius: 8px; background: #f4f4f4; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.pd .pd-bump-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
+@media (max-width: 480px) { .pd .pd-bump-img { flex-basis: 52px; width: 52px; height: 52px; } }
 .pd .pd-bump-body { flex: 1; min-width: 0; }
 .pd .pd-bump-name { font-weight: 800; color: #0d2b1a; font-size: 1.02em !important; display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
 .pd .pd-bump-tag { background: #f5a623; color: #1a1a1a; font-size: 0.62em !important; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
@@ -224,9 +239,10 @@ Secure 256-bit encrypted checkout
 <div class="pd-bumps-title">Add these before you check out</div>
 
 <!-- Bump 1: Battery -->
-<label class="pd-bump" data-bump="battery" data-price="49">
+<label class="pd-bump" data-bump="battery" data-price="49" data-variant="REPLACE_BATTERY_VARIANT_ID">
 <input type="checkbox">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
+<span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">Prepper Disk Backup Battery</div>
 <div class="pd-bump-desc">Powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more &mdash; so your library never goes dark.</div>
@@ -235,9 +251,10 @@ Secure 256-bit encrypted checkout
 </label>
 
 <!-- Bump 2: Faraday bag -->
-<label class="pd-bump" data-bump="faraday" data-price="39">
+<label class="pd-bump" data-bump="faraday" data-price="39" data-variant="REPLACE_FARADAY_VARIANT_ID">
 <input type="checkbox">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
+<span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">EMP-Shielding Faraday Bag</div>
 <div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded &mdash; so even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library. The edge that wins a SHTF scenario.</div>
@@ -246,9 +263,10 @@ Secure 256-bit encrypted checkout
 </label>
 
 <!-- Bump 3: Bundle -->
-<label class="pd-bump pd-best" data-bump="bundle" data-price="79.20">
+<label class="pd-bump pd-best" data-bump="bundle" data-price="79.20" data-variant="REPLACE_BUNDLE_VARIANT_ID">
 <input type="checkbox">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
+<span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/BatteryEMPBundle-4.png?v=1763005487" alt="Battery + Faraday bundle"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">Battery + Faraday Bundle <span class="pd-bump-tag">Save 10%</span></div>
 <div class="pd-bump-desc">Get <strong>both</strong> the Backup Battery and the EMP-Shielding Faraday Bag together and save 10% &mdash; power when the grid dies, protection when the electronics fry. Fully covered, both ways.</div>
@@ -447,6 +465,46 @@ Guaranteed safe &amp; secure checkout
   });
 
   render();
+
+  /* ===== Checkout wiring =====
+     Shopify's cart uses numeric VARIANT IDs (not SKUs). The main product's
+     variant id is taken from the landing-page add-to-cart link. Replace the
+     three data-variant="REPLACE_..." placeholders on the bumps above with the
+     real variant ids of those add-on products (or bundle product).
+     On checkout we rebuild the cart to match exactly what's shown here, then
+     send the customer to Shopify's secure checkout (where PayPal / Shop Pay /
+     Klarna installment options appear). */
+  var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
+
+  function goToCheckout(){
+    var items = [{ id: MAIN_VARIANT, quantity: 1 }];
+    bumps.forEach(function(b){
+      if (b.classList.contains('pd-on')){
+        var v = b.getAttribute('data-variant');
+        if (v && /^\d+$/.test(v)) items.push({ id: parseInt(v, 10), quantity: 1 });
+      }
+    });
+    fetch('/cart/clear.js', { method: 'POST' })
+      .then(function(){
+        return fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: items })
+        });
+      })
+      .then(function(){ window.location.href = '/checkout'; })
+      .catch(function(){ window.location.href = '/cart'; });
+  }
+
+  var checkoutBtn = document.querySelector('.pd .pd-checkout');
+  if (checkoutBtn) checkoutBtn.addEventListener('click', goToCheckout);
+
+  // Installment buttons currently route to the same secure checkout, where the
+  // customer chooses their pay-over-time provider. See notes for the real
+  // one-click provider buttons.
+  document.querySelectorAll('.pd .pd-pay-btn').forEach(function(btn){
+    btn.addEventListener('click', goToCheckout);
+  });
 })();
 </script>
 
