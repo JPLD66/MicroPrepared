@@ -377,7 +377,7 @@ Guaranteed safe &amp; secure checkout
 
 <div class="pd-inst">
 <div class="pd-inst-div">or</div>
-<p class="pd-inst-sub"><strong>Pay in interest-free installments</strong></p>
+<p class="pd-inst-sub"><strong>Pay as low as <u>$69.75</u> down in interest-free installments</strong></p>
 <div class="pd-inst-btns">
 <button type="button" class="pd-pay-btn pd-pay-paypal"><b>Pay<span class="pd-pp2">Pal</span></b></button>
 <button type="button" class="pd-pay-btn pd-pay-shop">Shop&nbsp;Pay</button>
@@ -398,7 +398,7 @@ Guaranteed safe &amp; secure checkout
 <div class="pd-rating" style="margin-bottom: 2.5rem;">
 <div class="pd-big">4.8</div>
 <div class="pd-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<div class="pd-rcount">Based on 114+ verified reviews</div>
+<div class="pd-rcount">Based on 124+ verified reviews</div>
 </div>
 <div class="pd-tests">
 <div class="pd-test">
@@ -491,7 +491,7 @@ Guaranteed safe &amp; secure checkout
   function qtyOf(b){ return parseInt(b.getAttribute('data-qty') || '1', 10); }
 
   function labelFor(key){
-    if (key === 'battery') return '10+ hour Battery';
+    if (key === 'battery') return 'Backup Battery';
     if (key === 'faraday') return 'EMP-Shielding Faraday Bag';
     if (key === 'bundle')  return 'Battery + Faraday Bundle';
     return key;
