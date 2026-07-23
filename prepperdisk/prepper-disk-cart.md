@@ -29,13 +29,29 @@ Key differences from the reference screenshot (all intentional):
     to the secure checkout, where the customer picks their installment
     provider — the same options they'd get from the branded buttons.
 
-**⚠️ Before the cart actually adds items — you need three variant IDs.**
-Shopify's cart uses numeric **variant IDs**, not SKUs. The main Prepper Disk
-variant (`43384681136182`) is already wired. Replace the three
-`data-variant="REPLACE_..._VARIANT_ID"` placeholders on the order bumps with
-the real variant ids of the Battery, Faraday Bag, and Bundle products. On
-**Checkout**, the page rebuilds the cart to match exactly what's shown, then
-sends the customer to `/checkout`.
+- **Quantity steppers** on each bump. A qty control appears when a bump is
+  selected; changing it updates the order-summary line (`× n`), the running
+  total, and the quantity added to the cart at checkout.
+
+**⚠️ Before the cart actually adds items — fill in the config block.**
+Shopify's cart adds by numeric **variant ID**, and the numbers in your admin
+URLs (`…/products/7787534712886`) are **product IDs** — a different value.
+Rather than hunt down variant IDs, the template resolves them from **product
+handles** via Liquid. At the very top of the code block, set the three
+handles:
+
+```liquid
+{%- assign battery_handle = 'your-battery-handle' -%}
+{%- assign faraday_handle = 'your-faraday-handle' -%}
+{%- assign bundle_handle  = 'your-bundle-handle'  -%}
+```
+
+The handle is the last part of each product's storefront URL
+(`prepperdisk.com/products/`**`your-battery-handle`**). The main Prepper Disk
+variant (`43384681136182`) is already wired. On **Checkout**, the page
+rebuilds the cart to match exactly what's shown (items + quantities), then
+sends the customer to `/checkout`. (Prefer raw variant IDs? You can hard-code
+them straight into the `data-variant=""` attributes instead.)
 - **Testimonials** (all three from the landing page), the **60-Day Peace of
   Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
@@ -46,6 +62,30 @@ sends the customer to `/checkout`.
 Copy everything inside the code block below:
 
 ```liquid
+{%- comment -%}
+  ── Add-on product config ────────────────────────────────────────────────
+  Shopify's cart adds items by VARIANT id, not by the PRODUCT id shown in the
+  admin URL (…/products/<productId>) — they are different numbers.
+
+  Easiest + most future-proof: paste each add-on's HANDLE below (the last part
+  of its storefront URL: prepperdisk.com/products/<handle>). Liquid then looks
+  up the live variant id automatically, so it never breaks if the id changes.
+
+  Product ids you provided (reference only — NOT usable in the cart):
+    Battery  → product 7787534712886
+    Faraday  → product 8742624329782
+    Bundle   → product 7787537530934
+
+  Alternative: leave the handles blank and hard-code numeric variant ids
+  straight into the three data-variant="" attributes on the bumps instead.
+{%- endcomment -%}
+{%- assign battery_handle = 'REPLACE-with-battery-handle' -%}
+{%- assign faraday_handle = 'REPLACE-with-faraday-handle' -%}
+{%- assign bundle_handle  = 'REPLACE-with-bundle-handle' -%}
+{%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
+{%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
+{%- assign bundle_vid  = all_products[bundle_handle].selected_or_first_available_variant.id -%}
+
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
@@ -135,6 +175,15 @@ Copy everything inside the code block below:
 .pd .pd-bump-price { flex-shrink: 0; text-align: right; font-weight: 800; color: #0d2b1a; font-size: 1.05em; white-space: nowrap; }
 .pd .pd-bump-price .pd-was { display: block; text-decoration: line-through; color: #999; font-weight: 600; font-size: 0.8em; }
 .pd .pd-bump-price .pd-add { display: block; color: #27ae60; font-size: 0.7em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.1rem; }
+.pd .pd-bump-note { margin-top: 0.5rem; font-size: 0.82em !important; color: #1e8449; font-weight: 700; display: flex; align-items: center; gap: 0.4rem; }
+.pd .pd-bump-note svg { width: 15px; height: 15px; flex-shrink: 0; }
+.pd .pd-bump-qty { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.7rem; }
+.pd .pd-bump-qty[hidden] { display: none; }
+.pd .pd-bump-qty-label { font-size: 0.78em !important; font-weight: 800; color: #1e8449; text-transform: uppercase; letter-spacing: 0.05em; }
+.pd .pd-qty { display: inline-flex; align-items: center; border: 1px solid #cfcfcf; border-radius: 8px; overflow: hidden; background: #fff; }
+.pd .pd-qty-btn { background: #f4f4f4; border: 0; width: 30px; height: 30px; font-size: 1.1em; line-height: 1; color: #0d2b1a; font-weight: 800; }
+.pd .pd-qty-btn:hover { background: #e6e6e6; }
+.pd .pd-qty-n { min-width: 36px; text-align: center; font-weight: 800; color: #0d2b1a; font-size: 0.95em; }
 
 /* Order summary (sticky sidebar) */
 .pd .pd-summary { background: #fff; border: 1px solid #e3e3e3; border-radius: 14px; padding: 1.5rem; box-shadow: 0 6px 24px rgba(0,0,0,0.07); position: sticky; top: 1.5rem; }
@@ -239,40 +288,65 @@ Secure 256-bit encrypted checkout
 <div class="pd-bumps-title">Add these before you check out</div>
 
 <!-- Bump 1: Battery -->
-<label class="pd-bump" data-bump="battery" data-price="49" data-variant="REPLACE_BATTERY_VARIANT_ID">
-<input type="checkbox">
+<div class="pd-bump" data-bump="battery" data-price="49" data-variant="{{ battery_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">Prepper Disk Backup Battery</div>
 <div class="pd-bump-desc">Powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more &mdash; so your library never goes dark.</div>
+<div class="pd-bump-qty" data-qty-for="battery" hidden>
+<span class="pd-bump-qty-label">Qty</span>
+<div class="pd-qty">
+<button type="button" class="pd-qty-btn" data-step="-1" aria-label="Decrease Backup Battery quantity">&minus;</button>
+<span class="pd-qty-n">1</span>
+<button type="button" class="pd-qty-btn" data-step="1" aria-label="Increase Backup Battery quantity">+</button>
+</div>
+</div>
 </div>
 <div class="pd-bump-price">$49<span class="pd-add">+ Add</span></div>
-</label>
+</div>
 
 <!-- Bump 2: Faraday bag -->
-<label class="pd-bump" data-bump="faraday" data-price="39" data-variant="REPLACE_FARADAY_VARIANT_ID">
-<input type="checkbox">
+<div class="pd-bump" data-bump="faraday" data-price="39" data-variant="{{ faraday_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">EMP-Shielding Faraday Bag</div>
 <div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded &mdash; so even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library. The edge that wins a SHTF scenario.</div>
+<div class="pd-bump-qty" data-qty-for="faraday" hidden>
+<span class="pd-bump-qty-label">Qty</span>
+<div class="pd-qty">
+<button type="button" class="pd-qty-btn" data-step="-1" aria-label="Decrease Faraday Bag quantity">&minus;</button>
+<span class="pd-qty-n">1</span>
+<button type="button" class="pd-qty-btn" data-step="1" aria-label="Increase Faraday Bag quantity">+</button>
+</div>
+</div>
 </div>
 <div class="pd-bump-price">$39<span class="pd-add">+ Add</span></div>
-</label>
+</div>
 
 <!-- Bump 3: Bundle -->
-<label class="pd-bump pd-best" data-bump="bundle" data-price="79.20" data-variant="REPLACE_BUNDLE_VARIANT_ID">
-<input type="checkbox">
+<div class="pd-bump pd-best" data-bump="bundle" data-price="79.20" data-variant="{{ bundle_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/BatteryEMPBundle-4.png?v=1763005487" alt="Battery + Faraday bundle"></span>
 <div class="pd-bump-body">
-<div class="pd-bump-name">Battery + Faraday Bundle <span class="pd-bump-tag">Save 10%</span></div>
-<div class="pd-bump-desc">Get <strong>both</strong> the Backup Battery and the EMP-Shielding Faraday Bag together and save 10% &mdash; power when the grid dies, protection when the electronics fry. Fully covered, both ways.</div>
+<div class="pd-bump-name">Get Both &amp; Save <span class="pd-bump-tag">Bundle &middot; 10% OFF</span></div>
+<div class="pd-bump-desc"><strong>The two add-ons above, together for 10% less.</strong> You get the <strong>Backup Battery</strong> <em>and</em> the <strong>EMP-Shielding Faraday Bag</strong> as one bundle &mdash; power when the grid dies, protection when the electronics fry. Cheaper than adding them separately.</div>
+<div class="pd-bump-note">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+Battery + Faraday Bag &mdash; you save $8.80
+</div>
+<div class="pd-bump-qty" data-qty-for="bundle" hidden>
+<span class="pd-bump-qty-label">Qty</span>
+<div class="pd-qty">
+<button type="button" class="pd-qty-btn" data-step="-1" aria-label="Decrease Bundle quantity">&minus;</button>
+<span class="pd-qty-n">1</span>
+<button type="button" class="pd-qty-btn" data-step="1" aria-label="Increase Bundle quantity">+</button>
+</div>
+</div>
 </div>
 <div class="pd-bump-price"><span class="pd-was">$88</span>$79.20<span class="pd-add">+ Add</span></div>
-</label>
+</div>
 
 </div>
 </div>
@@ -411,6 +485,7 @@ Guaranteed safe &amp; secure checkout
   var bumps = Array.prototype.slice.call(document.querySelectorAll('.pd .pd-bump'));
 
   function money(n){ return '$' + n.toFixed(2); }
+  function qtyOf(b){ return parseInt(b.getAttribute('data-qty') || '1', 10); }
 
   function labelFor(key){
     if (key === 'battery') return 'Backup Battery';
@@ -426,11 +501,14 @@ Guaranteed safe &amp; secure checkout
     bumps.forEach(function(b){
       if (b.classList.contains('pd-on')){
         var price = parseFloat(b.getAttribute('data-price'));
-        total += price;
+        var q = qtyOf(b);
+        var line = price * q;
+        total += line;
+        var qtag = q > 1 ? ' <span style="color:#888;font-weight:600">&times;' + q + '</span>' : '';
         var row = document.createElement('div');
         row.className = 'pd-sum-row pd-bump-row';
-        row.innerHTML = '<span class="pd-sum-label">+ ' + labelFor(b.getAttribute('data-bump')) +
-                        '</span><span class="pd-sum-val">' + money(price) + '</span>';
+        row.innerHTML = '<span class="pd-sum-label">+ ' + labelFor(b.getAttribute('data-bump')) + qtag +
+                        '</span><span class="pd-sum-val">' + money(line) + '</span>';
         rowsWrap.appendChild(row);
       }
     });
@@ -439,41 +517,73 @@ Guaranteed safe &amp; secure checkout
 
   function setOn(b, on){
     b.classList.toggle('pd-on', on);
-    var cb = b.querySelector('input');
-    if (cb) cb.checked = on;
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var qwrap = b.querySelector('.pd-bump-qty');
+    if (qwrap) qwrap.hidden = !on;
+    var add = b.querySelector('.pd-add');
+    if (add) add.textContent = on ? 'Added ✓' : '+ Add';
+  }
+
+  function toggle(b){
+    var on = !b.classList.contains('pd-on');
+    setOn(b, on);
+    var key = b.getAttribute('data-bump');
+    // mutual exclusivity: bundle vs. the two individual bumps
+    if (on && key === 'bundle'){
+      bumps.forEach(function(o){
+        var k = o.getAttribute('data-bump');
+        if (k === 'battery' || k === 'faraday') setOn(o, false);
+      });
+    } else if (on && (key === 'battery' || key === 'faraday')){
+      bumps.forEach(function(o){
+        if (o.getAttribute('data-bump') === 'bundle') setOn(o, false);
+      });
+    }
+    render();
   }
 
   bumps.forEach(function(b){
-    var cb = b.querySelector('input');
-    cb.addEventListener('change', function(){
-      var key = b.getAttribute('data-bump');
-      var on = cb.checked;
-      setOn(b, on);
-      // mutual exclusivity: bundle vs. the two individual bumps
-      if (on && key === 'bundle'){
-        bumps.forEach(function(o){
-          var k = o.getAttribute('data-bump');
-          if (k === 'battery' || k === 'faraday') setOn(o, false);
-        });
-      } else if (on && (key === 'battery' || key === 'faraday')){
-        bumps.forEach(function(o){
-          if (o.getAttribute('data-bump') === 'bundle') setOn(o, false);
-        });
-      }
-      render();
+    b.setAttribute('role', 'button');
+    b.setAttribute('tabindex', '0');
+    b.setAttribute('aria-pressed', 'false');
+    if (!b.getAttribute('data-qty')) b.setAttribute('data-qty', '1');
+
+    // Toggle on row click — but not when interacting with the qty stepper
+    b.addEventListener('click', function(e){
+      if (e.target.closest('.pd-bump-qty')) return;
+      toggle(b);
+    });
+    b.addEventListener('keydown', function(e){
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(b); }
+    });
+
+    // Quantity steppers
+    b.querySelectorAll('.pd-qty-btn').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var step = parseInt(btn.getAttribute('data-step'), 10);
+        var q = qtyOf(b) + step;
+        if (q < 1) q = 1;
+        if (q > 99) q = 99;
+        b.setAttribute('data-qty', q);
+        var nEl = b.querySelector('.pd-qty-n');
+        if (nEl) nEl.textContent = q;
+        if (!b.classList.contains('pd-on')) toggle(b); // adjusting qty adds it
+        else render();
+      });
     });
   });
 
   render();
 
   /* ===== Checkout wiring =====
-     Shopify's cart uses numeric VARIANT IDs (not SKUs). The main product's
-     variant id is taken from the landing-page add-to-cart link. Replace the
-     three data-variant="REPLACE_..." placeholders on the bumps above with the
-     real variant ids of those add-on products (or bundle product).
-     On checkout we rebuild the cart to match exactly what's shown here, then
-     send the customer to Shopify's secure checkout (where PayPal / Shop Pay /
-     Klarna installment options appear). */
+     Shopify's cart adds by numeric VARIANT id. The add-on variant ids are
+     resolved from their handles by Liquid at the top of this file and printed
+     into each bump's data-variant. The main product's variant id is taken from
+     the landing-page add-to-cart link. On checkout we rebuild the cart to match
+     exactly what's shown here (items + quantities), then send the customer to
+     Shopify's secure checkout — where PayPal / Shop Pay / Klarna installment
+     options appear. A bump whose variant id is still blank is skipped safely. */
   var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
 
   function goToCheckout(){
@@ -481,7 +591,7 @@ Guaranteed safe &amp; secure checkout
     bumps.forEach(function(b){
       if (b.classList.contains('pd-on')){
         var v = b.getAttribute('data-variant');
-        if (v && /^\d+$/.test(v)) items.push({ id: parseInt(v, 10), quantity: 1 });
+        if (v && /^\d+$/.test(v)) items.push({ id: parseInt(v, 10), quantity: qtyOf(b) });
       }
     });
     fetch('/cart/clear.js', { method: 'POST' })
