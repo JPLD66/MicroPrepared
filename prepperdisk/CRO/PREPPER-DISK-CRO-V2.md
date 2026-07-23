@@ -80,6 +80,8 @@ Copy everything inside the code block below:
 .pd .pd-hero-rating .pd-hero-rating-stars { color: #f5a623; letter-spacing: 0.08em; font-size: 1.1em !important; }
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 .pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
+.pd .pd-hl { background: #ffe680; padding: 0.05em 0.22em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.pd .pd-hero-italic { font-style: italic; font-weight: 400; color: #555; font-size: 1em !important; max-width: 800px; margin: -0.75rem auto 2rem; }
 
 @media (max-width: 600px) {
 }
@@ -391,10 +393,10 @@ Copy everything inside the code block below:
 
 <section class="pd-hero">
 <div class="pd-container">
-<h1>Prepper Disk Premium</h1>
-<p class="pd-sub" style="color: #222; margin: 0 auto 1.5rem;">Gives Emergency Off-Grid Internet to Your Phone and Laptop</p>
+<h1>A 512GB Survival Library That Fits in Your Pocket</h1>
 <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
-<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">100% of Wikipedia, 117,000+ DIY Survival and Repair Guides, and detailed  maps of the USA -- even when the internet is down (forever)</p>
+<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">Puts Hundreds of How-To Survival Guides Prepper DIY Projects First Aid Videos and Digital Survival Tools Right <span class="pd-hl">on Your Phone or Laptop</span></p>
+<p class="pd-hero-italic">Even when the internet and grid are down forever</p>
 <ul class="pd-bullets">
 </ul>
 <a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a>
