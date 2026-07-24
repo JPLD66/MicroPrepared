@@ -281,7 +281,7 @@ Copy everything inside the code block below:
 <div class="pd-container">
 
 <div class="pd-cart-head">
-<h1>Your Cart</h1>
+<h1>Good News! Your Prepper Disk is in stock and ready to be shipped out!</h1>
 <span class="pd-cart-secure">
 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
 Secure 256-bit encrypted checkout
