@@ -10,13 +10,14 @@ Key differences from the reference screenshot (all intentional):
 - **No custom fields.** This is a **cart** page, not a checkout — so there's
   no name/address/card form. The customer enters that on the real checkout.
 - **No trust bar** (per request).
-- **Three order bumps** with checkmark toggles and placeholder prices:
+- **Two order bumps** with checkmark toggles:
   1. **10+ hour Battery — $22.99** (powers the Disk 10–20 hrs when the grid is down)
   2. **EMP-Shielding Faraday Bag — $22.99** (shields your Disk, phone & battery)
-  3. **Battery + Faraday Bundle — $41.99** (both — saves $3.99 vs $45.98 bought separately)
-- The bundle is mutually exclusive with the two individual bumps — selecting
-  it unchecks them, and vice-versa. The **order summary total updates live**
-  as bumps are toggled.
+- A **"2 Years Warranty" unlock row** sits below the bumps. It reads
+  **Locked** by default and flips to a green **Unlocked** state when *both*
+  the Battery and the Faraday Bag are added (and reverts if either is
+  removed). It's a display-only incentive — it does **not** add a product to
+  the cart. The **order summary total updates live** as bumps are toggled.
 - **Two payment paths** in the summary:
   - **Checkout** — full price by credit card or a payment provider. This
     button is the **exact same red CTA** as the landing page (`.pd-btn`).
@@ -38,17 +39,16 @@ Key differences from the reference screenshot (all intentional):
 Shopify's cart adds by numeric **variant ID**, and the numbers in your admin
 URLs (`…/products/7787534712886`) are **product IDs** — a different value.
 Rather than hunt down variant IDs, the template resolves them from **product
-handles** via Liquid. At the very top of the code block, set the three
-handles:
+handles** via Liquid. The two add-on handles are already filled in at the top
+of the code block:
 
 ```liquid
-{%- assign battery_handle = 'your-battery-handle' -%}
-{%- assign faraday_handle = 'your-faraday-handle' -%}
-{%- assign bundle_handle  = 'your-bundle-handle'  -%}
+{%- assign battery_handle = 'portable-battery-10-hours-of-use' -%}
+{%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 ```
 
 The handle is the last part of each product's storefront URL
-(`prepperdisk.com/products/`**`your-battery-handle`**). The main Prepper Disk
+(`prepperdisk.com/products/`**`<handle>`**). The main Prepper Disk
 variant (`43384681136182`) is already wired. On **Checkout**, the page
 rebuilds the cart to match exactly what's shown (items + quantities), then
 sends the customer to `/checkout`. (Prefer raw variant IDs? You can hard-code
@@ -77,17 +77,14 @@ Copy everything inside the code block below:
   Product ids you provided (reference only — NOT usable in the cart):
     Battery  → product 7787534712886
     Faraday  → product 8742624329782
-    Bundle   → product 7787537530934
 
   Alternative: leave the handles blank and hard-code numeric variant ids
-  straight into the three data-variant="" attributes on the bumps instead.
+  straight into the two data-variant="" attributes on the bumps instead.
 {%- endcomment -%}
 {%- assign battery_handle = 'portable-battery-10-hours-of-use' -%}
 {%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
-{%- assign bundle_handle  = 'REPLACE-with-bundle-handle' -%}
 {%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
 {%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
-{%- assign bundle_vid  = all_products[bundle_handle].selected_or_first_available_variant.id -%}
 
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -185,6 +182,23 @@ Copy everything inside the code block below:
 .pd .pd-qty-btn { background: #f4f4f4; border: 0; width: 30px; height: 30px; font-size: 1.1em; line-height: 1; color: #0d2b1a; font-weight: 800; }
 .pd .pd-qty-btn:hover { background: #e6e6e6; }
 .pd .pd-qty-n { min-width: 36px; text-align: center; font-weight: 800; color: #0d2b1a; font-size: 0.95em; }
+
+/* Warranty unlock row */
+.pd .pd-warranty { display: flex; align-items: center; gap: 0.9rem; border: 2px dashed #cfcfcf; border-radius: 12px; padding: 0.9rem 1.1rem; margin-top: 0.25rem; background: #fafafa; transition: border-color 0.2s, background 0.2s, box-shadow 0.2s; }
+.pd .pd-warranty-icon { flex: 0 0 auto; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; color: #9a9a9a; transition: color 0.2s; }
+.pd .pd-warranty-icon svg { width: 34px; height: 34px; display: block; }
+.pd .pd-warranty-icon .pd-ico-open { display: none; }
+.pd .pd-warranty-body { flex: 1; min-width: 0; }
+.pd .pd-warranty-title { font-weight: 800; color: #666; font-size: 1em !important; display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
+.pd .pd-warranty-state { font-size: 0.68em !important; font-weight: 800; letter-spacing: 0.06em; padding: 0.15rem 0.55rem; border-radius: 999px; background: #e3e3e3; color: #777; text-transform: uppercase; }
+.pd .pd-warranty-desc { color: #777; font-size: 0.86em !important; line-height: 1.45; margin-top: 0.2rem; }
+.pd .pd-warranty.pd-unlocked { border-style: solid; border-color: #27ae60; background: #eafaf0; box-shadow: 0 2px 12px rgba(39,174,96,0.15); }
+.pd .pd-warranty.pd-unlocked .pd-warranty-icon { color: #1e8449; }
+.pd .pd-warranty.pd-unlocked .pd-warranty-icon .pd-ico-lock { display: none; }
+.pd .pd-warranty.pd-unlocked .pd-warranty-icon .pd-ico-open { display: block; }
+.pd .pd-warranty.pd-unlocked .pd-warranty-title { color: #0d2b1a; }
+.pd .pd-warranty.pd-unlocked .pd-warranty-state { background: #27ae60; color: #fff; }
+.pd .pd-warranty.pd-unlocked .pd-warranty-desc { color: #1e6b3a; }
 
 /* Order summary (sticky sidebar) */
 .pd .pd-summary { background: #fff; border: 1px solid #e3e3e3; border-radius: 14px; padding: 1.5rem; box-shadow: 0 6px 24px rgba(0,0,0,0.07); position: sticky; top: 1.5rem; }
@@ -329,27 +343,16 @@ Secure 256-bit encrypted checkout
 <div class="pd-bump-price">$22.99<span class="pd-add">+ Add</span></div>
 </div>
 
-<!-- Bump 3: Bundle -->
-<div class="pd-bump pd-best" data-bump="bundle" data-price="41.99" data-variant="{{ bundle_vid }}">
-<span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
-<span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/BatteryEMPBundle-4.png?v=1763005487" alt="Battery + Faraday bundle"></span>
-<div class="pd-bump-body">
-<div class="pd-bump-name">Get Both &amp; Save <span class="pd-bump-tag">Bundle &middot; Save $3.99</span></div>
-<div class="pd-bump-desc"><strong>The two add-ons above, bundled together at a discount.</strong> You get the <strong>Backup Battery</strong> <em>and</em> the <strong>EMP-Shielding Faraday Bag</strong> as one bundle &mdash; power when the grid dies, protection when the electronics fry. Cheaper than adding them separately.</div>
-<div class="pd-bump-note">
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-Battery + Faraday Bag &mdash; you save $3.99
+<!-- Warranty unlock: turns green when BOTH the battery and the faraday bag are added -->
+<div class="pd-warranty" id="pdWarranty" aria-live="polite">
+<div class="pd-warranty-icon">
+<svg class="pd-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
+<svg class="pd-ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2.3"/><path d="M9 15.5l2 2 3.5-3.5"/></svg>
 </div>
-<div class="pd-bump-qty" data-qty-for="bundle" hidden>
-<span class="pd-bump-qty-label">Qty</span>
-<div class="pd-qty">
-<button type="button" class="pd-qty-btn" data-step="-1" aria-label="Decrease Bundle quantity">&minus;</button>
-<span class="pd-qty-n">1</span>
-<button type="button" class="pd-qty-btn" data-step="1" aria-label="Increase Bundle quantity">+</button>
+<div class="pd-warranty-body">
+<div class="pd-warranty-title">2 Years Warranty <span class="pd-warranty-state">Locked</span></div>
+<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus 2nd year &mdash; a full <strong>2 years of coverage</strong>, on top of the 1 year already included.</div>
 </div>
-</div>
-</div>
-<div class="pd-bump-price"><span class="pd-was">$45.98</span>$41.99<span class="pd-add">+ Add</span></div>
 </div>
 
 </div>
@@ -495,8 +498,21 @@ Guaranteed safe &amp; secure checkout
   function labelFor(key){
     if (key === 'battery') return 'Backup Battery';
     if (key === 'faraday') return 'EMP-Shielding Faraday Bag';
-    if (key === 'bundle')  return 'Battery + Faraday Bundle';
     return key;
+  }
+
+  // Warranty unlock — green/UNLOCKED only when BOTH bumps are added
+  var warrantyEl = document.getElementById('pdWarranty');
+  function bumpIsOn(key){
+    var el = document.querySelector('.pd .pd-bump[data-bump="' + key + '"]');
+    return !!(el && el.classList.contains('pd-on'));
+  }
+  function updateWarranty(){
+    if (!warrantyEl) return;
+    var unlocked = bumpIsOn('battery') && bumpIsOn('faraday');
+    warrantyEl.classList.toggle('pd-unlocked', unlocked);
+    var state = warrantyEl.querySelector('.pd-warranty-state');
+    if (state) state.textContent = unlocked ? 'Unlocked' : 'Locked';
   }
 
   function render(){
@@ -525,6 +541,7 @@ Guaranteed safe &amp; secure checkout
       }
     });
     totalEl.textContent = money(total);
+    updateWarranty();
   }
 
   function setOn(b, on){
@@ -539,18 +556,6 @@ Guaranteed safe &amp; secure checkout
   function toggle(b){
     var on = !b.classList.contains('pd-on');
     setOn(b, on);
-    var key = b.getAttribute('data-bump');
-    // mutual exclusivity: bundle vs. the two individual bumps
-    if (on && key === 'bundle'){
-      bumps.forEach(function(o){
-        var k = o.getAttribute('data-bump');
-        if (k === 'battery' || k === 'faraday') setOn(o, false);
-      });
-    } else if (on && (key === 'battery' || key === 'faraday')){
-      bumps.forEach(function(o){
-        if (o.getAttribute('data-bump') === 'bundle') setOn(o, false);
-      });
-    }
     render();
   }
 
