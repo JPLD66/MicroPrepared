@@ -11,9 +11,9 @@ Key differences from the reference screenshot (all intentional):
   no name/address/card form. The customer enters that on the real checkout.
 - **No trust bar** (per request).
 - **Three order bumps** with checkmark toggles and placeholder prices:
-  1. **10+ hour Battery — $49** (powers the Disk 10–20 hrs when the grid is down)
-  2. **EMP-Shielding Faraday Bag — $39** (shields your Disk, phone & battery)
-  3. **Battery + Faraday Bundle — $79.20** (both, 10% OFF the $88 combined price)
+  1. **10+ hour Battery — $22.99** (powers the Disk 10–20 hrs when the grid is down)
+  2. **EMP-Shielding Faraday Bag — $22.99** (shields your Disk, phone & battery)
+  3. **Battery + Faraday Bundle — $41.99** (both — saves $3.99 vs $45.98 bought separately)
 - The bundle is mutually exclusive with the two individual bumps — selecting
   it unchecks them, and vice-versa. The **order summary total updates live**
   as bumps are toggled.
@@ -143,9 +143,7 @@ Copy everything inside the code block below:
 .pd .pd-line-meta { color: #666; font-size: 0.9em !important; margin-bottom: 0.6rem; }
 .pd .pd-line-rating { color: #f5a623; font-size: 0.95em; }
 .pd .pd-line-rating span { color: #666; }
-.pd .pd-line-qty { display: inline-flex; align-items: center; gap: 0.75rem; margin-top: 0.75rem; border: 1px solid #ddd; border-radius: 8px; padding: 0.25rem 0.5rem; }
-.pd .pd-line-qty button { background: transparent; border: 0; font-size: 1.2em; color: #0d2b1a; line-height: 1; width: 1.5rem; }
-.pd .pd-line-qty span { font-weight: 700; min-width: 1.25rem; text-align: center; }
+.pd .pd-line-qty { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 0.75rem; }
 .pd .pd-line-price { text-align: right; flex-shrink: 0; }
 .pd .pd-line-price .pd-now { font-size: 1.4em; font-weight: 800; color: #0d2b1a; }
 @media (max-width: 480px) {
@@ -279,9 +277,12 @@ Secure 256-bit encrypted checkout
 <div class="pd-line-meta">Off-line survival library · Yours to keep for life</div>
 <div class="pd-line-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8 / 5 &middot; 124+ reviews</span></div>
 <div class="pd-line-qty">
-<button type="button" aria-label="Decrease quantity">&minus;</button>
-<span>1</span>
-<button type="button" aria-label="Increase quantity">+</button>
+<span class="pd-bump-qty-label">Qty</span>
+<div class="pd-qty">
+<button type="button" class="pd-qty-btn" data-mainstep="-1" aria-label="Decrease Prepper Disk quantity">&minus;</button>
+<span class="pd-qty-n" id="pdMainQty">1</span>
+<button type="button" class="pd-qty-btn" data-mainstep="1" aria-label="Increase Prepper Disk quantity">+</button>
+</div>
 </div>
 </div>
 <div class="pd-line-price"><span class="pd-now">$279</span></div>
@@ -291,7 +292,7 @@ Secure 256-bit encrypted checkout
 <div class="pd-bumps-title">Add these before you check out</div>
 
 <!-- Bump 1: Battery -->
-<div class="pd-bump" data-bump="battery" data-price="49" data-variant="{{ battery_vid }}">
+<div class="pd-bump" data-bump="battery" data-price="22.99" data-variant="{{ battery_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
@@ -306,11 +307,11 @@ Secure 256-bit encrypted checkout
 </div>
 </div>
 </div>
-<div class="pd-bump-price">$49<span class="pd-add">+ Add</span></div>
+<div class="pd-bump-price">$22.99<span class="pd-add">+ Add</span></div>
 </div>
 
 <!-- Bump 2: Faraday bag -->
-<div class="pd-bump" data-bump="faraday" data-price="39" data-variant="{{ faraday_vid }}">
+<div class="pd-bump" data-bump="faraday" data-price="22.99" data-variant="{{ faraday_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
@@ -325,19 +326,19 @@ Secure 256-bit encrypted checkout
 </div>
 </div>
 </div>
-<div class="pd-bump-price">$39<span class="pd-add">+ Add</span></div>
+<div class="pd-bump-price">$22.99<span class="pd-add">+ Add</span></div>
 </div>
 
 <!-- Bump 3: Bundle -->
-<div class="pd-bump pd-best" data-bump="bundle" data-price="79.20" data-variant="{{ bundle_vid }}">
+<div class="pd-bump pd-best" data-bump="bundle" data-price="41.99" data-variant="{{ bundle_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/BatteryEMPBundle-4.png?v=1763005487" alt="Battery + Faraday bundle"></span>
 <div class="pd-bump-body">
-<div class="pd-bump-name">Get Both &amp; Save <span class="pd-bump-tag">Bundle &middot; 10% OFF</span></div>
+<div class="pd-bump-name">Get Both &amp; Save <span class="pd-bump-tag">Bundle &middot; Save $3.99</span></div>
 <div class="pd-bump-desc"><strong>The two add-ons above, together for 10% less.</strong> You get the <strong>Backup Battery</strong> <em>and</em> the <strong>EMP-Shielding Faraday Bag</strong> as one bundle &mdash; power when the grid dies, protection when the electronics fry. Cheaper than adding them separately.</div>
 <div class="pd-bump-note">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-Battery + Faraday Bag &mdash; you save $8.80
+Battery + Faraday Bag &mdash; you save $3.99
 </div>
 <div class="pd-bump-qty" data-qty-for="bundle" hidden>
 <span class="pd-bump-qty-label">Qty</span>
@@ -348,7 +349,7 @@ Battery + Faraday Bag &mdash; you save $8.80
 </div>
 </div>
 </div>
-<div class="pd-bump-price"><span class="pd-was">$88</span>$79.20<span class="pd-add">+ Add</span></div>
+<div class="pd-bump-price"><span class="pd-was">$45.98</span>$41.99<span class="pd-add">+ Add</span></div>
 </div>
 
 </div>
@@ -359,7 +360,7 @@ Battery + Faraday Bag &mdash; you save $8.80
 <h2>Order Summary</h2>
 
 <div class="pd-sum-rows" id="pdSumRows">
-<div class="pd-sum-row"><span class="pd-sum-label">Prepper Disk Premium 512GB</span><span class="pd-sum-val">$279.00</span></div>
+<div class="pd-sum-row"><span class="pd-sum-label" id="pdBaseLabel">Prepper Disk Premium 512GB</span><span class="pd-sum-val" id="pdBaseVal">$279.00</span></div>
 <!-- bump rows injected here by JS -->
 </div>
 
@@ -486,6 +487,7 @@ Guaranteed safe &amp; secure checkout
   var rowsWrap = document.getElementById('pdSumRows');
   var totalEl = document.getElementById('pdTotal');
   var bumps = Array.prototype.slice.call(document.querySelectorAll('.pd .pd-bump'));
+  var mainQty = 1;
 
   function money(n){ return '$' + n.toFixed(2); }
   function qtyOf(b){ return parseInt(b.getAttribute('data-qty') || '1', 10); }
@@ -500,7 +502,14 @@ Guaranteed safe &amp; secure checkout
   function render(){
     // clear existing bump rows (keep the base product row = first child)
     rowsWrap.querySelectorAll('.pd-bump-row').forEach(function(el){ el.remove(); });
-    var total = BASE;
+    // base product line reflects the main quantity stepper
+    var baseLabel = document.getElementById('pdBaseLabel');
+    var baseVal = document.getElementById('pdBaseVal');
+    var baseLine = BASE * mainQty;
+    if (baseVal) baseVal.textContent = money(baseLine);
+    if (baseLabel) baseLabel.innerHTML = 'Prepper Disk Premium 512GB' +
+      (mainQty > 1 ? ' <span style="color:#888;font-weight:600">&times;' + mainQty + '</span>' : '');
+    var total = baseLine;
     bumps.forEach(function(b){
       if (b.classList.contains('pd-on')){
         var price = parseFloat(b.getAttribute('data-price'));
@@ -577,6 +586,19 @@ Guaranteed safe &amp; secure checkout
     });
   });
 
+  // Main Prepper Disk quantity stepper
+  var mainQtyEl = document.getElementById('pdMainQty');
+  document.querySelectorAll('.pd .pd-line-qty .pd-qty-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var step = parseInt(btn.getAttribute('data-mainstep'), 10);
+      mainQty += step;
+      if (mainQty < 1) mainQty = 1;
+      if (mainQty > 99) mainQty = 99;
+      if (mainQtyEl) mainQtyEl.textContent = mainQty;
+      render();
+    });
+  });
+
   render();
 
   /* ===== Checkout wiring =====
@@ -590,7 +612,7 @@ Guaranteed safe &amp; secure checkout
   var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
 
   function goToCheckout(){
-    var items = [{ id: MAIN_VARIANT, quantity: 1 }];
+    var items = [{ id: MAIN_VARIANT, quantity: mainQty }];
     bumps.forEach(function(b){
       if (b.classList.contains('pd-on')){
         var v = b.getAttribute('data-variant');
