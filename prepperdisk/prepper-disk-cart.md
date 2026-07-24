@@ -41,6 +41,12 @@ Key differences from the reference screenshot (all intentional):
   same items, and a genuine (abandonable) cart exists even if the visitor
   never clicks Checkout. Checkout just flushes the latest state and hands off
   to `/checkout`.
+- **US-only battery.** The battery only ships to the US, so the Battery bump
+  **and** the 2-year warranty (which requires it) are gated in Liquid behind
+  `localization.country` — non-US visitors see the Faraday bag alone, and the
+  battery HTML is never even sent to them (no flash, and the cart sync can't
+  try to add a variant Shopify would reject). Change the market by editing
+  `us_only_country` at the top of the code block.
 - **Testimonials** (all three from the landing page), the **60-Day Peace of
   Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
@@ -94,6 +100,18 @@ Copy everything inside the code block below:
 {%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 {%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
 {%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
+
+{%- comment -%}
+  ── Region gate ───────────────────────────────────────────────────────────
+  The battery only ships to the US, so the Battery bump AND the 2-year warranty
+  (which requires the battery) are shown only to US shoppers. Non-US visitors
+  see the Faraday bag alone. This uses `localization.country` — the same
+  Shopify Markets country signal that already blocks the battery from non-US
+  carts — so the two always agree. Set us_only_country to change the market.
+{%- endcomment -%}
+{%- assign us_only_country = 'US' -%}
+{%- assign show_us_only = false -%}
+{%- if localization.country.iso_code == us_only_country -%}{%- assign show_us_only = true -%}{%- endif -%}
 
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -314,7 +332,8 @@ Secure 256-bit encrypted checkout
 <div class="pd-bumps">
 <div class="pd-bumps-title">Don't miss out on these add-ons:</div>
 
-<!-- Bump 1: Battery -->
+{%- if show_us_only -%}
+<!-- Bump 1: Battery (US only — battery ships within the US) -->
 <div class="pd-bump" data-bump="battery" data-price="22.99" data-variant="{{ battery_vid }}">
 <span class="pd-bump-box"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 12 10 18 20 6"/></svg></span>
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
@@ -332,6 +351,7 @@ Secure 256-bit encrypted checkout
 </div>
 <div class="pd-bump-price">$22.99<span class="pd-add">+ Add</span></div>
 </div>
+{%- endif -%}
 
 <!-- Bump 2: Faraday bag -->
 <div class="pd-bump" data-bump="faraday" data-price="22.99" data-variant="{{ faraday_vid }}">
@@ -352,7 +372,8 @@ Secure 256-bit encrypted checkout
 <div class="pd-bump-price">$22.99<span class="pd-add">+ Add</span></div>
 </div>
 
-<!-- Warranty unlock: turns green when BOTH the battery and the faraday bag are added -->
+{%- if show_us_only -%}
+<!-- Warranty unlock (US only — requires the battery): green when BOTH the battery and the faraday bag are added -->
 <div class="pd-warranty" id="pdWarranty" aria-live="polite">
 <div class="pd-warranty-icon">
 <svg class="pd-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
@@ -363,6 +384,7 @@ Secure 256-bit encrypted checkout
 <div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended.</div>
 </div>
 </div>
+{%- endif -%}
 
 </div>
 </div>
