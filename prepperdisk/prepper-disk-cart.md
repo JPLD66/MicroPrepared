@@ -43,7 +43,7 @@ handles** via Liquid. The two add-on handles are already filled in at the top
 of the code block:
 
 ```liquid
-{%- assign battery_handle = 'portable-battery-10-hours-of-use' -%}
+{%- assign battery_handle = '10-hour-battery' -%}
 {%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 ```
 
@@ -81,7 +81,7 @@ Copy everything inside the code block below:
   Alternative: leave the handles blank and hard-code numeric variant ids
   straight into the two data-variant="" attributes on the bumps instead.
 {%- endcomment -%}
-{%- assign battery_handle = 'portable-battery-10-hours-of-use' -%}
+{%- assign battery_handle = '10-hour-battery' -%}
 {%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 {%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
 {%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
@@ -303,7 +303,7 @@ Secure 256-bit encrypted checkout
 </div>
 
 <div class="pd-bumps">
-<div class="pd-bumps-title">Add these before you check out</div>
+<div class="pd-bumps-title">Don't miss out on these add-ons:</div>
 
 <!-- Bump 1: Battery -->
 <div class="pd-bump" data-bump="battery" data-price="22.99" data-variant="{{ battery_vid }}">
@@ -311,7 +311,7 @@ Secure 256-bit encrypted checkout
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">10+ hour Battery</div>
-<div class="pd-bump-desc">This 10,000 mAh battery powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more. Gives your Prepperdisk a 24/7 grid failure resistance.</div>
+<div class="pd-bump-desc">This 10,000 mAh battery powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more. Gives your Prepperdisk a 24/7 resistance against grid failures.</div>
 <div class="pd-bump-qty" data-qty-for="battery" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -330,7 +330,7 @@ Secure 256-bit encrypted checkout
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">EMP-Shielding Faraday Bag</div>
-<div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded. So even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library unlike the other poor souls.</div>
+<div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded. So even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library unlike other poor souls.</div>
 <div class="pd-bump-qty" data-qty-for="faraday" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -350,8 +350,8 @@ Secure 256-bit encrypted checkout
 <svg class="pd-ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2.3"/><path d="M9 15.5l2 2 3.5-3.5"/></svg>
 </div>
 <div class="pd-warranty-body">
-<div class="pd-warranty-title">2 Years Warranty <span class="pd-warranty-state">Locked</span></div>
-<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus 2nd year &mdash; a full <strong>2 years of coverage</strong>, on top of the 1 year already included.</div>
+<div class="pd-warranty-title">2 Years Warranty on Your Prepper Disk <span class="pd-warranty-state">Locked</span></div>
+<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended.</div>
 </div>
 </div>
 
