@@ -82,8 +82,8 @@ Copy everything inside the code block below:
   Alternative: leave the handles blank and hard-code numeric variant ids
   straight into the three data-variant="" attributes on the bumps instead.
 {%- endcomment -%}
-{%- assign battery_handle = 'REPLACE-with-battery-handle' -%}
-{%- assign faraday_handle = 'REPLACE-with-faraday-handle' -%}
+{%- assign battery_handle = 'portable-battery-10-hours-of-use' -%}
+{%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 {%- assign bundle_handle  = 'REPLACE-with-bundle-handle' -%}
 {%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
 {%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
@@ -335,7 +335,7 @@ Secure 256-bit encrypted checkout
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/BatteryEMPBundle-4.png?v=1763005487" alt="Battery + Faraday bundle"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">Get Both &amp; Save <span class="pd-bump-tag">Bundle &middot; Save $3.99</span></div>
-<div class="pd-bump-desc"><strong>The two add-ons above, together for 10% less.</strong> You get the <strong>Backup Battery</strong> <em>and</em> the <strong>EMP-Shielding Faraday Bag</strong> as one bundle &mdash; power when the grid dies, protection when the electronics fry. Cheaper than adding them separately.</div>
+<div class="pd-bump-desc"><strong>The two add-ons above, bundled together at a discount.</strong> You get the <strong>Backup Battery</strong> <em>and</em> the <strong>EMP-Shielding Faraday Bag</strong> as one bundle &mdash; power when the grid dies, protection when the electronics fry. Cheaper than adding them separately.</div>
 <div class="pd-bump-note">
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
 Battery + Faraday Bag &mdash; you save $3.99
