@@ -31,7 +31,16 @@ Key differences from the reference screenshot (all intentional):
     provider — the same options they'd get from the branded buttons.
 - **Quantity steppers** on each bump. A qty control appears when a bump is
   selected; changing it updates the order-summary line (`× n`), the running
-  total, and the quantity added to the cart at checkout.
+  total, and the quantity in the cart.
+- **Live Shopify cart sync.** This page mirrors the *real* Shopify cart. On
+  load it reads `/cart.js`, reflects any items already in the cart (pre-checking
+  bumps), and ensures the Prepper Disk itself is in the cart. Every change —
+  main qty, adding/removing a bump, bump qty — is written straight to the cart
+  via the AJAX Cart API (`/cart/add.js` + `/cart/update.js`). So the native
+  `/cart`, the cart icon, and your **abandoned-cart automation** all see the
+  same items, and a genuine (abandonable) cart exists even if the visitor
+  never clicks Checkout. Checkout just flushes the latest state and hands off
+  to `/checkout`.
 - **Testimonials** (all three from the landing page), the **60-Day Peace of
   Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
@@ -49,10 +58,10 @@ of the code block:
 
 The handle is the last part of each product's storefront URL
 (`prepperdisk.com/products/`**`<handle>`**). The main Prepper Disk
-variant (`43384681136182`) is already wired. On **Checkout**, the page
-rebuilds the cart to match exactly what's shown (items + quantities), then
-sends the customer to `/checkout`. (Prefer raw variant IDs? You can hard-code
-them straight into the `data-variant=""` attributes instead.)
+variant (`43384681136182`) is already wired. Every change on the page writes
+straight to the live Shopify cart, and **Checkout** flushes the latest state
+before sending the customer to `/checkout`. (Prefer raw variant IDs? You can
+hard-code them straight into the `data-variant=""` attributes instead.)
 
 **Save as:** a **page template** — `templates/page.customPDcart.liquid`
 (Liquid, *not* JSON) — then create a Page in admin and assign it that
@@ -487,8 +496,10 @@ Guaranteed safe &amp; secure checkout
 <script>
 (function(){
   var BASE = 279.00;
+  var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
   var rowsWrap = document.getElementById('pdSumRows');
   var totalEl = document.getElementById('pdTotal');
+  var mainQtyEl = document.getElementById('pdMainQty');
   var bumps = Array.prototype.slice.call(document.querySelectorAll('.pd .pd-bump'));
   var mainQty = 1;
 
@@ -553,10 +564,68 @@ Guaranteed safe &amp; secure checkout
     if (add) add.textContent = on ? 'Added ✓' : '+ Add';
   }
 
+  /* ===== Live Shopify cart sync =====
+     This page mirrors the REAL Shopify cart. Every change here — main quantity,
+     adding/removing a bump, or a bump's quantity — is written to the cart via
+     Shopify's AJAX Cart API, so the native /cart page, the cart icon, and any
+     abandoned-cart automation always see the same items. We reconcile against
+     the live cart on each change: new lines go through /cart/add.js, and
+     quantity changes or removals go through /cart/update.js. Displayed prices
+     are cosmetic — Shopify always charges the real variant price. */
+  var syncTimer = null;
+  function desiredState(){
+    var desired = {};
+    desired[MAIN_VARIANT] = mainQty;
+    bumps.forEach(function(b){
+      var v = b.getAttribute('data-variant');
+      if (v && /^\d+$/.test(v)){
+        desired[parseInt(v, 10)] = b.classList.contains('pd-on') ? qtyOf(b) : 0;
+      }
+    });
+    return desired;
+  }
+  function syncCart(){
+    if (syncTimer){ clearTimeout(syncTimer); syncTimer = null; }
+    return fetch('/cart.js', { headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.json(); })
+      .then(function(cart){
+        var have = {};
+        (cart.items || []).forEach(function(it){ have[it.variant_id] = it.quantity; });
+        var desired = desiredState();
+        var adds = [];
+        var updates = {};
+        Object.keys(desired).forEach(function(idStr){
+          var id = parseInt(idStr, 10);
+          var d = desired[id];
+          var h = have[id] || 0;
+          if (d === h) return;
+          if (h === 0 && d > 0) adds.push({ id: id, quantity: d }); // not in cart yet
+          else updates[id] = d;                                     // change qty (0 removes)
+        });
+        var chain = Promise.resolve();
+        if (adds.length){
+          chain = chain.then(function(){
+            return fetch('/cart/add.js', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ items: adds }) });
+          });
+        }
+        if (Object.keys(updates).length){
+          chain = chain.then(function(){
+            return fetch('/cart/update.js', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ updates: updates }) });
+          });
+        }
+        return chain;
+      });
+  }
+  function queueSync(){
+    if (syncTimer) clearTimeout(syncTimer);
+    syncTimer = setTimeout(function(){ syncTimer = null; syncCart(); }, 250);
+  }
+
   function toggle(b){
     var on = !b.classList.contains('pd-on');
     setOn(b, on);
     render();
+    queueSync();
   }
 
   bumps.forEach(function(b){
@@ -586,13 +655,12 @@ Guaranteed safe &amp; secure checkout
         var nEl = b.querySelector('.pd-qty-n');
         if (nEl) nEl.textContent = q;
         if (!b.classList.contains('pd-on')) toggle(b); // adjusting qty adds it
-        else render();
+        else { render(); queueSync(); }
       });
     });
   });
 
   // Main Prepper Disk quantity stepper
-  var mainQtyEl = document.getElementById('pdMainQty');
   document.querySelectorAll('.pd .pd-line-qty .pd-qty-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var step = parseInt(btn.getAttribute('data-mainstep'), 10);
@@ -601,39 +669,48 @@ Guaranteed safe &amp; secure checkout
       if (mainQty > 99) mainQty = 99;
       if (mainQtyEl) mainQtyEl.textContent = mainQty;
       render();
+      queueSync();
     });
   });
 
-  render();
-
-  /* ===== Checkout wiring =====
-     Shopify's cart adds by numeric VARIANT id. The add-on variant ids are
-     resolved from their handles by Liquid at the top of this file and printed
-     into each bump's data-variant. The main product's variant id is taken from
-     the landing-page add-to-cart link. On checkout we rebuild the cart to match
-     exactly what's shown here (items + quantities), then send the customer to
-     Shopify's secure checkout — where PayPal / Shop Pay / Klarna installment
-     options appear. A bump whose variant id is still blank is skipped safely. */
-  var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
-
-  function goToCheckout(){
-    var items = [{ id: MAIN_VARIANT, quantity: mainQty }];
-    bumps.forEach(function(b){
-      if (b.classList.contains('pd-on')){
-        var v = b.getAttribute('data-variant');
-        if (v && /^\d+$/.test(v)) items.push({ id: parseInt(v, 10), quantity: qtyOf(b) });
-      }
-    });
-    fetch('/cart/clear.js', { method: 'POST' })
-      .then(function(){
-        return fetch('/cart/add.js', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items: items })
+  // On load: mirror the real Shopify cart into this page, and make sure the
+  // Prepper Disk itself is in the cart — so a genuine (abandonable) cart exists
+  // even if the visitor never clicks Checkout. Bumps already in the cart from a
+  // previous visit are shown pre-selected.
+  function initFromCart(){
+    fetch('/cart.js', { headers: { 'Accept': 'application/json' } })
+      .then(function(r){ return r.json(); })
+      .then(function(cart){
+        var have = {};
+        (cart.items || []).forEach(function(it){ have[it.variant_id] = it.quantity; });
+        if (have[MAIN_VARIANT]) { mainQty = have[MAIN_VARIANT]; if (mainQtyEl) mainQtyEl.textContent = mainQty; }
+        bumps.forEach(function(b){
+          var v = b.getAttribute('data-variant');
+          if (v && /^\d+$/.test(v)){
+            var q = have[parseInt(v, 10)];
+            if (q){
+              b.setAttribute('data-qty', q);
+              var nEl = b.querySelector('.pd-qty-n');
+              if (nEl) nEl.textContent = q;
+              setOn(b, true);
+            }
+          }
         });
+        render();
+        if (!have[MAIN_VARIANT]) queueSync(); // put the Disk in the real cart
       })
+      .catch(function(){ render(); });
+  }
+  initFromCart();
+
+  /* ===== Checkout =====
+     The cart is already kept in sync live (see syncCart above), so Checkout
+     just flushes the latest state, then hands off to Shopify's secure
+     checkout — where PayPal / Shop Pay / Klarna installment options appear. */
+  function goToCheckout(){
+    syncCart()
       .then(function(){ window.location.href = '/checkout'; })
-      .catch(function(){ window.location.href = '/cart'; });
+      .catch(function(){ window.location.href = '/checkout'; });
   }
 
   var checkoutBtn = document.querySelector('.pd .pd-checkout');
