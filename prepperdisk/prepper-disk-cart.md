@@ -246,6 +246,7 @@ Copy everything inside the code block below:
 
 /* Installments divider + provider buttons */
 .pd .pd-inst { margin-top: 1.5rem; }
+.pd .pd-inst[hidden] { display: none; }
 .pd .pd-inst-div { display: flex; align-items: center; gap: 0.75rem; color: #888; font-size: 0.85em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
 .pd .pd-inst-div::before, .pd .pd-inst-div::after { content: ""; flex: 1; height: 1px; background: #e3e3e3; }
 .pd .pd-inst-sub { text-align: center; color: #555; font-size: 0.9em !important; margin: -0.5rem 0 1rem; }
@@ -299,7 +300,7 @@ Copy everything inside the code block below:
 <div class="pd-container">
 
 <div class="pd-cart-head">
-<h1>Good News! Your Prepper Disk is in stock and ready to be shipped out!</h1>
+<h1>Great News, your Prepper Disk is in stock and ready to be shipped out!</h1>
 <span class="pd-cart-secure">
 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
 Secure 256-bit encrypted checkout
@@ -410,9 +411,9 @@ Secure 256-bit encrypted checkout
 Guaranteed safe &amp; secure checkout
 </div>
 
-<div class="pd-inst">
+<div class="pd-inst" id="pdInst">
 <div class="pd-inst-div">or</div>
-<p class="pd-inst-sub"><strong>Pay as low as <u>$69.75</u> down in interest-free installments</strong></p>
+<p class="pd-inst-sub"><strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong></p>
 <div class="pd-inst-btns">
 <button type="button" class="pd-pay-btn pd-pay-paypal"><b>Pay<span class="pd-pp2">Pal</span></b></button>
 <button type="button" class="pd-pay-btn pd-pay-shop">Shop&nbsp;Pay</button>
@@ -548,6 +549,17 @@ Guaranteed safe &amp; secure checkout
     if (state) state.textContent = unlocked ? 'Unlocked' : 'Locked';
   }
 
+  // Installment mention — the "as low as $X down" figure is only accurate for a
+  // single Prepper Disk on its own, so show it ONLY when the cart is exactly
+  // 1 Disk with no add-ons. Any bump selected, or qty > 1, hides the whole block.
+  var instEl = document.getElementById('pdInst');
+  function updateInstallments(){
+    if (!instEl) return;
+    var anyBump = false;
+    bumps.forEach(function(b){ if (b.classList.contains('pd-on')) anyBump = true; });
+    instEl.hidden = (mainQty !== 1) || anyBump;
+  }
+
   function render(){
     // clear existing bump rows (keep the base product row = first child)
     rowsWrap.querySelectorAll('.pd-bump-row').forEach(function(el){ el.remove(); });
@@ -575,6 +587,7 @@ Guaranteed safe &amp; secure checkout
     });
     totalEl.textContent = money(total);
     updateWarranty();
+    updateInstallments();
   }
 
   function setOn(b, on){
