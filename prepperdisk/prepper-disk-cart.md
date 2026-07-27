@@ -75,11 +75,34 @@ template. There is **no `{% schema %}` block**: schema only belongs in
 *section* files, and a page template must not contain one (it's what broke
 the template earlier).
 
+**Hide the header/nav on this page (footer stays).** The first line of the
+code block is `{% layout 'no-header' %}`, which tells Shopify to render this
+page with a stripped-down layout instead of the default. You need to create
+that layout once:
+
+1. In **Edit code → Layout**, open `theme.liquid`, **Copy** its full contents.
+2. Add a new layout file named `no-header` (Shopify creates
+   `layout/no-header.liquid`) and paste the contents in.
+3. In that new file, **delete the header line** — in Dawn that's
+   `{% sections 'header-group' %}` (this also removes the announcement bar).
+   Leave `{% sections 'footer-group' %}` in place so the footer stays.
+4. Save. The `{% layout 'no-header' %}` directive already at the top of this
+   template will now use it, on this page only — every other page keeps the
+   normal header.
+
+(If you'd rather keep the header for now, just delete that first
+`{% layout 'no-header' %}` line and the page falls back to the default layout.)
+
 **Do not click Shopify's "Format" button** after pasting.
 
 Copy everything inside the code block below:
 
 ```liquid
+{%- comment -%} Render this page without the theme header/nav (footer stays).
+  Requires a layout/no-header.liquid file — see the "Hide the header/nav"
+  note above. Remove this next line to fall back to the default layout. {%- endcomment -%}
+{% layout 'no-header' %}
+
 {%- comment -%}
   ── Add-on product config ────────────────────────────────────────────────
   Shopify's cart adds items by VARIANT id, not by the PRODUCT id shown in the
