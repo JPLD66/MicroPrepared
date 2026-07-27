@@ -246,7 +246,6 @@ Copy everything inside the code block below:
 
 /* Installments divider + provider buttons */
 .pd .pd-inst { margin-top: 1.5rem; }
-.pd .pd-inst[hidden] { display: none; }
 .pd .pd-inst-div { display: flex; align-items: center; gap: 0.75rem; color: #888; font-size: 0.85em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 1rem; }
 .pd .pd-inst-div::before, .pd .pd-inst-div::after { content: ""; flex: 1; height: 1px; background: #e3e3e3; }
 .pd .pd-inst-sub { text-align: center; color: #555; font-size: 0.9em !important; margin: -0.5rem 0 1rem; }
@@ -411,9 +410,9 @@ Secure 256-bit encrypted checkout
 Guaranteed safe &amp; secure checkout
 </div>
 
-<div class="pd-inst" id="pdInst">
+<div class="pd-inst">
 <div class="pd-inst-div">or</div>
-<p class="pd-inst-sub"><strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong></p>
+<p class="pd-inst-sub" id="pdInstSub"><strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong></p>
 <div class="pd-inst-btns">
 <button type="button" class="pd-pay-btn pd-pay-paypal"><b>Pay<span class="pd-pp2">Pal</span></b></button>
 <button type="button" class="pd-pay-btn pd-pay-shop">Shop&nbsp;Pay</button>
@@ -549,15 +548,18 @@ Guaranteed safe &amp; secure checkout
     if (state) state.textContent = unlocked ? 'Unlocked' : 'Locked';
   }
 
-  // Installment mention — the "as low as $X down" figure is only accurate for a
-  // single Prepper Disk on its own, so show it ONLY when the cart is exactly
-  // 1 Disk with no add-ons. Any bump selected, or qty > 1, hides the whole block.
-  var instEl = document.getElementById('pdInst');
+  // Installment mention — the "as low as $95.80 down" figure is only accurate
+  // for a single Prepper Disk on its own. For any other selection (an add-on
+  // selected, or qty > 1) we keep the block but swap in a figure-free sentence.
+  var instSubEl = document.getElementById('pdInstSub');
+  var INST_SINGLE = '<strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong>';
+  var INST_OTHER  = '<strong>Spread your payment into interest-free installments</strong>';
   function updateInstallments(){
-    if (!instEl) return;
+    if (!instSubEl) return;
     var anyBump = false;
     bumps.forEach(function(b){ if (b.classList.contains('pd-on')) anyBump = true; });
-    instEl.hidden = (mainQty !== 1) || anyBump;
+    var single = (mainQty === 1) && !anyBump;
+    instSubEl.innerHTML = single ? INST_SINGLE : INST_OTHER;
   }
 
   function render(){
