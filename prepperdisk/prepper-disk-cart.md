@@ -421,7 +421,7 @@ Secure 256-bit encrypted checkout
 <div class="pd-warranty-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/2yearwrranty.png?v=1785291058" alt="2-year premium warranty"></div>
 <div class="pd-warranty-body">
 <div class="pd-warranty-title">2 Years Warranty on Your Prepper Disk <span class="pd-warranty-state">Locked</span> <span class="pd-warranty-free">Free</span></div>
-<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended.</div>
+<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended. You also get premium support with a direct line to Adam.</div>
 </div>
 </div>
 {%- endif -%}
