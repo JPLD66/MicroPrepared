@@ -13,11 +13,18 @@ Key differences from the reference screenshot (all intentional):
 - **Two order bumps** with checkmark toggles:
   1. **10+ hour Battery — $22.99** (powers the Disk 10–20 hrs when the grid is down)
   2. **EMP-Shielding Faraday Bag — $22.99** (shields your Disk, phone & battery)
-- A **"2 Years Warranty" unlock row** sits below the bumps. It reads
-  **Locked** by default and flips to a green **Unlocked** state when *both*
-  the Battery and the Faraday Bag are added (and reverts if either is
-  removed). It's a display-only incentive — it does **not** add a product to
-  the cart. The **order summary total updates live** as bumps are toggled.
+- A **"2 Years Warranty" unlock row** (with the warranty product image) sits
+  below the bumps. It reads **Locked** by default and flips to a green
+  **Unlocked / Free** state when *both* the Battery and the Faraday Bag are
+  added (and reverts if either is removed). When unlocked, the real
+  **`two-year-premium-warranty`** product is **auto-added to the cart** (and
+  removed if you deselect an add-on), and it shows as a **Free** line in the
+  order summary.
+  - ⚠️ **Making it actually $0 is a Shopify-side step.** The page can't zero a
+    price — Shopify charges the real variant price at checkout. Either set the
+    warranty product's price to **0**, or (better) create an **automatic
+    discount**: *Buy Battery + Faraday → 2-Year Warranty 100% off*. Set that up
+    before going live, or the customer will be charged Adam's price.
 - **Two payment paths** in the summary:
   - **Checkout** — full price by credit card or a payment provider. This
     button is the **exact same red CTA** as the landing page (`.pd-btn`).
@@ -123,6 +130,16 @@ Copy everything inside the code block below:
 {%- assign faraday_handle = 'emp-protection-bag-faraday-defense-nx3' -%}
 {%- assign battery_vid = all_products[battery_handle].selected_or_first_available_variant.id -%}
 {%- assign faraday_vid = all_products[faraday_handle].selected_or_first_available_variant.id -%}
+
+{%- comment -%}
+  The 2-year warranty is a real product. It's auto-added to the cart when BOTH
+  add-ons are selected, and shown as "Free" on this page. To actually charge $0,
+  set up a Shopify automatic discount (Buy Battery + Faraday → this warranty at
+  100% off) or set the product's price to 0 — the page cannot zero a price on
+  its own; Shopify charges the real variant price at checkout.
+{%- endcomment -%}
+{%- assign warranty_handle = 'two-year-premium-warranty' -%}
+{%- assign warranty_vid = all_products[warranty_handle].selected_or_first_available_variant.id -%}
 
 {%- comment -%}
   ── Region gate ───────────────────────────────────────────────────────────
@@ -242,6 +259,9 @@ Copy everything inside the code block below:
 .pd .pd-warranty-title { font-weight: 800; color: #666; font-size: 1em !important; display: flex; align-items: center; gap: 0.55rem; flex-wrap: wrap; }
 .pd .pd-warranty-state { font-size: 0.68em !important; font-weight: 800; letter-spacing: 0.06em; padding: 0.15rem 0.55rem; border-radius: 999px; background: #e3e3e3; color: #777; text-transform: uppercase; }
 .pd .pd-warranty-desc { color: #777; font-size: 0.86em !important; line-height: 1.45; margin-top: 0.2rem; }
+.pd .pd-warranty-img { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 8px; overflow: hidden; background: #fff; border: 1px solid #eaeaea; display: flex; align-items: center; justify-content: center; }
+.pd .pd-warranty-img img { width: 100%; height: 100%; object-fit: contain; padding: 3px; }
+.pd .pd-warranty-free { font-size: 0.68em !important; font-weight: 800; letter-spacing: 0.06em; padding: 0.15rem 0.55rem; border-radius: 999px; background: #eafaf0; color: #1e8449; text-transform: uppercase; border: 1px solid #bfe6cd; }
 .pd .pd-warranty.pd-unlocked { border-style: solid; border-color: #27ae60; background: #eafaf0; box-shadow: 0 2px 12px rgba(39,174,96,0.15); }
 .pd .pd-warranty.pd-unlocked .pd-warranty-icon { color: #1e8449; }
 .pd .pd-warranty.pd-unlocked .pd-warranty-icon .pd-ico-lock { display: none; }
@@ -396,14 +416,11 @@ Secure 256-bit encrypted checkout
 </div>
 
 {%- if show_us_only -%}
-<!-- Warranty unlock (US only — requires the battery): green when BOTH the battery and the faraday bag are added -->
-<div class="pd-warranty" id="pdWarranty" aria-live="polite">
-<div class="pd-warranty-icon">
-<svg class="pd-ico-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>
-<svg class="pd-ico-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 7.5-2.3"/><path d="M9 15.5l2 2 3.5-3.5"/></svg>
-</div>
+<!-- Warranty unlock (US only — requires the battery): green when BOTH bumps are added; auto-adds the free 2-year warranty product to the cart -->
+<div class="pd-warranty" id="pdWarranty" data-variant="{{ warranty_vid }}" aria-live="polite">
+<div class="pd-warranty-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/2yearwrranty.png?v=1785291058" alt="2-year premium warranty"></div>
 <div class="pd-warranty-body">
-<div class="pd-warranty-title">2 Years Warranty on Your Prepper Disk <span class="pd-warranty-state">Locked</span></div>
+<div class="pd-warranty-title">2 Years Warranty on Your Prepper Disk <span class="pd-warranty-state">Locked</span> <span class="pd-warranty-free">Free</span></div>
 <div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended.</div>
 </div>
 </div>
@@ -559,6 +576,7 @@ Guaranteed safe &amp; secure checkout
 
   // Warranty unlock — green/UNLOCKED only when BOTH bumps are added
   var warrantyEl = document.getElementById('pdWarranty');
+  var warrantyVariant = (warrantyEl && /^\d+$/.test(warrantyEl.getAttribute('data-variant') || '')) ? parseInt(warrantyEl.getAttribute('data-variant'), 10) : null;
   function bumpIsOn(key){
     var el = document.querySelector('.pd .pd-bump[data-bump="' + key + '"]');
     return !!(el && el.classList.contains('pd-on'));
@@ -610,6 +628,13 @@ Guaranteed safe &amp; secure checkout
         rowsWrap.appendChild(row);
       }
     });
+    if (warrantyVariant && bumpIsOn('battery') && bumpIsOn('faraday')){
+      var wrow = document.createElement('div');
+      wrow.className = 'pd-sum-row pd-bump-row';
+      wrow.innerHTML = '<span class="pd-sum-label">+ 2-Year Warranty</span>' +
+                       '<span class="pd-sum-val" style="color:#1e8449">Free</span>';
+      rowsWrap.appendChild(wrow);
+    }
     totalEl.textContent = money(total);
     updateWarranty();
     updateInstallments();
@@ -642,6 +667,10 @@ Guaranteed safe &amp; secure checkout
         desired[parseInt(v, 10)] = b.classList.contains('pd-on') ? qtyOf(b) : 0;
       }
     });
+    // Free 2-year warranty: in the cart only while BOTH add-ons are selected
+    if (warrantyVariant){
+      desired[warrantyVariant] = (bumpIsOn('battery') && bumpIsOn('faraday')) ? 1 : 0;
+    }
     return desired;
   }
   function syncCart(){
@@ -757,7 +786,9 @@ Guaranteed safe &amp; secure checkout
           }
         });
         render();
-        if (!have[MAIN_VARIANT]) queueSync(); // put the Disk in the real cart
+        // Reconcile the real cart with the reflected state: adds the Disk if
+        // missing, and adds/removes the free warranty to match the add-ons.
+        queueSync();
       })
       .catch(function(){ render(); });
   }
