@@ -399,7 +399,7 @@ Copy everything inside the code block below:
 <p class="pd-hero-italic">Even when the internet and grid are down (forever)</p>
 <ul class="pd-bullets">
 </ul>
-<a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a>
+<a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
 <div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
@@ -584,7 +584,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <div class="pd-sol-text">
 <p class="pd-sol-outro">60 seconds later your off-line library is up and running</p>
 </div>
-<div class="pd-cta-div"><a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a></div>
+<div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a></div>
 </div>
 </section>
 
@@ -746,7 +746,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <div class="pd-cards-hint" id="pdCardsHint">Swipe <span class="pd-hint-arrow">→</span> for <span class="pd-hint-label">Crisis Response</span></div>
 <div class="pd-cards-dots" id="pdCardsDots"></div>
 <p class="pd-updates">Plus, we release new content updates regularly to keep your library growing over time.</p>
-<div class="pd-cta-div"><a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a></div>
+<div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a></div>
 </div>
 </section>
 
@@ -884,7 +884,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 </div>
 </div>
 </div>
-<div class="pd-cta-div"><a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a></div>
+<div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a></div>
 </div>
 </section>
 
@@ -949,7 +949,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>USB-C charger and cable included</li>
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
-<a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-mono-cta">Order Now</a>
+<a href="/pages/pd-custom-cart" class="pd-mono-cta">Order Now</a>
 <div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
@@ -1048,7 +1048,7 @@ setTimeout(reinit, 3500);
 </button>
 </div>
 </div>
-<div class="pd-cta-div"><a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">Get My Prepper Disk →</a></div>
+<div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a></div>
 </div>
 </section>
 
@@ -1085,7 +1085,7 @@ setTimeout(reinit, 3500);
 <p>Yours to keep forever, without subscriptions.</p>
 <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
 <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment. Yours might be next!</p>
-<div class="pd-cta-div"><a href="/cart/add?id=43384681136182&quantity=1&return_to=/cart" class="pd-btn">I Choose This</a></div>
+<div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">I Choose This</a></div>
 </div>
 </div>
 </div>
