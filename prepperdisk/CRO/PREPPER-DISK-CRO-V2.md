@@ -400,7 +400,7 @@ Copy everything inside the code block below:
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $95.80 down today</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
 </section>
@@ -950,7 +950,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-mono-cta">Order Now</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $69.75 down today</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $95.80 down today</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
 <div class="pd-titem">🚚 Ships from the USA</div>
