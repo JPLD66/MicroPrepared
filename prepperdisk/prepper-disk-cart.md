@@ -198,6 +198,9 @@ Copy everything inside the code block below:
 .pd .pd-line-meta { color: #666; font-size: 0.9em !important; margin-bottom: 0.6rem; }
 .pd .pd-line-rating { color: #f5a623; font-size: 0.95em; }
 .pd .pd-line-rating span { color: #666; }
+.pd .pd-reviews-link { color: #1a73e8; text-decoration: underline; cursor: pointer; }
+.pd .pd-reviews-link:hover { color: #1257b0; }
+.pd #pd-reviews { scroll-margin-top: 80px; }
 .pd .pd-line-qty { display: inline-flex; align-items: center; gap: 0.6rem; margin-top: 0.75rem; }
 .pd .pd-line-price { text-align: right; flex-shrink: 0; }
 .pd .pd-line-price .pd-now { font-size: 1.4em; font-weight: 800; color: #0d2b1a; }
@@ -333,7 +336,7 @@ Copy everything inside the code block below:
 <div class="pd-container">
 
 <div class="pd-cart-head">
-<h1>Great News, your Prepper Disk is in stock and ready to be shipped out!</h1>
+<h1>Your Cart</h1>
 <span class="pd-cart-secure">
 <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
 Secure 256-bit encrypted checkout
@@ -350,7 +353,7 @@ Secure 256-bit encrypted checkout
 <div class="pd-line-body">
 <h3>Prepper Disk Premium · 512GB</h3>
 <div class="pd-line-meta">Off-line survival library · Yours to keep for life</div>
-<div class="pd-line-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8 / 5 &middot; 124+ reviews</span></div>
+<div class="pd-line-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span>4.8 / 5 &middot; <a href="#pd-reviews" class="pd-reviews-link">124+ reviews</a></span></div>
 <div class="pd-line-qty">
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -457,7 +460,7 @@ Guaranteed safe &amp; secure checkout
 </div>
 </section>
 
-<section class="pd-block pd-alt">
+<section class="pd-block pd-alt" id="pd-reviews">
 <div class="pd-container">
 <h2>Stashed With 7,000+ Households</h2>
 <p class="pd-sub">From homesteaders to prepared families, here's what people are saying.</p>
@@ -804,6 +807,16 @@ Guaranteed safe &amp; secure checkout
   document.querySelectorAll('.pd .pd-pay-btn').forEach(function(btn){
     btn.addEventListener('click', goToCheckout);
   });
+
+  // "124+ reviews" link → smooth-scroll to the testimonials section
+  var reviewsLink = document.querySelector('.pd .pd-reviews-link');
+  if (reviewsLink){
+    reviewsLink.addEventListener('click', function(e){
+      e.preventDefault();
+      var target = document.getElementById('pd-reviews');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 })();
 </script>
 ```
