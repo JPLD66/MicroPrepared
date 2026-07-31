@@ -214,6 +214,8 @@ Copy everything inside the code block below:
 .pd .pd-bumps { margin-top: 1.5rem; }
 .pd .pd-bumps-title { font-size: 0.95em !important; font-weight: 800; color: #0d2b1a; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
 .pd .pd-bumps-title::before { content: "★"; color: #f5a623; }
+.pd .pd-bumps-sub { font-size: 0.85em !important; color: #555; font-weight: 600; margin: -0.4rem 0 0.9rem; }
+.pd .pd-bumps-sub strong { color: #1e8449; }
 .pd .pd-bump { display: flex; gap: 1rem; align-items: flex-start; background: #fff; border: 2px solid #e3e3e3; border-radius: 12px; padding: 1rem 1.15rem; margin-bottom: 0.85rem; cursor: pointer; transition: border-color 0.15s, background 0.15s, box-shadow 0.15s; }
 .pd .pd-bump:hover { border-color: #bcdcc7; }
 .pd .pd-bump.pd-on { border-color: #27ae60; background: #f3faf5; box-shadow: 0 2px 12px rgba(39,174,96,0.12); }
@@ -279,6 +281,9 @@ Copy everything inside the code block below:
 
 /* Checkout CTA — identical red button to the landing page, full width */
 .pd .pd-checkout { display: block; width: 100%; text-align: center; padding: 1.1rem; font-size: 1.15em !important; }
+/* Extra Checkout button shown only on mobile, right under the cart item */
+.pd .pd-checkout-mobile { display: none; }
+@media (max-width: 860px) { .pd .pd-checkout-mobile { display: block; margin-top: 1rem; } }
 .pd .pd-pay-secure { text-align: center; color: #1e8449; font-size: 0.82em; font-weight: 600; margin-top: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
 
 /* Installments divider + provider buttons */
@@ -337,10 +342,6 @@ Copy everything inside the code block below:
 
 <div class="pd-cart-head">
 <h1>Your Cart</h1>
-<span class="pd-cart-secure">
-<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-Secure 256-bit encrypted checkout
-</span>
 </div>
 
 <div class="pd-cart-grid">
@@ -366,8 +367,12 @@ Secure 256-bit encrypted checkout
 <div class="pd-line-price"><span class="pd-now">$279</span></div>
 </div>
 
+<!-- Mobile-only early Checkout (desktop shows only the summary button) -->
+<button type="button" class="pd-btn pd-checkout pd-checkout-mobile">Checkout</button>
+
 <div class="pd-bumps">
-<div class="pd-bumps-title">Don't miss out on these add-ons:</div>
+<div class="pd-bumps-title">Fortify your Prepper Disk with:</div>
+{%- if show_us_only -%}<div class="pd-bumps-sub">…and get <strong>2 years of FREE warranty</strong></div>{%- endif -%}
 
 {%- if show_us_only -%}
 <!-- Bump 1: Battery (US only — battery ships within the US) -->
@@ -798,8 +803,9 @@ Guaranteed safe &amp; secure checkout
       .catch(function(){ window.location.href = '/checkout'; });
   }
 
-  var checkoutBtn = document.querySelector('.pd .pd-checkout');
-  if (checkoutBtn) checkoutBtn.addEventListener('click', goToCheckout);
+  document.querySelectorAll('.pd .pd-checkout').forEach(function(btn){
+    btn.addEventListener('click', goToCheckout);
+  });
 
   // Installment buttons currently route to the same secure checkout, where the
   // customer chooses their pay-over-time provider. See notes for the real
