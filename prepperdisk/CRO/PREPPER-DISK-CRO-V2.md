@@ -26,6 +26,24 @@ Copy everything inside the code block below:
 
 ```liquid
 <style>
+/* ===== Hide Dawn's header / nav on this page (footer stays) =================
+   This <style> block only renders on the page this section is added to, so
+   these rules are already page-scoped — no JS and no custom layout file.
+
+   Dawn nests the header as:
+     <div class="shopify-section ... section-header">   <- position: sticky
+       <sticky-header class="header-wrapper ...">       <- the visible bar
+   Hiding only the inner element leaves the sticky outer div behind, so all
+   three are targeted. `sticky-header` is Dawn's custom element; the theme
+   falls back to a plain <div class="header-wrapper"> when sticky is off. */
+.section-header,
+.header-wrapper,
+sticky-header { display: none !important; }
+
+/* Optional — also remove the announcement / utility bar above the nav (the
+   yellow "BACK IN STOCK" strip). Uncomment the next line to switch it on. */
+/* .announcement-bar-section, .utility-bar { display: none !important; } */
+
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 .pd, .pd * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
@@ -395,7 +413,7 @@ Copy everything inside the code block below:
 <div class="pd-container">
 <h1>A 512GB Survival Library That Fits in Your Pocket</h1>
 <div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
-<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts Thousands of How-To Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools Made by Experts <span class="pd-hl">on Your Phone or Laptop</span></p>
+<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts 1,000s of Expert-Made Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools <span class="pd-hl">on Your Phone or Laptop</span></p>
 <p class="pd-hero-italic">Even when the internet and grid are down (forever)</p>
 <ul class="pd-bullets">
 </ul>
@@ -1084,7 +1102,7 @@ setTimeout(reinit, 3500);
 </ol>
 <p>Yours to keep forever, without subscriptions.</p>
 <div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
-<p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jackson preparing Prepper Disks for shipment. Yours might be next!</p>
+<p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jude preparing Prepper Disks for shipment. Yours might be next!</p>
 <div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">I Choose This</a></div>
 </div>
 </div>
