@@ -588,7 +588,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <div class="pd-container">
 <h2>Grab Your Off-Line Emergency Internet</h2>
 <p class="pd-sub">No larger than a deck of cards, the Prepper Disk fits in your pocket, bug-out-bag, or desk drawer</p>
-<div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo.webp?v=1778838659" alt="Prepper Disk setup demo"></div>
+<div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo_TP.webp?v=1779096631" alt="Prepper Disk setup demo"></div>
 <div class="pd-sol-text">
 <p class="pd-sol-lead">Setup is simple:</p>
 </div>
