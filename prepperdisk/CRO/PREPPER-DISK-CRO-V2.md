@@ -24,11 +24,6 @@ is the "View More" behaviour.
 
 Copy everything inside the code block below:
 
-> **⚠ ONE THING TO FILL IN:** the hero video `src` is `PASTE_VIDEO_URL_HERE`.
-> In Shopify go to **Content → Files**, find **PD - Body - Urban Prepper**,
-> click it, **Copy link**, and paste that URL over `PASTE_VIDEO_URL_HERE`.
-> Everything else is wired up.
-
 ```liquid
 <style>
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -420,8 +415,8 @@ Copy everything inside the code block below:
 <div class="pd-container">
 <h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm"><span class="pd-hl">That easily fits in your pocket</span></span></h1>
 <div class="pd-hero-video">
-<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659">
-<source src="PASTE_VIDEO_URL_HERE" type="video/mp4">
+<video preload="metadata">
+<source src="https://cdn.shopify.com/videos/c/o/v/e274a2371ac4463581537eab9f1a7978.mp4" type="video/mp4">
 </video>
 <span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 </div>
@@ -571,12 +566,7 @@ Most are not worried anymore about the “if”, but of the “when”.</p>
 <div class="pd-container">
 <h2>Grab Your Off-Line Emergency Internet</h2>
 <p class="pd-sub">No larger than a deck of cards, the Prepper Disk fits in your pocket, bug-out-bag, or desk drawer</p>
-<div class="pd-sol-video">
-<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/VSL_for_SP_-Cover.jpg?v=1784711028">
-<source src="https://cdn.shopify.com/videos/c/o/v/e10386f244fc43429e05aedab053a2b9.mp4" type="video/mp4">
-</video>
-<span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-</div>
+<div class="pd-ph pd-sol-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Setup_Demo.webp?v=1778838659" alt="Prepper Disk setup demo"></div>
 <div class="pd-sol-text">
 <p class="pd-sol-lead">Setup is simple:</p>
 </div>
