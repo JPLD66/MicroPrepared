@@ -230,6 +230,15 @@ Copy everything inside the code block below:
 .pd .pd-bump-img img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
 @media (max-width: 480px) { .pd .pd-bump-img { flex-basis: 52px; width: 52px; height: 52px; } }
 .pd .pd-bump-body { flex: 1; min-width: 0; }
+/* Phones: stop the description getting squeezed into a narrow column.
+   Top row = checkbox + image + price; title/description flow full-width below. */
+@media (max-width: 600px) {
+.pd .pd-bump { display: grid; grid-template-columns: auto auto 1fr; grid-template-areas: "box img price" "body body body"; column-gap: 0.85rem; row-gap: 0.6rem; align-items: center; }
+.pd .pd-bump-box { grid-area: box; margin-top: 0; }
+.pd .pd-bump-img { grid-area: img; }
+.pd .pd-bump-price { grid-area: price; text-align: right; align-self: center; }
+.pd .pd-bump-body { grid-area: body; }
+}
 .pd .pd-bump-name { font-weight: 800; color: #0d2b1a; font-size: 1.02em !important; display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
 .pd .pd-bump-tag { background: #f5a623; color: #1a1a1a; font-size: 0.62em !important; font-weight: 800; padding: 0.15rem 0.5rem; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.05em; }
 .pd .pd-bump-desc { color: #555; font-size: 0.9em !important; line-height: 1.5; margin-top: 0.25rem; }
