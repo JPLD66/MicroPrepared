@@ -68,7 +68,7 @@ Copy everything inside the code block below:
 .pd .pd-h1-sm { font-size: 0.68em !important; margin-top: 0.35rem; }
 .pd .pd-hero .pd-sub { font-size: 0.9em !important; line-height: 1.5 !important; margin-bottom: 1.1rem; }
 .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
-.pd .pd-hero-italic { font-size: 0.9em !important; margin: -0.5rem auto 1.1rem; }
+.pd .pd-hero-claim { font-size: 0.9em !important; margin: -0.6rem auto 1.1rem; }
 .pd h1 { font-size: 1.5em !important; }
 }
 .pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
@@ -101,7 +101,7 @@ Copy everything inside the code block below:
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 .pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
 .pd .pd-hl { background: #ffe680; padding: 0.05em 0.22em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.pd .pd-hero-italic { font-style: italic; font-weight: 400; color: #555; font-size: 1em !important; max-width: 800px; margin: -0.75rem auto 2rem; }
+.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.15em !important; max-width: 800px; margin: -0.5rem auto 2rem; }
 
 @media (max-width: 600px) {
 }
@@ -415,13 +415,17 @@ Copy everything inside the code block below:
 <div class="pd-container">
 <h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm"><span class="pd-hl">That easily fits in your pocket</span></span></h1>
 <div class="pd-hero-video">
-<video preload="metadata">
+<!-- poster = the still shown before play. A thumbnail set on the video in
+     Shopify Files is a separate asset and is NOT delivered by the raw .mp4
+     URL, so it must be pointed at an image URL here. Swap this for your own
+     thumbnail: upload it to Content > Files, Copy link, paste below. -->
+<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659">
 <source src="https://cdn.shopify.com/videos/c/o/v/e274a2371ac4463581537eab9f1a7978.mp4" type="video/mp4">
 </video>
 <span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 </div>
 <p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts 1,000s of Expert-Made Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools on Your Phone or Laptop</p>
-<p class="pd-hero-italic"><span class="pd-hl">Even when the internet and grid are down (forever)</span></p>
+<p class="pd-hero-claim">Works Without Internet Or Grid Power</p>
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
@@ -1103,7 +1107,7 @@ setTimeout(reinit, 3500);
 <li>And start exploring the content!</li>
 </ol>
 <p>Yours to keep forever, without subscriptions.</p>
-<div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jackson packing a Prepper Disk"></div>
+<div class="pd-ph"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Jackson_Packing.webp?v=1778838659" alt="Jude packing a Prepper Disk"></div>
 <p style="font-style: italic; text-align: center; font-size: 0.85em !important; color: #666; margin: 0.5rem 0 0;">My son Jude preparing Prepper Disks for shipment. Yours might be next!</p>
 <div class="pd-cta-div"><a href="/pages/pd-custom-cart" class="pd-btn">I Choose This</a></div>
 </div>
