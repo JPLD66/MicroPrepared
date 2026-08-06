@@ -9,7 +9,8 @@ Key differences from the reference screenshot (all intentional):
 
 - **No custom fields.** This is a **cart** page, not a checkout — so there's
   no name/address/card form. The customer enters that on the real checkout.
-- **No trust bar** (per request).
+- **A slim trust row** under the headline (secure checkout · 60-day guarantee
+  · 1-year hardware warranty).
 - **Two order bumps** with checkmark toggles:
   1. **10+ hour Battery — $22.99** (powers the Disk 10–20 hrs when the grid is down)
   2. **EMP-Shielding Faraday Bag — $22.99** (shields your Disk, phone & battery)
@@ -54,6 +55,10 @@ Key differences from the reference screenshot (all intentional):
   battery HTML is never even sent to them (no flash, and the cart sync can't
   try to add a variant Shopify would reject). Change the market by editing
   `us_only_country` at the top of the code block.
+- **Mobile order bumps** reflow at ≤600px: checkbox + image + price on a top
+  row, with the title/description flowing full-width beneath (otherwise the
+  text gets squeezed into a narrow, tall column between the fixed-width image
+  and price).
 - **Testimonials** (all three from the landing page), the **60-Day Peace of
   Mind Guarantee**, and the **same FAQ** are carried over below the cart.
 
@@ -82,19 +87,13 @@ template. There is **no `{% schema %}` block**: schema only belongs in
 *section* files, and a page template must not contain one (it's what broke
 the template earlier).
 
-**Hide the header/nav on this page (footer stays) — currently OFF.** The page
-uses the theme's default layout (header + footer) right now. To strip the
-header/nav on this page only, later:
-
-1. In **Edit code → Layout**, open `theme.liquid`, **Copy** its full contents.
-2. Add a new layout file named `no-header` (Shopify creates
-   `layout/no-header.liquid`) and paste the contents in.
-3. In that new file, **delete the header line** — in Dawn that's
-   `{% sections 'header-group' %}` (this also removes the announcement bar).
-   Leave `{% sections 'footer-group' %}` in place so the footer stays.
-4. Add `{% layout 'no-header' %}` as the **first line** of this template's
-   code block. It applies on this page only — every other page keeps the
-   normal header. (Remove that line to go back to the default layout.)
+**Header/nav hidden via CSS.** The top of the code block adds a
+`pd-custom-cart-page` class to `<html>` and hides Dawn's `.header-wrapper` /
+`sticky-header` on this page only (the footer stays). If you'd rather use a
+dedicated layout instead (which also removes the announcement bar), create
+`layout/no-header.liquid` from a copy of `theme.liquid` minus
+`{% sections 'header-group' %}`, and add `{% layout 'no-header' %}` as the
+first line of this template.
 
 **Do not click Shopify's "Format" button** after pasting.
 
@@ -144,7 +143,12 @@ Copy everything inside the code block below:
 {%- assign show_us_only = false -%}
 {%- if localization.country.iso_code == us_only_country -%}{%- assign show_us_only = true -%}{%- endif -%}
 
+<script>document.documentElement.classList.add('pd-custom-cart-page');</script>
 <style>
+/* Hide only Dawn's main navigation on this custom cart page. */
+html.pd-custom-cart-page .header-wrapper,
+html.pd-custom-cart-page sticky-header { display: none !important; }
+
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 .pd, .pd * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
@@ -185,7 +189,15 @@ Copy everything inside the code block below:
 .pd .pd-cart { padding: 2.5rem 0 3.5rem; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
 .pd .pd-cart-head { text-align: center; margin-bottom: 2rem; }
 .pd .pd-cart-head h1 { font-size: 2.1em !important; color: #0d2b1a; margin-bottom: 0.35rem; }
+.pd .pd-cart-fulfillment { color: #555; font-size: 1em; margin-bottom: 0.3rem; }
 .pd .pd-cart-head .pd-cart-secure { color: #1e8449; font-weight: 700; font-size: 0.95em; display: inline-flex; align-items: center; gap: 0.4rem; }
+.pd .pd-cart-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.35rem 1rem; color: #1e8449; font-size: 0.88em; font-weight: 700; margin-top: 0.35rem; }
+.pd .pd-cart-trust span { display: inline-flex; align-items: center; gap: 0.35rem; }
+@media (max-width: 600px) {
+.pd .pd-cart-head h1 { font-size: 1.65em !important; }
+.pd .pd-cart-fulfillment { font-size: 0.9em; line-height: 1.45; }
+.pd .pd-cart-trust { font-size: 0.78em; gap: 0.25rem 0.65rem; }
+}
 .pd .pd-cart-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 2.5rem; align-items: start; }
 @media (max-width: 860px) { .pd .pd-cart-grid { grid-template-columns: 1fr; gap: 1.75rem; } }
 
@@ -292,8 +304,13 @@ Copy everything inside the code block below:
 .pd .pd-checkout { display: block; width: 100%; text-align: center; padding: 1.1rem; font-size: 1.15em !important; }
 /* Extra Checkout button shown only on mobile, right under the cart item */
 .pd .pd-checkout-mobile { display: none; }
-@media (max-width: 860px) { .pd .pd-checkout-mobile { display: block; margin-top: 1rem; } }
+.pd .pd-checkout-assurance-mobile { display: none; }
+@media (max-width: 860px) {
+.pd .pd-checkout-mobile { display: block; margin-top: 1rem; }
+.pd .pd-checkout-assurance-mobile { display: block; }
+}
 .pd .pd-pay-secure { text-align: center; color: #1e8449; font-size: 0.82em; font-weight: 600; margin-top: 0.75rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
+.pd .pd-checkout-assurance { text-align: center; color: #555; font-size: 0.76em !important; line-height: 1.45 !important; margin: 0.55rem 0 0; }
 
 /* Installments divider + provider buttons */
 .pd .pd-inst { margin-top: 1.5rem; }
@@ -350,7 +367,13 @@ Copy everything inside the code block below:
 <div class="pd-container">
 
 <div class="pd-cart-head">
-<h1>Your Cart</h1>
+<h1>Your Prepper Disk Is Ready to Ship</h1>
+<div class="pd-cart-fulfillment">In stock and dispatched from Massachusetts within 3 business days.</div>
+<div class="pd-cart-trust">
+<span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Secure encrypted checkout</span>
+<span>&#10003; 60-day money-back guarantee</span>
+<span>&#10003; 1-year hardware warranty</span>
+</div>
 </div>
 
 <div class="pd-cart-grid">
@@ -377,11 +400,12 @@ Copy everything inside the code block below:
 </div>
 
 <!-- Mobile-only early Checkout (desktop shows only the summary button) -->
-<button type="button" class="pd-btn pd-checkout pd-checkout-mobile">Checkout</button>
+<button type="button" class="pd-btn pd-checkout pd-checkout-mobile">Continue to Secure Checkout</button>
+<p class="pd-checkout-assurance pd-checkout-assurance-mobile">60-day money-back guarantee &middot; 1-year hardware warranty</p>
 
 <div class="pd-bumps">
-<div class="pd-bumps-title">Fortify your Prepper Disk with:</div>
-{%- if show_us_only -%}<div class="pd-bumps-sub">…and get <strong>2 years of FREE warranty</strong></div>{%- endif -%}
+<div class="pd-bumps-title">Complete your emergency setup:</div>
+{%- if show_us_only -%}<div class="pd-bumps-sub">Add both accessories to unlock a <strong>free second year of hardware coverage</strong>.</div>{%- endif -%}
 
 {%- if show_us_only -%}
 <!-- Bump 1: Battery (US only — battery ships within the US) -->
@@ -390,7 +414,7 @@ Copy everything inside the code block below:
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Battery-2.png?v=1763005487" alt="Prepper Disk backup battery"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">10+ hour Battery</div>
-<div class="pd-bump-desc">This 10,000 mAh battery powers your Prepper Disk for <strong>10&ndash;20 hours</strong> when the grid goes down. Rechargeable via car cigarette lighter, solar generator, wall outlet, and more. Gives your Prepperdisk a 24/7 resistance against grid failures.</div>
+<div class="pd-bump-desc">A leading brand (Anker or INIU) battery to keep your Disk running for <strong>10&ndash;20 hours</strong> during an outage. Recharge this 10,000 mAh battery from a wall outlet, vehicle adapter, or compatible solar generator.</div>
 <div class="pd-bump-qty" data-qty-for="battery" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -410,7 +434,7 @@ Copy everything inside the code block below:
 <span class="pd-bump-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/NX3.png?v=1780083566" alt="EMP-shielding Faraday bag"></span>
 <div class="pd-bump-body">
 <div class="pd-bump-name">EMP-Shielding Faraday Bag</div>
-<div class="pd-bump-desc">Drop your phone, Prepper Disk, and battery inside and they&rsquo;re shielded. So even when an <strong>EMP fries every other electronic</strong>, you still have your emergency library unlike other poor souls.</div>
+<div class="pd-bump-desc">Protect your Prepper Disk, phone, and backup battery against an <strong>EMP</strong>. The highly rated NX3 by Faraday Defense uses <strong>three layers of nickel- and copper-plated shielding fabric</strong> designed for EMP protection. It also blocks outgoing signals like WIFI and Bluetooth, keeping your Disk and phone both EMP-shielded and off the digital radar.</div>
 <div class="pd-bump-qty" data-qty-for="faraday" hidden>
 <span class="pd-bump-qty-label">Qty</span>
 <div class="pd-qty">
@@ -428,8 +452,8 @@ Copy everything inside the code block below:
 <div class="pd-warranty" id="pdWarranty" data-variant="{{ warranty_vid }}" aria-live="polite">
 <div class="pd-warranty-img"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/2yearwrranty.png?v=1785291058" alt="2-year premium warranty"></div>
 <div class="pd-warranty-body">
-<div class="pd-warranty-title">2 Years Warranty on Your Prepper Disk <span class="pd-warranty-state">Locked</span> <span class="pd-warranty-free">Free</span></div>
-<div class="pd-warranty-desc">Add <strong>both</strong> the Battery and the Faraday Bag to unlock a bonus year of warranty on top of the 1 year already included: unlocking a full <strong>2 years of free replacements of your device</strong> in the rare case it stops working as intended. You also get premium support with a direct line to Adam.</div>
+<div class="pd-warranty-title">2-Year Hardware Warranty <span class="pd-warranty-state">Locked</span> <span class="pd-warranty-free">Free</span></div>
+<div class="pd-warranty-desc">Add <strong>both</strong> the backup battery and Faraday bag to extend the included one-year hardware warranty to <strong>two full years</strong>. If your Prepper Disk stops working as intended during the coverage period, you&rsquo;ll also receive premium support with a direct line to Adam.</div>
 </div>
 </div>
 {%- endif -%}
@@ -452,15 +476,16 @@ Copy everything inside the code block below:
 </div>
 <div class="pd-sum-ship">Shipping &amp; taxes calculated at checkout</div>
 
-<button type="button" class="pd-btn pd-checkout">Checkout</button>
+<button type="button" class="pd-btn pd-checkout">Continue to Secure Checkout</button>
 <div class="pd-pay-secure">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-Guaranteed safe &amp; secure checkout
+Secure encrypted payment
 </div>
+<p class="pd-checkout-assurance">60-day money-back guarantee &middot; 1-year hardware warranty</p>
 
 <div class="pd-inst">
 <div class="pd-inst-div">or</div>
-<p class="pd-inst-sub" id="pdInstSub"><strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong></p>
+<p class="pd-inst-sub" id="pdInstSub"><strong>Interest-free payment options may be available at checkout</strong></p>
 <div class="pd-inst-btns">
 <button type="button" class="pd-pay-btn pd-pay-paypal"><b>Pay<span class="pd-pp2">Pal</span></b></button>
 <button type="button" class="pd-pay-btn pd-pay-shop">Shop&nbsp;Pay</button>
@@ -551,7 +576,7 @@ Guaranteed safe &amp; secure checkout
 </details>
 <details>
 <summary>What about EMP events or electromagnetic interference?</summary>
-<p>We offer an optional Faraday Bag that protects the unit from EMP events and general electromagnetic interference, and it's something we'd genuinely recommend for anyone who wants to keep the Disk fully shielded and stored safely between uses.</p>
+<p>We offer an optional Faraday bag designed to reduce the device&rsquo;s exposure to electromagnetic interference while it is stored. It also keeps your Prepper Disk, phone, and backup battery together between uses.</p>
 </details>
 <details>
 <summary>What happens if it doesn't work out for me?</summary>
@@ -601,7 +626,7 @@ Guaranteed safe &amp; secure checkout
   // for a single Prepper Disk on its own. For any other selection (an add-on
   // selected, or qty > 1) we keep the block but swap in a figure-free sentence.
   var instSubEl = document.getElementById('pdInstSub');
-  var INST_SINGLE = '<strong>Pay as low as <u>$95.80</u> down in interest-free installments</strong>';
+  var INST_SINGLE = '<strong>Interest-free payment options may be available at checkout</strong>';
   var INST_OTHER  = '<strong>Spread your payment into interest-free installments</strong>';
   function updateInstallments(){
     if (!instSubEl) return;
