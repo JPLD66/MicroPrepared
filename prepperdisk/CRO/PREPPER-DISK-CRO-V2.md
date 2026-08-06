@@ -86,7 +86,7 @@ sticky-header { display: none !important; }
 .pd .pd-h1-sm { font-size: 0.68em !important; margin-top: 0.35rem; }
 .pd .pd-hero .pd-sub { font-size: 0.9em !important; line-height: 1.5 !important; margin-bottom: 1.1rem; }
 .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
-.pd .pd-hero-claim { font-size: 0.82em !important; margin: -0.6rem auto 1.1rem; }
+.pd .pd-hero-claim { font-size: 0.82em !important; margin: 0 auto 1.1rem; }
 .pd h1 { font-size: 1.5em !important; }
 }
 .pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
@@ -95,14 +95,14 @@ sticky-header { display: none !important; }
    height = width x 16/9, so capping max-width in viewport-height units caps
    the rendered height. svh accounts for mobile browser chrome; the plain vh
    line above it is the fallback for older browsers. */
-.pd .pd-hero-video { position: relative; max-width: 236px; aspect-ratio: 9 / 16; margin: 0 auto 1.25rem; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); cursor: pointer; }
+.pd .pd-hero-video { position: relative; max-width: 354px; aspect-ratio: 9 / 16; margin: 0 auto 1.25rem; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); cursor: pointer; }
 .pd .pd-hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
 .pd .pd-hero-video:hover .pd-vsl-play { transform: translate(-50%, -50%) scale(1.06); background: rgba(0,0,0,0.7); }
 .pd .pd-hero-video.pd-playing { cursor: default; }
 .pd .pd-hero-video.pd-playing .pd-vsl-play { opacity: 0; pointer-events: none; }
 @media (max-width: 700px) {
-  .pd .pd-hero-video { max-width: min(165px, 19vh); margin-bottom: 0.9rem; }
-  .pd .pd-hero-video { max-width: min(165px, 19svh); }
+  .pd .pd-hero-video { max-width: min(248px, 28vh); margin-bottom: 0.9rem; }
+  .pd .pd-hero-video { max-width: min(248px, 28svh); }
   .pd .pd-hero-video .pd-vsl-play { width: 54px; height: 54px; }
   .pd .pd-hero-video .pd-vsl-play svg { width: 22px; height: 22px; }
 }
@@ -119,7 +119,7 @@ sticky-header { display: none !important; }
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 .pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
 .pd .pd-hl { background: #ffe680; padding: 0.05em 0.22em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.02em !important; max-width: 800px; margin: -0.5rem auto 2rem; }
+.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.02em !important; max-width: 800px; margin: 0 auto 1.75rem; }
 
 @media (max-width: 600px) {
 }
@@ -442,8 +442,7 @@ sticky-header { display: none !important; }
 </video>
 <span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 </div>
-<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts 1,000s of Expert-Made Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools on Your Phone or Laptop</p>
-<p class="pd-hero-claim">Works Without Internet Or Grid Power</p>
+<p class="pd-hero-claim">And works Off-Grid <u>without</u> internet or cell towers</p>
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
