@@ -68,7 +68,7 @@ Copy everything inside the code block below:
 .pd .pd-h1-sm { font-size: 0.68em !important; margin-top: 0.35rem; }
 .pd .pd-hero .pd-sub { font-size: 0.9em !important; line-height: 1.5 !important; margin-bottom: 1.1rem; }
 .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
-.pd .pd-hero-claim { font-size: 0.9em !important; margin: -0.6rem auto 1.1rem; }
+.pd .pd-hero-claim { font-size: 0.82em !important; margin: -0.6rem auto 1.1rem; }
 .pd h1 { font-size: 1.5em !important; }
 }
 .pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
@@ -101,7 +101,7 @@ Copy everything inside the code block below:
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 .pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
 .pd .pd-hl { background: #ffe680; padding: 0.05em 0.22em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.15em !important; max-width: 800px; margin: -0.5rem auto 2rem; }
+.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.02em !important; max-width: 800px; margin: -0.5rem auto 2rem; }
 
 @media (max-width: 600px) {
 }
@@ -415,11 +415,11 @@ Copy everything inside the code block below:
 <div class="pd-container">
 <h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm"><span class="pd-hl">That easily fits in your pocket</span></span></h1>
 <div class="pd-hero-video">
-<!-- poster = the still shown before play. A thumbnail set on the video in
-     Shopify Files is a separate asset and is NOT delivered by the raw .mp4
-     URL, so it must be pointed at an image URL here. Swap this for your own
-     thumbnail: upload it to Content > Files, Copy link, paste below. -->
-<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659">
+<!-- poster = the still shown before play. A cover image set on the video
+     inside Shopify only applies when Shopify renders the <video> tag itself;
+     with a hardcoded .mp4 source it is never sent, so the thumbnail is
+     pointed at its own image URL here. -->
+<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Blue_White_Minimalist_9.9_Super_Sale_Instagram_Story.png?v=1786023542">
 <source src="https://cdn.shopify.com/videos/c/o/v/e274a2371ac4463581537eab9f1a7978.mp4" type="video/mp4">
 </video>
 <span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
