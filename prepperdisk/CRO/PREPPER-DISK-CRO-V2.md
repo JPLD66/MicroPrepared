@@ -26,6 +26,24 @@ Copy everything inside the code block below:
 
 ```liquid
 <style>
+/* ===== Hide Dawn's header / nav on this page (footer stays) =================
+   This <style> block only renders on the page this section is added to, so
+   these rules are already page-scoped — no JS and no custom layout file.
+
+   Dawn nests the header as:
+     <div class="shopify-section ... section-header">   <- position: sticky
+       <sticky-header class="header-wrapper ...">       <- the visible bar
+   Hiding only the inner element leaves the sticky outer div behind, so all
+   three are targeted. `sticky-header` is Dawn's custom element; the theme
+   falls back to a plain <div class="header-wrapper"> when sticky is off. */
+.section-header,
+.header-wrapper,
+sticky-header { display: none !important; }
+
+/* Optional — also remove the announcement / utility bar above the nav (the
+   yellow "BACK IN STOCK" strip). Uncomment the next line to switch it on. */
+/* .announcement-bar-section, .utility-bar { display: none !important; } */
+
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 .pd, .pd * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
