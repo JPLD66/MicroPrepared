@@ -24,26 +24,13 @@ is the "View More" behaviour.
 
 Copy everything inside the code block below:
 
+> **⚠ ONE THING TO FILL IN:** the hero video `src` is `PASTE_VIDEO_URL_HERE`.
+> In Shopify go to **Content → Files**, find **PD - Body - Urban Prepper**,
+> click it, **Copy link**, and paste that URL over `PASTE_VIDEO_URL_HERE`.
+> Everything else is wired up.
+
 ```liquid
 <style>
-/* ===== Hide Dawn's header / nav on this page (footer stays) =================
-   This <style> block only renders on the page this section is added to, so
-   these rules are already page-scoped — no JS and no custom layout file.
-
-   Dawn nests the header as:
-     <div class="shopify-section ... section-header">   <- position: sticky
-       <sticky-header class="header-wrapper ...">       <- the visible bar
-   Hiding only the inner element leaves the sticky outer div behind, so all
-   three are targeted. `sticky-header` is Dawn's custom element; the theme
-   falls back to a plain <div class="header-wrapper"> when sticky is off. */
-.section-header,
-.header-wrapper,
-sticky-header { display: none !important; }
-
-/* Optional — also remove the announcement / utility bar above the nav (the
-   yellow "BACK IN STOCK" strip). Uncomment the next line to switch it on. */
-/* .announcement-bar-section, .utility-bar { display: none !important; } */
-
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
 .pd, .pd * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important; }
@@ -76,16 +63,36 @@ sticky-header { display: none !important; }
 
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
 .pd .pd-eyebrow { display: inline-block; background: #fff200; color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 0; border: 2px solid #1a1a1a; font-size: 0.85em; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.04em; }
-.pd .pd-hero h1 { font-size: 2.6em; line-height: 1.15; max-width: 850px; margin: 0 auto 1rem; color: #0d2b1a; }
+.pd .pd-hero h1 { font-size: 2.15em !important; line-height: 1.15; max-width: 850px; margin: 0 auto 0.9rem; color: #0d2b1a; }
+/* Headline parts: italic phrase + smaller highlighted kicker on its own line */
+.pd .pd-h1-em { font-style: italic; }
+.pd .pd-h1-sm { display: block; font-size: 0.6em !important; line-height: 1.25; margin-top: 0.45rem; }
 @media (max-width: 700px) {
-.pd .pd-hero { padding: 2rem 0 2.5rem; }
-.pd .pd-hero h1 { font-size: 1.5em !important; line-height: 1.2; }
-.pd .pd-hero .pd-sub { font-size: 1em !important; }
+.pd .pd-hero { padding: 1.5rem 0 2rem; }
+.pd .pd-hero h1 { font-size: 1.3em !important; line-height: 1.2; margin-bottom: 0.7rem; }
+.pd .pd-h1-sm { font-size: 0.68em !important; margin-top: 0.35rem; }
+.pd .pd-hero .pd-sub { font-size: 0.9em !important; line-height: 1.5 !important; margin-bottom: 1.1rem; }
 .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
+.pd .pd-hero-italic { font-size: 0.9em !important; margin: -0.5rem auto 1.1rem; }
 .pd h1 { font-size: 1.5em !important; }
 }
 .pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
 .pd .pd-shot { max-width: 700px; margin: 0 auto 2rem; aspect-ratio: 16/9; }
+/* Hero video — PORTRAIT 9:16. Height is what matters above the fold, and
+   height = width x 16/9, so capping max-width in viewport-height units caps
+   the rendered height. svh accounts for mobile browser chrome; the plain vh
+   line above it is the fallback for older browsers. */
+.pd .pd-hero-video { position: relative; max-width: 236px; aspect-ratio: 9 / 16; margin: 0 auto 1.25rem; border-radius: 12px; overflow: hidden; background: #000; box-shadow: 0 6px 24px rgba(0,0,0,0.18); cursor: pointer; }
+.pd .pd-hero-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.pd .pd-hero-video:hover .pd-vsl-play { transform: translate(-50%, -50%) scale(1.06); background: rgba(0,0,0,0.7); }
+.pd .pd-hero-video.pd-playing { cursor: default; }
+.pd .pd-hero-video.pd-playing .pd-vsl-play { opacity: 0; pointer-events: none; }
+@media (max-width: 700px) {
+  .pd .pd-hero-video { max-width: min(165px, 19vh); margin-bottom: 0.9rem; }
+  .pd .pd-hero-video { max-width: min(165px, 19svh); }
+  .pd .pd-hero-video .pd-vsl-play { width: 54px; height: 54px; }
+  .pd .pd-hero-video .pd-vsl-play svg { width: 22px; height: 22px; }
+}
 .pd .pd-hero .pd-desc { max-width: 750px; margin: 0 auto 2rem; color: #333; font-size: 1.05em; }
 .pd .pd-bullets { display: flex; flex-direction: column; align-items: stretch; gap: 0.65rem; max-width: 540px; margin: 0 auto 2rem; list-style: none; padding: 0; }
 .pd .pd-bullets li { font-weight: 600; font-size: 1em; color: #0d2b1a; display: flex; align-items: center; gap: 1rem; background: #f5f5f5; border: 1px solid #e8e8e8; border-radius: 10px; padding: 0.85rem 1rem; text-align: left; }
@@ -411,10 +418,15 @@ sticky-header { display: none !important; }
 
 <section class="pd-hero">
 <div class="pd-container">
-<h1>A 512GB Survival Library That Fits in Your Pocket</h1>
-<div class="pd-ph pd-shot"><img src="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659" alt="Prepper Disk hero shot"></div>
-<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts 1,000s of Expert-Made Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools <span class="pd-hl">on Your Phone or Laptop</span></p>
-<p class="pd-hero-italic">Even when the internet and grid are down (forever)</p>
+<h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm"><span class="pd-hl">That easily fits in your pocket</span></span></h1>
+<div class="pd-hero-video">
+<video preload="metadata" poster="https://cdn.shopify.com/s/files/1/0649/2710/5078/files/Hero_Shot.webp?v=1778838659">
+<source src="PASTE_VIDEO_URL_HERE" type="video/mp4">
+</video>
+<span class="pd-vsl-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
+</div>
+<p class="pd-sub" style="font-weight: 800; color: #0d2b1a;">This Prepper Disk Puts 1,000s of Expert-Made Survival Guides, Prepper DIY Projects, First Aid Videos, and Digital Survival Tools on Your Phone or Laptop</p>
+<p class="pd-hero-italic"><span class="pd-hl">Even when the internet and grid are down (forever)</span></p>
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
@@ -1250,7 +1262,7 @@ update();
 })();
 
 (function initSolVideo(){
-document.querySelectorAll('.pd .pd-sol-video').forEach(function(wrap){
+document.querySelectorAll('.pd .pd-sol-video, .pd .pd-hero-video').forEach(function(wrap){
 var v = wrap.querySelector('video');
 if (!v) return;
 wrap.addEventListener('click', function(){
