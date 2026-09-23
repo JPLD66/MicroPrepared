@@ -87,11 +87,14 @@ template. There is **no `{% schema %}` block**: schema only belongs in
 *section* files, and a page template must not contain one (it's what broke
 the template earlier).
 
-**Header/nav hidden via CSS.** The top of the code block adds a
-`pd-custom-cart-page` class to `<html>` and hides Dawn's `.header-wrapper` /
-`sticky-header` on this page only (the footer stays). If you'd rather use a
-dedicated layout instead (which also removes the announcement bar), create
-`layout/no-header.liquid` from a copy of `theme.liquid` minus
+**Header/nav + announcement bar hidden via CSS.** The top of the code block
+adds a `pd-custom-cart-page` class to `<html>` and hides Dawn's header/nav
+(`.section-header` / `.header-wrapper` / `sticky-header`) **and** the
+announcement bar (`.announcement-bar-section` / `.utility-bar` — the yellow
+"BACK IN STOCK" strip) on this page only (the footer stays). A custom
+**`.pd-urgency`** bar (matching the landing page's, but with no button) sits at
+the top of the page in its place. If you'd rather use a dedicated layout
+instead, create `layout/no-header.liquid` from a copy of `theme.liquid` minus
 `{% sections 'header-group' %}`, and add `{% layout 'no-header' %}` as the
 first line of this template.
 
@@ -145,9 +148,22 @@ Copy everything inside the code block below:
 
 <script>document.documentElement.classList.add('pd-custom-cart-page');</script>
 <style>
-/* Hide only Dawn's main navigation on this custom cart page. */
+/* Hide Dawn's header/nav AND the announcement bar (the yellow "BACK IN STOCK"
+   strip) on this custom cart page — the .pd-urgency bar below replaces them. */
+html.pd-custom-cart-page .section-header,
 html.pd-custom-cart-page .header-wrapper,
-html.pd-custom-cart-page sticky-header { display: none !important; }
+html.pd-custom-cart-page sticky-header,
+html.pd-custom-cart-page .announcement-bar-section,
+html.pd-custom-cart-page .utility-bar { display: none !important; }
+
+/* ===== Urgency bar — replaces Dawn's announcement strip (no button here) ===== */
+.pd .pd-urgency { background: #f4d10c; color: #1a1a1a; padding: 0.6rem 1rem; }
+.pd .pd-urgency-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.45rem 0.75rem; text-align: center; }
+.pd .pd-urgency-text { font-size: 0.9em !important; font-weight: 700; line-height: 1.4; }
+@media (max-width: 700px) {
+  .pd .pd-urgency { padding: 0.5rem 0.7rem; }
+  .pd .pd-urgency-text { font-size: 0.78em !important; }
+}
 
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
@@ -362,6 +378,13 @@ html.pd-custom-cart-page sticky-header { display: none !important; }
 </style>
 
 <div class="pd">
+
+<!-- Urgency bar (replaces Dawn's "BACK IN STOCK" announcement strip; no button on the cart) -->
+<div class="pd-urgency">
+<div class="pd-urgency-inner">
+<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Order Today to Save <strong>$10</strong>.</span>
+</div>
+</div>
 
 <section class="pd-cart">
 <div class="pd-container">
