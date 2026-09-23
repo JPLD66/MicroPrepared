@@ -40,9 +40,10 @@ Copy everything inside the code block below:
 .header-wrapper,
 sticky-header { display: none !important; }
 
-/* Optional — also remove the announcement / utility bar above the nav (the
-   yellow "BACK IN STOCK" strip). Uncomment the next line to switch it on. */
-/* .announcement-bar-section, .utility-bar { display: none !important; } */
+/* Dawn's announcement / utility bar (the yellow "BACK IN STOCK" strip) is
+   hidden too — the .pd-urgency bar below replaces it. */
+.announcement-bar-section,
+.utility-bar { display: none !important; }
 
 .pd * { box-sizing: border-box; margin: 0; padding: 0; }
 .pd { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; background: #fff; font-size: 18px !important; }
@@ -73,6 +74,18 @@ sticky-header { display: none !important; }
 .pd .pd-logo { font-weight: 800; font-size: 1.3em; letter-spacing: 0.05em; color: #0d2b1a; }
 .pd .pd-nav ul { display: flex; gap: 1.75rem; list-style: none; font-size: 0.9em; }
 @media (max-width: 700px) { .pd .pd-nav { display: none; } }
+
+/* ===== Urgency bar — replaces Dawn's announcement strip ===== */
+.pd .pd-urgency { background: #f4d10c; color: #1a1a1a; padding: 0.6rem 1rem; }
+.pd .pd-urgency-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.45rem 0.75rem; text-align: center; }
+.pd .pd-urgency-text { font-size: 0.9em !important; font-weight: 700; line-height: 1.4; }
+.pd .pd-urgency-btn { display: inline-block; background: #c0392b; color: #fff; font-weight: 800; font-size: 0.82em; padding: 0.45rem 0.95rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; box-shadow: 0 2px 8px rgba(192,57,43,0.35); transition: transform 0.15s; }
+.pd .pd-urgency-btn:hover { transform: translateY(-1px); }
+@media (max-width: 700px) {
+  .pd .pd-urgency { padding: 0.5rem 0.7rem; }
+  .pd .pd-urgency-text { font-size: 0.78em !important; }
+  .pd .pd-urgency-btn { font-size: 0.72em; padding: 0.38rem 0.75rem; }
+}
 
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
 .pd .pd-eyebrow { display: inline-block; background: #fff200; color: #1a1a1a; padding: 0.4rem 1rem; border-radius: 0; border: 2px solid #1a1a1a; font-size: 0.85em; font-weight: 800; margin-bottom: 1rem; letter-spacing: 0.04em; }
@@ -428,6 +441,13 @@ sticky-header { display: none !important; }
 </style>
 
 <div class="pd">
+
+<div class="pd-urgency">
+<div class="pd-urgency-inner">
+<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Last chance to</span>
+<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Claim yours for $279 →</a>
+</div>
+</div>
 
 <section class="pd-hero">
 <div class="pd-container">
