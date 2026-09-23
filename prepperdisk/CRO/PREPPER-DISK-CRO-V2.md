@@ -99,7 +99,7 @@ sticky-header { display: none !important; }
 .pd .pd-h1-sm { font-size: 0.68em !important; margin-top: 0.35rem; }
 .pd .pd-hero .pd-sub { font-size: 0.9em !important; line-height: 1.5 !important; margin-bottom: 1.1rem; }
 .pd .pd-hero .pd-desc { font-size: 0.95em !important; }
-.pd .pd-hero-claim { font-size: 0.82em !important; margin: 0 auto 1.1rem; }
+.pd .pd-hero-claim { font-size: 0.884em !important; margin: 0 auto 1.1rem; }
 .pd h1 { font-size: 1.5em !important; }
 }
 .pd .pd-hero .pd-sub { font-size: 1.15em; color: #444; max-width: 800px; margin: 0 auto 2rem; }
@@ -132,7 +132,7 @@ sticky-header { display: none !important; }
 .pd .pd-hero-rating strong { color: #0d2b1a; font-weight: 800; }
 .pd .pd-payplan { font-style: italic; font-size: 1em !important; color: #555; margin-top: 0.6rem; }
 .pd .pd-hl { background: #ffe680; padding: 0.05em 0.22em; border-radius: 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.pd .pd-hero-claim { font-weight: 800; color: #1e8449; font-size: 1.02em !important; max-width: 800px; margin: 0 auto 1.75rem; }
+.pd .pd-hero-claim { font-weight: 800; color: #0d2b1a; font-size: 1.29em !important; max-width: 800px; margin: 0 auto 1.75rem; }
 
 @media (max-width: 600px) {
 }
@@ -444,14 +444,14 @@ sticky-header { display: none !important; }
 
 <div class="pd-urgency">
 <div class="pd-urgency-inner">
-<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Last chance to</span>
-<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Claim yours for $279 →</a>
+<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Last days to</span>
+<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Save $10</a>
 </div>
 </div>
 
 <section class="pd-hero">
 <div class="pd-container">
-<h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm"><span class="pd-hl">That easily fits in your pocket</span></span></h1>
+<h1>A Prepper's <em class="pd-h1-em">Library of Alexandria</em><span class="pd-h1-sm">That easily fits in <span class="pd-hl">your pocket or glovebox</span></span></h1>
 <div class="pd-hero-video">
 <!-- poster = the still shown before play. A cover image set on the video
      inside Shopify only applies when Shopify renders the <video> tag itself;
