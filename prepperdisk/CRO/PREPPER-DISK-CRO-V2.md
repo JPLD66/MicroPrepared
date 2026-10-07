@@ -444,8 +444,8 @@ sticky-header { display: none !important; }
 
 <div class="pd-urgency">
 <div class="pd-urgency-inner">
-<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Last days to</span>
-<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Save $10</a>
+<span class="pd-urgency-text">October stocks low due to <strong>RAM shortage</strong></span>
+<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Claim yours</a>
 </div>
 </div>
 
@@ -466,7 +466,7 @@ sticky-header { display: none !important; }
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $95.80 down today</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $74.25 down today</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
 </section>
@@ -1001,7 +1001,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <h3>Prepper Disk Premium · 512GB</h3>
 <div class="pd-mono-rating">★★★★★ <span class="pd-rtxt">4.8 / 5 from 114+ verified reviews</span></div>
 <div class="pd-mono-price">
-<span class="pd-mono-price-now">$279</span>
+<span class="pd-mono-price-now">$297</span>
 </div>
 <ul class="pd-mono-includes">
 <li>Raspberry Pi 4B with 512GB pre-loaded SD card</li>
@@ -1011,7 +1011,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-mono-cta">Order Now</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $95.80 down today</div>
+<div class="pd-payplan">Bi-weekly payment plans available: as low as $74.25 down today</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
 <div class="pd-titem">🚚 Ships from the USA</div>
