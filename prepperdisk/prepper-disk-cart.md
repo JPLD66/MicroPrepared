@@ -382,7 +382,7 @@ html.pd-custom-cart-page .utility-bar { display: none !important; }
 <!-- Urgency bar (replaces Dawn's "BACK IN STOCK" announcement strip; no button on the cart) -->
 <div class="pd-urgency">
 <div class="pd-urgency-inner">
-<span class="pd-urgency-text">New stock lands in October and the price goes to <strong>$289</strong>. Order Today to Save <strong>$10</strong>.</span>
+<span class="pd-urgency-text">October stocks low due to RAM shortage</span>
 </div>
 </div>
 
@@ -419,7 +419,7 @@ html.pd-custom-cart-page .utility-bar { display: none !important; }
 </div>
 </div>
 </div>
-<div class="pd-line-price"><span class="pd-now">$279</span></div>
+<div class="pd-line-price"><span class="pd-now">$297</span></div>
 </div>
 
 <!-- Mobile-only early Checkout (desktop shows only the summary button) -->
@@ -489,13 +489,13 @@ html.pd-custom-cart-page .utility-bar { display: none !important; }
 <h2>Order Summary</h2>
 
 <div class="pd-sum-rows" id="pdSumRows">
-<div class="pd-sum-row"><span class="pd-sum-label" id="pdBaseLabel">Prepper Disk Premium 512GB</span><span class="pd-sum-val" id="pdBaseVal">$279.00</span></div>
+<div class="pd-sum-row"><span class="pd-sum-label" id="pdBaseLabel">Prepper Disk Premium 512GB</span><span class="pd-sum-val" id="pdBaseVal">$297.00</span></div>
 <!-- bump rows injected here by JS -->
 </div>
 
 <div class="pd-sum-total">
 <span class="pd-t-label">Total</span>
-<span class="pd-t-val" id="pdTotal">$279.00</span>
+<span class="pd-t-val" id="pdTotal">$297.00</span>
 </div>
 <div class="pd-sum-ship">Shipping &amp; taxes calculated at checkout</div>
 
@@ -613,7 +613,7 @@ Secure encrypted payment
 
 <script>
 (function(){
-  var BASE = 279.00;
+  var BASE = 297.00;
   var MAIN_VARIANT = 43384681136182; // Prepper Disk Premium 512GB
   var rowsWrap = document.getElementById('pdSumRows');
   var totalEl = document.getElementById('pdTotal');
