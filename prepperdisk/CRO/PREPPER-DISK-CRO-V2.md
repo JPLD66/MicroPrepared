@@ -79,12 +79,9 @@ sticky-header { display: none !important; }
 .pd .pd-urgency { background: #f4d10c; color: #1a1a1a; padding: 0.6rem 1rem; }
 .pd .pd-urgency-inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.45rem 0.75rem; text-align: center; }
 .pd .pd-urgency-text { font-size: 0.9em !important; font-weight: 700; line-height: 1.4; }
-.pd .pd-urgency-btn { display: inline-block; background: #c0392b; color: #fff; font-weight: 800; font-size: 0.82em; padding: 0.45rem 0.95rem; border-radius: 6px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; box-shadow: 0 2px 8px rgba(192,57,43,0.35); transition: transform 0.15s; }
-.pd .pd-urgency-btn:hover { transform: translateY(-1px); }
 @media (max-width: 700px) {
   .pd .pd-urgency { padding: 0.5rem 0.7rem; }
   .pd .pd-urgency-text { font-size: 0.78em !important; }
-  .pd .pd-urgency-btn { font-size: 0.72em; padding: 0.38rem 0.75rem; }
 }
 
 .pd .pd-hero { padding: 3rem 0 4rem; text-align: center; background: linear-gradient(180deg, #fafafa 0%, #fff 100%); }
@@ -445,7 +442,6 @@ sticky-header { display: none !important; }
 <div class="pd-urgency">
 <div class="pd-urgency-inner">
 <span class="pd-urgency-text">October stocks low due to <strong>RAM shortage</strong></span>
-<a href="/pages/pd-custom-cart" class="pd-urgency-btn">Claim yours</a>
 </div>
 </div>
 
@@ -466,7 +462,7 @@ sticky-header { display: none !important; }
 <ul class="pd-bullets">
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-btn">Get My Prepper Disk →</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $74.25 down today</div>
+<div class="pd-payplan">Payment plans available</div>
 <div class="pd-hero-rating"><span class="pd-hero-rating-stars">★★★★★</span> <strong>4.8</strong> · Stashed in over 7,000 households</div>
 </div>
 </section>
@@ -1011,7 +1007,7 @@ Prepper Disk is that same foundation, <strong>already assembled and tested</stro
 <li>Off-Line Wikipedia, DIY illustrations, Survival Videos, Maps & More</li>
 </ul>
 <a href="/pages/pd-custom-cart" class="pd-mono-cta">Order Now</a>
-<div class="pd-payplan">Bi-weekly payment plans available: as low as $74.25 down today</div>
+<div class="pd-payplan">Payment plans available</div>
 <div class="pd-mono-trust">
 <div class="pd-titem">🔒 Secure checkout</div>
 <div class="pd-titem">🚚 Ships from the USA</div>
